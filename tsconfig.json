@@ -26,7 +26,9 @@
     // console.log(Moment);
     // c флагом результат [object Object]
     // console.log(Moment);
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    // baseUrl - для абсолютного импорта
+    "baseUrl": "."
   },
   "ts-node": {
     "compilerOptions": {
