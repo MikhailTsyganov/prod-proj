@@ -28,7 +28,10 @@
     // console.log(Moment);
     "esModuleInterop": true,
     // baseUrl - для абсолютного импорта
-    "baseUrl": "."
+    "baseUrl": ".",
+    "paths": {
+      "*": ["./src/*"]
+    }
   },
   "ts-node": {
     "compilerOptions": {
