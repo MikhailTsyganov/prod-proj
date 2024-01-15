@@ -3,7 +3,21 @@ import MiniCssExtractPlugin from "mini-css-extract-plugin";
 import { IBuildOptions } from "./types/config";
 
 export function buildLoaders({ isDev }: IBuildOptions): webpack.RuleSetRule[] {
-  // если не используется typescriptLoader - нужно добавить babelLoader
+  // woff - шрифты
+  const fileLoader = {
+    test: /\.(png|jpe?g|gif|woff2|woff)$/i,
+    use: [
+      {
+        loader: "file-loader",
+      },
+    ],
+  };
+
+  // Svg inline loader перестал использоваться, вместо него используется svgr loader
+  const svgLoader = {
+    test: /\.svg$/,
+    use: ["@svgr/webpack"],
+  };
 
   const sassLoader = {
     test: /\.s[ac]ss$/i,
@@ -26,11 +40,12 @@ export function buildLoaders({ isDev }: IBuildOptions): webpack.RuleSetRule[] {
     ],
   };
 
+  // если не используется typescriptLoader - нужно добавить babelLoader
   const typescriptLoader = {
     test: /\.tsx?$/,
     use: "ts-loader",
     exclude: /node_modules/,
   };
 
-  return [typescriptLoader, sassLoader];
+  return [fileLoader, svgLoader, typescriptLoader, sassLoader];
 }
