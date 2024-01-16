@@ -14,5 +14,8 @@ export function buildPlugins({ paths, isDev }: IBuildOptions): webpack.WebpackPl
     }),
     // с помощью definePlugin можно прокидывать глобальные переменные
     new webpack.DefinePlugin({ __IS_DEV__: isDev }),
+
+    // плагин работает по дефолту, насколько Я понял webpack-dev-server делает это из коробки
+    // new webpack.HotModuleReplacementPlugin(),
   ];
 }
