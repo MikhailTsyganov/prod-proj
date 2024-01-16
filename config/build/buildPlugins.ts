@@ -4,7 +4,7 @@ import HtmlWebpackPlugin from "html-webpack-plugin";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
 import { IBuildOptions } from "./types/config";
 
-export function buildPlugins({ paths }: IBuildOptions): webpack.WebpackPluginInstance[] {
+export function buildPlugins({ paths, isDev }: IBuildOptions): webpack.WebpackPluginInstance[] {
   return [
     new HtmlWebpackPlugin({ template: paths.html }),
     new webpack.ProgressPlugin(),
@@ -12,5 +12,7 @@ export function buildPlugins({ paths }: IBuildOptions): webpack.WebpackPluginIns
       filename: "css/[name].[contenthash:8].css",
       chunkFilename: "css/[name].[contenthash:8].css",
     }),
+    // с помощью definePlugin можно прокидывать глобальные переменные
+    new webpack.DefinePlugin({ __IS_DEV__: isDev }),
   ];
 }

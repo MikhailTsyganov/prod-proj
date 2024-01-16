@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { AppLink, EAppLinkVariants } from "shared/ui";
+import { AppLink, EAppLinkVariants } from "shared/ui/AppLink/AppLink";
 import { classNames } from "shared/lib/helpers/classNames/classNames";
 
 import s from "./Navbar.module.scss";
