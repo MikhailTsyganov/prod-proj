@@ -3,8 +3,6 @@ import { classNames } from 'shared/lib/helpers/classNames/classNames';
 import { Button, EButtonVariants } from '../Button/Button';
 import { useTranslation } from 'react-i18next';
 
-import s from './LangSwitcher.module.scss';
-
 interface ILangSwitcherProps {
   className?: string
 }
@@ -21,7 +19,7 @@ export const LangSwitcher: FC<ILangSwitcherProps> = (props) => {
   return (
     <Button
       variant={EButtonVariants.TRANSPARENT}
-      className={classNames(s.langswitcher, {}, [className])}
+      className={classNames('', {}, [className])}
       onClick={toggle}>
       {t('Язык')}
     </Button>

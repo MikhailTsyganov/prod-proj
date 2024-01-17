@@ -5,7 +5,6 @@ import LightIcon from 'shared/assets/icons/theme-light.svg';
 import DarkIcon from 'shared/assets/icons/theme-dark.svg';
 import { ETheme } from 'app/providers/theme';
 
-import s from './ThemeSwitcher.module.scss';
 import { Button, EButtonVariants } from '../Button/Button';
 
 interface IThemeSwitcherProps {
@@ -20,7 +19,7 @@ export const ThemeSwitcher: FC<IThemeSwitcherProps> = (props) => {
   return (
     <Button
       variant={EButtonVariants.TRANSPARENT}
-      className={classNames(s.themeswitcher, {}, [className])}
+      className={classNames('', {}, [className])}
       onClick={toogleTheme}>
       {theme === ETheme.LIGHT ? <LightIcon /> : <DarkIcon />}
     </Button>

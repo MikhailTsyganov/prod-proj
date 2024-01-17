@@ -20,7 +20,7 @@ export const Sidebar: FC<ISidebarProps> = (props) => {
 
   return (
     <div className={classNames(s.sidebar, { [s.opened]: isOpened }, [className])}>
-      <button onClick={onButtonClick}>toggle</button>
+      <button onClick={onButtonClick}></button>
       <div className={s.switchers}>
         <ThemeSwitcher />
         <LangSwitcher className={s.lang} />

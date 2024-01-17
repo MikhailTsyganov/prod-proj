@@ -5,7 +5,8 @@ module.exports = {
     },
     "extends": [
         "standard-with-typescript",
-        "plugin:react/recommended"
+        "plugin:react/recommended",
+        "plugin:i18next/recommended"
     ],
     "overrides": [
         {
@@ -41,7 +42,8 @@ module.exports = {
         "@typescript-eslint/no-floating-promises": "off",
         "react/no-deprecated": 'off',
         "@typescript-eslint/no-unused-vars": "warn",
-        "@typescript-eslint/naming-convention": "off"
+        "@typescript-eslint/naming-convention": "off",
+        "i18next/no-literal-string": [2, {markupOnly: true}]
 
     }
     
