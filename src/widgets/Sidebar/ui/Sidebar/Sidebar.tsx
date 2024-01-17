@@ -1,12 +1,12 @@
-import { FC, useState } from "react";
-import { classNames } from "shared/lib/helpers/classNames/classNames";
-import { ThemeSwitcher } from "shared/ui/ThemeSwitcher/ThemeSwitcher";
-import { LangSwitcher } from "shared/ui/LangSwitcher/LangSwitcher";
+import { type FC, useState } from 'react';
+import { classNames } from 'shared/lib/helpers/classNames/classNames';
+import { ThemeSwitcher } from 'shared/ui/ThemeSwitcher/ThemeSwitcher';
+import { LangSwitcher } from 'shared/ui/LangSwitcher/LangSwitcher';
 
-import s from "./Sidebar.module.scss";
+import s from './Sidebar.module.scss';
 
 interface ISidebarProps {
-  className?: string;
+  className?: string
 }
 
 export const Sidebar: FC<ISidebarProps> = (props) => {
