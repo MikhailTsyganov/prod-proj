@@ -40,6 +40,17 @@ export function buildLoaders({ isDev }: IBuildOptions): webpack.RuleSetRule[] {
     ]
   };
 
+  const babelLoader = {
+    test: /\.(js|jsx|tsx)$/,
+    exclude: /node_modules/,
+    use: {
+      loader: 'babel-loader',
+      options: {
+        presets: ['@babel/preset-env']
+      }
+    }
+  }
+
   // если не используется typescriptLoader - нужно добавить babelLoader
   const typescriptLoader = {
     test: /\.tsx?$/,
@@ -47,5 +58,5 @@ export function buildLoaders({ isDev }: IBuildOptions): webpack.RuleSetRule[] {
     exclude: /node_modules/
   };
 
-  return [fileLoader, svgLoader, typescriptLoader, sassLoader];
+  return [fileLoader, svgLoader, babelLoader, typescriptLoader, sassLoader];
 }
