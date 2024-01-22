@@ -43,6 +43,7 @@ module.exports = {
         "react/no-deprecated": 'off',
         "@typescript-eslint/no-unused-vars": "warn",
         "@typescript-eslint/naming-convention": "off",
+        "n/handle-callback-err": "off",
         "i18next/no-literal-string": [2, {markupOnly: true}]
 
     }
