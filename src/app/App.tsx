@@ -5,7 +5,7 @@ import { classNames } from 'shared/lib/helpers/classNames/classNames';
 import AppRouter from './providers/router/ui/AppRouter';
 import { Navbar } from 'widgets/Navbar';
 import { Sidebar } from 'widgets/Sidebar';
-import { Suspense, useEffect } from 'react';
+import { Suspense } from 'react';
 
 export default function App() {
   const { theme } = useTheme();
