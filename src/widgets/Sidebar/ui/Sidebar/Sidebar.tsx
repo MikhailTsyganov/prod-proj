@@ -20,9 +20,9 @@ export const Sidebar: FC<ISidebarProps> = (props) => {
 
   return (
     <div data-testid='sidebar' className={classNames(s.sidebar, { [s.opened]: isOpened }, [className])}>
-      <button 
-          data-testid='sidebar-toggle' 
-          onClick={onButtonClick}>
+      <button
+        data-testid='sidebar-toggle'
+        onClick={onButtonClick}>
       </button>
       <div className={s.switchers}>
         <ThemeSwitcher />
