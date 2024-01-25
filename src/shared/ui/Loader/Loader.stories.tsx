@@ -7,7 +7,7 @@ const meta = {
   title: 'shared/Loader',
   component: Loader,
   parameters: {
-    layout: 'centered',
+    layout: 'centered'
   },
   tags: ['autodocs'],
   argTypes: {
@@ -19,7 +19,7 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Light: Story = {
-  
+
 };
 
 export const Dark: Story = {

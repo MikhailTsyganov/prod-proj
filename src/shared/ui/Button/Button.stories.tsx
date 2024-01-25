@@ -8,12 +8,12 @@ const meta = {
   title: 'shared/Button',
   component: Button,
   parameters: {
-    layout: 'centered',
+    layout: 'centered'
   },
   tags: ['autodocs'],
   argTypes: {
     // backgroundColor: { control: 'color' },
-  },
+  }
 } satisfies Meta<typeof Button>;
 
 export default meta;
@@ -23,22 +23,21 @@ export const Filled: Story = {
   args: {
     children: 'Text',
     variant: EButtonVariants.FILLED
-  },
+  }
 };
-
 
 export const Outlined: Story = {
   args: {
     children: 'Text',
     variant: EButtonVariants.OUTLINED
-  },
+  }
 };
 
 export const Transparent: Story = {
   args: {
     children: 'Text',
     variant: EButtonVariants.TRANSPARENT
-  },
+  }
 };
 
 export const FilledDark: Story = {
@@ -47,9 +46,8 @@ export const FilledDark: Story = {
     variant: EButtonVariants.FILLED
   },
 
-  decorators: [ ThemeDecorator(ETheme.DARK)]
+  decorators: [ThemeDecorator(ETheme.DARK)]
 };
-
 
 export const OutlinedDark: Story = {
   args: {
@@ -57,7 +55,7 @@ export const OutlinedDark: Story = {
     variant: EButtonVariants.OUTLINED
   },
 
-  decorators: [ ThemeDecorator(ETheme.DARK)]
+  decorators: [ThemeDecorator(ETheme.DARK)]
 };
 
 export const TransparentDark: Story = {
@@ -66,5 +64,5 @@ export const TransparentDark: Story = {
     variant: EButtonVariants.TRANSPARENT
   },
 
-  decorators: [ ThemeDecorator(ETheme.DARK)]
+  decorators: [ThemeDecorator(ETheme.DARK)]
 };

@@ -7,14 +7,14 @@ const meta = {
   title: 'shared/AppLink',
   component: AppLink,
   parameters: {
-    layout: 'centered',
+    layout: 'centered'
   },
   tags: ['autodocs'],
   argTypes: {
     // backgroundColor: { control: 'color' },
   },
   args: {
-    to: '/',
+    to: '/'
   }
 } satisfies Meta<typeof AppLink>;
 
@@ -32,7 +32,7 @@ export const Secondary: Story = {
   args: {
     children: 'text',
     variant: EAppLinkVariants.SECONDARY
-  },
+  }
 };
 
 export const PrimaryDark: Story = {
@@ -41,8 +41,7 @@ export const PrimaryDark: Story = {
     variant: EAppLinkVariants.PRIMARY
   },
 
-  
-  decorators: [ ThemeDecorator(ETheme.DARK) ]
+  decorators: [ThemeDecorator(ETheme.DARK)]
 };
 
 export const SecondaryDark: Story = {
@@ -51,5 +50,5 @@ export const SecondaryDark: Story = {
     variant: EAppLinkVariants.SECONDARY
   },
 
-  decorators: [ ThemeDecorator(ETheme.DARK) ]
+  decorators: [ThemeDecorator(ETheme.DARK)]
 };

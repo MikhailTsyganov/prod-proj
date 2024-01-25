@@ -23,4 +23,3 @@ const config = (env: IBuildEnv): webpack.Configuration => {
 };
 
 export default config;
-

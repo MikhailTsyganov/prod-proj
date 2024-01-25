@@ -1,26 +1,26 @@
-import type { StorybookConfig } from "@storybook/react-webpack5";
-import path from "path";
-import { buildCssLoader } from "../build/loaders/buildCssLoader";
-import { RuleSetRule } from "webpack";
+import type { StorybookConfig } from '@storybook/react-webpack5';
+import path from 'path';
+import { buildCssLoader } from '../build/loaders/buildCssLoader';
+import { type RuleSetRule } from 'webpack';
 
 const config: StorybookConfig = {
-  stories: ["../../src/**/*.mdx", "../../src/**/*.stories.@(js|jsx|mjs|ts|tsx)"],
+  stories: ['../../src/**/*.mdx', '../../src/**/*.stories.@(js|jsx|mjs|ts|tsx)'],
   addons: [
-    "@storybook/addon-links",
-    "@storybook/addon-essentials",
-    "@storybook/addon-onboarding",
-    "@storybook/addon-interactions"
+    '@storybook/addon-links',
+    '@storybook/addon-essentials',
+    '@storybook/addon-onboarding',
+    '@storybook/addon-interactions'
   ],
   framework: {
-    name: "@storybook/react-webpack5",
+    name: '@storybook/react-webpack5',
     options: {
       builder: {
-        useSWC: true,
-      },
-    },
+        useSWC: true
+      }
+    }
   },
   docs: {
-    autodocs: "tag",
+    autodocs: 'tag'
   },
 
   swc: () => ({
@@ -36,16 +36,16 @@ const config: StorybookConfig = {
   webpackFinal: async (config) => {
     if (config.resolve) {
       config.resolve.modules = [
-      ...(config.resolve.modules || []),
-      path.resolve(__dirname, "..", "..", "./src"),
-    ];
+        ...(config.resolve.modules || []),
+        path.resolve(__dirname, '..', '..', './src')
+      ];
     }
     if (config.module) {
       config.module.rules?.push(buildCssLoader(true))
 
       config.module.rules = config.module.rules?.map((rule: RuleSetRule) => {
-        if (/svg/.test(rule.test as string)) {
-          return {...rule, exclude: /\.svg$/i};
+        if ((rule.test as string).includes('svg')) {
+          return { ...rule, exclude: /\.svg$/i };
         }
 
         return rule;
@@ -56,8 +56,8 @@ const config: StorybookConfig = {
         use: ['@svgr/webpack']
       })
     }
-    
+
     return config;
-  },
+  }
 };
 export default config;
