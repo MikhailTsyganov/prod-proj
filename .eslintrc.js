@@ -45,7 +45,8 @@ module.exports = {
         "@typescript-eslint/no-unused-vars": "warn",
         "@typescript-eslint/naming-convention": "off",
         "n/handle-callback-err": "off",
-        "i18next/no-literal-string": [2, {markupOnly: true, ignoreAttribute: ['to', 'data-testid']}]
+        "i18next/no-literal-string": [2, {markupOnly: true, ignoreAttribute: ['to', 'data-testid']}],
+        "@typescript-eslint/prefer-includes": "off"
 
     },
 
