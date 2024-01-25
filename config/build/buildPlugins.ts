@@ -6,7 +6,7 @@ import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 import { type IBuildOptions } from './types/config';
 
 export function buildPlugins({ paths, isDev }: IBuildOptions): webpack.WebpackPluginInstance[] {
-  return [
+  const plugins = [
     new HtmlWebpackPlugin({ template: paths.html }),
     new webpack.ProgressPlugin(),
     new MiniCssExtractPlugin({
@@ -15,12 +15,14 @@ export function buildPlugins({ paths, isDev }: IBuildOptions): webpack.WebpackPl
     }),
     // с помощью definePlugin можно прокидывать глобальные переменные
     new webpack.DefinePlugin({ __IS_DEV__: isDev }),
+  ]
 
+  if (isDev) {
     // плагин работает по дефолту, насколько Я понял webpack-dev-server делает это из коробки
-    // new webpack.HotModuleReplacementPlugin(),
+    // plugins.push(new webpack.HotModuleReplacementPlugin())
 
-    new BundleAnalyzerPlugin({
-      openAnalyzer: false
-    })
-  ];
+    plugins.push( new BundleAnalyzerPlugin({ openAnalyzer: false }))
+  }
+
+  return plugins;  
 }
