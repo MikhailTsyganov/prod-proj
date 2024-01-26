@@ -10,12 +10,10 @@ interface INavbarProps {
 export const Navbar: FC<INavbarProps> = (props) => {
   const { className } = props;
 
-  
-
   return (
     <div className={classNames(s.navbar, {}, [className])}>
       <div className={s.links}>
-       /
+        /
       </div>
     </div>
   );

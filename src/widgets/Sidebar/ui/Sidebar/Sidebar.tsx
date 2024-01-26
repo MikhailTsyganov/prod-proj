@@ -11,7 +11,6 @@ import AboutIcon from 'shared/assets/icons/aboutPage.svg';
 
 import s from './Sidebar.module.scss';
 
-
 interface ISidebarProps {
   className?: string
 }
@@ -28,17 +27,17 @@ export const Sidebar: FC<ISidebarProps> = (props) => {
 
   return (
     <div data-testid='sidebar' className={classNames(s.sidebar, { [s.opened]: isOpened }, [className])}>
-       <ul className={s.list}>
+      <ul className={s.list}>
         <li className={s.listItem}>
-          <AppLink 
-          to={routePaths.main}
-          className={s.listLink}
+          <AppLink
+            to={routePaths.main}
+            className={s.listLink}
           >
             <MainIcon className={s.icon}/>
             <span className={s.linkText}>{t('Главная страница')}</span>
           </AppLink>
         </li>
-        
+
         <li className={s.listItem}>
           <AppLink
             to={routePaths.about}
@@ -48,17 +47,17 @@ export const Sidebar: FC<ISidebarProps> = (props) => {
             <span className={s.linkText}>{t('О сайте')}</span>
           </AppLink>
         </li>
-        
-       </ul>
-      
+
+      </ul>
+
       <Button
-      size={EButtonSizes.L}
+        size={EButtonSizes.L}
         square
         variant={EButtonVariants.BACKGROUND_INVERTED}
         data-testid='sidebar-toggle'
         onClick={onButtonClick}
         className={s.toggleBtn}
-        >{isOpened ? '<' : '>'}
+      >{isOpened ? '<' : '>'}
       </Button>
       <div className={s.switchers}>
         <ThemeSwitcher />

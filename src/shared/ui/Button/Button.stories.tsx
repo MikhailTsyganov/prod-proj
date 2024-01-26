@@ -87,13 +87,13 @@ export const BackgroundVariant: Story = {
   args: {
     children: 'Text',
     variant: EButtonVariants.BACKGROUND
-  },
+  }
 };
 export const BackgroundInvertedVariant: Story = {
   args: {
     children: 'Text',
     variant: EButtonVariants.BACKGROUND_INVERTED
-  },
+  }
 };
 
 export const Square: Story = {
@@ -101,7 +101,7 @@ export const Square: Story = {
     children: '>',
     square: true,
     variant: EButtonVariants.BACKGROUND_INVERTED
-  },
+  }
 };
 
 export const SizeM: Story = {
@@ -110,7 +110,7 @@ export const SizeM: Story = {
     square: true,
     variant: EButtonVariants.BACKGROUND_INVERTED,
     size: EButtonSizes.M
-  },
+  }
 };
 
 export const SizeL: Story = {
@@ -119,7 +119,7 @@ export const SizeL: Story = {
     square: true,
     variant: EButtonVariants.BACKGROUND_INVERTED,
     size: EButtonSizes.L
-  },
+  }
 };
 
 export const SizeXL: Story = {
@@ -128,6 +128,5 @@ export const SizeXL: Story = {
     square: true,
     variant: EButtonVariants.BACKGROUND_INVERTED,
     size: EButtonSizes.XL
-  },
+  }
 };
-
