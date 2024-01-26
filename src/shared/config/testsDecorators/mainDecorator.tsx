@@ -2,14 +2,20 @@ import { type ReactNode } from 'react'
 import { I18nextProvider } from 'react-i18next';
 import i18n from 'shared/config/i18n/i18nForTests';
 import { render } from '@testing-library/react';
-import { BrowserRouter } from 'react-router-dom';
+import { MemoryRouter } from 'react-router-dom';
 
-export function mainDecorator(component: ReactNode) {
+export interface IMainDecoratorOptions {
+  route?: string
+}
+
+export function MainDecorator(component: ReactNode, options: IMainDecoratorOptions = {}) {
+  const { route = '/' } = options;
+
   return render(
-    <BrowserRouter>
+    <MemoryRouter initialEntries={[route]}>
       <I18nextProvider i18n={i18n}>
         {component}
       </I18nextProvider>
-    </BrowserRouter>
+    </MemoryRouter>
   )
 }

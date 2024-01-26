@@ -1,15 +1,15 @@
 import { fireEvent, screen } from '@testing-library/react'
 import { Sidebar } from './Sidebar';
-import { mainDecorator } from 'shared/config/testsDecorators/mainDecorator';
+import { MainDecorator } from 'shared/config/testsDecorators/mainDecorator';
 
 describe('Sidebar', () => {
   test('test render', () => {
-    mainDecorator(<Sidebar/>)
+    MainDecorator(<Sidebar/>)
     expect(screen.getByTestId('sidebar')).toBeInTheDocument();
   });
 
   test('test toggle', () => {
-    mainDecorator(<Sidebar/>)
+    MainDecorator(<Sidebar/>)
     const toggleBtn = screen.getByTestId('sidebar-toggle');
     expect(screen.getByTestId('sidebar')).toBeInTheDocument();
     fireEvent.click(toggleBtn);
