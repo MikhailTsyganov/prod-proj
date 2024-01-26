@@ -135,3 +135,9 @@ dist
 # IDE
 
 .idea
+
+
+#loki 
+
+.loki/report.html
+.loki/report.json
