@@ -61,7 +61,7 @@ export const Modal: FC<IModalProps> = (props) => {
       window.removeEventListener('keydown', onKeydownEsc)
     }
   }, [isOpened, onKeydownEsc])
-
+  
   return (
     <Portal>
       <div className={classNames(s.Modal, mods, [className, s[theme]])}>
