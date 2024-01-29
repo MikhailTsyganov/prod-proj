@@ -12,7 +12,7 @@ interface IModalProps {
   onClose?: () => void
 }
 
-const ANIMATION_DELAY = 300;
+const ANIMATION_DELAY = 400;
 
 export const Modal: FC<IModalProps> = (props) => {
   const {
