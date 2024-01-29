@@ -56,6 +56,13 @@ export const Transparent: Story = {
   }
 };
 
+export const TransparentInverted: Story = {
+  args: {
+    children: 'Text',
+    variant: EButtonVariants.TRANSPARENT_INVERTED
+  }
+};
+
 export const FilledDark: Story = {
   args: {
     children: 'Text',

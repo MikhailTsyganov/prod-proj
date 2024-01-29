@@ -7,6 +7,7 @@ export enum EButtonVariants {
   FILLED = 'filled',
   OUTLINED = 'outlined',
   TRANSPARENT = 'transparent',
+  TRANSPARENT_INVERTED = 'transparentInverted',
   BACKGROUND = 'background',
   BACKGROUND_INVERTED = 'backgroundInverted'
 }

@@ -7,7 +7,8 @@ module.exports = {
         "standard-with-typescript",
         "plugin:react/recommended",
         "plugin:i18next/recommended",
-        "plugin:storybook/recommended"
+        "plugin:storybook/recommended",
+        "plugin:react-hooks/recommended"
     ],
     "overrides": [
         {
@@ -27,7 +28,8 @@ module.exports = {
         "sourceType": "module"
     },
     "plugins": [
-        "react"
+        "react",
+        "react-hooks"
     ],
     "rules": {
         "react/jsx-indent": [2, 2],
@@ -46,7 +48,9 @@ module.exports = {
         "@typescript-eslint/naming-convention": "off",
         "n/handle-callback-err": "off",
         "i18next/no-literal-string": [2, {markupOnly: true, ignoreAttribute: ['to', 'data-testid']}],
-        "@typescript-eslint/prefer-includes": "off"
+        "@typescript-eslint/prefer-includes": "off",
+        "react-hooks/rules-of-hooks": "error",
+        "react-hooks/exhaustive-deps": "error"
 
     },
 

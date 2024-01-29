@@ -15,12 +15,17 @@
   background: none;
 }
 
-.transparent {
+.transparent,
+.transparentInverted {
   padding: 0;
   margin: 0;
   border: none;
   background: transparent;
   outline: none;
+}
+
+.transparentInverted {
+  color: var(--inverted-primary-color);
 }
 
 .background {
