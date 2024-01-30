@@ -1,6 +1,5 @@
 import { type FC, type ReactNode, useCallback, useEffect, useRef, useState } from 'react';
 import { classNames } from 'shared/lib/helpers/classNames/classNames';
-
 import s from './Modal.module.scss';
 import { Portal } from '../Portal/Portal';
 import { useTheme } from 'shared/hooks';

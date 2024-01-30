@@ -7,5 +7,7 @@
   "Страница не найдена": "Page not found",
   "Произошла непредвиденная ошибка": "Unexpected error",
   "Обновить страницу": "Reload page",
-  "Пробросить ошибку": "Throw error"
+  "Пробросить ошибку": "Throw error",
+  "увеличить": "increment",
+  "уменьшить": "decrement"
 }

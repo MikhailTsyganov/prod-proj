@@ -3,7 +3,7 @@ import { classNames } from 'shared/lib/helpers/classNames/classNames';
 import { ThemeSwitcher } from 'shared/ui/ThemeSwitcher/ThemeSwitcher';
 import { LangSwitcher } from 'shared/ui/LangSwitcher/LangSwitcher';
 import { Button, EButtonSizes, EButtonVariants } from 'shared/ui/Button/Button';
-import { AppLink, EAppLinkVariants } from 'shared/ui/AppLink/AppLink';
+import { AppLink } from 'shared/ui/AppLink/AppLink';
 import { useTranslation } from 'react-i18next';
 import { routePaths } from 'shared/config/routeConfig/routeConfig';
 import MainIcon from 'shared/assets/icons/mainPage.svg';
@@ -33,7 +33,7 @@ export const Sidebar: FC<ISidebarProps> = (props) => {
             to={routePaths.main}
             className={s.listLink}
           >
-            <MainIcon className={s.icon}/>
+            <MainIcon className={s.icon} />
             <span className={s.linkText}>{t('Главная страница')}</span>
           </AppLink>
         </li>
@@ -43,7 +43,7 @@ export const Sidebar: FC<ISidebarProps> = (props) => {
             to={routePaths.about}
             className={s.listLink}
           >
-            <AboutIcon className={s.icon}/>
+            <AboutIcon className={s.icon} />
             <span className={s.linkText}>{t('О сайте')}</span>
           </AppLink>
         </li>
@@ -61,7 +61,7 @@ export const Sidebar: FC<ISidebarProps> = (props) => {
       </Button>
       <div className={s.switchers}>
         <ThemeSwitcher />
-        <LangSwitcher className={s.lang} short={!isOpened}/>
+        <LangSwitcher className={s.lang} short={!isOpened} />
       </div>
     </div>
   );
