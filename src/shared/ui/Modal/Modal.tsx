@@ -2,7 +2,6 @@ import { type FC, type ReactNode, useCallback, useEffect, useRef, useState } fro
 import { classNames } from 'shared/lib/helpers/classNames/classNames';
 import s from './Modal.module.scss';
 import { Portal } from '../Portal/Portal';
-import { useTheme } from 'shared/hooks';
 
 interface IModalProps {
   className?: string
@@ -23,7 +22,6 @@ export const Modal: FC<IModalProps> = (props) => {
 
   const [isClosing, setIsClosing] = useState(false);
   const timerRef = useRef<ReturnType<typeof setTimeout>>();
-  const { theme } = useTheme()
 
   const mods: Record<string, boolean> = {
     [s.opened]: isOpened,
@@ -63,7 +61,7 @@ export const Modal: FC<IModalProps> = (props) => {
 
   return (
     <Portal>
-      <div className={classNames(s.Modal, mods, [className, s[theme]])}>
+      <div className={classNames(s.Modal, mods, [className])}>
         <div className={s.backdrop} onClick={closeHandler}>
           <div className={s.content} onClick={onContentClick}>
             {children}
