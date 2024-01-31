@@ -9,5 +9,8 @@
   "Обновить страницу": "Reload page",
   "Пробросить ошибку": "Throw error",
   "увеличить": "increment",
-  "уменьшить": "decrement"
+  "уменьшить": "decrement",
+  "Войти": "Sign In",
+  "Введите имя": "Enter username",
+  "Введите пароль": "Enter password"
 }

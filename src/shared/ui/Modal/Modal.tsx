@@ -4,10 +4,11 @@ import s from './Modal.module.scss';
 import { Portal } from '../Portal/Portal';
 
 interface IModalProps {
-  className?: string
-  children?: ReactNode
-  isOpened?: boolean
-  onClose?: () => void
+  className?: string;
+  children?: ReactNode;
+  isOpened?: boolean;
+  onClose?: () => void;
+  lazy?: boolean;
 }
 
 const ANIMATION_DELAY = 400;
@@ -17,10 +18,12 @@ export const Modal: FC<IModalProps> = (props) => {
     className,
     children,
     isOpened,
-    onClose
+    onClose,
+    lazy
   } = props;
 
   const [isClosing, setIsClosing] = useState(false);
+  const [isMounted, setIsMounted] = useState(false)
   const timerRef = useRef<ReturnType<typeof setTimeout>>();
 
   const mods: Record<string, boolean> = {
@@ -58,6 +61,14 @@ export const Modal: FC<IModalProps> = (props) => {
       window.removeEventListener('keydown', onKeydownEsc)
     }
   }, [isOpened, onKeydownEsc])
+
+  useEffect(() => {
+    isOpened && setIsMounted(true)
+  }, [isOpened])
+
+  if (lazy && !isMounted) {
+    return null
+  }
 
   return (
     <Portal>
