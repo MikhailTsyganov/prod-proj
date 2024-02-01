@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { IUserSchema } from '../types/userSchema';
+import { type IUserSchema } from '../types/userSchema';
 
 const initialState: IUserSchema = { authData: null };
 

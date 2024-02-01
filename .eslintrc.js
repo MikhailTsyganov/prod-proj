@@ -50,7 +50,8 @@ module.exports = {
         "i18next/no-literal-string": [2, {markupOnly: true, ignoreAttribute: ['to', 'data-testid']}],
         "@typescript-eslint/prefer-includes": "off",
         "react-hooks/rules-of-hooks": "error",
-        "react-hooks/exhaustive-deps": "error"
+        "react-hooks/exhaustive-deps": "error",
+        "react/prop-types": 'off'
 
     },
 

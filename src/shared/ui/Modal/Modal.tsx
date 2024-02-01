@@ -4,11 +4,11 @@ import s from './Modal.module.scss';
 import { Portal } from '../Portal/Portal';
 
 interface IModalProps {
-  className?: string;
-  children?: ReactNode;
-  isOpened?: boolean;
-  onClose?: () => void;
-  lazy?: boolean;
+  className?: string
+  children?: ReactNode
+  isOpened?: boolean
+  onClose?: () => void
+  lazy?: boolean
 }
 
 const ANIMATION_DELAY = 400;

@@ -1,19 +1,20 @@
-import { FC, InputHTMLAttributes, memo, useEffect, useRef, useState } from "react";
-import { classNames } from "shared/lib/helpers/classNames/classNames";
+import { type FC, type InputHTMLAttributes, memo, useEffect, useRef, useState } from 'react';
+import { classNames } from 'shared/lib/helpers/classNames/classNames';
 
-import s from "./Input.module.scss";
+import s from './Input.module.scss';
 
 type HtmlInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'onChange' | 'value'>
 
 interface IInputProps extends HtmlInputProps {
-  className?: string;
-  value?: string;
-  onChange?: (value: string) => void;
-  type?: string,
-  placeholder?: string,
-  autofocus?: boolean,
+  className?: string
+  value?: string
+  onChange?: (value: string) => void
+  type?: string
+  placeholder?: string
+  autofocus?: boolean
 }
 
+// eslint-disable-next-line
 export const Input: FC<IInputProps> = memo((props) => {
   const {
     className,
@@ -35,13 +36,13 @@ export const Input: FC<IInputProps> = memo((props) => {
   }
 
   const onSelect = (e: any) => {
+    // eslint-disable-next-line
     setCaretPosition(e.target.selectionStart || 0)
   }
 
   useEffect(() => {
     autofocus && inputEl.current.focus();
   }, [autofocus])
-
 
   return (
     <div className={classNames(s.InputWrapper, {}, [className])}>

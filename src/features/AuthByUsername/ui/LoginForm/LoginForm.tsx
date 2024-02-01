@@ -1,13 +1,13 @@
-import { FC } from "react";
-import { classNames } from "shared/lib/helpers/classNames/classNames";
+import { type FC } from 'react';
+import { classNames } from 'shared/lib/helpers/classNames/classNames';
 
-import s from "./LoginForm.module.scss";
-import { useTranslation } from "react-i18next";
-import { Button, EButtonVariants } from "shared/ui/Button/Button";
-import { Input } from "shared/ui/Input/Input";
+import s from './LoginForm.module.scss';
+import { useTranslation } from 'react-i18next';
+import { Button, EButtonVariants } from 'shared/ui/Button/Button';
+import { Input } from 'shared/ui/Input/Input';
 
 interface ILoginFormProps {
-  className?: string;
+  className?: string
 }
 
 export const LoginForm: FC<ILoginFormProps> = (props) => {
