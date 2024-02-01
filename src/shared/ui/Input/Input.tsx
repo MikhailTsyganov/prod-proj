@@ -35,8 +35,6 @@ export const Input: FC<IInputProps> = memo((props) => {
     setCaretPosition(e.target.value.length)
   }
 
-
-
   const onSelect = (e: any) => {
     // eslint-disable-next-line
     setCaretPosition(e.target.selectionStart || 0)
