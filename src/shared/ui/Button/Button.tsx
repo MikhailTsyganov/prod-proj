@@ -23,6 +23,7 @@ interface IButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: EButtonVariants
   square?: boolean
   size?: EButtonSizes
+  disabled?: boolean
 }
 
 export const Button: FC<IButtonProps> = (props) => {
@@ -32,11 +33,12 @@ export const Button: FC<IButtonProps> = (props) => {
     variant = EButtonVariants.FILLED,
     square,
     size = EButtonSizes.M,
+    disabled,
     ...otherProps
   } = props;
 
   return (
-    <button className={classNames(s.button, { [s.square]: square }, [className, s[variant], s[size]])} {...otherProps}>
+    <button className={classNames(s.button, { [s.square]: square, [s.disabled]: disabled }, [className, s[variant], s[size]])} {...otherProps}>
       {children}
     </button>
   );

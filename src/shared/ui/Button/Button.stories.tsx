@@ -137,3 +137,11 @@ export const SizeXL: Story = {
     size: EButtonSizes.XL
   }
 };
+
+export const Disabled: Story = {
+  args: {
+    children: 'Войти',
+    variant: EButtonVariants.OUTLINED,
+    disabled: true
+  }
+};
