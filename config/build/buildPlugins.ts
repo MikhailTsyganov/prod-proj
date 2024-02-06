@@ -14,7 +14,7 @@ export function buildPlugins({ paths, isDev }: IBuildOptions): webpack.WebpackPl
       chunkFilename: 'css/[name].[contenthash:8].css'
     }),
     // с помощью definePlugin можно прокидывать глобальные переменные
-    new webpack.DefinePlugin({ __IS_DEV__: isDev }),
+    new webpack.DefinePlugin({ __IS_DEV__: isDev })
     // new BundleAnalyzerPlugin({ openAnalyzer: false })
   ]
 
