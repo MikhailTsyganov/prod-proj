@@ -15,14 +15,14 @@ export function buildPlugins({ paths, isDev }: IBuildOptions): webpack.WebpackPl
     }),
     // с помощью definePlugin можно прокидывать глобальные переменные
     new webpack.DefinePlugin({ __IS_DEV__: isDev }),
-    new BundleAnalyzerPlugin({ openAnalyzer: false })
+    // new BundleAnalyzerPlugin({ openAnalyzer: false })
   ]
 
   if (isDev) {
     // плагин работает по дефолту, насколько Я понял webpack-dev-server делает это из коробки
     // plugins.push(new webpack.HotModuleReplacementPlugin())
 
-    // plugins.push(new BundleAnalyzerPlugin({ openAnalyzer: false }))
+    plugins.push(new BundleAnalyzerPlugin({ openAnalyzer: false }))
   }
 
   return plugins;
