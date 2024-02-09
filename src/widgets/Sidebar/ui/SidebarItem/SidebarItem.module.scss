@@ -1,17 +1,18 @@
 .SidebarItem:not(:first-child) {
-    margin-top: 20px;
+  margin-top: 20px;
 }
 
 .listLink {
-    display: flex !important;
-    align-items: center !important;
+  display: flex !important;
+  align-items: center !important;
 }
 
 .icon {
-    fill: var(--inverted-primary-color);
+  fill: var(--inverted-primary-color);
 }
 
 .linkText {
-    margin-left: 10px;
-    // display: none;
+  margin-left: 10px;
+
+  // display: none;
 }
