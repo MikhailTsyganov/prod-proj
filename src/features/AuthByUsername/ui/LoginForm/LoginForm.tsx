@@ -5,7 +5,7 @@ import s from './LoginForm.module.scss';
 import { useTranslation } from 'react-i18next';
 import { Button, EButtonVariants } from 'shared/ui/Button/Button';
 import { Input } from 'shared/ui/Input/Input';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { loginActions, loginReducer } from 'features/AuthByUsername/model/slice/loginSlice';
 import { loginByUsername } from 'features/AuthByUsername/model/services/loginByUsername/loginByUsername';
 import { ETextVariant, Text } from 'shared/ui/Text/Text';
@@ -14,17 +14,19 @@ import { getLoginPassword } from 'features/AuthByUsername/model/selectors/getLog
 import { getLoginIsLoading } from 'features/AuthByUsername/model/selectors/getLoginIsLoading/getLoginIsLoading';
 import { getLoginError } from 'features/AuthByUsername/model/selectors/getLoginError/getLoginError';
 import { useAsyncReducer } from 'shared/hooks/reducerManager/useAsyncReducer';
+import { useAppDispatch } from 'shared/hooks/useAppDispatch/useAppDIspatch';
 
 export interface ILoginFormProps {
   className?: string
+  onSuccess: () => void
 }
 
 // eslint-disable-next-line
 const LoginForm: FC<ILoginFormProps> = memo((props) => {
-  const { className } = props;
+  const { className, onSuccess } = props;
 
   const { t } = useTranslation();
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   const username = useSelector(getLoginUsername)
   const password = useSelector(getLoginPassword)
@@ -39,9 +41,12 @@ const LoginForm: FC<ILoginFormProps> = memo((props) => {
     dispatch(loginActions.setPassword(value))
   }, [dispatch])
 
-  const onLoginClick = useCallback(() => {
-    dispatch(loginByUsername({ username, password }))
-  }, [dispatch, username, password])
+  const onLoginClick = useCallback(async () => {
+    const result = await dispatch(loginByUsername({ username, password }))
+    if (result.meta.requestStatus === 'fulfilled') {
+      onSuccess();
+    }
+  }, [onSuccess, dispatch, username, password])
 
   const reducers = { loginForm: loginReducer }
   useAsyncReducer(reducers)

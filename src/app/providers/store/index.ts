@@ -1,5 +1,5 @@
 export * from './ui/StoreProvider'
-export * from './config/store'
+export { type AppDispatch, createReduxStore } from './config/store'
 export type {
   IStateSchema,
   IStoreWithManager

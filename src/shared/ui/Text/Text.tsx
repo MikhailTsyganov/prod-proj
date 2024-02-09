@@ -1,4 +1,4 @@
-import { type FC } from 'react';
+import { memo, type FC } from 'react';
 import { classNames } from 'shared/lib/helpers/classNames/classNames';
 
 import s from './Text.module.scss';
@@ -15,7 +15,7 @@ interface ITextProps {
   variant?: ETextVariant
 }
 
-export const Text: FC<ITextProps> = (props) => {
+export const Text: FC<ITextProps> = memo((props) => {
   const { className, title, text, variant = ETextVariant.PRIMARY } = props;
 
   return (
@@ -24,4 +24,4 @@ export const Text: FC<ITextProps> = (props) => {
       {text && <p className={s.text}>{text}</p>}
     </div>
   )
-};
+});

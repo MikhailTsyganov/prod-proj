@@ -2,16 +2,19 @@ import { MainPageLazy } from 'pages/MainPage';
 import { AboutPageLazy } from 'pages/AboutPage';
 import { NotFoundPage } from 'pages/NotFoundPage';
 import { type RouteProps } from 'react-router-dom';
+import { ProfilePageLazy } from 'pages/ProfilePage';
 
 export enum ERoutes {
   MAIN = 'main',
   ABOUT = 'about',
+  PROFILE = 'profile',
   NOT_FOUND = 'not_found'
 }
 
 export const routePaths: Record<ERoutes, string> = {
   [ERoutes.MAIN]: '/',
   [ERoutes.ABOUT]: '/about',
+  [ERoutes.PROFILE]: '/profile',
   [ERoutes.NOT_FOUND]: '*'
 };
 
@@ -23,6 +26,10 @@ export const routeConfig: Record<ERoutes, RouteProps> = {
   [ERoutes.ABOUT]: {
     path: routePaths.about,
     element: <AboutPageLazy />
+  },
+  [ERoutes.PROFILE]: {
+    path: routePaths.profile,
+    element: <ProfilePageLazy />
   },
   [ERoutes.NOT_FOUND]: {
     path: routePaths.not_found,

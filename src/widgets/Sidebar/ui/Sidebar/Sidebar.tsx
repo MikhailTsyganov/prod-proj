@@ -1,23 +1,19 @@
-import { type FC, useState } from 'react';
+import { type FC, useState, useMemo, memo } from 'react';
 import { classNames } from 'shared/lib/helpers/classNames/classNames';
 import { ThemeSwitcher } from 'shared/ui/ThemeSwitcher/ThemeSwitcher';
 import { LangSwitcher } from 'shared/ui/LangSwitcher/LangSwitcher';
 import { Button, EButtonSizes, EButtonVariants } from 'shared/ui/Button/Button';
-import { AppLink } from 'shared/ui/AppLink/AppLink';
-import { useTranslation } from 'react-i18next';
-import { routePaths } from 'shared/config/routeConfig/routeConfig';
-import MainIcon from 'shared/assets/icons/mainPage.svg';
-import AboutIcon from 'shared/assets/icons/aboutPage.svg';
+import { SidebarItemsList } from '../../model/data/items';
 
 import s from './Sidebar.module.scss';
+import { SidebarItem } from '../SidebarItem/SidebarItem';
 
 interface ISidebarProps {
   className?: string
 }
 
-export const Sidebar: FC<ISidebarProps> = (props) => {
+export const Sidebar: FC<ISidebarProps> = memo((props) => {
   const { className } = props;
-  const { t } = useTranslation();
 
   const [isOpened, setIsOpened] = useState(true);
 
@@ -25,29 +21,19 @@ export const Sidebar: FC<ISidebarProps> = (props) => {
     setIsOpened((prev) => !prev);
   };
 
+  const itemsList = useMemo(() => SidebarItemsList.map(
+    item =>
+      <SidebarItem
+        key={item.path}
+        item={item}
+        isOpened={isOpened}
+      />
+  ), [isOpened])
+
   return (
     <div data-testid='sidebar' className={classNames(s.sidebar, { [s.opened]: isOpened }, [className])}>
       <ul className={s.list}>
-        <li className={s.listItem}>
-          <AppLink
-            to={routePaths.main}
-            className={s.listLink}
-          >
-            <MainIcon className={s.icon} />
-            <span className={s.linkText}>{t('Главная страница')}</span>
-          </AppLink>
-        </li>
-
-        <li className={s.listItem}>
-          <AppLink
-            to={routePaths.about}
-            className={s.listLink}
-          >
-            <AboutIcon className={s.icon} />
-            <span className={s.linkText}>{t('О сайте')}</span>
-          </AppLink>
-        </li>
-
+        {itemsList}
       </ul>
 
       <Button
@@ -65,4 +51,4 @@ export const Sidebar: FC<ISidebarProps> = (props) => {
       </div>
     </div>
   );
-};
+});

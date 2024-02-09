@@ -1,4 +1,4 @@
-import { useState, type FC, useCallback } from 'react';
+import { useState, type FC, useCallback, memo } from 'react';
 import { classNames } from 'shared/lib/helpers/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { Button, EButtonVariants } from 'shared/ui/Button/Button';
@@ -12,7 +12,7 @@ interface INavbarProps {
   className?: string
 }
 
-export const Navbar: FC<INavbarProps> = (props) => {
+export const Navbar: FC<INavbarProps> = memo((props) => {
   const { className } = props;
   const { t } = useTranslation()
   const dispatch = useDispatch()
@@ -58,4 +58,4 @@ export const Navbar: FC<INavbarProps> = (props) => {
       {isOpened && <LoginModal isOpened={isOpened} onClose={onCloseModal} />}
     </div>
   );
-};
+});

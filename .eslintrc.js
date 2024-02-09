@@ -47,16 +47,17 @@ module.exports = {
         "@typescript-eslint/no-unused-vars": "warn",
         "@typescript-eslint/naming-convention": "off",
         "n/handle-callback-err": "off",
-        "i18next/no-literal-string": [2, {markupOnly: true, ignoreAttribute: ['to', 'data-testid']}],
+        "i18next/no-literal-string": [2, { markupOnly: true, ignoreAttribute: ['to', 'data-testid'] }],
         "@typescript-eslint/prefer-includes": "off",
         "react-hooks/rules-of-hooks": "error",
         "react-hooks/exhaustive-deps": "error",
         "react/prop-types": 'off',
         "react/display-name": 'off',
         "@typescript-eslint/no-dynamic-delete": "off",
-        "@typescript-eslint/unbound-method": "off"
+        "@typescript-eslint/unbound-method": "off",
+        "@typescript-eslint/no-misused-promises": "off"
 
-        
+
 
     },
 

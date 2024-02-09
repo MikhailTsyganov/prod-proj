@@ -1,4 +1,4 @@
-import { type FC } from 'react';
+import { memo, type FC } from 'react';
 import { Link, type LinkProps } from 'react-router-dom';
 import { classNames } from 'shared/lib/helpers/classNames/classNames';
 
@@ -14,7 +14,7 @@ interface IAppLinkProps extends LinkProps {
   variant?: EAppLinkVariants
 }
 
-export const AppLink: FC<IAppLinkProps> = (props) => {
+export const AppLink: FC<IAppLinkProps> = memo((props) => {
   const { className, children, to, variant = EAppLinkVariants.PRIMARY, ...otherProps } = props;
 
   return (
@@ -22,4 +22,4 @@ export const AppLink: FC<IAppLinkProps> = (props) => {
       {children}
     </Link>
   );
-};
+});

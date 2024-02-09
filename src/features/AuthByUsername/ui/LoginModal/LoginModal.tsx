@@ -1,4 +1,4 @@
-import { Suspense, type FC } from 'react';
+import { Suspense, type FC, memo } from 'react';
 import { Modal } from 'shared/ui/Modal/Modal';
 import { LoginFormLazy } from '../LoginForm/LoginForm.lazy';
 import { Loader } from 'shared/ui/Loader/Loader';
@@ -11,7 +11,7 @@ interface ILoginModalProps {
   onClose?: () => void
 }
 
-export const LoginModal: FC<ILoginModalProps> = (props) => {
+export const LoginModal: FC<ILoginModalProps> = memo((props) => {
   const { isOpened, onClose } = props;
 
   return (
@@ -24,8 +24,8 @@ export const LoginModal: FC<ILoginModalProps> = (props) => {
       lazy
     >
       <Suspense fallback={<Loader />}>
-        <LoginFormLazy />
+        <LoginFormLazy onSuccess={onClose} />
       </Suspense>
     </Modal>
   )
-};
+});

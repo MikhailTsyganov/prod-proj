@@ -1,4 +1,4 @@
-import { type ButtonHTMLAttributes, type FC } from 'react';
+import { memo, type ButtonHTMLAttributes, type FC } from 'react';
 import { classNames } from 'shared/lib/helpers/classNames/classNames';
 
 import s from './Button.module.scss';
@@ -26,7 +26,7 @@ interface IButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   disabled?: boolean
 }
 
-export const Button: FC<IButtonProps> = (props) => {
+export const Button: FC<IButtonProps> = memo((props) => {
   const {
     className,
     children,
@@ -42,4 +42,4 @@ export const Button: FC<IButtonProps> = (props) => {
       {children}
     </button>
   );
-};
+});
