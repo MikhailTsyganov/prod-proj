@@ -3,6 +3,7 @@ export type TBuildMode = 'development' | 'production';
 export interface IBuildEnv {
   mode?: TBuildMode
   port?: number
+  apiUrl?: string
 }
 
 export interface IBuildPaths {
@@ -17,4 +18,5 @@ export interface IBuildOptions {
   paths: IBuildPaths
   isDev: boolean
   port: number
+  apiUrl: string
 }

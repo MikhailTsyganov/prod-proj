@@ -3,10 +3,13 @@ import { type IStateSchema } from './stateSchema'
 import { counterReducer } from 'entities/Counter'
 import { userReducer } from 'entities/User'
 import { createReducerManager } from './reducerManager'
+import { $api } from 'shared/api/api'
+import { type NavigateOptions, type To } from 'react-router-dom'
 
 export const createReduxStore = (
   initialState?: IStateSchema,
-  asyncReducers?: ReducersMapObject<IStateSchema>
+  asyncReducers?: ReducersMapObject<IStateSchema>,
+  navigate?: (to: To, options?: NavigateOptions) => void
 ) => {
   const staticReducers: ReducersMapObject<IStateSchema> = {
     ...asyncReducers,
@@ -16,10 +19,18 @@ export const createReduxStore = (
 
   const reducerManager = createReducerManager(staticReducers)
 
-  const store = configureStore<IStateSchema>({
+  const store = configureStore({
     reducer: reducerManager.reduce,
     devTools: __IS_DEV__,
-    preloadedState: initialState
+    preloadedState: initialState,
+    middleware: getDefaultMiddleware => getDefaultMiddleware({
+      thunk: {
+        extraArgument: {
+          api: $api,
+          navigate
+        }
+      }
+    })
   })
 
   // @ts-expect-error

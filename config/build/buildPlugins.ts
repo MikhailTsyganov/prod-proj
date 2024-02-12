@@ -5,7 +5,7 @@ import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 
 import { type IBuildOptions } from './types/config';
 
-export function buildPlugins({ paths, isDev }: IBuildOptions): webpack.WebpackPluginInstance[] {
+export function buildPlugins({ paths, isDev, apiUrl }: IBuildOptions): webpack.WebpackPluginInstance[] {
   const plugins = [
     new HtmlWebpackPlugin({ template: paths.html }),
     new webpack.ProgressPlugin(),
@@ -14,7 +14,10 @@ export function buildPlugins({ paths, isDev }: IBuildOptions): webpack.WebpackPl
       chunkFilename: 'css/[name].[contenthash:8].css'
     }),
     // с помощью definePlugin можно прокидывать глобальные переменные
-    new webpack.DefinePlugin({ __IS_DEV__: isDev })
+    new webpack.DefinePlugin({
+      __IS_DEV__: JSON.stringify(isDev),
+      __API__: JSON.stringify(apiUrl)
+    })
     // new BundleAnalyzerPlugin({ openAnalyzer: false })
   ]
 
