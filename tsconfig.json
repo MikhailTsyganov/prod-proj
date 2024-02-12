@@ -29,8 +29,11 @@
     "esModuleInterop": true,
     // baseUrl - для абсолютного импорта
     "baseUrl": ".",
+    "strict": true,
     "paths": {
-      "*": ["./src/*"]
+      "*": [
+        "./src/*"
+      ]
     }
   },
   "ts-node": {
@@ -38,7 +41,6 @@
       "module": "CommonJS"
     }
   },
-
   "include": [
     "./webpack.config.ts",
     "./config/jest/setupTests.ts",

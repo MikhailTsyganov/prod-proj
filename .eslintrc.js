@@ -55,7 +55,8 @@ module.exports = {
         "react/display-name": 'off',
         "@typescript-eslint/no-dynamic-delete": "off",
         "@typescript-eslint/unbound-method": "off",
-        "@typescript-eslint/no-misused-promises": "off"
+        "@typescript-eslint/no-misused-promises": "off",
+        "@typescript-eslint/no-invalid-void-type": "off"
 
 
 
