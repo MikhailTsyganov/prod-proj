@@ -4,7 +4,6 @@ import i18n from 'shared/config/i18n/i18nForTests';
 import { render } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 import { type IStateSchema, StoreProvider } from 'app/providers/store';
-import { type DeepPartial } from '@reduxjs/toolkit';
 
 export interface IMainDecoratorOptions {
   route?: string
@@ -15,12 +14,14 @@ export function MainDecorator(component: ReactNode, options: IMainDecoratorOptio
   const { route = '/', initialState } = options;
 
   return render(
-    <StoreProvider initialState={initialState as IStateSchema}>
-      <MemoryRouter initialEntries={[route]}>
+
+    <MemoryRouter initialEntries={[route]}>
+      <StoreProvider initialState={initialState as IStateSchema}>
         <I18nextProvider i18n={i18n}>
           {component}
         </I18nextProvider>
-      </MemoryRouter>
-    </StoreProvider>
+      </StoreProvider>
+    </MemoryRouter>
+
   )
 }

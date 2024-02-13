@@ -1,5 +1,5 @@
-import { type ReducersMapObject, configureStore, DeepPartial } from '@reduxjs/toolkit'
-import { type IStateSchema } from './stateSchema'
+import { type ReducersMapObject, configureStore, type CombinedState, type Reducer } from '@reduxjs/toolkit'
+import { type IThunkExtraArg, type IStateSchema } from './stateSchema'
 import { counterReducer } from 'entities/Counter'
 import { userReducer } from 'entities/User'
 import { createReducerManager } from './reducerManager'
@@ -19,16 +19,18 @@ export const createReduxStore = (
 
   const reducerManager = createReducerManager(staticReducers)
 
+  const extraArg: IThunkExtraArg = {
+    api: $api,
+    navigate
+  };
+
   const store = configureStore({
-    reducer: reducerManager.reduce,
+    reducer: reducerManager.reduce as Reducer<CombinedState<IStateSchema>>,
     devTools: __IS_DEV__,
     preloadedState: initialState,
     middleware: getDefaultMiddleware => getDefaultMiddleware({
       thunk: {
-        extraArgument: {
-          api: $api,
-          navigate
-        }
+        extraArgument: extraArg
       }
     })
   })

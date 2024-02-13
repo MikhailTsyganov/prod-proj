@@ -21,13 +21,13 @@ type Story = StoryObj<typeof meta>;
 
 export const Light: Story = {
   decorators: [
-    StoreDecorator({ profile: {} })
+    StoreDecorator({ profile: { data: { firstname: 'admin', lastname: 'admin' } } })
   ]
 };
 
 export const Dark: Story = {
   decorators: [
     ThemeDecorator(ETheme.DARK),
-    StoreDecorator({ profile: {} })
+    StoreDecorator({ profile: { data: { firstname: 'admin', lastname: 'admin' } } })
   ]
 };

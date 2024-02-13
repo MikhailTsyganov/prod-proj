@@ -3,8 +3,6 @@ import { Modal } from 'shared/ui/Modal/Modal';
 import { LoginFormLazy } from '../LoginForm/LoginForm.lazy';
 import { Loader } from 'shared/ui/Loader/Loader';
 
-// import s from "./LoginModal.module.scss";
-
 interface ILoginModalProps {
   className?: string
   isOpened?: boolean
@@ -16,9 +14,6 @@ export const LoginModal: FC<ILoginModalProps> = memo((props) => {
 
   return (
     <Modal
-      // className={
-      //   classNames(s.LoginModal, {}, [className])
-      // }
       isOpened={isOpened}
       onClose={onClose}
       lazy

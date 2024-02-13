@@ -1,4 +1,4 @@
-import { type DeepPartial, type Reducer } from '@reduxjs/toolkit';
+import { type Reducer } from '@reduxjs/toolkit';
 import { type IStoreWithManager } from 'app/providers/store';
 import { type TStateSchemaKeys } from 'app/providers/store/config/stateSchema';
 import { useEffect } from 'react';
@@ -7,8 +7,6 @@ import { useDispatch, useStore } from 'react-redux';
 export type TReducerList = {
   [key in TStateSchemaKeys]?: Reducer
 }
-
-type TReducersListEntry = [TStateSchemaKeys, Reducer];
 
 interface IUseAsyncReducerOptins {
   removeAfterUnmount?: boolean
@@ -25,15 +23,15 @@ export const useAsyncReducer = (reducers: TReducerList, options: IUseAsyncReduce
   const { removeAfterUnmount } = options;
 
   useEffect(() => {
-    Object.entries(reducers).forEach(([key, reducer]: TReducersListEntry) => {
-      store.reducerManager.add(key, reducer)
+    Object.entries(reducers).forEach(([key, reducer]) => {
+      store.reducerManager.add(key as TStateSchemaKeys, reducer)
       dispatch({ type: `@INIT ${key} reducer` })
     })
 
     return () => {
       if (removeAfterUnmount) {
-        Object.entries(reducers).forEach(([key, reducer]: TReducersListEntry) => {
-          store.reducerManager.remove(key)
+        Object.entries(reducers).forEach(([key, reducer]) => {
+          store.reducerManager.remove(key as TStateSchemaKeys)
           dispatch({ type: `@DESTROY ${key} reducer` })
         })
       }

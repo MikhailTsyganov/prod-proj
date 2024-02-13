@@ -41,7 +41,7 @@ export const Input: FC<IInputProps> = memo((props) => {
   }
 
   useEffect(() => {
-    autofocus && inputEl.current.focus();
+    autofocus && inputEl?.current?.focus();
   }, [autofocus])
 
   return (

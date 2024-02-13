@@ -43,13 +43,12 @@ const config: StorybookConfig = {
     if (config.module) {
       config.module.rules?.push(buildCssLoader(true))
 
-      config.module.rules = config.module.rules?.map((rule: RuleSetRule) => {
-        if (/svg/.test(rule.test as string)) {
-          return { ...rule, exclude: /\.svg$/i };
-        }
-
-        return rule;
-      });
+      const rules = config.module.rules as RuleSetRule[]
+      config.module.rules = rules.map((rule) => (
+        /svg/.test(rule.test as string)
+          ? { ...rule, exclude: /\.svg$/i }
+          : rule
+      ))
 
       config.module.rules?.push({
         test: /\.svg$/,
@@ -57,8 +56,8 @@ const config: StorybookConfig = {
       })
     }
 
-    config.plugins.push(new DefinePlugin({ __IS_DEV__: JSON.stringify(true) }))
-    config.plugins.push(new DefinePlugin({ __API__: JSON.stringify('') }))
+    config.plugins?.push(new DefinePlugin({ __IS_DEV__: JSON.stringify(true) }))
+    config.plugins?.push(new DefinePlugin({ __API__: JSON.stringify('') }))
 
     return config;
   }

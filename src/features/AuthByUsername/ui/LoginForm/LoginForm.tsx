@@ -18,7 +18,7 @@ import { useAppDispatch } from 'shared/hooks/useAppDispatch/useAppDIspatch';
 
 export interface ILoginFormProps {
   className?: string
-  onSuccess: () => void
+  onSuccess?: () => void
 }
 
 // eslint-disable-next-line
@@ -44,7 +44,7 @@ const LoginForm: FC<ILoginFormProps> = memo((props) => {
   const onLoginClick = useCallback(async () => {
     const result = await dispatch(loginByUsername({ username, password }))
     if (result.meta.requestStatus === 'fulfilled') {
-      onSuccess();
+      onSuccess?.();
     }
   }, [onSuccess, dispatch, username, password])
 
