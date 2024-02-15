@@ -1,49 +1,71 @@
 import { type FC } from 'react';
 import { classNames } from 'shared/lib/helpers/classNames/classNames';
-import { useSelector } from 'react-redux';
-import { getProfileData } from 'entities/Profile/model/selectors/getProfileData/getProfileData';
-import { getProfileIsLoading } from 'entities/Profile/model/selectors/getProfileIsLoading/getProfileIsLoading';
-import { getProfileError } from 'entities/Profile/model/selectors/getProfileError/getProfileError';
+import { useTranslation } from 'react-i18next';
+import { ETextAlign, ETextVariant, Text } from 'shared/ui/Text/Text';
+import { Input } from 'shared/ui/Input/Input';
+import { type IProfile } from '../../model/types/profile.types';
 
 import s from './ProfileCard.module.scss';
-import { useTranslation } from 'react-i18next';
-import { Text } from 'shared/ui/Text/Text';
-import { Button, EButtonVariants } from 'shared/ui/Button/Button';
-import { Input } from 'shared/ui/Input/Input';
+import { Loader } from 'shared/ui/Loader/Loader';
 
 interface IProfileCardProps {
   className?: string
+  data?: IProfile
+  isLoading?: boolean
+  error?: string
+  readonly?: boolean
+  onChangeFirstname?: (value: string) => void
+  onChangeLastname?: (value: string) => void
 }
 
 export const ProfileCard: FC<IProfileCardProps> = (props) => {
-  const { className } = props;
+  const {
+    className,
+    data,
+    isLoading,
+    error,
+    readonly,
+    onChangeFirstname,
+    onChangeLastname
+  } = props;
   const { t } = useTranslation('profile');
 
-  const data = useSelector(getProfileData)
-  const isLoading = useSelector(getProfileIsLoading)
-  const error = useSelector(getProfileError)
+  if (isLoading) {
+    return (
+      <div className={classNames(s.ProfileCard, {}, [className, s.loading])}>
+        <Loader />
+      </div>
+    )
+  }
+
+  if (error) {
+    return (
+      <div className={classNames(s.ProfileCard, {}, [className, s.error])}>
+        <Text
+          title={error}
+          variant={ETextVariant.ERROR}
+          align={ETextAlign.CENTER}
+        />
+      </div>
+    )
+  }
 
   return (
     <div className={classNames(s.ProfileCard, {}, [className])}>
-      <div className={s.header}>
-        <Text title={t('Профиль')} />
-        <Button
-          variant={EButtonVariants.OUTLINED}
-          className={s.editBtn}
-        >
-          {t('Редактировать')}
-        </Button>
-      </div>
       <div className={s.data}>
         <Input
           value={data?.firstname}
           placeholder={t('Имя')}
           className={s.input}
+          readonly={readonly}
+          onChange={onChangeFirstname}
         />
         <Input
           value={data?.lastname}
           placeholder={t('Фамилия')}
           className={s.input}
+          readonly={readonly}
+          onChange={onChangeLastname}
         />
       </div>
     </div>

@@ -1,9 +1,9 @@
 import { type FC, type InputHTMLAttributes, memo, useEffect, useRef, useState } from 'react';
-import { classNames } from 'shared/lib/helpers/classNames/classNames';
+import { type TMods, classNames } from 'shared/lib/helpers/classNames/classNames';
 
 import s from './Input.module.scss';
 
-type HtmlInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'onChange' | 'value'>
+type HtmlInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'onChange' | 'value' | 'readOnly'>
 
 interface IInputProps extends HtmlInputProps {
   className?: string
@@ -12,6 +12,7 @@ interface IInputProps extends HtmlInputProps {
   type?: string
   placeholder?: string
   autofocus?: boolean
+  readonly?: boolean
 }
 
 // eslint-disable-next-line
@@ -23,6 +24,7 @@ export const Input: FC<IInputProps> = memo((props) => {
     type = 'text',
     placeholder,
     autofocus,
+    readonly,
     ...otherProps
   } = props;
 
@@ -44,8 +46,12 @@ export const Input: FC<IInputProps> = memo((props) => {
     autofocus && inputEl?.current?.focus();
   }, [autofocus])
 
+  const mods: TMods = {
+    [s.readonly]: readonly
+  }
+
   return (
-    <div className={classNames(s.InputWrapper, {}, [className])}>
+    <div className={classNames(s.InputWrapper, mods, [className])}>
       {placeholder &&
         <div className={s.placeholder}>
           {`${placeholder}>`}
@@ -59,9 +65,10 @@ export const Input: FC<IInputProps> = memo((props) => {
           onSelect={onSelect}
           className={s.input}
           ref={inputEl}
+          readOnly={readonly}
           {...otherProps}
         />
-        <span className={s.caret} style={{ left: `${caretPosition * 8.8}px` }}></span>
+        {!readonly && <span className={s.caret} style={{ left: `${caretPosition * 8.8}px` }}></span>}
       </div>
     </div>
   )

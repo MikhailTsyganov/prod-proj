@@ -1,0 +1,15 @@
+[
+    {
+        "name": "src",
+        "children": [
+            {
+                "path": "app",
+                "children": []
+            },
+            {
+                "path": "shared",
+                "children": []
+            }
+        ]
+    }
+]
