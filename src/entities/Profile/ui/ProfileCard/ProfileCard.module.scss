@@ -14,3 +14,12 @@
 .error {
   border-color: red;
 }
+
+.avatarWrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.isEdit {
+  border: 2px solid var(--inverted-primary-color);
+}

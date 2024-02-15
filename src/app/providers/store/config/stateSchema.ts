@@ -1,4 +1,10 @@
-import { type AnyAction, type CombinedState, type EnhancedStore, type Reducer, type ReducersMapObject } from '@reduxjs/toolkit';
+import {
+  type AnyAction,
+  type CombinedState,
+  type EnhancedStore,
+  type Reducer,
+  type ReducersMapObject
+} from '@reduxjs/toolkit';
 import { type AxiosInstance } from 'axios';
 import { type ICounterSchema } from 'entities/Counter';
 import { type IProfileSchema } from 'entities/Profile';
@@ -19,12 +25,17 @@ export type TStateSchemaKeys = keyof IStateSchema;
 
 export interface IReturnReducerManager {
   getReducerMap: () => ReducersMapObject<IStateSchema>
-  reduce: (state: IStateSchema, action: AnyAction) => CombinedState<IStateSchema>
+  reduce: (
+    state: IStateSchema,
+    action: AnyAction
+  ) => CombinedState<IStateSchema>
   add: (key: TStateSchemaKeys, reducer: Reducer) => void
   remove: (key: TStateSchemaKeys) => void
 }
 
-export type IReducerManager = (initialReducers: ReducersMapObject<IStateSchema>) => IReturnReducerManager
+export type IReducerManager = (
+  initialReducers: ReducersMapObject<IStateSchema>
+) => IReturnReducerManager;
 
 export interface IStoreWithManager extends EnhancedStore<IStateSchema> {
   reducerManager: IReturnReducerManager
@@ -38,4 +49,5 @@ export interface IThunkExtraArg {
 export interface IThunkOptions<T> {
   rejectValue: T
   extra: IThunkExtraArg
+  state: IStateSchema
 }

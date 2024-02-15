@@ -21,29 +21,30 @@ export const Sidebar: FC<ISidebarProps> = memo((props) => {
     setIsOpened((prev) => !prev);
   };
 
-  const itemsList = useMemo(() => SidebarItemsList.map(
-    item =>
-      <SidebarItem
-        key={item.path}
-        item={item}
-        isOpened={isOpened}
-      />
-  ), [isOpened])
+  const itemsList = useMemo(
+    () =>
+      SidebarItemsList.map((item) => (
+        <SidebarItem key={item.path} item={item} isOpened={isOpened} />
+      )),
+    [isOpened]
+  );
 
   return (
-    <div data-testid='sidebar' className={classNames(s.sidebar, { [s.opened]: isOpened }, [className])}>
-      <ul className={s.list}>
-        {itemsList}
-      </ul>
+    <div
+      data-testid="sidebar"
+      className={classNames(s.sidebar, { [s.opened]: isOpened }, [className])}
+    >
+      <ul className={s.list}>{itemsList}</ul>
 
       <Button
         size={EButtonSizes.L}
         square
         variant={EButtonVariants.BACKGROUND_INVERTED}
-        data-testid='sidebar-toggle'
+        data-testid="sidebar-toggle"
         onClick={onButtonClick}
         className={s.toggleBtn}
-      >{isOpened ? '<' : '>'}
+      >
+        {isOpened ? '<' : '>'}
       </Button>
       <div className={s.switchers}>
         <ThemeSwitcher />

@@ -1,6 +1,7 @@
-import { type PayloadAction, createSlice } from '@reduxjs/toolkit'
-import { type IProfile, type IProfileSchema } from '../types/profile.types';
+import { type PayloadAction, createSlice } from '@reduxjs/toolkit';
+import { type IProfile, type IProfileSchema } from '../types/profile';
 import { fetchProfileData } from '../services/fetchProfileData/fetchProfileData';
+import { updateProfileData } from '../services/updateProfileData/updateProfileData';
 
 const initialState: IProfileSchema = {
   data: undefined,
@@ -14,7 +15,7 @@ const profileSlice = createSlice({
   initialState,
   reducers: {
     setReadonly(state, { payload }: PayloadAction<boolean>) {
-      state.readonly = payload
+      state.readonly = payload;
     },
     cancelEfit(state) {
       state.readonly = true;
@@ -22,8 +23,9 @@ const profileSlice = createSlice({
     },
     updateData(state, { payload }: PayloadAction<IProfile>) {
       state.currentDataForm = {
-        ...state.data, ...payload
-      }
+        ...state.currentDataForm,
+        ...payload
+      };
     }
   },
   extraReducers(builder) {
@@ -32,16 +34,37 @@ const profileSlice = createSlice({
         state.error = undefined;
         state.isLoading = true;
       })
-      .addCase(fetchProfileData.fulfilled, (state, action: PayloadAction<IProfile>) => {
-        state.isLoading = false;
-        state.data = action.payload
-        state.currentDataForm = action.payload
-      })
+      .addCase(
+        fetchProfileData.fulfilled,
+        (state, action: PayloadAction<IProfile>) => {
+          state.isLoading = false;
+          state.data = action.payload;
+          state.currentDataForm = action.payload;
+        }
+      )
       .addCase(fetchProfileData.rejected, (state, { payload }) => {
         state.isLoading = false;
         state.error = payload;
       })
+      .addCase(updateProfileData.pending, (state) => {
+        state.error = undefined;
+        state.isLoading = true;
+      })
+      .addCase(
+        updateProfileData.fulfilled,
+        (state, action: PayloadAction<IProfile>) => {
+          state.isLoading = false;
+          state.data = action.payload;
+          state.currentDataForm = action.payload;
+          state.readonly = true;
+        }
+      )
+      .addCase(updateProfileData.rejected, (state, { payload }) => {
+        state.isLoading = false;
+        state.error = payload;
+      });
   }
-})
+});
 
-export const { actions: profileActions, reducer: profileReducer } = profileSlice;
+export const { actions: profileActions, reducer: profileReducer } =
+  profileSlice;

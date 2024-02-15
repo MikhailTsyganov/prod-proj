@@ -1,4 +1,5 @@
-import { type ECountry, type ECurrency } from 'shared/const/common.types';
+import { type ECurrency } from 'entities/Currency';
+import { type ECountry } from 'entities/Country';
 
 export interface IProfile {
   firstname?: string

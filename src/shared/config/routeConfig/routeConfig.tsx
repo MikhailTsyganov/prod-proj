@@ -4,11 +4,15 @@ import { NotFoundPage } from 'pages/NotFoundPage';
 import { type RouteProps } from 'react-router-dom';
 import { ProfilePageLazy } from 'pages/ProfilePage';
 
+type TAppRoutesProps = RouteProps & {
+  authOnly?: boolean
+};
+
 export enum ERoutes {
   MAIN = 'main',
   ABOUT = 'about',
   PROFILE = 'profile',
-  NOT_FOUND = 'not_found'
+  NOT_FOUND = 'not_found',
 }
 
 export const routePaths: Record<ERoutes, string> = {
@@ -18,7 +22,7 @@ export const routePaths: Record<ERoutes, string> = {
   [ERoutes.NOT_FOUND]: '*'
 };
 
-export const routeConfig: Record<ERoutes, RouteProps> = {
+export const routeConfig: Record<ERoutes, TAppRoutesProps> = {
   [ERoutes.MAIN]: {
     path: routePaths.main,
     element: <MainPageLazy />
@@ -29,7 +33,8 @@ export const routeConfig: Record<ERoutes, RouteProps> = {
   },
   [ERoutes.PROFILE]: {
     path: routePaths.profile,
-    element: <ProfilePageLazy />
+    element: <ProfilePageLazy />,
+    authOnly: true
   },
   [ERoutes.NOT_FOUND]: {
     path: routePaths.not_found,

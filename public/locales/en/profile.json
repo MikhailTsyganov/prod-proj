@@ -1,7 +1,14 @@
 {
-    "Профиль": "Profile",
-    "Редактировать": "Edit",
-    "Имя": "First Name",
-    "Фамилия": "Last Name",
-    "Отменить": "Cancel"
+  "Профиль": "Profile",
+  "Редактировать": "Edit",
+  "Имя": "First Name",
+  "Фамилия": "Last Name",
+  "Возраст": "Age",
+  "Город": "City",
+  "Ник": "Nickname",
+  "Аватар": "Avatar",
+  "Валюта": "Currency",
+  "Страна": "Country",
+  "Отменить": "Cancel",
+  "Сохранить": "Save"
 }

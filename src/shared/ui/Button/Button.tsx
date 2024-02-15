@@ -6,10 +6,11 @@ import s from './Button.module.scss';
 export enum EButtonVariants {
   FILLED = 'filled',
   OUTLINED = 'outlined',
+  OUTLINED_RED = 'outlined_red',
   TRANSPARENT = 'transparent',
   TRANSPARENT_INVERTED = 'transparentInverted',
   BACKGROUND = 'background',
-  BACKGROUND_INVERTED = 'backgroundInverted'
+  BACKGROUND_INVERTED = 'backgroundInverted',
 }
 
 export enum EButtonSizes {
@@ -38,7 +39,14 @@ export const Button: FC<IButtonProps> = memo((props) => {
   } = props;
 
   return (
-    <button className={classNames(s.button, { [s.square]: square, [s.disabled]: disabled }, [className, s[variant], s[size]])} {...otherProps}>
+    <button
+      className={classNames(
+        s.button,
+        { [s.square]: square, [s.disabled]: disabled },
+        [className, s[variant], s[size]]
+      )}
+      {...otherProps}
+    >
       {children}
     </button>
   );

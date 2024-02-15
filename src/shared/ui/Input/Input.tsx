@@ -1,13 +1,26 @@
-import { type FC, type InputHTMLAttributes, memo, useEffect, useRef, useState } from 'react';
-import { type TMods, classNames } from 'shared/lib/helpers/classNames/classNames';
+import {
+  type FC,
+  type InputHTMLAttributes,
+  memo,
+  useEffect,
+  useRef,
+  useState
+} from 'react';
+import {
+  type TMods,
+  classNames
+} from 'shared/lib/helpers/classNames/classNames';
 
 import s from './Input.module.scss';
 
-type HtmlInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'onChange' | 'value' | 'readOnly'>
+type HtmlInputProps = Omit<
+InputHTMLAttributes<HTMLInputElement>,
+'onChange' | 'value' | 'readOnly'
+>;
 
 interface IInputProps extends HtmlInputProps {
   className?: string
-  value?: string
+  value?: string | number
   onChange?: (value: string) => void
   type?: string
   placeholder?: string
@@ -30,32 +43,33 @@ export const Input: FC<IInputProps> = memo((props) => {
 
   const [caretPosition, setCaretPosition] = useState(0);
 
-  const inputEl = useRef<HTMLInputElement>(null)
+  console.log(caretPosition);
+
+  const inputEl = useRef<HTMLInputElement>(null);
 
   const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     onChange?.(e.target.value);
-    setCaretPosition(e.target.value.length)
-  }
+    setCaretPosition(String(value)?.length || e.target.value.length);
+
+    console.log(e.target.value);
+  };
 
   const onSelect = (e: any) => {
     // eslint-disable-next-line
-    setCaretPosition(e.target.selectionStart || 0)
-  }
+    setCaretPosition(e.target.selectionStart || 0);
+  };
 
   useEffect(() => {
     autofocus && inputEl?.current?.focus();
-  }, [autofocus])
+  }, [autofocus]);
 
   const mods: TMods = {
     [s.readonly]: readonly
-  }
+  };
 
   return (
     <div className={classNames(s.InputWrapper, mods, [className])}>
-      {placeholder &&
-        <div className={s.placeholder}>
-          {`${placeholder}>`}
-        </div>}
+      {placeholder && <div className={s.placeholder}>{`${placeholder}>`}</div>}
 
       <div className={s.caretWrapper}>
         <input
@@ -68,8 +82,13 @@ export const Input: FC<IInputProps> = memo((props) => {
           readOnly={readonly}
           {...otherProps}
         />
-        {!readonly && <span className={s.caret} style={{ left: `${caretPosition * 8.8}px` }}></span>}
+        {!readonly && (
+          <span
+            className={s.caret}
+            style={{ left: `${caretPosition * 8.8}px` }}
+          ></span>
+        )}
       </div>
     </div>
-  )
+  );
 });

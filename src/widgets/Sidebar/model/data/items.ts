@@ -5,7 +5,20 @@ import { type ISidebarItem } from '../types/SidebarItem.types';
 import { routePaths } from 'shared/config/routeConfig/routeConfig';
 
 export const SidebarItemsList: ISidebarItem[] = [
-  { path: routePaths.main, text: 'Главная страница', Icon: MainIcon },
-  { path: routePaths.about, text: 'О сайте', Icon: AboutIcon },
-  { path: routePaths.profile, text: 'Страница профиля', Icon: ProfileIcon }
-]
+  {
+    path: routePaths.main,
+    text: 'Главная страница',
+    Icon: MainIcon
+  },
+  {
+    path: routePaths.about,
+    text: 'О сайте',
+    Icon: AboutIcon
+  },
+  {
+    path: routePaths.profile,
+    text: 'Страница профиля',
+    Icon: ProfileIcon,
+    authOnly: true
+  }
+];

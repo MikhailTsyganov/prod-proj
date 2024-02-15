@@ -6,7 +6,11 @@ import { Button, EButtonVariants } from 'shared/ui/Button/Button';
 import { useTranslation } from 'react-i18next';
 import { Text } from 'shared/ui/Text/Text';
 import { useSelector } from 'react-redux';
-import { getProfileReadonly, profileActions } from 'entities/Profile';
+import {
+  getProfileReadonly,
+  profileActions,
+  updateProfileData
+} from 'entities/Profile';
 import { useAppDispatch } from 'shared/hooks/useAppDispatch/useAppDIspatch';
 
 interface IProfilePageHeaderProps {
@@ -16,17 +20,21 @@ interface IProfilePageHeaderProps {
 export const ProfilePageHeader: FC<IProfilePageHeaderProps> = (props) => {
   const { className } = props;
   const { t } = useTranslation('profile');
-  const dispatch = useAppDispatch()
+  const dispatch = useAppDispatch();
 
-  const readonly = useSelector(getProfileReadonly)
+  const readonly = useSelector(getProfileReadonly);
 
   const onEdit = useCallback(() => {
-    dispatch(profileActions.setReadonly(false))
-  }, [dispatch])
+    dispatch(profileActions.setReadonly(false));
+  }, [dispatch]);
 
   const onCancelEdit = useCallback(() => {
-    dispatch(profileActions.cancelEfit())
-  }, [dispatch])
+    dispatch(profileActions.cancelEfit());
+  }, [dispatch]);
+
+  const onSave = useCallback(() => {
+    dispatch(updateProfileData());
+  }, [dispatch]);
 
   return (
     <div className={classNames(s.ProfilePageHeader, {}, [className])}>
@@ -43,13 +51,20 @@ export const ProfilePageHeader: FC<IProfilePageHeaderProps> = (props) => {
         : (
           <>
             <Button
-              variant={EButtonVariants.OUTLINED}
+              variant={EButtonVariants.OUTLINED_RED}
               className={s.editBtn}
               onClick={onCancelEdit}
             >
               {t('Отменить')}
             </Button>
+            <Button
+              variant={EButtonVariants.OUTLINED}
+              className={s.saveBtn}
+              onClick={onSave}
+            >
+              {t('Сохранить')}
+            </Button>
           </>)}
     </div>
-  )
+  );
 };

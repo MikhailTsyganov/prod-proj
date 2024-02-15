@@ -5,6 +5,8 @@ import { type ISidebarItem } from '../../model/types/SidebarItem.types';
 
 import s from './SidebarItem.module.scss';
 import { useTranslation } from 'react-i18next';
+import { IUser, getUserAuthData } from 'entities/User';
+import { useSelector } from 'react-redux';
 
 interface ISidebarItemProps {
   item: ISidebarItem
@@ -13,19 +15,22 @@ interface ISidebarItemProps {
 
 export const SidebarItem: FC<ISidebarItemProps> = memo((props) => {
   const { item, isOpened } = props;
-  const { path, text, Icon } = item
+  const { path, text, Icon, authOnly } = item;
+
+  const isAuth = useSelector(getUserAuthData);
 
   const { t } = useTranslation();
 
+  if (item.authOnly && !isAuth) {
+    return null;
+  }
+
   return (
     <li className={classNames(s.SidebarItem)}>
-      <AppLink
-        to={path}
-        className={s.listLink}
-      >
+      <AppLink to={path} className={s.listLink}>
         <Icon className={s.icon} />
         {isOpened && <span className={s.linkText}>{t(text)}</span>}
       </AppLink>
     </li>
-  )
+  );
 });

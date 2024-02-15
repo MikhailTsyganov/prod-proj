@@ -15,6 +15,12 @@
   background: none;
 }
 
+.outlined_red {
+  border: 1px solid var(--red-light);
+  color: var(--red-light);
+  background: none;
+}
+
 .transparent,
 .transparentInverted {
   padding: 0;
