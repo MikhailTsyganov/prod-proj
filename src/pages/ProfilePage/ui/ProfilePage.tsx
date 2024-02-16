@@ -5,7 +5,8 @@ import {
   profileActions,
   profileReducer,
   getProfileIsLoading,
-  getProfileError
+  getProfileError,
+  EValidateProfileError
 } from 'entities/Profile';
 
 import { type FC, memo, useEffect, useCallback } from 'react';
@@ -16,14 +17,27 @@ import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
 import { getProfileCurrentDataForm } from 'entities/Profile/model/selectors/getProfileCurrentDataForm/getProfileCurrentDataForm';
 import { type ECountry } from 'entities/Country';
 import { type ECurrency } from 'entities/Currency';
+import { getProfileValidateErrors } from 'entities/Profile/model/selectors/getProfileValidateErrors/getProfileValidateErrors';
+import { ETextVariant, Text } from 'shared/ui/Text/Text';
+import { useTranslation } from 'react-i18next';
 
 const ProfilePage: FC = memo(() => {
   const dispatch = useAppDispatch();
+  const { t } = useTranslation('profile')
 
   const currentDataForm = useSelector(getProfileCurrentDataForm);
   const isLoading = useSelector(getProfileIsLoading);
   const error = useSelector(getProfileError);
   const readonly = useSelector(getProfileReadonly);
+  const validateErrors = useSelector(getProfileValidateErrors)
+
+  const validateErrorTranslates = {
+    [EValidateProfileError.SERVER_ERROR]: t('Серверная ошибка при сохранении'),
+    [EValidateProfileError.INCORRECT_USER_DATA]: t('Имя и фамилия обязательны'),
+    [EValidateProfileError.INCORRECT_AGE]: t('Некорректный возраст'),
+    [EValidateProfileError.INCORRECT_COUNTRY]: t('Некорректная регион'),
+    [EValidateProfileError.NO_DATA]: t('Данные не указаны')
+  };
 
   useAsyncReducer({ profile: profileReducer });
 
@@ -92,6 +106,7 @@ const ProfilePage: FC = memo(() => {
   return (
     <div>
       <ProfilePageHeader />
+      {validateErrors?.length && validateErrors.map(err => <Text text={validateErrorTranslates[err]} variant={ ETextVariant.ERROR} key={err}/>)}
       <ProfileCard
         data={currentDataForm}
         isLoading={isLoading}

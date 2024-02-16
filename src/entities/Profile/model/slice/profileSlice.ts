@@ -20,6 +20,7 @@ const profileSlice = createSlice({
     cancelEfit(state) {
       state.readonly = true;
       state.currentDataForm = state.data;
+      state.validateErrors = undefined;
     },
     updateData(state, { payload }: PayloadAction<IProfile>) {
       state.currentDataForm = {
@@ -47,7 +48,7 @@ const profileSlice = createSlice({
         state.error = payload;
       })
       .addCase(updateProfileData.pending, (state) => {
-        state.error = undefined;
+        state.validateErrors = undefined;
         state.isLoading = true;
       })
       .addCase(
@@ -57,11 +58,12 @@ const profileSlice = createSlice({
           state.data = action.payload;
           state.currentDataForm = action.payload;
           state.readonly = true;
+          state.validateErrors = undefined;
         }
       )
       .addCase(updateProfileData.rejected, (state, { payload }) => {
         state.isLoading = false;
-        state.error = payload;
+        state.validateErrors = payload;
       });
   }
 });
