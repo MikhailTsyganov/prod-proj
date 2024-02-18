@@ -3,6 +3,9 @@ import ProfilePage from './ProfilePage';
 import { ETheme } from 'app/providers/theme';
 import { ThemeDecorator } from 'shared/config/storybookDecorators/ThemeDecorator';
 import { StoreDecorator } from 'shared/config/storybookDecorators/StoreDecorator';
+import { ECurrency } from 'entities/Currency';
+import { ECountry } from 'entities/Country';
+import avatar from 'shared/assets/tests/storybook.jpeg'
 
 const meta = {
   title: 'pages/ProfilePage',
@@ -19,15 +22,34 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
+const data = {
+  firstname: 'Mike',
+  lastname: 'Tsyganov',
+  age: 26,
+  currency: ECurrency.USD,
+  country: ECountry.Belarus,
+  city: 'Tbilisi',
+  username: 'FFir3',
+  avatar
+}
+
 export const Light: Story = {
   decorators: [
-    StoreDecorator({ profile: { data: { firstname: 'admin', lastname: 'admin' } } })
+    StoreDecorator({
+      profile: {
+        data
+      }
+    })
   ]
 };
 
 export const Dark: Story = {
   decorators: [
     ThemeDecorator(ETheme.DARK),
-    StoreDecorator({ profile: { data: { firstname: 'admin', lastname: 'admin' } } })
+    StoreDecorator({
+      profile: {
+        data
+      }
+    })
   ]
 };

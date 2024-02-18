@@ -42,7 +42,9 @@ const ProfilePage: FC = memo(() => {
   useAsyncReducer({ profile: profileReducer });
 
   useEffect(() => {
-    dispatch(fetchProfileData());
+    if (__PROJECT__ !== 'storybook') {
+      dispatch(fetchProfileData());
+    }
   }, [dispatch]);
 
   const onChangeFirstname = useCallback(

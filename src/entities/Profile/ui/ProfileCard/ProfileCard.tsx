@@ -57,7 +57,8 @@ export const ProfileCard: FC<IProfileCardProps> = (props) => {
     return (
       <div className={classNames(s.ProfileCard, {}, [className, s.error])}>
         <Text
-          title={error}
+          title={t('Произошла ошибка при загрузке профиля')}
+          text={error}
           variant={ETextVariant.ERROR}
           align={ETextAlign.CENTER}
         />

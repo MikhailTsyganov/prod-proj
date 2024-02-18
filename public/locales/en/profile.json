@@ -15,5 +15,6 @@
   "Имя и фамилия обязательны": "First and last name are required",
   "Некорректный возраст": "Incorrect age",
   "Некорректная регион": "Invalid region",
-  "Данные не указаны": "Data not provided"
+  "Данные не указаны": "Data not provided",
+  "Произошла ошибка при загрузке профиля": "Profile error"
 }
