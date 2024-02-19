@@ -15,7 +15,7 @@ interface ISidebarItemProps {
 
 export const SidebarItem: FC<ISidebarItemProps> = memo((props) => {
   const { item, isOpened } = props;
-  const { path, text, Icon, authOnly } = item;
+  const { path, text, Icon } = item;
 
   const isAuth = useSelector(getUserAuthData);
 

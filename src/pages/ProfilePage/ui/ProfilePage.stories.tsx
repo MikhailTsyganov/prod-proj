@@ -37,7 +37,7 @@ export const Light: Story = {
   decorators: [
     StoreDecorator({
       profile: {
-        data
+        currentDataForm: data
       }
     })
   ]
@@ -48,7 +48,7 @@ export const Dark: Story = {
     ThemeDecorator(ETheme.DARK),
     StoreDecorator({
       profile: {
-        data
+        currentDataForm: data
       }
     })
   ]

@@ -21,6 +21,11 @@ IThunkOptions<EValidateProfileError[]>
 
   try {
     const response = await extra.api.put<IProfile>('/profile', formData);
+
+    if (!response.data) {
+      throw new Error()
+    }
+
     return response.data;
   } catch (error) {
     return rejectWithValue([EValidateProfileError.SERVER_ERROR]);

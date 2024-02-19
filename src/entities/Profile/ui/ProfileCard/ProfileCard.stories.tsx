@@ -22,21 +22,6 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const data: Story = {
-  args: {
-    data: {
-      firstname: 'Mike',
-      lastname: 'Tsyganov',
-      age: 26,
-      currency: ECurrency.USD,
-      country: ECountry.Belarus,
-      city: 'Tbilisi',
-      username: 'FFir3',
-      avatar
-    }
-  }
-};
-
 export const error: Story = {
   args: {
     error: 'Error'
