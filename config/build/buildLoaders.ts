@@ -1,6 +1,7 @@
 import type webpack from 'webpack';
 import { type IBuildOptions } from './types/config';
 import { buildCssLoader } from './loaders/buildCssLoader';
+import { buildBabelLoader } from './loaders/buildBabelLoader';
 
 export function buildLoaders({ isDev }: IBuildOptions): webpack.RuleSetRule[] {
   // woff - шрифты
@@ -21,16 +22,7 @@ export function buildLoaders({ isDev }: IBuildOptions): webpack.RuleSetRule[] {
 
   const sassLoader = buildCssLoader(isDev);
 
-  const babelLoader = {
-    test: /\.(js|jsx|tsx)$/,
-    exclude: /node_modules/,
-    use: {
-      loader: 'babel-loader',
-      options: {
-        presets: ['@babel/preset-env']
-      }
-    }
-  }
+  const babelLoader = buildBabelLoader(isDev)
 
   // если не используется typescriptLoader - нужно добавить babelLoader
   const typescriptLoader = {
