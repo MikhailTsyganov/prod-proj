@@ -16,7 +16,8 @@ export default function buildWebpackConfig(options: IBuildOptions): webpack.Conf
     output: {
       filename: '[name].[contenthash].js',
       path: paths.build,
-      clean: true
+      clean: true,
+      publicPath: '/' // иначе вебпак не находит бандл страниц по id
     },
     plugins: buildPlugins(options),
     module: {
