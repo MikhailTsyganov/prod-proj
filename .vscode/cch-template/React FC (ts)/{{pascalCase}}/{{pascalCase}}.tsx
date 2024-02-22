@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, memo } from "react";
 import { classNames } from "shared/lib/helpers/classNames/classNames";
 
 import s from "./{{pascalCase}}.module.scss";
@@ -7,7 +7,7 @@ interface I{{pascalCase}}Props {
 	className ?: string;
 }
 
-export const {{pascalCase}}: FC <I{{pascalCase}}Props> = (props) => {
+export const {{pascalCase}}: FC<I{{pascalCase}}Props> = memo((props) => {
 	const { className, children } = props;
 
 	return (
@@ -15,5 +15,5 @@ export const {{pascalCase}}: FC <I{{pascalCase}}Props> = (props) => {
 		{children}
 	</div >
   )
-};
+});
 

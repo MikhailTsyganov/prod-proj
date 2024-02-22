@@ -1,12 +1,13 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import ArticleDetailsPage from './ArticleDetailsPage';
+import { ArticleDetails } from './ArticleDetails';
 import { ThemeDecorator } from 'shared/config/storybookDecorators/ThemeDecorator';
 import { ETheme } from 'app/providers/theme';
+import { StoreDecorator } from 'shared/config/storybookDecorators/StoreDecorator';
 
 const meta = {
-  title: 'pages/ArticleDetailsPage',
-  component: ArticleDetailsPage,
+  title: 'entities/ArticleDetails',
+  component: ArticleDetails,
   parameters: {
     layout: 'centered'
   },
@@ -14,14 +15,22 @@ const meta = {
   argTypes: {
     // backgroundColor: { control: 'color' },
   }
-} satisfies Meta<typeof ArticleDetailsPage>;
+} satisfies Meta<typeof ArticleDetails>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Light: Story = {
+  args: {
+    id: '1'
+  },
+  decorators: [StoreDecorator({ articleDetails: { data: {} } })]
 };
 
 export const Dark: Story = {
-  decorators: [ThemeDecorator(ETheme.DARK)]
+  args: {
+    id: '1'
+  },
+  decorators: [ThemeDecorator(ETheme.DARK), StoreDecorator({ articleDetails: { data: {} } })]
 };
+

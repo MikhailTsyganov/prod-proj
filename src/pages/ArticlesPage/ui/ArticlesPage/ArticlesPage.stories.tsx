@@ -5,7 +5,7 @@ import { ThemeDecorator } from 'shared/config/storybookDecorators/ThemeDecorator
 import { ETheme } from 'app/providers/theme';
 
 const meta = {
-  title: 'FOLDER_NAME/ArticlesPage',
+  title: 'pages/ArticlesPage',
   component: ArticlesPage,
   parameters: {
     layout: 'centered'

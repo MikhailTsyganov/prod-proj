@@ -6,6 +6,7 @@ import {
   type ReducersMapObject
 } from '@reduxjs/toolkit';
 import { type AxiosInstance } from 'axios';
+import { IArticleDetailsSchema } from 'entities/Article';
 import { type ICounterSchema } from 'entities/Counter';
 import { type IProfileSchema } from 'entities/Profile';
 import { type IUserSchema } from 'entities/User';
@@ -19,6 +20,7 @@ export interface IStateSchema {
   // Асинхронные редюсеры
   loginForm?: ILoginSchema
   profile?: IProfileSchema
+  articleDetails?: IArticleDetailsSchema
 }
 
 export type TStateSchemaKeys = keyof IStateSchema;
