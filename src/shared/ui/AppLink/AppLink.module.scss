@@ -8,4 +8,8 @@
   &.secondary {
     color: var(--inverted-secondary-color);
   }
+
+  &:hover {
+    opacity: 0.8;
+  }
 }

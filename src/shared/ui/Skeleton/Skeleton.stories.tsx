@@ -22,7 +22,7 @@ type Story = StoryObj<typeof meta>;
 export const Light: Story = {
   args: {
     width: '100%',
-    height: 200,
+    height: 200
   }
 };
 
@@ -37,7 +37,7 @@ export const LightCircle: Story = {
 export const Dark: Story = {
   args: {
     width: '100%',
-    height: 200,
+    height: 200
   },
   decorators: [ThemeDecorator(ETheme.DARK)]
 };
@@ -50,4 +50,3 @@ export const DarkCircle: Story = {
   },
   decorators: [ThemeDecorator(ETheme.DARK)]
 };
-

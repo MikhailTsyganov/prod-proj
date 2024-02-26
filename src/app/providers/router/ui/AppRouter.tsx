@@ -1,6 +1,4 @@
-import { getUserAuthData } from 'entities/User';
-import { Suspense, memo, useCallback, useMemo } from 'react';
-import { useSelector } from 'react-redux';
+import { Suspense, memo, useCallback } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { type TAppRoutesProps, routeConfig } from 'shared/config/routeConfig/routeConfig';
 import { PageLoader } from 'shared/ui/PageLoader/PageLoader';
@@ -20,12 +18,10 @@ function AppRouter() {
           key={route.path}
           path={route.path}
           element={
-            <div className="page-wrapper">
-              {route.authOnly
-                ? <RequireAuth>{element}</RequireAuth>
-                : element
-              }
-            </div>
+            route.authOnly
+              ? <RequireAuth>{element}</RequireAuth>
+              : element
+
           }
         />
       )

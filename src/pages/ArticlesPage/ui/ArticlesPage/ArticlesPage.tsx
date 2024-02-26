@@ -9,7 +9,7 @@ interface IArticlesPageProps {
 }
 
 const ArticlesPage: FC<IArticlesPageProps> = (props) => {
-  const { className, children } = props;
+  const { className } = props;
 
   const { t } = useTranslation('articles')
 

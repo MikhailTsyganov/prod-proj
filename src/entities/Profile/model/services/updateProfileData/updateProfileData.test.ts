@@ -1,11 +1,9 @@
 import { updateProfileData } from './updateProfileData';
-// import { userActions } from 'entities/User';
 import { TestAsyncThunk } from 'shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
 import { ECurrency } from 'entities/Currency';
 import { ECountry } from 'entities/Country';
 import avatar from 'shared/assets/tests/storybook.jpeg'
 import { EValidateProfileError } from '../../types/profile';
-import { IStateSchema } from 'app/providers/store';
 
 describe('updateProfileData', () => {
   const data = {

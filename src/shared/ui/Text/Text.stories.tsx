@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { ETextVariant, Text } from './Text';
+import { ETextSize, ETextVariant, Text } from './Text';
 import { ThemeDecorator } from 'shared/config/storybookDecorators/ThemeDecorator';
 import { ETheme } from 'app/providers/theme';
 
@@ -68,4 +68,28 @@ export const OnlyTextDark: Story = {
   },
 
   decorators: [ThemeDecorator(ETheme.DARK)]
+};
+
+export const SizeS: Story = {
+  args: {
+    title: 'Title',
+    text: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Officiis ipsum voluptas tempore, laudantium odio eos obcaecati natus quidem est fugit.',
+    size: ETextSize.S
+  }
+};
+
+export const SizeM: Story = {
+  args: {
+    title: 'Title',
+    text: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Officiis ipsum voluptas tempore, laudantium odio eos obcaecati natus quidem est fugit.',
+    size: ETextSize.M
+  }
+};
+
+export const SizeL: Story = {
+  args: {
+    title: 'Title',
+    text: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Officiis ipsum voluptas tempore, laudantium odio eos obcaecati natus quidem est fugit.',
+    size: ETextSize.L
+  }
 };

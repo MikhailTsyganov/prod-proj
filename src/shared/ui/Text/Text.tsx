@@ -14,12 +14,19 @@ export enum ETextAlign {
   RIGHT = 'right'
 }
 
+export enum ETextSize {
+  S = 'size_s',
+  M = 'size_m',
+  L = 'size_l'
+}
+
 interface ITextProps {
   className?: string
   title?: string
   text?: string
   variant?: ETextVariant
   align?: ETextAlign
+  size?: ETextSize
 }
 
 export const Text: FC<ITextProps> = memo((props) => {
@@ -28,11 +35,13 @@ export const Text: FC<ITextProps> = memo((props) => {
     title,
     text,
     variant = ETextVariant.PRIMARY,
-    align = ETextAlign.LEFT
+    align = ETextAlign.LEFT,
+    size = ETextSize.M
+
   } = props;
 
   return (
-    <div className={classNames(s.Text, {}, [className, s[variant], s[align]])}>
+    <div className={classNames(s.Text, {}, [className, s[variant], s[align], s[size]])}>
       {title && <p className={s.title}>{title}</p>}
       {text && <p className={s.text}>{text}</p>}
     </div>

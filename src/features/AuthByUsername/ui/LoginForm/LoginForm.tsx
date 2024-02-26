@@ -1,4 +1,4 @@
-import { useCallback, type FC, memo, useEffect } from 'react';
+import { useCallback, type FC, memo } from 'react';
 import { classNames } from 'shared/lib/helpers/classNames/classNames';
 
 import s from './LoginForm.module.scss';
