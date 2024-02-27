@@ -41,4 +41,4 @@ const profileSliceSlice = createSlice({
 });
 
 export const { actions: articleDetailsActions, reducer: articleDetailsReducer } =
-    profileSliceSlice;
+  profileSliceSlice;

@@ -5,6 +5,15 @@ import s from './ArticleDetailsPage.module.scss';
 import { useTranslation } from 'react-i18next';
 import { ArticleDetails } from 'entities/Article';
 import { useParams } from 'react-router-dom';
+import { Text } from 'shared/ui/Text/Text';
+import { CommentList } from 'entities/Comment';
+import { useAsyncReducer } from 'shared/hooks/reducerManager/useAsyncReducer';
+import { ArticleDetailsCommentsReducer, getArticleDetailsComment } from 'pages/ArticleDetailsPage/model/slice/AricleDetailsCommentsSlice';
+import { useSelector } from 'react-redux';
+import { getArticleDetailsCommentsIsLoading } from 'pages/ArticleDetailsPage/model/selectors/comments/comments';
+import { useInitialEffect } from 'shared/hooks/useInitialEffect/useInitialEffect';
+import { useAppDispatch } from 'shared/hooks/useAppDispatch/useAppDIspatch';
+import { fetchCommentsByArticleId } from 'pages/ArticleDetailsPage/model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
 
 interface IArticleDetailsPageProps {
   className?: string
@@ -12,6 +21,7 @@ interface IArticleDetailsPageProps {
 
 const ArticleDetailsPage: FC<IArticleDetailsPageProps> = (props) => {
   const { className } = props;
+  const dispatch = useAppDispatch()
   const { id } = useParams()
   const { t } = useTranslation('articles')
 
@@ -23,9 +33,18 @@ const ArticleDetailsPage: FC<IArticleDetailsPageProps> = (props) => {
     )
   }
 
+  const comments = useSelector(getArticleDetailsComment.selectAll)
+  const commentsIsLoading = useSelector(getArticleDetailsCommentsIsLoading)
+
+  useAsyncReducer({ articleDetailsComments: ArticleDetailsCommentsReducer })
+
+  useInitialEffect(() => dispatch(fetchCommentsByArticleId(id)))
+
   return (
     <div className={classNames(s.ArticleDetailsPage, {}, [className])}>
       <ArticleDetails id={id} />
+      <Text title={t('Комментарии')} className={s.commentTitle} />
+      <CommentList isLoading={commentsIsLoading} comments={comments} />
     </div >
   )
 };
