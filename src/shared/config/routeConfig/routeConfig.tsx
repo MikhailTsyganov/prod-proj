@@ -23,7 +23,7 @@ export enum ERoutes {
 export const routePaths: Record<ERoutes, string> = {
   [ERoutes.MAIN]: '/',
   [ERoutes.ABOUT]: '/about',
-  [ERoutes.PROFILE]: '/profile',
+  [ERoutes.PROFILE]: '/profile/', // +:id
   [ERoutes.ARTICLES]: '/articles',
   [ERoutes.ARTICLE_DETAILS]: '/articles/', // +:id
   // last
@@ -40,7 +40,7 @@ export const routeConfig: Record<ERoutes, TAppRoutesProps> = {
     element: <AboutPageLazy />
   },
   [ERoutes.PROFILE]: {
-    path: routePaths.profile,
+    path: routePaths.profile + ':id',
     element: <ProfilePageLazy />,
     authOnly: true
   },

@@ -3,6 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { CommentItem } from './CommentItem';
 import { ThemeDecorator } from 'shared/config/storybookDecorators/ThemeDecorator';
 import { ETheme } from 'app/providers/theme';
+import { IComment } from 'entities/Comment/model/types/comment';
 
 const meta = {
   title: 'entities/CommentItem',
@@ -19,12 +20,27 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-// export const Light: Story = {
-//   args: {}
-// };
+const comment: IComment = {
+  id: "1",
+  text: "some comment",
+  user: {
+    id: '1', username: 'admin'
+  }
+}
 
-// export const Dark: Story = {
-//   args: {comment},
-//   decorators: [ThemeDecorator(ETheme.DARK)]
-// };
+export const Light: Story = {
+  args: {
+    comment
+  }
+};
+
+export const Dark: Story = {
+  args: { comment },
+  decorators: [ThemeDecorator(ETheme.DARK)]
+};
+
+export const Loading: Story = {
+  args: { isLoading: true },
+  decorators: [ThemeDecorator(ETheme.DARK)]
+};
 

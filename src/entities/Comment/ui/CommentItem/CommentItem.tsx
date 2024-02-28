@@ -6,20 +6,21 @@ import { IComment } from "entities/Comment/model/types/comment";
 import { Avatar } from "shared/ui/Avatar/Avatar";
 import { Text } from "shared/ui/Text/Text";
 import { Skeleton } from "shared/ui/Skeleton/Skeleton";
+import { AppLink } from "shared/ui/AppLink/AppLink";
+import { routePaths } from "shared/config/routeConfig/routeConfig";
 
 interface ICommentItemProps {
 	className?: string;
-	comment: IComment;
+	comment?: IComment;
 	isLoading?: boolean
 }
 
 export const CommentItem: FC<ICommentItemProps> = memo((props) => {
 	const { className, comment, isLoading } = props;
-	const { text, user } = comment;
 
 	if (isLoading) {
 		return (
-			<div className={classNames(s.CommentItem, {}, [className])}>
+			<div className={classNames(s.CommentItem, {}, [className, s.loading])}>
 				<div className={s.avatarWrapper}>
 					<Skeleton borderRad="50%" width={30} height={30} />
 					<Skeleton className={s.username} width={100} height={16} />
@@ -30,12 +31,18 @@ export const CommentItem: FC<ICommentItemProps> = memo((props) => {
 		)
 	}
 
+	if (!comment) {
+		return null
+	}
+
+	const { text, user } = comment;
+
 	return (
 		<div className={classNames(s.CommentItem, {}, [className])}>
-			<div className={s.avatarWrapper}>
+			<AppLink to={`${routePaths.profile}${user.id}`} className={s.avatarWrapper}>
 				{user.avatar && <Avatar size={30} src={user.avatar} alt={user.username} />}
 				<Text title={user.username} className={s.username} />
-			</div>
+			</AppLink>
 
 			<Text text={text} className={s.text} />
 		</div >

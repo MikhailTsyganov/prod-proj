@@ -7,11 +7,13 @@ import { useTranslation } from 'react-i18next';
 import { Text } from 'shared/ui/Text/Text';
 import { useSelector } from 'react-redux';
 import {
+  getProfileData,
   getProfileReadonly,
   profileActions,
   updateProfileData
 } from 'entities/Profile';
 import { useAppDispatch } from 'shared/hooks/useAppDispatch/useAppDIspatch';
+import { getUserAuthData } from 'entities/User';
 
 interface IProfilePageHeaderProps {
   className?: string
@@ -23,6 +25,8 @@ export const ProfilePageHeader: FC<IProfilePageHeaderProps> = (props) => {
   const dispatch = useAppDispatch();
 
   const readonly = useSelector(getProfileReadonly);
+  const profileId = useSelector(getProfileData)?.id
+  const userId = useSelector(getUserAuthData)?.id
 
   const onEdit = useCallback(() => {
     dispatch(profileActions.setReadonly(false));
@@ -33,8 +37,18 @@ export const ProfilePageHeader: FC<IProfilePageHeaderProps> = (props) => {
   }, [dispatch]);
 
   const onSave = useCallback(() => {
-    dispatch(updateProfileData());
-  }, [dispatch]);
+    console.log('save');
+
+    profileId && dispatch(updateProfileData(profileId));
+  }, [dispatch, profileId]);
+
+  if (String(profileId) !== String(userId)) {
+    return (
+      <div className={classNames(s.ProfilePageHeader, {}, [className])}>
+        <Text title={t('Профиль')} />
+      </div>
+    )
+  }
 
   return (
     <div className={classNames(s.ProfilePageHeader, {}, [className])}>

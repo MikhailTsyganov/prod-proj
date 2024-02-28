@@ -1,4 +1,4 @@
-import { type FC } from 'react';
+import { useCallback, type FC } from 'react';
 import { classNames } from 'shared/lib/helpers/classNames/classNames';
 
 import s from './ArticleDetailsPage.module.scss';
@@ -14,6 +14,8 @@ import { getArticleDetailsCommentsIsLoading } from 'pages/ArticleDetailsPage/mod
 import { useInitialEffect } from 'shared/hooks/useInitialEffect/useInitialEffect';
 import { useAppDispatch } from 'shared/hooks/useAppDispatch/useAppDIspatch';
 import { fetchCommentsByArticleId } from 'pages/ArticleDetailsPage/model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
+import { AddNewCommentLazy } from 'features/AddNewComment';
+import { addCommentForArticle } from 'pages/ArticleDetailsPage/model/services/addCommentForArticle/addCommentForArticle';
 
 interface IArticleDetailsPageProps {
   className?: string
@@ -36,6 +38,11 @@ const ArticleDetailsPage: FC<IArticleDetailsPageProps> = (props) => {
   const comments = useSelector(getArticleDetailsComment.selectAll)
   const commentsIsLoading = useSelector(getArticleDetailsCommentsIsLoading)
 
+
+  const onSendComment = useCallback((text: string) => {
+    dispatch(addCommentForArticle(text))
+  }, [dispatch])
+
   useAsyncReducer({ articleDetailsComments: ArticleDetailsCommentsReducer })
 
   useInitialEffect(() => dispatch(fetchCommentsByArticleId(id)))
@@ -44,6 +51,7 @@ const ArticleDetailsPage: FC<IArticleDetailsPageProps> = (props) => {
     <div className={classNames(s.ArticleDetailsPage, {}, [className])}>
       <ArticleDetails id={id} />
       <Text title={t('Комментарии')} className={s.commentTitle} />
+      <AddNewCommentLazy onSendComment={onSendComment} />
       <CommentList isLoading={commentsIsLoading} comments={comments} />
     </div >
   )

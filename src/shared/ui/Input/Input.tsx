@@ -14,8 +14,8 @@ import {
 import s from './Input.module.scss';
 
 type HtmlInputProps = Omit<
-InputHTMLAttributes<HTMLInputElement>,
-'onChange' | 'value' | 'readOnly'
+  InputHTMLAttributes<HTMLInputElement>,
+  'onChange' | 'value' | 'readOnly'
 >;
 
 interface IInputProps extends HtmlInputProps {
@@ -43,15 +43,11 @@ export const Input: FC<IInputProps> = memo((props) => {
 
   const [caretPosition, setCaretPosition] = useState(0);
 
-  console.log(caretPosition);
-
   const inputEl = useRef<HTMLInputElement>(null);
 
   const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     onChange?.(e.target.value);
     setCaretPosition(String(value)?.length || e.target.value.length);
-
-    console.log(e.target.value);
   };
 
   const onSelect = (e: any) => {
@@ -74,7 +70,7 @@ export const Input: FC<IInputProps> = memo((props) => {
       <div className={s.caretWrapper}>
         <input
           type={type}
-          value={value}
+          value={value || ''}
           onChange={onChangeHandler}
           onSelect={onSelect}
           className={s.input}

@@ -60,9 +60,21 @@ export const ArticleDetails: FC<IArticleDetailsProps> = memo((props) => {
 
   let content;
 
-  if (error) {
+  if (isLoading) {
+    console.log('load');
+
+    content = (
+      <>
+        <Skeleton height={200} width={200} borderRad='50%' className={s.avatar} />
+        <Skeleton height={30} width={670} className={s.title} />
+        <Skeleton height={30} width={400} className={s.skeletonItems} />
+        <Skeleton height={231} width='100%' className={s.skeletonItems} />
+        <Skeleton height={231} width='100%' className={s.skeletonItems} />
+      </>
+    )
+  } else if (error) {
     content = <Text title={t('Произошла ошибка при загрузке статьи')} align={ETextAlign.CENTER} />
-  } else if (data) {
+  } else {
     content = (
       <>
         <div className={s.avatarWrapper}>
@@ -87,18 +99,6 @@ export const ArticleDetails: FC<IArticleDetailsProps> = memo((props) => {
           <Text text={String(data?.createdAt)} />
         </div>
         {data?.blocks?.map(renderBlocks)}
-      </>
-    )
-  } else {
-    console.log('load');
-
-    content = (
-      <>
-        <Skeleton height={200} width={200} borderRad='50%' className={s.avatar} />
-        <Skeleton height={30} width={670} className={s.title} />
-        <Skeleton height={30} width={400} className={s.skeletonItems} />
-        <Skeleton height={231} width='100%' className={s.skeletonItems} />
-        <Skeleton height={231} width='100%' className={s.skeletonItems} />
       </>
     )
   }

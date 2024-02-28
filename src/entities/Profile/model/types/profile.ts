@@ -10,6 +10,7 @@ export enum EValidateProfileError {
 }
 
 export interface IProfile {
+  id?: string
   firstname?: string
   lastname?: string
   age?: number

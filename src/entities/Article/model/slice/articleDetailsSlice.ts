@@ -5,7 +5,7 @@ import { type IArticle } from '../types/article';
 
 const initialState: IArticleDetailsSchema = {
   data: undefined,
-  isLoading: false,
+  isLoading: true,
   error: undefined
 };
 

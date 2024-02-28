@@ -7,6 +7,7 @@ import { EValidateProfileError } from '../../types/profile';
 
 describe('updateProfileData', () => {
   const data = {
+    id: '1',
     firstname: 'Mike',
     lastname: 'Tsyganov',
     age: 26,
@@ -26,7 +27,7 @@ describe('updateProfileData', () => {
       data
     }))
 
-    const result = await thunk.callThunk()
+    const result = await thunk.callThunk('1')
 
     expect(thunk.api.put).toHaveBeenCalled();
     expect(result.meta.requestStatus).toBe('fulfilled');
@@ -38,7 +39,7 @@ describe('updateProfileData', () => {
       profile: { currentDataForm: data }
     });
     thunk.api.put.mockReturnValue(Promise.resolve({ status: 403 }));
-    const result = await thunk.callThunk()
+    const result = await thunk.callThunk('1')
 
     expect(result.meta.requestStatus).toBe('rejected');
     expect(result.payload).toEqual([EValidateProfileError.SERVER_ERROR]);
@@ -48,7 +49,7 @@ describe('updateProfileData', () => {
     const thunk = new TestAsyncThunk(updateProfileData, {
       profile: { currentDataForm: { ...data, firstname: '' } }
     });
-    const result = await thunk.callThunk()
+    const result = await thunk.callThunk('1')
 
     expect(result.meta.requestStatus).toBe('rejected');
     expect(result.payload).toEqual([EValidateProfileError.INCORRECT_USER_DATA]);

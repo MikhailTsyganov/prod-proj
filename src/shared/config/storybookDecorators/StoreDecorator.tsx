@@ -2,13 +2,17 @@ import { type Story } from '@storybook/react';
 import { type IStateSchema, StoreProvider } from 'app/providers/store';
 import { articleDetailsReducer } from 'entities/Article/model/slice/articleDetailsSlice';
 import { profileReducer } from 'entities/Profile';
+import { addNewCommentReducer } from 'features/AddNewComment/model/slices/addNewCommentSlice';
 import { loginReducer } from 'features/AuthByUsername';
+import { ArticleDetailsCommentsReducer } from 'pages/ArticleDetailsPage/model/slice/AricleDetailsCommentsSlice';
 import { type TReducerList } from 'shared/hooks/reducerManager/useAsyncReducer';
 
 const defaultAsyncReducers: TReducerList = {
   loginForm: loginReducer,
   profile: profileReducer,
-  articleDetails: articleDetailsReducer
+  articleDetails: articleDetailsReducer,
+  articleDetailsComments: ArticleDetailsCommentsReducer,
+  addNewComment: addNewCommentReducer
 }
 
 export const StoreDecorator = (state: DeepPartial<IStateSchema>, asyncReducers?: TReducerList) => (Story: Story) => {

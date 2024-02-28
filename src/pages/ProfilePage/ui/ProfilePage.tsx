@@ -20,6 +20,8 @@ import { type ECurrency } from 'entities/Currency';
 import { getProfileValidateErrors } from 'entities/Profile/model/selectors/getProfileValidateErrors/getProfileValidateErrors';
 import { ETextVariant, Text } from 'shared/ui/Text/Text';
 import { useTranslation } from 'react-i18next';
+import { useInitialEffect } from 'shared/hooks/useInitialEffect/useInitialEffect';
+import { useParams } from 'react-router-dom';
 
 const ProfilePage: FC = memo(() => {
   const dispatch = useAppDispatch();
@@ -41,11 +43,11 @@ const ProfilePage: FC = memo(() => {
 
   useAsyncReducer({ profile: profileReducer });
 
-  useEffect(() => {
-    if (__PROJECT__ !== 'storybook') {
-      dispatch(fetchProfileData());
-    }
-  }, [dispatch]);
+  const { id } = useParams<{ id: string }>()
+
+  useInitialEffect(() => {
+    id && dispatch(fetchProfileData(id));
+  })
 
   const onChangeFirstname = useCallback(
     (value?: string) => {
@@ -108,7 +110,7 @@ const ProfilePage: FC = memo(() => {
   return (
     <div>
       <ProfilePageHeader />
-      {validateErrors?.length && validateErrors.map(err => <Text text={validateErrorTranslates[err]} variant={ ETextVariant.ERROR} key={err}/>)}
+      {validateErrors?.length && validateErrors.map(err => <Text text={validateErrorTranslates[err]} variant={ETextVariant.ERROR} key={err} />)}
       <ProfileCard
         data={currentDataForm}
         isLoading={isLoading}
