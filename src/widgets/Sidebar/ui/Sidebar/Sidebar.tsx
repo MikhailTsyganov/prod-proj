@@ -3,10 +3,11 @@ import { classNames } from 'shared/lib/helpers/classNames/classNames';
 import { ThemeSwitcher } from 'shared/ui/ThemeSwitcher/ThemeSwitcher';
 import { LangSwitcher } from 'shared/ui/LangSwitcher/LangSwitcher';
 import { Button, EButtonSizes, EButtonVariants } from 'shared/ui/Button/Button';
-import { SidebarItemsList } from '../../model/data/items';
 
 import s from './Sidebar.module.scss';
 import { SidebarItem } from '../SidebarItem/SidebarItem';
+import { useSelector } from 'react-redux';
+import { getSidebarItems } from 'widgets/Sidebar/model/selectors/getSidebarItems';
 
 interface ISidebarProps {
   className?: string
@@ -21,12 +22,14 @@ export const Sidebar: FC<ISidebarProps> = memo((props) => {
     setIsOpened((prev) => !prev);
   };
 
+  const sidebarItemsList = useSelector(getSidebarItems)
+
   const itemsList = useMemo(
     () =>
-      SidebarItemsList.map((item) => (
+      sidebarItemsList.map((item) => (
         <SidebarItem key={item.path} item={item} isOpened={isOpened} />
       )),
-    [isOpened]
+    [isOpened, sidebarItemsList]
   );
 
   return (
