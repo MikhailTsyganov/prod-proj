@@ -1,7 +1,6 @@
+import s from "./{{pascalCase}}.module.scss";
 import { FC, memo } from "react";
 import { classNames } from "shared/lib/helpers/classNames/classNames";
-
-import s from "./{{pascalCase}}.module.scss";
 
 interface I{{pascalCase}}Props {
 	className ?: string;
