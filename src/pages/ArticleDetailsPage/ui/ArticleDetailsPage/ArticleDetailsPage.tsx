@@ -23,6 +23,8 @@ interface IArticleDetailsPageProps {
 }
 
 const ArticleDetailsPage: FC<IArticleDetailsPageProps> = (props) => {
+  useAsyncReducer({ articleDetailsComments: ArticleDetailsCommentsReducer })
+
   const { className } = props;
   const dispatch = useAppDispatch()
   const navigate = useNavigate()
@@ -52,7 +54,7 @@ const ArticleDetailsPage: FC<IArticleDetailsPageProps> = (props) => {
     [navigate],
   )
 
-  useAsyncReducer({ articleDetailsComments: ArticleDetailsCommentsReducer })
+
 
   useInitialEffect(() => dispatch(fetchCommentsByArticleId(id)))
 

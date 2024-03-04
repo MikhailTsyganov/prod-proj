@@ -23,6 +23,7 @@ interface IArticleListItemProps {
 export const ArticleListItem: FC<IArticleListItemProps> = memo((props) => {
 	const { className, article, view } = props;
 	const navigate = useNavigate()
+	const { t } = useTranslation('articles')
 	const types = <Text text={article.type.join(', ')} className={s.types} />
 	const views = (
 		<>
@@ -37,11 +38,7 @@ export const ArticleListItem: FC<IArticleListItemProps> = memo((props) => {
 	}, [navigate, article.id])
 
 	if (view === 'LIST') {
-		const { t } = useTranslation('articles')
-
 		const textBlock = article.blocks.find(block => block.type === EArticleBlockType.TEXT) as IArticleBlockText
-
-
 
 		return (
 			<div className={classNames(s.ArticleListItem, {}, [className, s[view]])}>

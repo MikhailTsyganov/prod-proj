@@ -17,7 +17,7 @@ const ArticleDetailsCommentsAdapter = createEntityAdapter({
 const ArticleDetailsCommentsSlice = createSlice({
     name: 'ArticleDetailsComments',
     initialState: ArticleDetailsCommentsAdapter.getInitialState<ICommentsSchema>({
-        isLoading: false,
+        isLoading: undefined,
         error: undefined,
         ids: [],
         entities: {}
