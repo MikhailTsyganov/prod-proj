@@ -10,8 +10,10 @@ import { useAppDispatch } from 'shared/hooks/useAppDispatch/useAppDIspatch';
 import { fetchArticlesList } from '../../model/services/fetchArticlesList/fetchArticlesList';
 import { useSelector } from 'react-redux';
 import { useInitialEffect } from 'shared/hooks/useInitialEffect/useInitialEffect';
-import { getArticlesPageError, getArticlesPageIsLoading, getArticlesPageView } from '../../model/selectors/articlesPage';
+import { getArticlesPageError, getArticlesPageHasMore, getArticlesPageIsLoading, getArticlesPagePage, getArticlesPageView } from '../../model/selectors/articlesPage';
 import { ArticlesViewSwitcher } from 'features/ArticlesViewSwitcher';
+import { Page } from 'shared/ui/Page/Page';
+import { fetchArticlesNextPage } from 'pages/ArticlesPage/model/services/fetchArticlesNextPage/fetchArticlesNextPage';
 
 interface IArticlesPageProps {
   className?: string
@@ -30,10 +32,13 @@ const ArticlesPage: FC<IArticlesPageProps> = (props) => {
 
   // const { t } = useTranslation('articles')
 
-
+  const onLoadNextPage = useCallback(() => {
+    dispatch(fetchArticlesNextPage())
+  }, [dispatch])
 
   useInitialEffect(() => {
-    dispatch(fetchArticlesList())
+    dispatch(articlePageActions.initState())
+    dispatch(fetchArticlesList({ page: 1 }))
   })
 
   const onChangeView = useCallback(
@@ -44,14 +49,14 @@ const ArticlesPage: FC<IArticlesPageProps> = (props) => {
   )
 
   return (
-    <div className={classNames('s.ArticlesPage', {}, [className])}>
+    <Page className={classNames('s.ArticlesPage', {}, [className])} onScrollEnd={onLoadNextPage}>
       <ArticlesViewSwitcher view={view} onChangeView={onChangeView} />
       <ArticleList
         isLoading={isLoading}
         articles={articles}
         view={view}
       />
-    </div >
+    </Page >
   )
 };
 

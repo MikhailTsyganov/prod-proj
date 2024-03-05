@@ -8,9 +8,7 @@ function AppRouter() {
   const renderWithWrapper = useCallback(
     (route: TAppRoutesProps) => {
       const element = (
-        <div className="page-wrapper">
-          {route.element}
-        </div>
+        <>{route.element}</>
       )
 
       return (

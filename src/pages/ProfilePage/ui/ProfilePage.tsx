@@ -22,6 +22,7 @@ import { ETextVariant, Text } from 'shared/ui/Text/Text';
 import { useTranslation } from 'react-i18next';
 import { useInitialEffect } from 'shared/hooks/useInitialEffect/useInitialEffect';
 import { useParams } from 'react-router-dom';
+import { Page } from 'shared/ui/Page/Page';
 
 const ProfilePage: FC = memo(() => {
   const dispatch = useAppDispatch();
@@ -108,7 +109,7 @@ const ProfilePage: FC = memo(() => {
   );
 
   return (
-    <div>
+    <Page>
       <ProfilePageHeader />
       {validateErrors?.length && validateErrors.map(err => <Text text={validateErrorTranslates[err]} variant={ETextVariant.ERROR} key={err} />)}
       <ProfileCard
@@ -125,7 +126,7 @@ const ProfilePage: FC = memo(() => {
         onChangeCurrency={onChangeCurrency}
         onChangeCountry={onChangeCountry}
       />
-    </div>
+    </Page>
   );
 });
 

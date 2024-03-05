@@ -33,7 +33,7 @@ export const Sidebar: FC<ISidebarProps> = memo((props) => {
   );
 
   return (
-    <div
+    <nav
       data-testid="sidebar"
       className={classNames(s.sidebar, { [s.opened]: isOpened }, [className])}
     >
@@ -53,6 +53,6 @@ export const Sidebar: FC<ISidebarProps> = memo((props) => {
         <ThemeSwitcher />
         <LangSwitcher className={s.lang} short={!isOpened} />
       </div>
-    </div>
+    </nav>
   );
 });

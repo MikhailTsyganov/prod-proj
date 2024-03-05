@@ -17,6 +17,7 @@ import { AddNewCommentLazy } from 'features/AddNewComment';
 import { addCommentForArticle } from 'pages/ArticleDetailsPage/model/services/addCommentForArticle/addCommentForArticle';
 import { Button, EButtonVariants } from 'shared/ui/Button/Button';
 import { routePaths } from 'shared/config/routeConfig/routeConfig';
+import { Page } from 'shared/ui/Page/Page';
 
 interface IArticleDetailsPageProps {
   className?: string
@@ -59,7 +60,7 @@ const ArticleDetailsPage: FC<IArticleDetailsPageProps> = (props) => {
   useInitialEffect(() => dispatch(fetchCommentsByArticleId(id)))
 
   return (
-    <div className={classNames(s.ArticleDetailsPage, {}, [className])}>
+    <Page className={classNames(s.ArticleDetailsPage, {}, [className])}>
       <Button variant={EButtonVariants.OUTLINED} onClick={onBackToList}>
         {t('Назад к списку')}
       </Button>
@@ -67,7 +68,7 @@ const ArticleDetailsPage: FC<IArticleDetailsPageProps> = (props) => {
       <Text title={t('Комментарии')} className={s.commentTitle} />
       <AddNewCommentLazy onSendComment={onSendComment} />
       <CommentList isLoading={commentsIsLoading} comments={comments} />
-    </div >
+    </Page >
   )
 };
 

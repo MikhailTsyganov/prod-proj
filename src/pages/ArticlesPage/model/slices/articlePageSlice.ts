@@ -14,7 +14,9 @@ const initialState: IArticlePageSchema = articlePageAdapter.getInitialState<IArt
     error: undefined,
     ids: [],
     entities: {},
-    view: localStorage.getItem(ARTICLES_VIEW_LOCALSTORAGE_KEY) as EArticleView || EArticleView.TILE
+    view: EArticleView.TILE,
+    hasMore: true,
+    page: 1
 })
 
 const articlePageSlice = createSlice({
@@ -24,8 +26,16 @@ const articlePageSlice = createSlice({
         setView(state, { payload }: PayloadAction<EArticleView>) {
             state.view = payload
             localStorage.setItem(ARTICLES_VIEW_LOCALSTORAGE_KEY, payload)
+        },
+        setPage(state, { payload }: PayloadAction<number>) {
+            state.page = payload
+        },
+        initState(state) {
+            state.view = localStorage.getItem(ARTICLES_VIEW_LOCALSTORAGE_KEY) as EArticleView
+            state.limit = state.view === EArticleView.TILE ? 9 : 3
         }
-    },
+    }
+    ,
     extraReducers(builder) {
         builder
             .addCase(
@@ -38,8 +48,9 @@ const articlePageSlice = createSlice({
             .addCase(
                 fetchArticlesList.fulfilled,
                 (state, action: PayloadAction<IArticle[]>) => {
-                    articlePageAdapter.setAll(state, action.payload)
+                    articlePageAdapter.setMany(state, action.payload)
                     state.isLoading = false;
+                    state.hasMore = action.payload.length > 0
                 }
             )
             .addCase(

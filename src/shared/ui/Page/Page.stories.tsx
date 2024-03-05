@@ -1,13 +1,12 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { ArticlesViewSwitcher } from './ArticlesViewSwitcher';
+import { Page } from './Page';
 import { ThemeDecorator } from 'shared/config/storybookDecorators/ThemeDecorator';
 import { ETheme } from 'app/providers/theme';
-import { EArticleView } from 'entities/Article';
 
 const meta = {
-  title: 'features/ArticlesViewSwitcher',
-  component: ArticlesViewSwitcher,
+  title: 'FOLDER_NAME/Page',
+  component: Page,
   parameters: {
     layout: 'centered'
   },
@@ -15,21 +14,17 @@ const meta = {
   argTypes: {
     // backgroundColor: { control: 'color' },
   }
-} satisfies Meta<typeof ArticlesViewSwitcher>;
+} satisfies Meta<typeof Page>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Light: Story = {
-  args: {
-    view: EArticleView.TILE
-  }
+  args: {}
 };
 
 export const Dark: Story = {
-  args: {
-    view: EArticleView.TILE
-  },
+  args: {},
   decorators: [ThemeDecorator(ETheme.DARK)]
 };
 

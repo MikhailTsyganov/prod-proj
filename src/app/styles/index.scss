@@ -22,12 +22,3 @@ body {
   display: flex;
   max-height: calc(100vh - var(--navbar-height));
 }
-
-.page-wrapper {
-  width: 100%;
-  overflow-y: scroll;
-  flex-shrink: 100;
-
-  // flex-grow: 1;
-  padding: 20px 20px 20px 45px;
-}

@@ -34,7 +34,7 @@ export const Navbar: FC<INavbarProps> = memo((props) => {
   }
 
   if (isUserAuth) {
-    return <div className={classNames(s.navbar, {}, [className])}>
+    return <header className={classNames(s.navbar, {}, [className])}>
       <Button
         variant={EButtonVariants.TRANSPARENT_INVERTED}
         className={s.links}
@@ -42,11 +42,11 @@ export const Navbar: FC<INavbarProps> = memo((props) => {
       >
         {t('Выйти')}
       </Button>
-    </div>
+    </header>
   }
 
   return (
-    <div className={classNames(s.navbar, {}, [className])}>
+    <header className={classNames(s.navbar, {}, [className])}>
       <Button
         variant={EButtonVariants.TRANSPARENT_INVERTED}
         className={s.links}
@@ -56,6 +56,6 @@ export const Navbar: FC<INavbarProps> = memo((props) => {
       </Button>
 
       {isOpened && <LoginModal isOpened={isOpened} onClose={onCloseModal} />}
-    </div>
+    </header>
   );
 });
