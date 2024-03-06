@@ -23,9 +23,15 @@ export const useAsyncReducer = (reducers: TReducerList, options: IUseAsyncReduce
   const { removeAfterUnmount } = options;
 
   useEffect(() => {
+    const mountedReducers = store.reducerManager.getReducerMap();
+
     Object.entries(reducers).forEach(([key, reducer]) => {
-      store.reducerManager.add(key as TStateSchemaKeys, reducer)
-      dispatch({ type: `@INIT ${key} reducer` })
+      const alreadyHas = mountedReducers[key as TStateSchemaKeys]
+
+      if (!alreadyHas) {
+        store.reducerManager.add(key as TStateSchemaKeys, reducer)
+        dispatch({ type: `@INIT ${key} reducer` })
+      }
     })
 
     return () => {

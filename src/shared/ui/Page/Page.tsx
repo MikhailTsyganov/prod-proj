@@ -1,5 +1,5 @@
 import s from "./Page.module.scss";
-import { FC, MutableRefObject, memo, useRef } from "react";
+import { FC, MutableRefObject, useRef } from "react";
 import { useInfiniteScroll } from "shared/hooks/useInfiniteScroll/useInfiniteScroll";
 import { classNames } from "shared/lib/helpers/classNames/classNames";
 
@@ -8,7 +8,7 @@ interface IPageProps {
 	onScrollEnd?: () => void
 }
 
-export const Page: FC<IPageProps> = memo((props) => {
+export const Page: FC<IPageProps> = (props) => {
 	const { className, children, onScrollEnd } = props;
 
 	const wrapperRef = useRef() as MutableRefObject<HTMLDivElement>
@@ -26,5 +26,5 @@ export const Page: FC<IPageProps> = memo((props) => {
 			<div ref={triggerRef}></div>
 		</section >
 	)
-});
+};
 

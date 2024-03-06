@@ -47,7 +47,7 @@ describe('fetchArticlesNextPage', () => {
         expect(fetchArticlesList).not.toHaveBeenCalled()
         expect(result.meta.requestStatus).toBe('fulfilled');
     })
-    test('fetchArticlesList not called', async () => {
+    test('fetchArticlesList not called with loading', async () => {
         const thunk = new TestAsyncThunk(fetchArticlesNextPage, {
             articlesPage: {
                 hasMore: true,

@@ -16,7 +16,8 @@ i18n
     fallbackLng: 'ru',
 
     // __IS_DEV__ - глобальная переменная, переданная через definePlugin
-    debug: __IS_DEV__,
+    // debug: __IS_DEV__,
+    debug: false,
 
     interpolation: {
       escapeValue: false // not needed for react as it escapes by default

@@ -14,7 +14,6 @@ import { IAddNewCommentSchema } from 'features/AddNewComment/model/types/addNewC
 import { type ILoginSchema } from 'features/AuthByUsername';
 import { ICommentsSchema } from 'pages/ArticleDetailsPage';
 import { IArticlePageSchema } from 'pages/ArticlesPage';
-import { type NavigateOptions, type To } from 'react-router-dom';
 
 export interface IStateSchema {
   counter: ICounterSchema
@@ -51,7 +50,6 @@ export interface IStoreWithManager extends EnhancedStore<IStateSchema> {
 
 export interface IThunkExtraArg {
   api: AxiosInstance
-  navigate?: (to: To, options?: NavigateOptions) => void
 }
 
 export interface IThunkOptions<T> {

@@ -7,20 +7,20 @@ import { ArticleList, EArticleView } from 'entities/Article';
 import { useAsyncReducer } from 'shared/hooks/reducerManager/useAsyncReducer';
 import { articlePageActions, articlePageReducer, getArticles } from '../../model/slices/articlePageSlice';
 import { useAppDispatch } from 'shared/hooks/useAppDispatch/useAppDIspatch';
-import { fetchArticlesList } from '../../model/services/fetchArticlesList/fetchArticlesList';
 import { useSelector } from 'react-redux';
 import { useInitialEffect } from 'shared/hooks/useInitialEffect/useInitialEffect';
-import { getArticlesPageError, getArticlesPageHasMore, getArticlesPageIsLoading, getArticlesPagePage, getArticlesPageView } from '../../model/selectors/articlesPage';
+import { getArticlesPageError, getArticlesPageIsLoading, getArticlesPageView } from '../../model/selectors/articlesPage';
 import { ArticlesViewSwitcher } from 'features/ArticlesViewSwitcher';
 import { Page } from 'shared/ui/Page/Page';
-import { fetchArticlesNextPage } from 'pages/ArticlesPage/model/services/fetchArticlesNextPage/fetchArticlesNextPage';
+import { fetchArticlesNextPage } from '../../model/services/fetchArticlesNextPage/fetchArticlesNextPage';
+import { initArticlesPage } from '../../model/services/initArticlesPage/initArticlesPage';
 
 interface IArticlesPageProps {
   className?: string
 }
 
 const ArticlesPage: FC<IArticlesPageProps> = (props) => {
-  useAsyncReducer({ articlesPage: articlePageReducer })
+  useAsyncReducer({ articlesPage: articlePageReducer }, { removeAfterUnmount: false })
 
   const { className } = props
   const dispatch = useAppDispatch()
@@ -30,6 +30,7 @@ const ArticlesPage: FC<IArticlesPageProps> = (props) => {
   const view = useSelector(getArticlesPageView)
   const error = useSelector(getArticlesPageError)
 
+
   // const { t } = useTranslation('articles')
 
   const onLoadNextPage = useCallback(() => {
@@ -37,8 +38,7 @@ const ArticlesPage: FC<IArticlesPageProps> = (props) => {
   }, [dispatch])
 
   useInitialEffect(() => {
-    dispatch(articlePageActions.initState())
-    dispatch(fetchArticlesList({ page: 1 }))
+    dispatch(initArticlesPage())
   })
 
   const onChangeView = useCallback(

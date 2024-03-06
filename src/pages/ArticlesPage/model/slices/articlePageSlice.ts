@@ -16,7 +16,8 @@ const initialState: IArticlePageSchema = articlePageAdapter.getInitialState<IArt
     entities: {},
     view: EArticleView.TILE,
     hasMore: true,
-    page: 1
+    page: 1,
+    _inited: false
 })
 
 const articlePageSlice = createSlice({
@@ -33,6 +34,7 @@ const articlePageSlice = createSlice({
         initState(state) {
             state.view = localStorage.getItem(ARTICLES_VIEW_LOCALSTORAGE_KEY) as EArticleView
             state.limit = state.view === EArticleView.TILE ? 9 : 3
+            state._inited = true
         }
     }
     ,
