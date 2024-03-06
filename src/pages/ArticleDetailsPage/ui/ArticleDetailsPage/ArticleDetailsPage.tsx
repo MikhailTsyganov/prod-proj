@@ -17,7 +17,7 @@ import { AddNewCommentLazy } from 'features/AddNewComment';
 import { addCommentForArticle } from 'pages/ArticleDetailsPage/model/services/addCommentForArticle/addCommentForArticle';
 import { Button, EButtonVariants } from 'shared/ui/Button/Button';
 import { routePaths } from 'shared/config/routeConfig/routeConfig';
-import { Page } from 'shared/ui/Page/Page';
+import { Page } from 'widgets/Page/Page';
 
 interface IArticleDetailsPageProps {
   className?: string

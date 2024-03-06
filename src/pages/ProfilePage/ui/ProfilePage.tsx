@@ -22,7 +22,7 @@ import { ETextVariant, Text } from 'shared/ui/Text/Text';
 import { useTranslation } from 'react-i18next';
 import { useInitialEffect } from 'shared/hooks/useInitialEffect/useInitialEffect';
 import { useParams } from 'react-router-dom';
-import { Page } from 'shared/ui/Page/Page';
+import { Page } from 'widgets/Page/Page';
 
 const ProfilePage: FC = memo(() => {
   const dispatch = useAppDispatch();

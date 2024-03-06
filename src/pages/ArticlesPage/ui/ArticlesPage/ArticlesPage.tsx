@@ -11,7 +11,7 @@ import { useSelector } from 'react-redux';
 import { useInitialEffect } from 'shared/hooks/useInitialEffect/useInitialEffect';
 import { getArticlesPageError, getArticlesPageIsLoading, getArticlesPageView } from '../../model/selectors/articlesPage';
 import { ArticlesViewSwitcher } from 'features/ArticlesViewSwitcher';
-import { Page } from 'shared/ui/Page/Page';
+import { Page } from 'widgets/Page/Page';
 import { fetchArticlesNextPage } from '../../model/services/fetchArticlesNextPage/fetchArticlesNextPage';
 import { initArticlesPage } from '../../model/services/initArticlesPage/initArticlesPage';
 
