@@ -12,11 +12,11 @@ import { useAppDispatch } from "shared/hooks/useAppDispatch/useAppDIspatch";
 
 interface IArticlesSortTabsProps {
 	className?: string;
-	deboucedFetchData?: () => void
+	fetchData?: () => void
 }
 
 export const ArticlesSortTabs = memo((props: IArticlesSortTabsProps) => {
-	const { className, deboucedFetchData } = props;
+	const { className, fetchData } = props;
 	const dispatch = useAppDispatch()
 	const currentTab = useSelector(getArticlesSortTab)
 
@@ -26,7 +26,7 @@ export const ArticlesSortTabs = memo((props: IArticlesSortTabsProps) => {
 		(tab: ITabItem) => {
 			dispatch(articlesSortActions.setTab(tab.value as EArticleType))
 			dispatch(articlePageActions.setPage(1))
-			deboucedFetchData?.()
+			fetchData?.()
 		},
 		[dispatch],
 	)

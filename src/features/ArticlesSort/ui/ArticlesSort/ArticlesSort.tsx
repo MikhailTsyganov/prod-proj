@@ -20,8 +20,6 @@ import { fetchArticlesList } from "pages/ArticlesPage/model/services/fetchArticl
 import { useDebounce } from "shared/hooks/useDebounce/useDebounce";
 import { useSearchParams } from "react-router-dom";
 import { initArticlesSort } from "features/ArticlesSort/model/services/initArticlesSort/initArticlesSort";
-import { ITabItem, Tabs } from "shared/ui/Tabs/Tabs";
-import { EArticleType } from "entities/Article/model/types/article";
 import { ArticlesSortTabs } from "../ArticlesSortTabs/ArticlesSortTabs";
 
 interface IArticlesSortProps {
@@ -91,7 +89,7 @@ export const ArticlesSort = memo((props: IArticlesSortProps) => {
 					value={search}
 				/>
 			</Card>
-			<ArticlesSortTabs deboucedFetchData={deboucedFetchData} />
+			<ArticlesSortTabs fetchData={fetchData} />
 		</div >
 	)
 });
