@@ -49,6 +49,6 @@ const ArticleDetailsCommentsSlice = createSlice({
     }
 })
 
-export const getArticleDetailsComment = ArticleDetailsCommentsAdapter.getSelectors<IStateSchema>((state) => state.articleDetailsComments || ArticleDetailsCommentsAdapter.getInitialState())
+export const getArticleDetailsComment = ArticleDetailsCommentsAdapter.getSelectors<IStateSchema>((state) => state.articleDetailsPage?.comments || ArticleDetailsCommentsAdapter.getInitialState())
 
 export const { actions: ArticleDetailsCommentsActions, reducer: ArticleDetailsCommentsReducer } = ArticleDetailsCommentsSlice

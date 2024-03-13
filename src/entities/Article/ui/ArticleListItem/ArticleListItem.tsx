@@ -1,4 +1,4 @@
-import { FC, memo, useCallback } from "react";
+import { FC, memo } from "react";
 import { classNames } from "shared/lib/helpers/classNames/classNames";
 
 import s from "./ArticleListItem.module.scss";
@@ -11,18 +11,18 @@ import { Avatar } from "shared/ui/Avatar/Avatar";
 import { Button, EButtonVariants } from "shared/ui/Button/Button";
 import { useTranslation } from "react-i18next";
 import { ArticleBlockText } from "../ArticleBlockText/ArticleBlockText";
-import { useNavigate } from "react-router-dom";
 import { routePaths } from "shared/config/routeConfig/routeConfig";
+import { AppLink } from "shared/ui/AppLink/AppLink";
 
 interface IArticleListItemProps {
 	className?: string;
 	article: IArticle
 	view: EArticleView
+	target?: React.HTMLAttributeAnchorTarget
 }
 
 export const ArticleListItem: FC<IArticleListItemProps> = memo((props) => {
-	const { className, article, view } = props;
-	const navigate = useNavigate()
+	const { className, article, view, target } = props;
 	const { t } = useTranslation('articles')
 	const types = <Text text={article.type.join(', ')} className={s.types} />
 	const views = (
@@ -31,11 +31,6 @@ export const ArticleListItem: FC<IArticleListItemProps> = memo((props) => {
 			<Icon Svg={EyeIcon} />
 		</>
 	)
-
-
-	const onOpenArticle = useCallback(() => {
-		navigate(`${routePaths.article_details}${article.id}`)
-	}, [navigate, article.id])
 
 	if (view === 'LIST') {
 		const textBlock = article.blocks.find(block => block.type === EArticleBlockType.TEXT) as IArticleBlockText
@@ -53,7 +48,9 @@ export const ArticleListItem: FC<IArticleListItemProps> = memo((props) => {
 					<img src={article.img} alt={article.title} className={s.img} />
 					{textBlock && <ArticleBlockText block={textBlock} className={s.text} />}
 					<div className={s.footer}>
-						<Button variant={EButtonVariants.OUTLINED} onClick={onOpenArticle}>{t('Читать далее...')}</Button>
+						<AppLink to={`${routePaths.article_details}${article.id}`} target={target}>
+							<Button variant={EButtonVariants.OUTLINED}>{t('Читать далее...')}</Button>
+						</AppLink>
 						{views}
 					</div>
 				</Card>
@@ -65,17 +62,19 @@ export const ArticleListItem: FC<IArticleListItemProps> = memo((props) => {
 		<div
 			className={classNames(s.ArticleListItem, {}, [className, s[view]])}
 		>
-			<Card onClick={onOpenArticle}>
-				<div className={s.imageWrapper}>
-					<img src={article.img} alt={article.title} className={s.img} />
-					<Text text={article.createdAt} className={s.date} />
-				</div>
-				<div className={s.infoWrapper}>
-					{types}
-					{views}
-				</div>
-				<Text text={article.title} className={s.title} />
-			</Card>
+			<AppLink to={`${routePaths.article_details}${article.id}`} target={target}>
+				<Card>
+					<div className={s.imageWrapper}>
+						<img src={article.img} alt={article.title} className={s.img} />
+						<Text text={article.createdAt} className={s.date} />
+					</div>
+					<div className={s.infoWrapper}>
+						{types}
+						{views}
+					</div>
+					<Text text={article.title} className={s.title} />
+				</Card>
+			</AppLink>
 		</div >
 	)
 });

@@ -1,5 +1,12 @@
 .ArticleDetailsPage {
     min-height: 100%;
+
+    .recommendations {
+        margin-top: 20px;
+        display: flex;
+        overflow-y: hidden;
+        overflow-x: auto;
+    }
 }
 
 .commentTitle {

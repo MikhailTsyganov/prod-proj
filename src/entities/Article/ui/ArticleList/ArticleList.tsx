@@ -13,6 +13,7 @@ interface IArticleListProps {
 	articles: IArticle[]
 	isLoading?: boolean
 	view?: EArticleView
+	target?: React.HTMLAttributeAnchorTarget
 }
 
 const getSkeletons = (view: EArticleView) => {
@@ -27,7 +28,8 @@ export const ArticleList: FC<IArticleListProps> = memo((props) => {
 		className,
 		articles,
 		view = EArticleView.LIST,
-		isLoading
+		isLoading,
+		target
 	} = props;
 	const { t } = useTranslation('articles')
 
@@ -36,6 +38,7 @@ export const ArticleList: FC<IArticleListProps> = memo((props) => {
 			article={article}
 			view={view}
 			key={article.id}
+			target={target}
 		/>
 	)
 
