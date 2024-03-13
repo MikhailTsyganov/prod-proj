@@ -11,6 +11,7 @@ import { type ICounterSchema } from 'entities/Counter';
 import { type IProfileSchema } from 'entities/Profile';
 import { type IUserSchema } from 'entities/User';
 import { IAddNewCommentSchema } from 'features/AddNewComment/model/types/addNewComment';
+import { IArticlesSortSchema } from 'features/ArticlesSort';
 import { type ILoginSchema } from 'features/AuthByUsername';
 import { ICommentsSchema } from 'pages/ArticleDetailsPage';
 import { IArticlePageSchema } from 'pages/ArticlesPage';
@@ -27,6 +28,7 @@ export interface IStateSchema {
   articleDetails?: IArticleDetailsSchema
   articleDetailsComments?: ICommentsSchema,
   addNewComment?: IAddNewCommentSchema
+  articlesPageSort?: IArticlesSortSchema
   articlesPage?: IArticlePageSchema
 }
 

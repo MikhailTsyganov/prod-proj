@@ -14,9 +14,10 @@ const initialState: IArticlePageSchema = articlePageAdapter.getInitialState<IArt
     error: undefined,
     ids: [],
     entities: {},
-    view: EArticleView.TILE,
     hasMore: true,
     page: 1,
+    limit: 9,
+
     _inited: false
 })
 
@@ -24,16 +25,11 @@ const articlePageSlice = createSlice({
     name: 'articlePage',
     initialState,
     reducers: {
-        setView(state, { payload }: PayloadAction<EArticleView>) {
-            state.view = payload
-            localStorage.setItem(ARTICLES_VIEW_LOCALSTORAGE_KEY, payload)
-        },
         setPage(state, { payload }: PayloadAction<number>) {
             state.page = payload
         },
         initState(state) {
-            state.view = localStorage.getItem(ARTICLES_VIEW_LOCALSTORAGE_KEY) as EArticleView
-            state.limit = state.view === EArticleView.TILE ? 9 : 3
+            state.limit = 9
             state._inited = true
         }
     }
@@ -42,17 +38,25 @@ const articlePageSlice = createSlice({
         builder
             .addCase(
                 fetchArticlesList.pending,
-                (state) => {
+                (state, { meta }) => {
+                    if (meta.arg.replace) {
+                        articlePageAdapter.removeAll(state)
+                    }
+
                     state.isLoading = true;
                     state.error = undefined;
                 }
             )
             .addCase(
                 fetchArticlesList.fulfilled,
-                (state, action: PayloadAction<IArticle[]>) => {
-                    articlePageAdapter.setMany(state, action.payload)
+                (state, { payload, meta }) => {
+                    if (meta.arg.replace) {
+                        articlePageAdapter.setAll(state, payload)
+                    } else {
+                        articlePageAdapter.setMany(state, payload)
+                    }
                     state.isLoading = false;
-                    state.hasMore = action.payload.length > 0
+                    state.hasMore = payload.length >= state.limit
                 }
             )
             .addCase(

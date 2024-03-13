@@ -1,12 +1,12 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { Page } from './Page';
+import { ArticlesSort } from './ArticlesSort';
 import { ThemeDecorator } from 'shared/config/storybookDecorators/ThemeDecorator';
 import { ETheme } from 'app/providers/theme';
 
 const meta = {
-  title: 'widgets/Page',
-  component: Page,
+  title: 'features/ArticlesSort/ArticlesSort',
+  component: ArticlesSort,
   parameters: {
     layout: 'centered'
   },
@@ -14,7 +14,7 @@ const meta = {
   argTypes: {
     // backgroundColor: { control: 'color' },
   }
-} satisfies Meta<typeof Page>;
+} satisfies Meta<typeof ArticlesSort>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;

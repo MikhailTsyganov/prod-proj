@@ -5,6 +5,8 @@ import s from "./ArticleList.module.scss";
 import { EArticleView, IArticle } from "../../model/types/article";
 import { ArticleListItem } from "../ArticleListItem/ArticleListItem";
 import { ArticleListItemSkeleton } from "../ArticleListItem/ArticleListItemSkeleton";
+import { useTranslation } from "react-i18next";
+import { ETextSize, Text } from "shared/ui/Text/Text";
 
 interface IArticleListProps {
 	className?: string;
@@ -27,6 +29,7 @@ export const ArticleList: FC<IArticleListProps> = memo((props) => {
 		view = EArticleView.LIST,
 		isLoading
 	} = props;
+	const { t } = useTranslation('articles')
 
 	const renderArticleList = (article: IArticle) => (
 		<ArticleListItem
@@ -36,17 +39,28 @@ export const ArticleList: FC<IArticleListProps> = memo((props) => {
 		/>
 	)
 
+	if (!isLoading && !articles.length) {
+		return (
+			<div className={classNames(s.ArticleList, {}, [className, s[view], s.ArticleListSkeletons])}>
+				<Text size={ETextSize.L} title={t('Статьи не найдены')} />
+			</div >
+		)
+	}
+
 	return (<>
 		<div className={classNames(s.ArticleList, {}, [className, s[view]])}>
 			{articles.length ? articles.map(renderArticleList) : null}
 
 		</div >
-		{isLoading && (
-			<div className={classNames(s.ArticleList, {}, [className, s[view], s.ArticleListSkeletons])}>
-				{
-					getSkeletons(view)
-				}
-			</div >)}</>
+		{
+			isLoading && (
+				<div className={classNames(s.ArticleList, {}, [className, s[view], s.ArticleListSkeletons])}>
+					{
+						getSkeletons(view)
+					}
+				</div >
+			)
+		}</>
 
 	)
 });

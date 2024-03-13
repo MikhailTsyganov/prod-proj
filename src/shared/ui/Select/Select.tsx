@@ -3,25 +3,25 @@ import { classNames } from 'shared/lib/helpers/classNames/classNames';
 
 import s from './Select.module.scss';
 
-export interface ISelectList {
-  value: string
+export interface ISelectList<T extends string> {
+  value: T
   content: string
 }
 
-interface ISelectProps {
+interface ISelectProps<T extends string> {
   className?: string
   title?: string
-  list?: ISelectList[]
-  value?: string
-  onChange?: (value: string) => void
+  list?: ISelectList<T>[]
+  value?: T
+  onChange?: (value: T) => void
   readonly?: boolean
 }
 
-export const Select: FC<ISelectProps> = memo((props) => {
+export const Select = <T extends string>(props: ISelectProps<T>) => {
   const { className, title, list, value, onChange, readonly } = props;
 
   const onChangeHandler = (e: ChangeEvent<HTMLSelectElement>) => {
-    onChange?.(e.target.value);
+    onChange?.(e.target.value as T);
   };
 
   const listArr = useMemo(
@@ -51,4 +51,4 @@ export const Select: FC<ISelectProps> = memo((props) => {
       </select>
     </div>
   );
-});
+};

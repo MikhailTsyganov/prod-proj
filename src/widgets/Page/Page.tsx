@@ -1,6 +1,6 @@
 import { useLocation } from "react-router-dom";
 import s from "./Page.module.scss";
-import { FC, MutableRefObject, UIEvent, useRef } from "react";
+import { FC, MutableRefObject, UIEvent, memo, useRef } from "react";
 import { useAppDispatch } from "shared/hooks/useAppDispatch/useAppDIspatch";
 import { useInfiniteScroll } from "shared/hooks/useInfiniteScroll/useInfiniteScroll";
 import { classNames } from "shared/lib/helpers/classNames/classNames";
@@ -36,15 +36,13 @@ export const Page: FC<IPageProps> = (props) => {
 	})
 
 	const onScroll = useThrottle((e: UIEvent<HTMLElement>) => {
-		console.log('SCROLLLLLLLL');
-
 		dispatch(scrollSaveActions.setScroll({ path: pathname, scrollPos: e.currentTarget.scrollTop }))
 	}, 500)
 
 	return (
 		<section className={classNames(s.Page, {}, [className])} ref={wrapperRef} onScroll={onScroll}>
 			{children}
-			<div ref={triggerRef}></div>
+			{onScrollEnd && <div ref={triggerRef} className={s.trigger}></div>}
 		</section >
 	)
 };

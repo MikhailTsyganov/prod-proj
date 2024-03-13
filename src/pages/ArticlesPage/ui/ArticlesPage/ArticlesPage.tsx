@@ -9,11 +9,14 @@ import { articlePageActions, articlePageReducer, getArticles } from '../../model
 import { useAppDispatch } from 'shared/hooks/useAppDispatch/useAppDIspatch';
 import { useSelector } from 'react-redux';
 import { useInitialEffect } from 'shared/hooks/useInitialEffect/useInitialEffect';
-import { getArticlesPageError, getArticlesPageIsLoading, getArticlesPageView } from '../../model/selectors/articlesPage';
+import { getArticlesPageError, getArticlesPageIsLoading } from '../../model/selectors/articlesPage';
 import { ArticlesViewSwitcher } from 'features/ArticlesViewSwitcher';
 import { Page } from 'widgets/Page/Page';
 import { fetchArticlesNextPage } from '../../model/services/fetchArticlesNextPage/fetchArticlesNextPage';
 import { initArticlesPage } from '../../model/services/initArticlesPage/initArticlesPage';
+import { ArticlesSort, getArticlesSortView } from 'features/ArticlesSort';
+import s from './ArticlesPage.module.scss'
+import { useSearchParams } from 'react-router-dom';
 
 interface IArticlesPageProps {
   className?: string
@@ -27,9 +30,10 @@ const ArticlesPage: FC<IArticlesPageProps> = (props) => {
 
   const articles = useSelector(getArticles.selectAll)
   const isLoading = useSelector(getArticlesPageIsLoading)
-  const view = useSelector(getArticlesPageView)
+  const view = useSelector(getArticlesSortView)
   const error = useSelector(getArticlesPageError)
 
+  const [searchParams] = useSearchParams()
 
   // const { t } = useTranslation('articles')
 
@@ -38,23 +42,19 @@ const ArticlesPage: FC<IArticlesPageProps> = (props) => {
   }, [dispatch])
 
   useInitialEffect(() => {
-    dispatch(initArticlesPage())
+    dispatch(initArticlesPage(searchParams))
   })
 
-  const onChangeView = useCallback(
-    (newView: EArticleView) => {
-      dispatch(articlePageActions.setView(newView))
-    },
-    [dispatch],
-  )
+
 
   return (
     <Page className={classNames('s.ArticlesPage', {}, [className])} onScrollEnd={onLoadNextPage}>
-      <ArticlesViewSwitcher view={view} onChangeView={onChangeView} />
+      <ArticlesSort />
       <ArticleList
         isLoading={isLoading}
         articles={articles}
         view={view}
+        className={s.list}
       />
     </Page >
   )

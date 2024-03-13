@@ -6,16 +6,27 @@ import { fetchArticlesList } from '../fetchArticlesList/fetchArticlesList';
 
 export const initArticlesPage = createAsyncThunk<
     void,
-    void,
+    URLSearchParams,
     IThunkOptions<string>
->('articlesPage/initArticlesPage', async (_, thunkAPI) => {
+>('articlesPage/initArticlesPage', async (searchParams, thunkAPI) => {
     const { getState, dispatch } = thunkAPI;
 
     const isInited = getArticlesPageInited(getState())
 
     if (!isInited) {
+        searchParams.forEach((value, key) => {
+
+
+            switch (key) {
+                case 'page':
+                    dispatch(articlePageActions.setPage(Number(value)))
+                    break;
+            }
+
+        });
+
         dispatch(articlePageActions.initState())
-        dispatch(fetchArticlesList({ page: 1 }))
+        dispatch(fetchArticlesList({}))
     }
 
 });
