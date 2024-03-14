@@ -5,6 +5,7 @@ import s from './Text.module.scss';
 
 export enum ETextVariant {
   PRIMARY = 'primary',
+  INVERTED = 'inverted',
   ERROR = 'error'
 }
 

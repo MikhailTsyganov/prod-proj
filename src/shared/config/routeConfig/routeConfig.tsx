@@ -5,6 +5,7 @@ import { type RouteProps } from 'react-router-dom';
 import { ProfilePageLazy } from 'pages/ProfilePage';
 import { ArticlesPageLazy } from 'pages/ArticlesPage';
 import { ArticleDetailsPageLazy } from 'pages/ArticleDetailsPage';
+import { ArticleEditPageLazy } from 'pages/ArticleEditPage/ui/ArticleEditPage/ArticleEditPage.lazy';
 
 export type TAppRoutesProps = RouteProps & {
   authOnly?: boolean
@@ -16,6 +17,8 @@ export enum ERoutes {
   PROFILE = 'profile',
   ARTICLES = 'articles',
   ARTICLE_DETAILS = 'article_details',
+  ARTICLE_CREATE = 'article_create',
+  ARTICLE_EDIT = 'article_edit',
   // last
   NOT_FOUND = 'not_found',
 }
@@ -26,6 +29,8 @@ export const routePaths: Record<ERoutes, string> = {
   [ERoutes.PROFILE]: '/profile/', // +:id
   [ERoutes.ARTICLES]: '/articles',
   [ERoutes.ARTICLE_DETAILS]: '/articles/', // +:id
+  [ERoutes.ARTICLE_CREATE]: '/articles/new',
+  [ERoutes.ARTICLE_EDIT]: '/articles/:id/edit',
   // last
   [ERoutes.NOT_FOUND]: '*'
 };
@@ -52,6 +57,16 @@ export const routeConfig: Record<ERoutes, TAppRoutesProps> = {
   [ERoutes.ARTICLE_DETAILS]: {
     path: routePaths.article_details + ':id',
     element: <ArticleDetailsPageLazy />,
+    authOnly: true
+  },
+  [ERoutes.ARTICLE_CREATE]: {
+    path: routePaths.article_create,
+    element: <ArticleEditPageLazy />,
+    authOnly: true
+  },
+  [ERoutes.ARTICLE_EDIT]: {
+    path: routePaths.article_edit,
+    element: <ArticleEditPageLazy />,
     authOnly: true
   },
   // last

@@ -61,8 +61,6 @@ export const ArticleDetails: FC<IArticleDetailsProps> = memo((props) => {
   let content;
 
   if (isLoading) {
-    console.log('load');
-
     content = (
       <>
         <Skeleton height={200} width={200} borderRad='50%' className={s.avatar} />

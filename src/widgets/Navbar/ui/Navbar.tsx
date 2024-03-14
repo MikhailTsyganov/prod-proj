@@ -7,6 +7,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getUserAuthData, userActions } from 'entities/User';
 
 import s from './Navbar.module.scss';
+import { ETextVariant, Text } from 'shared/ui/Text/Text';
+import { AppLink, EAppLinkVariants } from 'shared/ui/AppLink/AppLink';
+import { routePaths } from 'shared/config/routeConfig/routeConfig';
 
 interface INavbarProps {
   className?: string
@@ -35,6 +38,17 @@ export const Navbar: FC<INavbarProps> = memo((props) => {
 
   if (isUserAuth) {
     return <header className={classNames(s.navbar, {}, [className])}>
+      <Text
+        className={s.appName}
+        title={t('My app')}
+        variant={ETextVariant.INVERTED}
+      />
+      <AppLink
+        to={routePaths.article_create}
+        variant={EAppLinkVariants.SECONDARY}
+      >
+        {t('Создать статью')}
+      </AppLink>
       <Button
         variant={EButtonVariants.TRANSPARENT_INVERTED}
         className={s.links}

@@ -22,6 +22,7 @@ import { getArticleDetailsRecommendations } from '../../model/slice/AricleDetail
 import { getArticleDetailsRecommendationsIsLoading } from '../../model/selectors/recommendations/recommendations';
 import { fetchArticleRecommendations } from '../../model/services/fetchArticleRecommendations/fetchArticleRecommendations';
 import { articleDetailsPageReducer } from 'pages/ArticleDetailsPage/model/slice';
+import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader';
 
 interface IArticleDetailsPageProps {
   className?: string
@@ -36,7 +37,7 @@ const ArticleDetailsPage: FC<IArticleDetailsPageProps> = (props) => {
 
   const { className } = props;
   const dispatch = useAppDispatch()
-  const navigate = useNavigate()
+
   const { id } = useParams()
   const { t } = useTranslation('articles')
 
@@ -58,12 +59,7 @@ const ArticleDetailsPage: FC<IArticleDetailsPageProps> = (props) => {
     dispatch(addCommentForArticle(text))
   }, [dispatch])
 
-  const onBackToList = useCallback(
-    () => {
-      navigate(routePaths.articles)
-    },
-    [navigate],
-  )
+
 
   useInitialEffect(() => {
     dispatch(fetchCommentsByArticleId(id))
@@ -72,9 +68,7 @@ const ArticleDetailsPage: FC<IArticleDetailsPageProps> = (props) => {
 
   return (
     <Page className={classNames(s.ArticleDetailsPage, {}, [className])}>
-      <Button variant={EButtonVariants.OUTLINED} onClick={onBackToList}>
-        {t('Назад к списку')}
-      </Button>
+      <ArticleDetailsPageHeader />
       <ArticleDetails id={id} />
       {recommendations.length > 0 && (
         <Text

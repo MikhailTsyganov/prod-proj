@@ -7,6 +7,7 @@
     "Комментарии": "Comments",
     "Читать далее...": "Read more...",
     "Назад к списку": "Back to list",
+    "Редактировать": "Edit",
     "Сортировать по": "Sort by",
     "Поиск...": "Search...",
     "asc": "asc",
@@ -19,5 +20,7 @@
     "Экономика": "ECONOMICS",
     "Наука": "SCIENCE",
     "Все статьи": "ALL",
-    "Рекомендуем": "Recommend"
+    "Рекомендуем": "Recommend",
+    "Редактирование статьи с ID = ": "Edit article with ID = ",
+    "Создание новой статьи": "Create new article"
 }
