@@ -1,4 +1,3 @@
 import { lazy } from 'react';
 
-export const AddNewCommentLazy = lazy(
-    () => import('./AddNewComment'));
+export const AddNewCommentLazy = lazy(() => import('./AddNewComment'));

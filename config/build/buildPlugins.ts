@@ -3,6 +3,7 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
+import CopyPlugin from "copy-webpack-plugin";
 
 import { type IBuildOptions } from './types/config';
 
@@ -29,6 +30,14 @@ export function buildPlugins({ paths, isDev, apiUrl, project }: IBuildOptions): 
 
     plugins.push(new BundleAnalyzerPlugin({ openAnalyzer: false }))
     plugins.push(new ReactRefreshWebpackPlugin())
+  }
+
+  if (!isDev) {
+    plugins.push(new CopyPlugin({
+      patterns: [
+        { from: paths.locales, to: paths.buildLocales },
+      ],
+    }),)
   }
 
   return plugins;
