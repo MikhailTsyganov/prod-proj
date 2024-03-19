@@ -6,6 +6,8 @@ import TileIcon from 'shared/assets/icons/tile.svg'
 import ListIcon from 'shared/assets/icons/list.svg'
 import { Button, EButtonVariants } from "shared/ui/Button/Button";
 import { Icon } from "shared/ui/Icon/Icon";
+import { useAppDispatch } from "shared/hooks/useAppDispatch/useAppDIspatch";
+import { articlePageActions } from "pages/ArticlesPage/model/slices/articlePageSlice";
 
 const viewTypes = [
 	{

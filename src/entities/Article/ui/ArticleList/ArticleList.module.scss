@@ -1,17 +1,43 @@
-.ArticleList {}
+.ArticleList.TILE {
+    &>div {
+        padding: 20px 20px 20px 45px;
+    }
+}
 
 .ArticleListSkeletons {
     margin-top: 20px;
 }
 
 .TILE {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
-    gap: 15px;
+    .virtuoso-grid-list {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+        gap: 15px;
+    }
+
 }
 
 .LIST {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
+    [data-test-id="virtuoso-item-list"] {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    [data-viewport-type="element"] {
+        padding: 20px 20px 20px 45px;
+    }
+
+}
+
+.header {
+    margin-bottom: 16px;
+}
+
+.listComponents {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    gap: 15px;
+
+
 }

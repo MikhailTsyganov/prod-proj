@@ -14,17 +14,6 @@ export const initArticlesPage = createAsyncThunk<
     const isInited = getArticlesPageInited(getState())
 
     if (!isInited) {
-        searchParams.forEach((value, key) => {
-
-
-            switch (key) {
-                case 'page':
-                    dispatch(articlePageActions.setPage(Number(value)))
-                    break;
-            }
-
-        });
-
         dispatch(articlePageActions.initState())
         dispatch(fetchArticlesList({}))
     }

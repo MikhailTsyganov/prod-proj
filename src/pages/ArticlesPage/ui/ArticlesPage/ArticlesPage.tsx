@@ -45,18 +45,21 @@ const ArticlesPage: FC<IArticlesPageProps> = (props) => {
     dispatch(initArticlesPage(searchParams))
   })
 
+  console.log(articles);
 
 
   return (
-    <Page className={classNames('s.ArticlesPage', {}, [className])} onScrollEnd={onLoadNextPage}>
-      <ArticlesSort />
+    // <Page className={classNames('s.ArticlesPage', {}, [className])} onScrollEnd={onLoadNextPage}>
+    <div className={classNames(s.ArticlesPage, {}, [className])} >
       <ArticleList
         isLoading={isLoading}
         articles={articles}
         view={view}
         className={s.list}
+        onScrollEnd={onLoadNextPage}
       />
-    </Page >
+    </div >
+    // </Page > 
   )
 };
 

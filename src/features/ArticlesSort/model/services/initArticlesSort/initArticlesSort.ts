@@ -36,6 +36,6 @@ export const initArticlesSort = createAsyncThunk<
         });
 
         dispatch(articlesSortActions.initState())
-        dispatch(fetchArticlesList({ replace: true }))
+        // dispatch(fetchArticlesList({ replace: true }))
     }
 });

@@ -15,6 +15,8 @@ interface IPageProps {
 	onScrollEnd?: () => void
 }
 
+export const PAGE_ID = 'PAGE_ID'
+
 export const Page: FC<IPageProps> = (props) => {
 	const { className, children, onScrollEnd } = props;
 	const dispatch = useAppDispatch()
@@ -40,7 +42,12 @@ export const Page: FC<IPageProps> = (props) => {
 	}, 500)
 
 	return (
-		<section className={classNames(s.Page, {}, [className])} ref={wrapperRef} onScroll={onScroll}>
+		<section
+			className={classNames(s.Page, {}, [className])}
+			ref={wrapperRef}
+			onScroll={onScroll}
+			id={PAGE_ID}
+		>
 			{children}
 			{onScrollEnd && <div ref={triggerRef} className={s.trigger}></div>}
 		</section >

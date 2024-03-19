@@ -68,6 +68,8 @@ export const ArticlesSort = memo((props: IArticlesSortProps) => {
 
 
 	useInitialEffect(() => {
+		console.log(1231312);
+
 		dispatch(initArticlesSort(searchParams))
 	})
 
@@ -76,7 +78,9 @@ export const ArticlesSort = memo((props: IArticlesSortProps) => {
 	return (
 		<div className={classNames(s.ArticlesSort, {}, [className])}>
 			<div className={s.sortWrapper}>
-				<ArticlesSortSelects fetchData={deboucedFetchData} />
+				<ArticlesSortSelects
+					fetchData={deboucedFetchData}
+				/>
 				<ArticlesViewSwitcher
 					view={view}
 					onChangeView={onChangeView}
@@ -89,7 +93,9 @@ export const ArticlesSort = memo((props: IArticlesSortProps) => {
 					value={search}
 				/>
 			</Card>
-			<ArticlesSortTabs fetchData={fetchData} />
+			<ArticlesSortTabs
+				fetchData={fetchData}
+			/>
 		</div >
 	)
 });
