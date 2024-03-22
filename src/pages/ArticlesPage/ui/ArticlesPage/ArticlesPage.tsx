@@ -47,7 +47,6 @@ const ArticlesPage: FC<IArticlesPageProps> = (props) => {
 
   console.log(articles);
 
-
   return (
     // <Page className={classNames('s.ArticlesPage', {}, [className])} onScrollEnd={onLoadNextPage}>
     <div className={classNames(s.ArticlesPage, {}, [className])} >
@@ -59,7 +58,7 @@ const ArticlesPage: FC<IArticlesPageProps> = (props) => {
         onScrollEnd={onLoadNextPage}
       />
     </div >
-    // </Page > 
+    // </Page >
   )
 };
 

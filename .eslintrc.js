@@ -16,7 +16,8 @@ module.exports = {
                 "node": true
             },
             "files": [
-                ".eslintrc.{js,cjs}"
+                ".eslintrc.{js,cjs}",
+                // "./*/**.stories.{ts, tsx}" // Не работает
             ],
             "parserOptions": {
                 "sourceType": "script"
@@ -29,7 +30,8 @@ module.exports = {
     },
     "plugins": [
         "react",
-        "react-hooks"
+        "react-hooks",
+        "mt-fsd-path-checker"
     ],
     "rules": {
         "react/jsx-indent": [2, 2],
@@ -59,10 +61,10 @@ module.exports = {
         "@typescript-eslint/no-dynamic-delete": "off",
         "@typescript-eslint/unbound-method": "off",
         "@typescript-eslint/no-misused-promises": "off",
-        "@typescript-eslint/no-invalid-void-type": "off"
-
-
-
+        "@typescript-eslint/no-invalid-void-type": "off",
+        "no-tabs": "off",
+        "no-mixed-spaces-and-tabs": "off",
+        "mt-fsd-path-checker/path-checker": "error"
     },
 
     "globals": {

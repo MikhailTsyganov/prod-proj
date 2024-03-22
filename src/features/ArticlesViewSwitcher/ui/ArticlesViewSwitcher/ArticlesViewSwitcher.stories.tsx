@@ -32,4 +32,3 @@ export const Dark: Story = {
   },
   decorators: [ThemeDecorator(ETheme.DARK)]
 };
-

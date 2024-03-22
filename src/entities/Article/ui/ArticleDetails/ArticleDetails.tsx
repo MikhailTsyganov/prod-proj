@@ -5,7 +5,7 @@ import s from './ArticleDetails.module.scss';
 import { useAsyncReducer } from 'shared/hooks/reducerManager/useAsyncReducer';
 import { articleDetailsReducer } from '../../model/slice/articleDetailsSlice';
 import { useAppDispatch } from 'shared/hooks/useAppDispatch/useAppDIspatch';
-import { fetchArticleById } from 'entities/Article/model/services/fetchArticleById/fetchArticleById';
+import { fetchArticleById } from '../../model/services/fetchArticleById/fetchArticleById';
 import { useSelector } from 'react-redux';
 import { getArticleDetailsData, getArticleDetailsError, getArticleDetailsIsLoading } from '../../model/selectors/articleDetails';
 import { ETextAlign, Text } from 'shared/ui/Text/Text';

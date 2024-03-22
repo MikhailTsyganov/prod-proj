@@ -3,10 +3,10 @@ import { useCallback, type FC } from 'react';
 import { classNames } from 'shared/lib/helpers/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { ArticleDetails, ArticleList, EArticleView } from 'entities/Article';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { ETextSize, Text } from 'shared/ui/Text/Text';
 import { CommentList } from 'entities/Comment';
-import { TReducerList, useAsyncReducer } from 'shared/hooks/reducerManager/useAsyncReducer';
+import { type TReducerList, useAsyncReducer } from 'shared/hooks/reducerManager/useAsyncReducer';
 import { getArticleDetailsComment } from '../../model/slice/AricleDetailsCommentsSlice';
 import { useSelector } from 'react-redux';
 import { getArticleDetailsCommentsIsLoading } from '../../model/selectors/comments/comments';
@@ -15,13 +15,11 @@ import { useAppDispatch } from 'shared/hooks/useAppDispatch/useAppDIspatch';
 import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
 import { AddNewCommentLazy } from 'features/AddNewComment';
 import { addCommentForArticle } from '../../model/services/addCommentForArticle/addCommentForArticle';
-import { Button, EButtonVariants } from 'shared/ui/Button/Button';
-import { routePaths } from 'shared/config/routeConfig/routeConfig';
 import { Page } from 'widgets/Page/Page';
 import { getArticleDetailsRecommendations } from '../../model/slice/AricleDetailsRecommendationsSlice';
 import { getArticleDetailsRecommendationsIsLoading } from '../../model/selectors/recommendations/recommendations';
 import { fetchArticleRecommendations } from '../../model/services/fetchArticleRecommendations/fetchArticleRecommendations';
-import { articleDetailsPageReducer } from 'pages/ArticleDetailsPage/model/slice';
+import { articleDetailsPageReducer } from '../../model/slice';
 import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader';
 
 interface IArticleDetailsPageProps {
@@ -41,6 +39,20 @@ const ArticleDetailsPage: FC<IArticleDetailsPageProps> = (props) => {
   const { id } = useParams()
   const { t } = useTranslation('articles')
 
+  const comments = useSelector(getArticleDetailsComment.selectAll)
+  const recommendations = useSelector(getArticleDetailsRecommendations.selectAll)
+  const commentsIsLoading = useSelector(getArticleDetailsCommentsIsLoading)
+  const recommendationsIsLoading = useSelector(getArticleDetailsRecommendationsIsLoading)
+
+  const onSendComment = useCallback((text: string) => {
+    dispatch(addCommentForArticle(text))
+  }, [dispatch])
+
+  useInitialEffect(() => {
+    dispatch(fetchCommentsByArticleId(id))
+    dispatch(fetchArticleRecommendations())
+  })
+
   if (!id) {
     return (
       <div className={classNames(s.ArticleDetailsPage, {}, [className])}>
@@ -48,23 +60,6 @@ const ArticleDetailsPage: FC<IArticleDetailsPageProps> = (props) => {
       </div >
     )
   }
-
-  const comments = useSelector(getArticleDetailsComment.selectAll)
-  const recommendations = useSelector(getArticleDetailsRecommendations.selectAll)
-  const commentsIsLoading = useSelector(getArticleDetailsCommentsIsLoading)
-  const recommendationsIsLoading = useSelector(getArticleDetailsRecommendationsIsLoading)
-
-
-  const onSendComment = useCallback((text: string) => {
-    dispatch(addCommentForArticle(text))
-  }, [dispatch])
-
-
-
-  useInitialEffect(() => {
-    dispatch(fetchCommentsByArticleId(id))
-    dispatch(fetchArticleRecommendations())
-  })
 
   return (
     <Page className={classNames(s.ArticleDetailsPage, {}, [className])}>

@@ -3,9 +3,9 @@ import { type IThunkOptions } from 'app/providers/store';
 import { type IArticle } from '../../types/article';
 
 export const fetchArticleById = createAsyncThunk<
-  IArticle,
-  string,
-  IThunkOptions<string>
+IArticle,
+string,
+IThunkOptions<string>
 >('articleDetails/fetchArticleById', async (id, thunkAPI) => {
   const { extra, rejectWithValue } = thunkAPI;
 

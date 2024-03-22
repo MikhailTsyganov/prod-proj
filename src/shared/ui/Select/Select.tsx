@@ -11,7 +11,7 @@ export interface ISelectList<T extends string> {
 interface ISelectProps<T extends string> {
   className?: string
   title?: string
-  list?: ISelectList<T>[]
+  list?: Array<ISelectList<T>>
   value?: T
   onChange?: (value: T) => void
   readonly?: boolean

@@ -1,4 +1,4 @@
-import { IUser } from "entities/User"
+import { type IUser } from 'entities/User'
 
 export enum EArticleType {
   ALL = 'ALL',

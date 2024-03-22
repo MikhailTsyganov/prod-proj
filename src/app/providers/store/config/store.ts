@@ -8,7 +8,7 @@ import { scrollSaveReducer } from 'widgets/ScrollSave'
 
 export const createReduxStore = (
   initialState?: IStateSchema,
-  asyncReducers?: ReducersMapObject<IStateSchema>,
+  asyncReducers?: ReducersMapObject<IStateSchema>
 ) => {
   const staticReducers: ReducersMapObject<IStateSchema> = {
     ...asyncReducers,
@@ -20,7 +20,7 @@ export const createReduxStore = (
   const reducerManager = createReducerManager(staticReducers)
 
   const extraArg: IThunkExtraArg = {
-    api: $api,
+    api: $api
   };
 
   const store = configureStore({

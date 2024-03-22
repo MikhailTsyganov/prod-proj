@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
-import { ITabItem, Tabs } from './Tabs';
+import { type ITabItem, Tabs } from './Tabs';
 import { ThemeDecorator } from 'shared/config/storybookDecorators/ThemeDecorator';
 import { ETheme } from 'app/providers/theme';
 
@@ -42,4 +42,3 @@ export const Dark: Story = {
   },
   decorators: [ThemeDecorator(ETheme.DARK)]
 };
-

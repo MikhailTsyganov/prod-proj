@@ -10,12 +10,12 @@ import { type IArticleDetailsSchema } from 'entities/Article';
 import { type ICounterSchema } from 'entities/Counter';
 import { type IProfileSchema } from 'entities/Profile';
 import { type IUserSchema } from 'entities/User';
-import { IAddNewCommentSchema } from 'features/AddNewComment/model/types/addNewComment';
-import { IArticlesSortSchema } from 'features/ArticlesSort';
+import { type IAddNewCommentSchema } from 'features/AddNewComment/model/types/addNewComment';
+import { type IArticlesSortSchema } from 'features/ArticlesSort';
 import { type ILoginSchema } from 'features/AuthByUsername';
-import { IArticleDetailsPageSchema } from 'pages/ArticleDetailsPage';
-import { IArticlePageSchema } from 'pages/ArticlesPage';
-import { IScrollSaveSchema } from 'widgets/ScrollSave';
+import { type IArticleDetailsPageSchema } from 'pages/ArticleDetailsPage';
+import { type IArticlePageSchema } from 'pages/ArticlesPage';
+import { type IScrollSaveSchema } from 'widgets/ScrollSave';
 
 export interface IStateSchema {
   counter: ICounterSchema

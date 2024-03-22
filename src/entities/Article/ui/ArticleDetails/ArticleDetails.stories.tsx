@@ -4,7 +4,7 @@ import { ArticleDetails } from './ArticleDetails';
 import { ThemeDecorator } from 'shared/config/storybookDecorators/ThemeDecorator';
 import { ETheme } from 'app/providers/theme';
 import { StoreDecorator } from 'shared/config/storybookDecorators/StoreDecorator';
-import { EArticleBlockType, EArticleType, type IArticle } from 'entities/Article/model/types/article';
+import { EArticleBlockType, EArticleType, type IArticle } from '../../model/types/article';
 
 const meta = {
   title: 'entities/ArticleDetails',

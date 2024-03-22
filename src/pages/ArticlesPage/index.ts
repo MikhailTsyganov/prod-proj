@@ -1,2 +1,2 @@
 export { ArticlesPageLazy } from './ui/ArticlesPage/ArticlesPage.lazy'
-export { IArticlePageSchema } from './model/types/articlePageSchema'
+export type { IArticlePageSchema } from './model/types/articlePageSchema'

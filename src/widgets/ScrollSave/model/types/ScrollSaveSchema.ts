@@ -1,3 +1,1 @@
-
-
-export type IScrollSaveSchema = Record<string, number>  // Record<pathname, scrollPos>
+export type IScrollSaveSchema = Record<string, number> // Record<pathname, scrollPos>

@@ -14,8 +14,8 @@ import {
 import s from './Input.module.scss';
 
 type HtmlInputProps = Omit<
-  InputHTMLAttributes<HTMLInputElement>,
-  'onChange' | 'value' | 'readOnly'
+InputHTMLAttributes<HTMLInputElement>,
+'onChange' | 'value' | 'readOnly'
 >;
 
 interface IInputProps extends HtmlInputProps {
