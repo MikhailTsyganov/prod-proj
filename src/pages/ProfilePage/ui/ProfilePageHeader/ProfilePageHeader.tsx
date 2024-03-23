@@ -1,7 +1,6 @@
 import { type FC, useCallback } from 'react';
 import { classNames } from 'shared/lib/helpers/classNames/classNames';
 
-import s from './ProfilePageHeader.module.scss';
 import { Button, EButtonVariants } from 'shared/ui/Button/Button';
 import { useTranslation } from 'react-i18next';
 import { Text } from 'shared/ui/Text/Text';
@@ -14,6 +13,7 @@ import {
 } from 'entities/Profile';
 import { useAppDispatch } from 'shared/hooks/useAppDispatch/useAppDIspatch';
 import { getUserAuthData } from 'entities/User';
+import { HStack } from 'shared/ui/Stack';
 
 interface IProfilePageHeaderProps {
   className?: string
@@ -44,41 +44,42 @@ export const ProfilePageHeader: FC<IProfilePageHeaderProps> = (props) => {
 
   if (String(profileId) !== String(userId)) {
     return (
-      <div className={classNames(s.ProfilePageHeader, {}, [className])}>
+      <div className={classNames('', {}, [className])}>
         <Text title={t('Профиль')} />
       </div>
     )
   }
 
   return (
-    <div className={classNames(s.ProfilePageHeader, {}, [className])}>
+    <HStack
+      className={classNames('', {}, [className])}
+      justify='between'
+      needMaxWidth
+    >
       <Text title={t('Профиль')} />
       {readonly
         ? (
           <Button
             variant={EButtonVariants.OUTLINED}
-            className={s.editBtn}
             onClick={onEdit}
           >
             {t('Редактировать')}
           </Button>)
         : (
-          <>
+          <HStack gap='8'>
             <Button
               variant={EButtonVariants.OUTLINED_RED}
-              className={s.editBtn}
               onClick={onCancelEdit}
             >
               {t('Отменить')}
             </Button>
             <Button
               variant={EButtonVariants.OUTLINED}
-              className={s.saveBtn}
               onClick={onSave}
             >
               {t('Сохранить')}
             </Button>
-          </>)}
-    </div>
+          </HStack>)}
+    </HStack>
   );
 };

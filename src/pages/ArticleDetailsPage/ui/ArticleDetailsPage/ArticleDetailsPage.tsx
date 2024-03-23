@@ -21,6 +21,7 @@ import { getArticleDetailsRecommendationsIsLoading } from '../../model/selectors
 import { fetchArticleRecommendations } from '../../model/services/fetchArticleRecommendations/fetchArticleRecommendations';
 import { articleDetailsPageReducer } from '../../model/slice';
 import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader';
+import { VStack } from 'shared/ui/Stack';
 
 interface IArticleDetailsPageProps {
   className?: string
@@ -84,13 +85,15 @@ const ArticleDetailsPage: FC<IArticleDetailsPageProps> = (props) => {
         title={t('Комментарии')}
         className={s.commentTitle}
       />
-      <AddNewCommentLazy
-        onSendComment={onSendComment}
+      <VStack needMaxWidth gap='16'>
+        <AddNewCommentLazy
+          onSendComment={onSendComment}
       />
-      <CommentList
-        isLoading={commentsIsLoading}
-        comments={comments}
-      />
+        <CommentList
+          isLoading={commentsIsLoading}
+          comments={comments}
+        />
+      </VStack>
     </Page >
   )
 };

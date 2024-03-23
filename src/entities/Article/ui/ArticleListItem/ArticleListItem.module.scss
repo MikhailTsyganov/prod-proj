@@ -1,106 +1,102 @@
-.TILE {
-    cursor: pointer;
-    transition: 0.3s;
+.LIST {
+  .header {
+    display: flex;
+    align-items: center;
+  }
 
-    &:hover {
-        opacity: 0.8;
-        transform: scale(1.01);
+  .username {
+    margin-left: 8px;
+  }
 
-        .date {
-            display: block;
-        }
-    }
+  .date {
+    margin-left: auto;
+  }
 
+  .title {
+    margin-top: 8px;
+  }
 
-    .imageWrapper {
-        width: 100%;
-        position: relative;
-    }
+  .img {
+    width: 100%;
+    max-height: 250px;
+    object-fit: cover;
+    margin: 16px 0;
+  }
 
-    .img {
-        width: 100%;
-        height: 200px;
-        object-fit: cover;
-    }
+  .footer {
+    display: flex;
+    align-items: center;
+    margin-top: 16px;
+  }
 
-    .date {
-        position: absolute;
-        display: none;
-        top: 0;
-        right: 0;
-    }
+  .views {
+    margin-left: auto;
+    margin-right: 8px;
+  }
 
-    .infoWrapper {
-        display: flex;
-        align-items: center;
-        margin-top: 8px;
-
-    }
-
-    .types p {
-        width: 115px;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-    }
-
-    .views {
-        margin-left: auto;
-        margin-right: 8px;
-    }
-
-    .title {
-        margin-top: 8px;
-
-        & p {
-            min-width: 200px;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-    }
+  .text {
+    max-height: 200px;
+    overflow: hidden;
+  }
 }
 
-.LIST {
-    .header {
-        display: flex;
-        align-items: center;
-    }
+.TILE {
+  cursor: pointer;
+  transition: 0.3s;
 
-    .username {
-        margin-left: 8px;
+  .imageWrapper {
+    width: 100%;
+    position: relative;
+  }
+
+  .img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+
+  .date {
+    position: absolute;
+    display: none;
+    top: 0;
+    right: 0;
+  }
+
+  .infoWrapper {
+    display: flex;
+    align-items: center;
+    margin-top: 8px;
+  }
+
+  .types p {
+    width: 115px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .views {
+    margin-left: auto;
+    margin-right: 8px;
+  }
+
+  .title {
+    margin-top: 8px;
+
+    & p {
+      min-width: 200px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
+  }
+
+  &:hover {
+    opacity: 0.8;
+    transform: scale(1.01);
 
     .date {
-        margin-left: auto;
+      display: block;
     }
-
-    .title {
-        margin-top: 8px;
-    }
-
-    .types {}
-
-    .img {
-        width: 100%;
-        max-height: 250px;
-        object-fit: cover;
-        margin: 16px 0;
-    }
-
-    .footer {
-        display: flex;
-        align-items: center;
-        margin-top: 16px;
-    }
-
-    .views {
-        margin-left: auto;
-        margin-right: 8px;
-    }
-
-    .text {
-        max-height: 200px;
-        overflow: hidden;
-    }
+  }
 }

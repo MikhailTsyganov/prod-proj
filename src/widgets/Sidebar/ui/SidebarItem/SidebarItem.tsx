@@ -26,11 +26,11 @@ export const SidebarItem: FC<ISidebarItemProps> = memo((props) => {
   }
 
   return (
-    <li className={classNames(s.SidebarItem)}>
+    <div className={classNames(s.SidebarItem)}>
       <AppLink to={path} className={s.listLink}>
         <Icon className={s.icon} />
         {isOpened && <span className={s.linkText}>{t(text)}</span>}
       </AppLink>
-    </li>
+    </div>
   );
 });

@@ -1,5 +1,4 @@
 import { useTranslation } from 'react-i18next';
-import s from './ArticleEditPage.module.scss';
 import { type FC, memo } from 'react';
 import { useParams } from 'react-router-dom';
 import { classNames } from 'shared/lib/helpers/classNames/classNames';
@@ -16,7 +15,7 @@ const ArticleEditPage: FC<IArticleEditPageProps> = memo((props) => {
   const isEdit = Boolean(id);
 
   return (
-    <Page className={classNames(s.ArticleEditPage, {}, [className])}>
+    <Page className={classNames('', {}, [className])}>
       {isEdit
 			  ? t('Редактирование статьи с ID = ') + id
 			  : t('Создание новой статьи')}

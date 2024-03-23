@@ -23,6 +23,7 @@ import { useTranslation } from 'react-i18next';
 import { useInitialEffect } from 'shared/hooks/useInitialEffect/useInitialEffect';
 import { useParams } from 'react-router-dom';
 import { Page } from 'widgets/Page/Page';
+import { VStack } from 'shared/ui/Stack';
 
 const ProfilePage: FC = memo(() => {
   const dispatch = useAppDispatch();
@@ -110,22 +111,24 @@ const ProfilePage: FC = memo(() => {
 
   return (
     <Page>
-      <ProfilePageHeader />
-      {validateErrors?.length && validateErrors.map(err => <Text text={validateErrorTranslates[err]} variant={ETextVariant.ERROR} key={err} />)}
-      <ProfileCard
-        data={currentDataForm}
-        isLoading={isLoading}
-        error={error}
-        readonly={readonly}
-        onChangeFirstname={onChangeFirstname}
-        onChangeLastname={onChangeLastname}
-        onChangeAge={onChangeAge}
-        onChangeCity={onChangeCity}
-        onChangeNickname={onChangeNickname}
-        onChangeAvatar={onChangeAvatar}
-        onChangeCurrency={onChangeCurrency}
-        onChangeCountry={onChangeCountry}
-      />
+      <VStack gap='16' needMaxWidth>
+        <ProfilePageHeader />
+        {validateErrors?.length && validateErrors.map(err => <Text text={validateErrorTranslates[err]} variant={ETextVariant.ERROR} key={err} />)}
+        <ProfileCard
+          data={currentDataForm}
+          isLoading={isLoading}
+          error={error}
+          readonly={readonly}
+          onChangeFirstname={onChangeFirstname}
+          onChangeLastname={onChangeLastname}
+          onChangeAge={onChangeAge}
+          onChangeCity={onChangeCity}
+          onChangeNickname={onChangeNickname}
+          onChangeAvatar={onChangeAvatar}
+          onChangeCurrency={onChangeCurrency}
+          onChangeCountry={onChangeCountry}
+        />
+      </VStack>
     </Page>
   );
 });

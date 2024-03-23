@@ -19,6 +19,7 @@ import { EArticleBlockType, type TArticleBlock } from '../../model/types/article
 import { ArticleBlockText } from '../ArticleBlockText/ArticleBlockText';
 import { ArticleBlockCode } from '../ArticleBlockCode/ArticleBlockCode';
 import { ArticleBlockImage } from '../ArticleBlockImage/ArticleBlockImage';
+import { HStack, VStack } from 'shared/ui/Stack';
 
 interface IArticleDetailsProps {
   className?: string
@@ -38,11 +39,11 @@ export const ArticleDetails: FC<IArticleDetailsProps> = memo((props) => {
     (block: TArticleBlock) => {
       switch (block.type) {
         case EArticleBlockType.TEXT:
-          return <ArticleBlockText block={block} key={block.id} className={s.block} />;
+          return <ArticleBlockText block={block} key={block.id} />;
         case EArticleBlockType.CODE:
-          return <ArticleBlockCode block={block} key={block.id} className={s.block} />;
+          return <ArticleBlockCode block={block} key={block.id} />;
         case EArticleBlockType.IMAGE:
-          return <ArticleBlockImage block={block} key={block.id} className={s.block} />;
+          return <ArticleBlockImage block={block} key={block.id} />;
         default:
           return null;
       }
@@ -62,48 +63,51 @@ export const ArticleDetails: FC<IArticleDetailsProps> = memo((props) => {
 
   if (isLoading) {
     content = (
-      <>
-        <Skeleton height={200} width={200} borderRad='50%' className={s.avatar} />
-        <Skeleton height={30} width={670} className={s.title} />
-        <Skeleton height={30} width={400} className={s.skeletonItems} />
-        <Skeleton height={231} width='100%' className={s.skeletonItems} />
-        <Skeleton height={231} width='100%' className={s.skeletonItems} />
-      </>
+      <VStack gap='16' needMaxWidth>
+        <HStack needMaxWidth justify='center'>
+          <Skeleton height={200} width={200} borderRad='50%' />
+        </HStack>
+        <Skeleton height={30} width={670} />
+        <Skeleton height={30} width={400} />
+        <Skeleton height={231} width='100%' />
+        <Skeleton height={231} width='100%' />
+      </VStack>
     )
   } else if (error) {
     content = <Text title={t('Произошла ошибка при загрузке статьи')} align={ETextAlign.CENTER} />
   } else {
     content = (
       <>
-        <div className={s.avatarWrapper}>
+        <HStack needMaxWidth justify='center'>
           <Avatar
             size={200}
             src={data?.img}
-            className={s.avatar}
           />
-        </div>
+        </HStack>
 
         <Text
-          className={s.title}
           title={data?.title}
           text={data?.subtitle}
         />
-        <div className={s.articleInfo}>
-          <Icon Svg={EyeIcon} className={s.icon} />
+        <HStack gap='8'>
+          <Icon Svg={EyeIcon}/>
           <Text text={String(data?.views)} />
-        </div>
-        <div className={s.articleInfo}>
-          <Icon Svg={CalendarIcon} className={s.icon} />
+        </HStack>
+        <HStack gap='8'>
+          <Icon Svg={CalendarIcon}/>
           <Text text={String(data?.createdAt)} />
-        </div>
+        </HStack>
         {data?.blocks?.map(renderBlocks)}
       </>
     )
   }
 
   return (
-    <div className={classNames(s.ArticleDetails, {}, [className])}>
+    <VStack
+      className={classNames(s.ArticleDetails, {}, [className])}
+      gap='8'
+    >
       {content}
-    </div >
+    </VStack >
   )
 });

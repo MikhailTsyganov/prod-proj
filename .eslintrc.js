@@ -51,7 +51,15 @@ module.exports = {
         "n/handle-callback-err": "off",
         "i18next/no-literal-string": [2, {
             markupOnly: true,
-            ignoreAttribute: ['to', 'data-testid', 'target']
+            ignoreAttribute: [
+                'to',
+                'data-testid',
+                'target',
+                'direction',
+                'align',
+                'justify',
+                'gap'
+            ]
         }],
         "@typescript-eslint/prefer-includes": "off",
         "react-hooks/rules-of-hooks": "error",
@@ -74,7 +82,10 @@ module.exports = {
     },
 
     "overrides": [{
-        files: ['**/src/**/*.test.{ts,tsx}'],
+        files: [
+            '**/src/**/*.test.{ts,tsx}',
+            '**/src/**/*.stories.{ts,tsx}'
+        ],
         rules: {
             "i18next/no-literal-string": 'off',
         }

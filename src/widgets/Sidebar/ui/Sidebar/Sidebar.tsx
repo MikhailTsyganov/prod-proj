@@ -8,6 +8,7 @@ import s from './Sidebar.module.scss';
 import { SidebarItem } from '../SidebarItem/SidebarItem';
 import { useSelector } from 'react-redux';
 import { getSidebarItems } from '../../model/selectors/getSidebarItems';
+import { VStack } from 'shared/ui/Stack/VStack/VStack';
 
 interface ISidebarProps {
   className?: string
@@ -37,7 +38,12 @@ export const Sidebar: FC<ISidebarProps> = memo((props) => {
       data-testid="sidebar"
       className={classNames(s.sidebar, { [s.opened]: isOpened }, [className])}
     >
-      <ul className={s.list}>{itemsList}</ul>
+      <VStack
+        className={s.list}
+        gap='8'
+      >
+        {itemsList}
+      </VStack>
 
       <Button
         size={EButtonSizes.L}

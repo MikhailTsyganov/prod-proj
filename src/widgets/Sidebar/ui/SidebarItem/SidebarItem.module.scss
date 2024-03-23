@@ -1,7 +1,3 @@
-.SidebarItem:not(:first-child) {
-  margin-top: 20px;
-}
-
 .listLink {
   display: flex !important;
   align-items: center !important;
@@ -13,6 +9,4 @@
 
 .linkText {
   margin-left: 10px;
-
-  // display: none;
 }

@@ -1,11 +1,10 @@
 import { type FC, memo } from 'react';
 import { classNames } from 'shared/lib/helpers/classNames/classNames';
-
-import s from './CommentList.module.scss';
 import { type IComment } from '../../model/types/comment';
 import { Text } from 'shared/ui/Text/Text';
 import { useTranslation } from 'react-i18next';
 import { CommentItem } from '../CommentItem/CommentItem';
+import { VStack } from 'shared/ui/Stack';
 
 interface ICommentListProps {
   className?: string
@@ -20,20 +19,30 @@ export const CommentList: FC<ICommentListProps> = memo((props) => {
 
   if (isLoading) {
     return (
-      <div className={classNames(s.CommentList, {}, [className])}>
-        <CommentItem className={s.commentItem} isLoading />
-        <CommentItem className={s.commentItem} isLoading />
-        <CommentItem className={s.commentItem} isLoading />
-      </div>
+      <VStack className={classNames('', {}, [className])} gap='16'>
+        <CommentItem isLoading />
+        <CommentItem isLoading />
+        <CommentItem isLoading />
+      </VStack>
     )
   }
 
   return (
-    <div className={classNames(s.CommentList, {}, [className])}>
+    <VStack
+      className={classNames('', {}, [className])}
+      gap='16'
+      needMaxWidth
+    >
       {comments?.length
-			  ? comments.map(comment => <CommentItem className={s.commentItem} comment={comment} key={comment.id} isLoading={isLoading} />)
+        ? comments.map(comment => (
+          <CommentItem
+            comment={comment}
+            key={comment.id}
+            isLoading={isLoading}
+          />
+        ))
 			  : <Text text={t('Комментарии отсутствуют')} />
 			}
-    </div >
+    </VStack >
   )
 });
