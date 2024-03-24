@@ -1,3 +1,4 @@
+import { type DetailedHTMLProps, type HTMLAttributes } from 'react';
 import s from './Flex.module.scss';
 import { type TMods, classNames } from 'shared/lib/helpers/classNames/classNames';
 
@@ -31,7 +32,7 @@ const gapClasses: Record<TFlexGap, string> = {
   32: s.gap32
 }
 
-export interface IFlexProps {
+export interface IFlexProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
   className?: string
   children: React.ReactNode
   justify?: TFlexJustify

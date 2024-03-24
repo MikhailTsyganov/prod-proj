@@ -37,26 +37,28 @@ export const Navbar: FC<INavbarProps> = memo((props) => {
   }
 
   if (isUserAuth) {
-    return <header className={classNames(s.navbar, {}, [className])}>
-      <Text
-        className={s.appName}
-        title={t('My app')}
-        variant={ETextVariant.INVERTED}
+    return (
+      <header className={classNames(s.navbar, {}, [className])}>
+        <Text
+          className={s.appName}
+          title={t('My app')}
+          variant={ETextVariant.INVERTED}
       />
-      <AppLink
-        to={routePaths.article_create}
-        variant={EAppLinkVariants.SECONDARY}
+        <AppLink
+          to={routePaths.article_create}
+          variant={EAppLinkVariants.SECONDARY}
       >
-        {t('Создать статью')}
-      </AppLink>
-      <Button
-        variant={EButtonVariants.TRANSPARENT_INVERTED}
-        className={s.links}
-        onClick={onLogout}
+          {t('Создать статью')}
+        </AppLink>
+        <Button
+          variant={EButtonVariants.TRANSPARENT_INVERTED}
+          className={s.links}
+          onClick={onLogout}
       >
-        {t('Выйти')}
-      </Button>
-    </header>
+          {t('Выйти')}
+        </Button>
+      </header>
+    )
   }
 
   return (

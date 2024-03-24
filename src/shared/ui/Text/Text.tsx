@@ -21,6 +21,14 @@ export enum ETextSize {
   L = 'size_l'
 }
 
+type THeaderTypes = 'h1' | 'h2' | 'h3'
+
+const mapSizeToHeaderTag: Record<ETextSize, THeaderTypes> = {
+  size_l: 'h1',
+  size_m: 'h2',
+  size_s: 'h3'
+}
+
 interface ITextProps {
   className?: string
   title?: string
@@ -41,9 +49,11 @@ export const Text: FC<ITextProps> = memo((props) => {
 
   } = props;
 
+  const TitleTag = mapSizeToHeaderTag[size]
+
   return (
     <div className={classNames(s.Text, {}, [className, s[variant], s[align], s[size]])}>
-      {title && <p className={s.title}>{title}</p>}
+      {title && <TitleTag className={s.title}>{title}</TitleTag>}
       {text && <p className={s.text}>{text}</p>}
     </div>
   )

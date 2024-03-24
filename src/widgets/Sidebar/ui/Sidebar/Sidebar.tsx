@@ -39,6 +39,7 @@ export const Sidebar: FC<ISidebarProps> = memo((props) => {
       className={classNames(s.sidebar, { [s.opened]: isOpened }, [className])}
     >
       <VStack
+        role='navigation'
         className={s.list}
         gap='8'
       >
