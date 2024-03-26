@@ -59,7 +59,8 @@ module.exports = {
                 'align',
                 'justify',
                 'gap',
-                'role'
+                'role',
+                'as'
             ]
         }],
         "@typescript-eslint/prefer-includes": "off",

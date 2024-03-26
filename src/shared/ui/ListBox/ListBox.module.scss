@@ -1,0 +1,22 @@
+.ListBox {
+    position: relative;
+}
+
+.button {}
+
+.list {
+    background: var(--listbox-bg);
+    position: absolute;
+    z-index: 999999999;
+    border-radius: 12px;
+    box-shadow: 4px 4px 8px var(--listbox-bg);
+}
+
+.listItem {
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.active {
+    background: var(--inverted-primary-color);
+}
