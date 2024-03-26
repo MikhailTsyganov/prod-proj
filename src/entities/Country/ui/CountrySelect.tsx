@@ -1,8 +1,8 @@
 import { type FC, memo, useCallback } from 'react';
 import { classNames } from 'shared/lib/helpers/classNames/classNames';
-import { Select } from 'shared/ui/Select/Select';
 import { ECountry } from '../model/types/country';
 import { useTranslation } from 'react-i18next';
+import { ListBox } from 'shared/ui/ListBox/ListBox';
 
 interface ICountrySelectProps {
   className?: string
@@ -12,11 +12,11 @@ interface ICountrySelectProps {
 }
 
 const list = [
-  { value: ECountry.Armenia, content: ECountry.Armenia },
-  { value: ECountry.Belarus, content: ECountry.Belarus },
-  { value: ECountry.Kazakhstan, content: ECountry.Kazakhstan },
-  { value: ECountry.Russia, content: ECountry.Russia },
-  { value: ECountry.Ukraine, content: ECountry.Ukraine }
+  { id: ECountry.Armenia, content: ECountry.Armenia },
+  { id: ECountry.Belarus, content: ECountry.Belarus },
+  { id: ECountry.Kazakhstan, content: ECountry.Kazakhstan },
+  { id: ECountry.Russia, content: ECountry.Russia },
+  { id: ECountry.Ukraine, content: ECountry.Ukraine }
 ];
 
 export const CountrySelect: FC<ICountrySelectProps> = memo((props) => {
@@ -32,13 +32,15 @@ export const CountrySelect: FC<ICountrySelectProps> = memo((props) => {
   );
 
   return (
-    <Select
+    <ListBox
       className={classNames('', {}, [className])}
-      title={t('Страна')}
-      list={list}
+      defaultValue={t('Страна')}
+      items={list}
       value={value}
       onChange={onChangeHandler}
-      readonly={readonly}
+      disabled={readonly}
+      dropdownDirection='top'
+      label={t('Страна')}
     />
   );
 });

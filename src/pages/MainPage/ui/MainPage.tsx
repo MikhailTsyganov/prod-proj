@@ -16,7 +16,18 @@ const MainPage = memo(() => {
       <div>dawdaeffdsf</div>
       <HStack>
         <div>fsep</div>
-        <ListBox/>
+        <ListBox
+          items={[
+            { id: '1', content: '1daawdaw' },
+            { id: '2', content: '2dsdgfdgdf', disabled: true },
+            { id: '3', content: '3dsfsfdgfdgdfg' }
+          ]}
+          value={undefined}
+          defaultValue='Выберите значение'
+          onChange={(value: string) => {
+
+          }}
+        />
       </HStack>
       <div>dawdaeffdsf</div>
       <div>dawdaeffdsf</div>

@@ -10,6 +10,10 @@
     z-index: 999999999;
     border-radius: 12px;
     box-shadow: 4px 4px 8px var(--listbox-bg);
+
+    &.top {
+        bottom: 110%;
+    }
 }
 
 .listItem {
@@ -19,4 +23,12 @@
 
 .active {
     background: var(--inverted-primary-color);
+}
+
+.disabled {
+    opacity: 0.7;
+}
+
+.label {
+    margin-right: 4px;
 }
