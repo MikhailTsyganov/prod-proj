@@ -63,8 +63,6 @@ export const ArticlesSort = memo((props: IArticlesSortProps) => {
   )
 
   useInitialEffect(() => {
-    console.log(1231312);
-
     dispatch(initArticlesSort(searchParams))
   })
 

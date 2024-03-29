@@ -10,7 +10,6 @@ function AppRouter() {
       const element = (
         <>{route.element}</>
       )
-      console.log(route);
 
       return (
         <Route
