@@ -60,7 +60,9 @@ module.exports = {
                 'justify',
                 'gap',
                 'role',
-                'as'
+                'as',
+                'defaultValue',
+                'dropdownDirection',
             ]
         }],
         "@typescript-eslint/prefer-includes": "off",

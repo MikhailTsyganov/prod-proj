@@ -136,13 +136,13 @@ export const ProfileCard: FC<IProfileCardProps> = (props) => {
         value={data?.currency}
         onChange={onChangeCurrency}
         readonly={readonly}
-        className={s.input}
+        className={classNames(s.input, {}, [s.differntPosition])}
         />
       <CountrySelect
         value={data?.country}
         onChange={onChangeCountry}
         readonly={readonly}
-        className={s.input}
+        className={classNames(s.input, {}, [s.differntPosition])}
         />
     </VStack>
   );

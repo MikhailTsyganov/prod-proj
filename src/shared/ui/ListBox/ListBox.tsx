@@ -1,56 +1,72 @@
 import s from './ListBox.module.scss';
-import { memo, Fragment, useState, type ReactNode } from 'react';
-import { Listbox, type _internal_ComponentListbox } from '@headlessui/react'
+import { memo, Fragment, type ReactNode } from 'react';
+import { Listbox } from '@headlessui/react'
 import { classNames } from 'shared/lib/helpers/classNames/classNames';
 import { Button } from '../Button/Button';
 
-const people = [
-  { id: 1, name: 'Durward Reynolds', unavailable: false },
-  { id: 2, name: 'Kenton Towne', unavailable: false },
-  { id: 3, name: 'Therese Wunsch', unavailable: false },
-  { id: 4, name: 'Benedict Kessler', unavailable: true },
-  { id: 5, name: 'Katelyn Rohan', unavailable: false }
-]
+type TDropdownDirection = 'top' | 'bottom'
 
 export interface IListBoxItem {
   id: string
   content: ReactNode
+  disabled?: boolean
 }
 
 interface IListBoxProps {
   items: IListBoxItem[]
   className?: string
+  value?: string
+  defaultValue?: string
+  onChange?: (value: string) => void
+  disabled?: boolean
+  dropdownDirection?: TDropdownDirection
+  label?: string
 }
 
 export const ListBox = memo((props: IListBoxProps) => {
-  const { items, className } = props
+  const {
+    items,
+    className,
+    value,
+    defaultValue,
+    onChange,
+    disabled,
+    dropdownDirection = 'bottom',
+    label
+  } = props
 
-  const [selectedPerson, setSelectedPerson] = useState(people[0])
+  const onChangeListBox = (val: string) => {
+    onChange?.(val)
+  }
+
+  const optionClasses = [s[dropdownDirection]]
 
   return (
     <Listbox
-      value={selectedPerson}
-      onChange={setSelectedPerson}
+      disabled={disabled}
+      value={value}
+      onChange={onChangeListBox}
       as={'div'}
       className={classNames(s.Listbox, {}, [className])}
 	>
       <Listbox.Button as={'div'}>
-        <Button>
-          {selectedPerson.name}
+        {label && <span className={s.label}>{label + '>'}</span>}
+        <Button disabled={disabled}>
+          {value ?? defaultValue}
         </Button>
       </Listbox.Button>
-      <Listbox.Options className={s.list}>
-        {people.map((person) => (
+      <Listbox.Options className={classNames(s.list, {}, optionClasses)}>
+        {items.map((item) => (
           <Listbox.Option
-            key={person.id}
-            value={person}
-            disabled={person.unavailable}
+            key={item.id}
+            value={item.id}
+            disabled={item.disabled}
             as={Fragment}
           >
-            {({ active, selected }) => (
-              <li className={classNames(s.listItem, { [s.active]: active }, [])}>
+            {({ active, selected, disabled }) => (
+              <li className={classNames(s.listItem, { [s.active]: active, [s.disabled]: disabled }, [])}>
                 {selected && '!!!'}
-                {person.name}
+                {item.content}
               </li>
             )}
           </Listbox.Option>
