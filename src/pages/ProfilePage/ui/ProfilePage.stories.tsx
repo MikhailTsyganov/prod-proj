@@ -13,7 +13,6 @@ const meta = {
   parameters: {
     layout: 'centered'
   },
-  tags: ['autodocs'],
   argTypes: {
     // backgroundColor: { control: 'color' },
   }

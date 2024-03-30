@@ -12,11 +12,34 @@
 }
 
 .list {
+    display: flex;
+    flex-direction: column;
     background: var(--card-bg);
     position: absolute;
     z-index: 999999999;
     border-radius: 8px;
     border: 1px solid var(--primary-color);
+
+    
+    &.directionTopLeft {
+        bottom: 100%;
+        right: 100%;
+    }
+
+    &.directionTopRight {
+        bottom: 100%;
+        left: 100%;
+    }
+
+    &.directionBottomLeft {
+        top: 100%;
+        right: 100%;
+    }
+
+    &.directionBottomRight {
+        top: 100%;
+        left: 100%;
+    }
 }
 
 .listItem {

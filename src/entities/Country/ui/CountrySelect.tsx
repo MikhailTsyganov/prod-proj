@@ -39,7 +39,7 @@ export const CountrySelect: FC<ICountrySelectProps> = memo((props) => {
       value={value}
       onChange={onChangeHandler}
       disabled={readonly}
-      dropdownDirection='top'
+      dropdownDirection='top right'
       label={t('Страна')}
     />
   );

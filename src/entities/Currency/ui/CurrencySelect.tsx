@@ -37,7 +37,7 @@ export const CurrencySelect: FC<ICurrencySelectProps> = memo((props) => {
       value={value}
       onChange={onChangeHandler}
       disabled={readonly}
-      dropdownDirection='top'
+      dropdownDirection='top right'
       label={t('Валюта')}
     />
   );

@@ -10,6 +10,8 @@ import s from './Navbar.module.scss';
 import { ETextVariant, Text } from 'shared/ui/Text/Text';
 import { AppLink, EAppLinkVariants } from 'shared/ui/AppLink/AppLink';
 import { routePaths } from 'shared/config/routeConfig/routeConfig';
+import { Dropdown } from 'shared/ui/Dropdown/Dropdown';
+import { Avatar } from 'shared/ui/Avatar/Avatar';
 
 interface INavbarProps {
   className?: string
@@ -22,7 +24,7 @@ export const Navbar: FC<INavbarProps> = memo((props) => {
 
   const [isOpened, setIsOpened] = useState(false);
 
-  const isUserAuth = useSelector(getUserAuthData);
+  const authData = useSelector(getUserAuthData);
 
   const onShowModal = useCallback(() => {
     setIsOpened(true)
@@ -36,7 +38,7 @@ export const Navbar: FC<INavbarProps> = memo((props) => {
     dispatch(userActions.logout())
   }
 
-  if (isUserAuth) {
+  if (authData) {
     return (
       <header className={classNames(s.navbar, {}, [className])}>
         <Text
@@ -50,13 +52,15 @@ export const Navbar: FC<INavbarProps> = memo((props) => {
       >
           {t('Создать статью')}
         </AppLink>
-        <Button
-          variant={EButtonVariants.TRANSPARENT_INVERTED}
-          className={s.links}
-          onClick={onLogout}
-      >
-          {t('Выйти')}
-        </Button>
+        <Dropdown
+          className={s.dropdown}
+          items={[
+            { id: '1', content: t('Профиль'), href: routePaths.profile + authData.id },
+            { id: '2', content: t('Выйти'), onClick: onLogout }
+          ]}
+          trigger={<Avatar size={30} src={authData.avatar} />}
+          dropdownDirection='bottom left'
+        />
       </header>
     )
   }

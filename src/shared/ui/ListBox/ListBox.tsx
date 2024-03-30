@@ -3,8 +3,7 @@ import { memo, Fragment, type ReactNode } from 'react';
 import { Listbox } from '@headlessui/react'
 import { classNames } from 'shared/lib/helpers/classNames/classNames';
 import { Button } from '../Button/Button';
-
-type TDropdownDirection = 'top' | 'bottom'
+import { type TDropdownDirection } from 'shared/types/ui';
 
 export interface IListBoxItem {
   id: string
@@ -23,6 +22,13 @@ interface IListBoxProps {
   label?: string
 }
 
+const mapDirectionClass: Record<TDropdownDirection, string> = {
+  'top left': s.directionTopLeft,
+  'top right': s.directionTopRight,
+  'bottom left': s.directionBottomLeft,
+  'bottom right': s.directionBottomRight
+}
+
 export const ListBox = memo((props: IListBoxProps) => {
   const {
     items,
@@ -31,7 +37,7 @@ export const ListBox = memo((props: IListBoxProps) => {
     defaultValue,
     onChange,
     disabled,
-    dropdownDirection = 'bottom',
+    dropdownDirection = 'bottom right',
     label
   } = props
 
@@ -39,7 +45,7 @@ export const ListBox = memo((props: IListBoxProps) => {
     onChange?.(val)
   }
 
-  const optionClasses = [s[dropdownDirection]]
+  const optionClasses = [mapDirectionClass[dropdownDirection]]
 
   return (
     <Listbox
@@ -47,7 +53,7 @@ export const ListBox = memo((props: IListBoxProps) => {
       value={value}
       onChange={onChangeListBox}
       as={'div'}
-      className={classNames(s.Listbox, {}, [className])}
+      className={classNames(s.ListBox, {}, [className])}
 	>
       <Listbox.Button as={'div'}>
         {label && <span className={s.label}>{label + '>'}</span>}

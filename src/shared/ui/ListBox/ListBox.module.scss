@@ -1,5 +1,6 @@
 .ListBox {
     position: relative;
+    width: fit-content;
 }
 
 .button {}
@@ -11,8 +12,24 @@
     border-radius: 12px;
     box-shadow: 4px 4px 8px var(--listbox-bg);
 
-    &.top {
-        bottom: 110%;
+    &.directionTopLeft {
+        bottom: 100%;
+        right: 100%;
+    }
+
+    &.directionTopRight {
+        bottom: 100%;
+        left: 100%;
+    }
+
+    &.directionBottomLeft {
+        top: 100%;
+        right: 100%;
+    }
+
+    &.directionBottomRight {
+        top: 100%;
+        left: 100%;
     }
 }
 
@@ -32,3 +49,4 @@
 .label {
     margin-right: 4px;
 }
+
