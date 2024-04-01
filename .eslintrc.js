@@ -16,8 +16,7 @@ module.exports = {
                 "node": true
             },
             "files": [
-                ".eslintrc.{js,cjs}",
-                // "./*/**.stories.{ts, tsx}" // Не работает
+                ".eslintrc.{js,cjs}"
             ],
             "parserOptions": {
                 "sourceType": "script"

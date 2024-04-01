@@ -48,5 +48,6 @@
     "./src/**/*.tsx",
     "./config/**/*.tsx",
     "./config/**/*.ts",
+    // "./scripts/**/*.js",
   ],
 }
