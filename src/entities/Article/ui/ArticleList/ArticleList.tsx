@@ -18,6 +18,7 @@ interface IArticleListProps {
   view?: EArticleView
   target?: React.HTMLAttributeAnchorTarget
   onScrollEnd?: () => void
+  hideHeaderAndFooter?: boolean
 }
 
 const getSkeletons = (view: EArticleView) => {
@@ -31,10 +32,11 @@ export const ArticleList: FC<IArticleListProps> = memo((props) => {
   const {
     className,
     articles,
-    view = EArticleView.LIST,
+    view = EArticleView.TILE,
     isLoading,
     target,
-    onScrollEnd
+    onScrollEnd,
+    hideHeaderAndFooter = false
   } = props;
   const { t } = useTranslation('articles')
 
@@ -86,8 +88,8 @@ export const ArticleList: FC<IArticleListProps> = memo((props) => {
     className={classNames(s.ArticleList, {}, [className, s[view]])}
     data={articles}
     components={{
-							  Header,
-							  Footer
+							  Header: !hideHeaderAndFooter ? Header : () => <></>,
+							  Footer: !hideHeaderAndFooter ? Footer : () => <></>
     }}
     itemContent={renderItem}
     endReached={onScrollEnd}
@@ -104,7 +106,7 @@ export const ArticleList: FC<IArticleListProps> = memo((props) => {
     endReached={onScrollEnd}
     components={{
 							  ScrollSeekPlaceholder: ItemContainerComp,
-							  Header
+							  Header: !hideHeaderAndFooter ? Header : () => <></>
 
     }}
     itemContent={renderItem}

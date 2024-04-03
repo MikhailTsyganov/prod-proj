@@ -15,12 +15,14 @@ import { type IArticlesSortSchema } from 'features/ArticlesSort';
 import { type ILoginSchema } from 'features/AuthByUsername';
 import { type IArticleDetailsPageSchema } from 'pages/ArticleDetailsPage';
 import { type IArticlePageSchema } from 'pages/ArticlesPage';
+import { type rtkApi } from 'shared/api/rtkApi';
 import { type IScrollSaveSchema } from 'widgets/ScrollSave';
 
 export interface IStateSchema {
   counter: ICounterSchema
   user: IUserSchema
   scroll: IScrollSaveSchema
+  [rtkApi.reducerPath]: ReturnType<rtkApi.reducer>
 
   // Асинхронные редюсеры
   loginForm?: ILoginSchema

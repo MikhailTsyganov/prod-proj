@@ -22,6 +22,7 @@ import { fetchArticleRecommendations } from '../../model/services/fetchArticleRe
 import { articleDetailsPageReducer } from '../../model/slice';
 import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader';
 import { VStack } from 'shared/ui/Stack';
+import { ArticleRecommendationsList } from 'widgets/ArticleDetails/ArticleRecommendationsList';
 
 interface IArticleDetailsPageProps {
   className?: string
@@ -41,9 +42,7 @@ const ArticleDetailsPage: FC<IArticleDetailsPageProps> = (props) => {
   const { t } = useTranslation('articles')
 
   const comments = useSelector(getArticleDetailsComment.selectAll)
-  const recommendations = useSelector(getArticleDetailsRecommendations.selectAll)
   const commentsIsLoading = useSelector(getArticleDetailsCommentsIsLoading)
-  const recommendationsIsLoading = useSelector(getArticleDetailsRecommendationsIsLoading)
 
   const onSendComment = useCallback((text: string) => {
     dispatch(addCommentForArticle(text))
@@ -51,7 +50,6 @@ const ArticleDetailsPage: FC<IArticleDetailsPageProps> = (props) => {
 
   useInitialEffect(() => {
     dispatch(fetchCommentsByArticleId(id))
-    dispatch(fetchArticleRecommendations())
   })
 
   if (!id) {
@@ -66,20 +64,9 @@ const ArticleDetailsPage: FC<IArticleDetailsPageProps> = (props) => {
     <Page className={classNames(s.ArticleDetailsPage, {}, [className])}>
       <ArticleDetailsPageHeader />
       <ArticleDetails id={id} />
-      {recommendations.length > 0 && (
-        <Text
-          size={ETextSize.L}
-          title={t('Рекомендуем')}
-          className={s.recommendationsTitle}
-        />
-      )}
-      <ArticleList
-        view={EArticleView.TILE}
-        articles={recommendations}
-        isLoading={recommendationsIsLoading}
-        className={s.recommendations}
-        target='_blank'
-      />
+
+      <ArticleRecommendationsList className={s.recommendations}/>
+
       <Text
         size={ETextSize.L}
         title={t('Комментарии')}
