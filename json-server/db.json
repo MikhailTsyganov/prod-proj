@@ -607,6 +607,24 @@
       "userId": "1",
       "articleId": "7",
       "id": "Bf8pn3I"
+    },
+    {
+      "userId": "1",
+      "articleId": "4",
+      "text": "123",
+      "id": "R-WreTo"
+    },
+    {
+      "userId": "1",
+      "articleId": "4",
+      "text": "321",
+      "id": "GGdeMrq"
+    },
+    {
+      "userId": "1",
+      "articleId": "4",
+      "text": "34534",
+      "id": "pBS9NM3"
     }
   ],
   "users": [

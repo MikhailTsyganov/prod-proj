@@ -1,6 +1,6 @@
 import { type IStateSchema } from 'app/providers/store';
 
-export const getArticlesPageIsLoading = (state: IStateSchema) => state.articlesPage?.isLoading || false
+export const getArticlesPageIsLoading = (state: IStateSchema) => state.articlesPage?.isLoading
 export const getArticlesPageError = (state: IStateSchema) => state.articlesPage?.error
 export const getArticlesPagePage = (state: IStateSchema) => state.articlesPage?.page || 1
 export const getArticlesPageLimit = (state: IStateSchema) => state.articlesPage?.limit || 9

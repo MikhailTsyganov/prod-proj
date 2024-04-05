@@ -1,6 +1,6 @@
 import { type IStateSchema } from 'app/providers/store';
 import { getProfileValidateErrors } from './getProfileValidateErrors';
-import { type EValidateProfileError } from '../../types/profile';
+import { type EValidateProfileError } from 'entities/Profile';
 
 describe('EValidateProfileError', () => {
   const validateErrors = ['INCORRECT_USER_DATA', 'INCORRECT_AGE', 'INCORRECT_COUNTRY'] as EValidateProfileError[]

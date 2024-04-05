@@ -22,7 +22,7 @@ export interface IStateSchema {
   counter: ICounterSchema
   user: IUserSchema
   scroll: IScrollSaveSchema
-  [rtkApi.reducerPath]: ReturnType<rtkApi.reducer>
+  [rtkApi.reducerPath]: ReturnType<typeof rtkApi.reducer>
 
   // Асинхронные редюсеры
   loginForm?: ILoginSchema

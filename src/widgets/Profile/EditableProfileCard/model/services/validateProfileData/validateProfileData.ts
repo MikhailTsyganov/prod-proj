@@ -1,4 +1,4 @@
-import { EValidateProfileError, type IProfile } from '../../types/profile';
+import { EValidateProfileError, type IProfile } from 'entities/Profile';
 
 export const validateProfileData = (profile?: IProfile) => {
   if (!profile) {

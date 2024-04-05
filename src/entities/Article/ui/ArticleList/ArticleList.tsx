@@ -31,7 +31,7 @@ const getSkeletons = (view: EArticleView) => {
 export const ArticleList: FC<IArticleListProps> = memo((props) => {
   const {
     className,
-    articles,
+    articles = [],
     view = EArticleView.TILE,
     isLoading,
     target,
@@ -39,6 +39,8 @@ export const ArticleList: FC<IArticleListProps> = memo((props) => {
     hideHeaderAndFooter = false
   } = props;
   const { t } = useTranslation('articles')
+
+  console.log(123);
 
   const ItemContainerComp: FC<{ height: number, width: number, index: number }> = (
     { height, width, index }

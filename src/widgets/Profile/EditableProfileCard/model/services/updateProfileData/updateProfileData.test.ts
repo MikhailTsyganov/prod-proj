@@ -3,7 +3,7 @@ import { TestAsyncThunk } from 'shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
 import { ECurrency } from 'entities/Currency';
 import { ECountry } from 'entities/Country';
 import avatar from 'shared/assets/tests/storybook.jpeg'
-import { EValidateProfileError } from '../../types/profile';
+import { EValidateProfileError } from 'entities/Profile';
 
 describe('updateProfileData', () => {
   const data = {

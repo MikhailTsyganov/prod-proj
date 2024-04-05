@@ -23,6 +23,7 @@ import { articleDetailsPageReducer } from '../../model/slice';
 import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader';
 import { VStack } from 'shared/ui/Stack';
 import { ArticleRecommendationsList } from 'widgets/ArticleDetails/ArticleRecommendationsList';
+import { ArticleComments } from 'widgets/ArticleDetails/ArticleComments/ui/ArticleComments';
 
 interface IArticleDetailsPageProps {
   className?: string
@@ -41,13 +42,6 @@ const ArticleDetailsPage: FC<IArticleDetailsPageProps> = (props) => {
   const { id } = useParams()
   const { t } = useTranslation('articles')
 
-  const comments = useSelector(getArticleDetailsComment.selectAll)
-  const commentsIsLoading = useSelector(getArticleDetailsCommentsIsLoading)
-
-  const onSendComment = useCallback((text: string) => {
-    dispatch(addCommentForArticle(text))
-  }, [dispatch])
-
   useInitialEffect(() => {
     dispatch(fetchCommentsByArticleId(id))
   })
@@ -65,22 +59,13 @@ const ArticleDetailsPage: FC<IArticleDetailsPageProps> = (props) => {
       <ArticleDetailsPageHeader />
       <ArticleDetails id={id} />
 
-      <ArticleRecommendationsList className={s.recommendations}/>
+      <ArticleRecommendationsList
+        className={s.recommendations}
+      />
 
-      <Text
-        size={ETextSize.L}
-        title={t('Комментарии')}
-        className={s.commentTitle}
+      <ArticleComments
+        articleId={id}
       />
-      <VStack needMaxWidth gap='16'>
-        <AddNewCommentLazy
-          onSendComment={onSendComment}
-      />
-        <CommentList
-          isLoading={commentsIsLoading}
-          comments={comments}
-        />
-      </VStack>
     </Page >
   )
 };

@@ -1,7 +1,7 @@
 import { type Story } from '@storybook/react';
 import { type IStateSchema, StoreProvider } from 'app/providers/store';
 import { articleDetailsReducer } from 'entities/Article/model/slice/articleDetailsSlice';
-import { profileReducer } from 'entities/Profile';
+import { profileReducer } from 'widgets/Profile/EditableProfileCard';
 import { addNewCommentReducer } from 'features/AddNewComment/model/slices/addNewCommentSlice';
 import { loginReducer } from 'features/AuthByUsername';
 import { articleDetailsPageReducer } from 'pages/ArticleDetailsPage';
