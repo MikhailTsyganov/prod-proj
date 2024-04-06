@@ -42,7 +42,7 @@ export const ArticlesInfinityList = memo((props: IArticlesInfinityListProps) => 
   })
 
   if (error) {
-    return <Text>{t('Ошибка при загрузке статей')}</Text>
+    return <Text title={t('Ошибка при загрузке статей')}/>
   }
 
   return (

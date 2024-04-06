@@ -11,9 +11,12 @@ import { getProfileValidateErrors } from '../model/selectors/getProfileValidateE
 import { getProfileIsLoading } from '../model/selectors/getProfileIsLoading/getProfileIsLoading';
 import { getProfileError } from '../model/selectors/getProfileError/getProfileError';
 import { getProfileReadonly } from '../model/selectors/getProfileReadonly/getProfileReadonly';
-import { profileActions } from '../model/slice/profileSlice';
+import { profileActions, profileReducer } from '../model/slice/profileSlice';
+import { useAsyncReducer } from 'shared/hooks/reducerManager/useAsyncReducer';
 
 export const EditableProfileCard = memo(() => {
+  useAsyncReducer({ profile: profileReducer });
+
   const dispatch = useAppDispatch();
   const { t } = useTranslation('profile')
 

@@ -1,10 +1,9 @@
 import {
-  fetchProfileData, profileReducer
+  fetchProfileData
   , EditableProfileCard
 } from 'widgets/Profile/EditableProfileCard';
 
 import { type FC, memo } from 'react';
-import { useAsyncReducer } from 'shared/hooks/reducerManager/useAsyncReducer';
 import { useAppDispatch } from 'shared/hooks/useAppDispatch/useAppDIspatch';
 import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
 import { useInitialEffect } from 'shared/hooks/useInitialEffect/useInitialEffect';
@@ -14,8 +13,6 @@ import { VStack } from 'shared/ui/Stack';
 
 const ProfilePage: FC = memo(() => {
   const dispatch = useAppDispatch();
-
-  useAsyncReducer({ profile: profileReducer });
 
   const { id } = useParams<{ id: string }>()
 
