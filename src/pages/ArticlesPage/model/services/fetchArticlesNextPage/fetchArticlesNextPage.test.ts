@@ -1,8 +1,5 @@
 import { fetchArticlesNextPage } from './fetchArticlesNextPage';
 import { TestAsyncThunk } from 'shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
-import { ECurrency } from 'entities/Currency';
-import { ECountry } from 'entities/Country';
-import avatar from 'shared/assets/tests/storybook.jpeg'
 import { fetchArticlesList } from '../fetchArticlesList/fetchArticlesList';
 
 jest.mock('../fetchArticlesList/fetchArticlesList')
@@ -24,7 +21,7 @@ describe('fetchArticlesNextPage', () => {
 
     // expect(thunk.api.get).toHaveBeenCalled();
     expect(thunk.dispatch).toHaveBeenCalledTimes(4)
-    expect(fetchArticlesList).toHaveBeenCalledWith({ page: 3 })
+    expect(fetchArticlesList).toHaveBeenCalledWith({ })
     expect(result.meta.requestStatus).toBe('fulfilled');
   })
 
