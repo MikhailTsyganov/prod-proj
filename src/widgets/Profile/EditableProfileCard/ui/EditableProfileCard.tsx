@@ -94,7 +94,7 @@ export const EditableProfileCard = memo(() => {
 
   return (
     <>
-      {validateErrors?.length && validateErrors.map(err => <Text text={validateErrorTranslates[err]} variant={ETextVariant.ERROR} key={err} />)}
+      {validateErrors?.length && validateErrors.map(err => <Text data-testid='EditableProfileCard.error' text={validateErrorTranslates[err]} variant={ETextVariant.ERROR} key={err} />)}
 
       <ProfileCard
         data={currentDataForm}

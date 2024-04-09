@@ -15,12 +15,15 @@ export const ArticleRecommendationsList: FC<IArticleRecommendationsListProps> = 
   const { className } = props;
   const { t } = useTranslation('articles')
 
-  const { data: recommendations, isLoading } = useGetRecommendationsListQuery(3)
-  console.log(recommendations);
+  const { data: recommendations, isLoading, error } = useGetRecommendationsListQuery(3)
+
+  if (!recommendations || isLoading || error) {
+    return null
+  }
 
   return (
     <>
-      {recommendations?.length > 0 && (
+      {recommendations.length > 0 && (
       <VStack className={classNames('', {}, [className])} gap='8'>
         <Text
           size={ETextSize.L}
@@ -28,11 +31,11 @@ export const ArticleRecommendationsList: FC<IArticleRecommendationsListProps> = 
 				/>
 
         <ArticleList
-          className={s.recommendations}
           articles={recommendations}
           target='_blank'
           hideHeaderAndFooter
           isLoading={isLoading}
+          virtualized={false}
 				/>
       </VStack>
       )}

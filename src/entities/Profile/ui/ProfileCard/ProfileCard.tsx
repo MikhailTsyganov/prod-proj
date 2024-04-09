@@ -91,6 +91,7 @@ export const ProfileCard: FC<IProfileCardProps> = (props) => {
       </HStack>
       )}
       <Input
+        data-testid='ProfileCard.firstname'
         value={data?.firstname}
         placeholder={t('Имя')}
         className={s.input}
@@ -98,6 +99,7 @@ export const ProfileCard: FC<IProfileCardProps> = (props) => {
         onChange={onChangeFirstname}
         />
       <Input
+        data-testid='ProfileCard.lastname'
         value={data?.lastname}
         placeholder={t('Фамилия')}
         className={s.input}

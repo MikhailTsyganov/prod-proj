@@ -10,6 +10,7 @@ import { ETextSize, Text } from 'shared/ui/Text/Text';
 import { Virtuoso, VirtuosoGrid } from 'react-virtuoso';
 import { ArticlesSort } from 'features/ArticlesSort';
 import { ARTICLE_ITEM_SELECTED_ID } from 'shared/const/localstorage';
+import { HStack } from 'shared/ui/Stack';
 
 interface IArticleListProps {
   className?: string
@@ -19,6 +20,7 @@ interface IArticleListProps {
   target?: React.HTMLAttributeAnchorTarget
   onScrollEnd?: () => void
   hideHeaderAndFooter?: boolean
+  virtualized?: boolean
 }
 
 const getSkeletons = (view: EArticleView) => {
@@ -36,7 +38,8 @@ export const ArticleList: FC<IArticleListProps> = memo((props) => {
     isLoading,
     target,
     onScrollEnd,
-    hideHeaderAndFooter = false
+    hideHeaderAndFooter = false,
+    virtualized = true
   } = props;
   const { t } = useTranslation('articles')
 
@@ -75,6 +78,21 @@ export const ArticleList: FC<IArticleListProps> = memo((props) => {
       <div className={classNames(s.ArticleList, {}, [className, s[view], s.ArticleListSkeletons])}>
         <Text size={ETextSize.L} title={t('Статьи не найдены')} />
       </div >
+    )
+  }
+
+  if (!virtualized) {
+    return (
+      <HStack gap='16'>
+        {
+        articles.map((article, idx) => (
+          <ArticleListItem
+            article={article}
+            view={view}
+            key={idx}/>
+        ))
+        }
+      </HStack>
     )
   }
 

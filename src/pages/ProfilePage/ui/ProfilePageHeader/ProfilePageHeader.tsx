@@ -60,6 +60,7 @@ export const ProfilePageHeader: FC<IProfilePageHeaderProps> = (props) => {
       {readonly
         ? (
           <Button
+            data-testid='ProfilePageHeader.editBtn'
             variant={EButtonVariants.OUTLINED}
             onClick={onEdit}
           >
@@ -68,12 +69,14 @@ export const ProfilePageHeader: FC<IProfilePageHeaderProps> = (props) => {
         : (
           <HStack gap='8'>
             <Button
+              data-testid='ProfilePageHeader.cancelBtn'
               variant={EButtonVariants.OUTLINED_RED}
               onClick={onCancelEdit}
             >
               {t('Отменить')}
             </Button>
             <Button
+              data-testid='ProfilePageHeader.saveBtn'
               variant={EButtonVariants.OUTLINED}
               onClick={onSave}
             >

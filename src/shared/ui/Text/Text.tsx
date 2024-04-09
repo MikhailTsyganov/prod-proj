@@ -36,6 +36,7 @@ interface ITextProps {
   variant?: ETextVariant
   align?: ETextAlign
   size?: ETextSize
+  'data-testid'?: string
 }
 
 export const Text: FC<ITextProps> = memo((props) => {
@@ -45,16 +46,16 @@ export const Text: FC<ITextProps> = memo((props) => {
     text,
     variant = ETextVariant.PRIMARY,
     align = ETextAlign.LEFT,
-    size = ETextSize.M
-
+    size = ETextSize.M,
+    'data-testid': dataTestId = 'Text'
   } = props;
 
   const TitleTag = mapSizeToHeaderTag[size]
 
   return (
     <div className={classNames(s.Text, {}, [className, s[variant], s[align], s[size]])}>
-      {title && <TitleTag className={s.title}>{title}</TitleTag>}
-      {text && <p className={s.text}>{text}</p>}
+      {title && <TitleTag data-testid={`${dataTestId}.title`} className={s.title}>{title}</TitleTag>}
+      {text && <p data-testid={`${dataTestId}.text`} className={s.text}>{text}</p>}
     </div>
   )
 });
