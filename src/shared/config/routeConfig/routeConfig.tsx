@@ -6,9 +6,13 @@ import { ProfilePageLazy } from 'pages/ProfilePage';
 import { ArticlesPageLazy } from 'pages/ArticlesPage';
 import { ArticleDetailsPageLazy } from 'pages/ArticleDetailsPage';
 import { ArticleEditPageLazy } from 'pages/ArticleEditPage/ui/ArticleEditPage/ArticleEditPage.lazy';
+import { AdminPanelPageLazy } from 'pages/AdminPanelPage';
+import { EUserRoles } from 'entities/User';
+import { ForbiddenPage } from 'pages/ForbiddenPage';
 
 export type TAppRoutesProps = RouteProps & {
   authOnly?: boolean
+  roles?: EUserRoles[]
 };
 
 export enum ERoutes {
@@ -19,6 +23,8 @@ export enum ERoutes {
   ARTICLE_DETAILS = 'article_details',
   ARTICLE_CREATE = 'article_create',
   ARTICLE_EDIT = 'article_edit',
+  ADMIN_PANEL = 'admin_panel',
+  FORBIDDEN = 'forbidden',
   // last
   NOT_FOUND = 'not_found',
 }
@@ -31,6 +37,8 @@ export const routePaths: Record<ERoutes, string> = {
   [ERoutes.ARTICLE_DETAILS]: '/articles/', // +:id
   [ERoutes.ARTICLE_CREATE]: '/articles/new',
   [ERoutes.ARTICLE_EDIT]: '/articles/:id/edit',
+  [ERoutes.ADMIN_PANEL]: '/admin',
+  [ERoutes.FORBIDDEN]: '/forbidden',
   // last
   [ERoutes.NOT_FOUND]: '*'
 };
@@ -68,6 +76,16 @@ export const routeConfig: Record<ERoutes, TAppRoutesProps> = {
     path: routePaths.article_edit,
     element: <ArticleEditPageLazy />,
     authOnly: true
+  },
+  [ERoutes.ADMIN_PANEL]: {
+    path: routePaths.admin_panel,
+    element: <AdminPanelPageLazy />,
+    authOnly: true,
+    roles: [EUserRoles.ADMIN, EUserRoles.MANAGER]
+  },
+  [ERoutes.FORBIDDEN]: {
+    path: routePaths.forbidden,
+    element: <ForbiddenPage />
   },
   // last
   [ERoutes.NOT_FOUND]: {
