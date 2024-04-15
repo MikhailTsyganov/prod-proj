@@ -3,6 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { ArticlesSortTabs } from './ArticlesSortTabs';
 import { ThemeDecorator } from 'shared/config/storybookDecorators/ThemeDecorator';
 import { ETheme } from 'app/providers/theme';
+import { StoreDecorator } from 'shared/config/storybookDecorators/StoreDecorator';
 
 const meta = {
   title: 'features/ArticlesSort/ArticlesSortTabs',
@@ -12,7 +13,8 @@ const meta = {
   },
   argTypes: {
     // backgroundColor: { control: 'color' },
-  }
+  },
+  decorators: [StoreDecorator({})]
 } satisfies Meta<typeof ArticlesSortTabs>;
 
 export default meta;

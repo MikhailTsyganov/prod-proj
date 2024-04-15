@@ -4,12 +4,16 @@ import { type IArticle } from '../../types/article';
 
 export const fetchArticleById = createAsyncThunk<
 IArticle,
-string,
+string | undefined,
 IThunkOptions<string>
 >('articleDetails/fetchArticleById', async (id, thunkAPI) => {
   const { extra, rejectWithValue } = thunkAPI;
 
   try {
+    if (!id) {
+      throw new Error('ID is empty (fetchArticleById)')
+    }
+
     const response = await extra.api.get<IArticle>(`articles/${id}`, {
       params: {
         _expand: 'user'

@@ -67,7 +67,7 @@ export const ProfilePageHeader: FC<IProfilePageHeaderProps> = (props) => {
             {t('Редактировать')}
           </Button>)
         : (
-          <HStack gap='8'>
+          <HStack gap='8' justify='end'>
             <Button
               data-testid='ProfilePageHeader.cancelBtn'
               variant={EButtonVariants.OUTLINED_RED}

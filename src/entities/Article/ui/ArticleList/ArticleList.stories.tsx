@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 
 import { ArticleList } from './ArticleList';
 import { EArticleBlockType, EArticleType, EArticleView, type IArticle } from '../../model/types/article';
+import { StoreDecorator } from 'shared/config/storybookDecorators/StoreDecorator';
 
 const meta = {
   title: 'entities/Article/ArticleList',
@@ -11,7 +12,8 @@ const meta = {
   },
   argTypes: {
     // backgroundColor: { control: 'color' },
-  }
+  },
+  decorators: [StoreDecorator({})]
 } satisfies Meta<typeof ArticleList>;
 
 export default meta;
@@ -66,18 +68,18 @@ const article: IArticle =
 const articles = new Array(9).fill(article)
 
 export const Tile: Story = {
-  args: { articles, view: EArticleView.TILE }
+  args: { articles, view: EArticleView.TILE, virtualized: false }
 };
 
 export const List: Story = {
-  args: { articles, view: EArticleView.LIST }
+  args: { articles, view: EArticleView.LIST, virtualized: false }
   // decorators: [ThemeDecorator(ETheme.DARK)]
 };
 
 export const TileIsLoading: Story = {
-  args: { articles, view: EArticleView.TILE, isLoading: true }
+  args: { articles, view: EArticleView.TILE, isLoading: true, virtualized: false }
 };
 
 export const ListIsLoading: Story = {
-  args: { articles, view: EArticleView.LIST, isLoading: true }
+  args: { articles, view: EArticleView.LIST, isLoading: true, virtualized: false }
 };

@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import AboutPage from './AboutPage';
 import { ETheme } from 'app/providers/theme';
 import { ThemeDecorator } from 'shared/config/storybookDecorators/ThemeDecorator';
+import { StoreDecorator } from 'shared/config/storybookDecorators/StoreDecorator';
 
 const meta = {
   title: 'pages/AboutPage',
@@ -11,7 +12,8 @@ const meta = {
   },
   argTypes: {
     // backgroundColor: { control: 'color' },
-  }
+  },
+  decorators: [StoreDecorator({})]
 } satisfies Meta<typeof AboutPage>;
 
 export default meta;

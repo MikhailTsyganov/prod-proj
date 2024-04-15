@@ -12,7 +12,7 @@ import { getUserAuthData } from 'entities/User';
 
 interface IArticleCommentsProps {
   className?: string
-  articleId: string
+  articleId?: string
 }
 
 export const ArticleComments = memo((props: IArticleCommentsProps) => {

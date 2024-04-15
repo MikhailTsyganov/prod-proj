@@ -3,16 +3,18 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { ArticleDetailsPageHeader } from './ArticleDetailsPageHeader';
 import { ThemeDecorator } from 'shared/config/storybookDecorators/ThemeDecorator';
 import { ETheme } from 'app/providers/theme';
+import { StoreDecorator } from 'shared/config/storybookDecorators/StoreDecorator';
 
 const meta = {
-  title: 'FOLDER_NAME/ArticleDetailsPageHeader',
+  title: 'pages/ArticleDetailsPageHeader',
   component: ArticleDetailsPageHeader,
   parameters: {
     layout: 'centered'
   },
   argTypes: {
     // backgroundColor: { control: 'color' },
-  }
+  },
+  decorators: [StoreDecorator({})]
 } satisfies Meta<typeof ArticleDetailsPageHeader>;
 
 export default meta;

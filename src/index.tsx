@@ -1,4 +1,4 @@
-import { render } from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import App from './app/App';
 import { BrowserRouter } from 'react-router-dom';
 import ThemeProvider from 'app/providers/theme/ui/ThemeProvider';
@@ -8,7 +8,10 @@ import { StoreProvider } from 'app/providers/store';
 
 import 'app/styles/index.scss';
 
-render(
+const container = document.getElementById('root') as Element;
+
+const root = createRoot(container);
+root.render(
   <BrowserRouter>
     <StoreProvider>
       <ErrorBoundary>
@@ -17,6 +20,5 @@ render(
         </ThemeProvider>
       </ErrorBoundary>
     </StoreProvider>
-  </BrowserRouter>,
-  document.getElementById('root')
+  </BrowserRouter>
 );

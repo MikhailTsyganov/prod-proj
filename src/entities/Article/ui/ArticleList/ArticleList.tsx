@@ -43,8 +43,6 @@ export const ArticleList: FC<IArticleListProps> = memo((props) => {
   } = props;
   const { t } = useTranslation('articles')
 
-  console.log(123);
-
   const ItemContainerComp: FC<{ height: number, width: number, index: number }> = (
     { height, width, index }
 

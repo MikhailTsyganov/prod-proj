@@ -23,7 +23,7 @@ import { HStack, VStack } from 'shared/ui/Stack';
 
 interface IArticleDetailsProps {
   className?: string
-  id: string
+  id?: string
 }
 
 export const ArticleDetails: FC<IArticleDetailsProps> = memo((props) => {

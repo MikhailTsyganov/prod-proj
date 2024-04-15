@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { NotFoundPage } from './NotFoundPage';
 import { ETheme } from 'app/providers/theme';
 import { ThemeDecorator } from 'shared/config/storybookDecorators/ThemeDecorator';
+import { StoreDecorator } from 'shared/config/storybookDecorators/StoreDecorator';
 
 const meta = {
   title: 'pages/NotFoundPage',
@@ -11,7 +12,8 @@ const meta = {
   },
   argTypes: {
     // backgroundColor: { control: 'color' },
-  }
+  },
+  decorators: [StoreDecorator({})]
 } satisfies Meta<typeof NotFoundPage>;
 
 export default meta;
