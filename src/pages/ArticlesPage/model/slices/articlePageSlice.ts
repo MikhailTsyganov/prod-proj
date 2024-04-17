@@ -1,9 +1,8 @@
 import { type PayloadAction, createSlice, createEntityAdapter } from '@reduxjs/toolkit';
 import { type IArticlePageSchema } from '../types/articlePageSchema';
-import { EArticleView, type IArticle } from 'entities/Article';
+import { type IArticle } from 'entities/Article';
 import { type IStateSchema } from 'app/providers/store';
 import { fetchArticlesList } from '../services/fetchArticlesList/fetchArticlesList';
-import { ARTICLES_VIEW_LOCALSTORAGE_KEY } from 'shared/const/localstorage';
 
 const articlePageAdapter = createEntityAdapter({
   selectId: (article: IArticle) => article.id

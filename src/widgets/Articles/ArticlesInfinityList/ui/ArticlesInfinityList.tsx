@@ -1,4 +1,3 @@
-import { ArticleList } from 'entities/Article';
 import s from './ArticlesInfinityList.module.scss';
 import { memo, useCallback } from 'react';
 import { classNames } from 'shared/lib/helpers/classNames/classNames';
@@ -13,6 +12,7 @@ import { useInitialEffect } from 'shared/hooks/useInitialEffect/useInitialEffect
 import { initArticlesPage } from 'pages/ArticlesPage/model/services/initArticlesPage/initArticlesPage';
 import { Text } from 'shared/ui/Text/Text';
 import { useTranslation } from 'react-i18next';
+import { ArticleList } from '../../ArticleList/ui/ArticleList';
 
 interface IArticlesInfinityListProps {
   className?: string
