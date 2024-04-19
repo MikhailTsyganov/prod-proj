@@ -8,9 +8,9 @@ import { ArticleListItemSkeleton } from 'entities/Article/ui/ArticleListItem/Art
 import { useTranslation } from 'react-i18next';
 import { ETextSize, Text } from 'shared/ui/Text/Text';
 import { Virtuoso, VirtuosoGrid } from 'react-virtuoso';
-import { ArticlesSort } from 'features/ArticlesSort';
 import { ARTICLE_ITEM_SELECTED_ID } from 'shared/const/localstorage';
 import { HStack } from 'shared/ui/Stack';
+import { ArticlesSort } from 'features/ArticlesSort/ui/ArticlesSort/ArticlesSort';
 
 interface IArticleListProps {
   className?: string
