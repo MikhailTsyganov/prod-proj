@@ -5,6 +5,7 @@ import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
 import CopyPlugin from 'copy-webpack-plugin';
 import CircularDependencyPlugin from 'circular-dependency-plugin'
+import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin'
 
 import { type IBuildOptions } from './types/config';
 
@@ -20,7 +21,7 @@ export function buildPlugins({ paths, isDev, apiUrl, project }: IBuildOptions): 
       exclude: /node_modules/,
       failOnError: true
     }),
-    // с помощью definePlugin можно прокидывать глобальные переменные
+    // с помощью definePlugin можно прокидывать глобальные переменsные
     new webpack.DefinePlugin({
       __IS_DEV__: JSON.stringify(isDev),
       __API__: JSON.stringify(apiUrl),
@@ -35,6 +36,7 @@ export function buildPlugins({ paths, isDev, apiUrl, project }: IBuildOptions): 
 
     plugins.push(new BundleAnalyzerPlugin({ openAnalyzer: false }))
     plugins.push(new ReactRefreshWebpackPlugin())
+    plugins.push(new ForkTsCheckerWebpackPlugin())
   }
 
   if (!isDev) {

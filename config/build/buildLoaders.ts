@@ -22,14 +22,17 @@ export function buildLoaders({ isDev }: IBuildOptions): webpack.RuleSetRule[] {
 
   const sassLoader = buildCssLoader(isDev);
 
-  const babelLoader = buildBabelLoader(isDev)
+  const codeBabelLoader = buildBabelLoader({ isDev, isTsx: false })
+  const tsCodeBabelLoader = buildBabelLoader({ isDev, isTsx: true })
 
   // если не используется typescriptLoader - нужно добавить babelLoader
-  const typescriptLoader = {
-    test: /\.tsx?$/,
-    use: 'ts-loader',
-    exclude: /node_modules/
-  };
+  // const typescriptLoader = {
+  //   test: /\.tsx?$/,
+  //   use: 'ts-loader',
+  //   exclude: /node_modules/
+  // };
 
-  return [fileLoader, svgLoader, babelLoader, typescriptLoader, sassLoader];
+  return [fileLoader, svgLoader, codeBabelLoader, tsCodeBabelLoader,
+    //  typescriptLoader,
+    sassLoader];
 }
