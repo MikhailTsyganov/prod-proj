@@ -33,7 +33,7 @@ const config: StorybookConfig = {
       }
     }
   }),
-  // TODO: Что здесь происходит?
+
   webpackFinal: async (config) => {
     if (config.resolve) {
       config.resolve.modules = [

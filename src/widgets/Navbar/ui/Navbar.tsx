@@ -10,8 +10,11 @@ import s from './Navbar.module.scss';
 import { ETextVariant, Text } from 'shared/ui/Text/Text';
 import { AppLink, EAppLinkVariants } from 'shared/ui/AppLink/AppLink';
 import { routePaths } from 'shared/config/routeConfig/routeConfig';
-import { Dropdown } from 'shared/ui/Dropdown/Dropdown';
+import { Dropdown } from 'shared/ui/Popups/ui/Dropdown/Dropdown';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
+import { HStack } from 'shared/ui/Stack';
+import { OpenNotificationListButton } from 'features/OpenNotificationListButton';
+import { AvatarDropdown } from 'features/AvatarDropdown';
 
 interface INavbarProps {
   className?: string
@@ -20,15 +23,10 @@ interface INavbarProps {
 export const Navbar: FC<INavbarProps> = memo((props) => {
   const { className } = props;
   const { t } = useTranslation()
-  const dispatch = useDispatch()
 
   const [isOpened, setIsOpened] = useState(false);
 
   const authData = useSelector(getUserAuthData);
-  const isAdmin = useSelector(isUserAdmin)
-  const isManager = useSelector(isUserManager)
-
-  const isAdminPanelAvailable = isAdmin || isManager;
 
   const onShowModal = useCallback(() => {
     setIsOpened(true)
@@ -37,10 +35,6 @@ export const Navbar: FC<INavbarProps> = memo((props) => {
   const onCloseModal = useCallback(() => {
     setIsOpened(false)
   }, [])
-
-  const onLogout = () => {
-    dispatch(userActions.logout())
-  }
 
   if (authData) {
     return (
@@ -56,18 +50,12 @@ export const Navbar: FC<INavbarProps> = memo((props) => {
       >
           {t('Создать статью')}
         </AppLink>
-        <Dropdown
-          className={s.dropdown}
-          items={[
-            ...(isAdminPanelAvailable
-              ? [{ id: '1', content: t('Админка'), href: routePaths.admin_panel }]
-              : []),
-            { id: '2', content: t('Профиль'), href: routePaths.profile + authData.id },
-            { id: '3', content: t('Выйти'), onClick: onLogout }
-          ]}
-          trigger={<Avatar size={30} src={authData.avatar} />}
-          dropdownDirection='bottom left'
-        />
+
+        <HStack gap='16' className={s.actions}>
+          <OpenNotificationListButton/>
+          <AvatarDropdown />
+
+        </HStack>
       </header>
     )
   }

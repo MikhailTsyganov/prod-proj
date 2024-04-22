@@ -3,10 +3,10 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { Dropdown } from './Dropdown';
 import { ThemeDecorator } from 'shared/config/storybookDecorators/ThemeDecorator';
 import { ETheme } from 'app/providers/theme';
-import { Button } from '../Button/Button';
+import { Button } from '../../../Button/Button';
 
 const meta = {
-  title: 'shared/Dropdown',
+  title: 'shared/popups/Dropdown',
   component: Dropdown,
   parameters: {
     layout: 'centered'

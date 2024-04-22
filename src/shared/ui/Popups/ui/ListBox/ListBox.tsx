@@ -1,9 +1,11 @@
 import s from './ListBox.module.scss';
+import baseCls from '../../styles/popup.module.scss'
 import { memo, Fragment, type ReactNode } from 'react';
 import { Listbox } from '@headlessui/react'
 import { classNames } from 'shared/lib/helpers/classNames/classNames';
-import { Button } from '../Button/Button';
-import { type TDropdownDirection } from 'shared/types/ui';
+import { Button } from '../../../Button/Button';
+import { type TPopupDirection } from 'shared/types/ui';
+import { mapDirectionClass } from '../../styles/consts';
 
 export interface IListBoxItem {
   id: string
@@ -18,15 +20,8 @@ interface IListBoxProps {
   defaultValue?: string
   onChange?: (value: string) => void
   disabled?: boolean
-  dropdownDirection?: TDropdownDirection
+  dropdownDirection?: TPopupDirection
   label?: string
-}
-
-const mapDirectionClass: Record<TDropdownDirection, string> = {
-  'top left': s.directionTopLeft,
-  'top right': s.directionTopRight,
-  'bottom left': s.directionBottomLeft,
-  'bottom right': s.directionBottomRight
 }
 
 export const ListBox = memo((props: IListBoxProps) => {
@@ -53,9 +48,9 @@ export const ListBox = memo((props: IListBoxProps) => {
       value={value}
       onChange={onChangeListBox}
       as={'div'}
-      className={classNames(s.ListBox, {}, [className])}
+      className={classNames(s.ListBox, {}, [baseCls.popup, className])}
 	>
-      <Listbox.Button as={'div'}>
+      <Listbox.Button as={'div'} className={baseCls.trigger}>
         {label && <span className={s.label}>{label + '>'}</span>}
         <Button disabled={disabled}>
           {value ?? defaultValue}
@@ -70,7 +65,7 @@ export const ListBox = memo((props: IListBoxProps) => {
             as={Fragment}
           >
             {({ active, selected, disabled }) => (
-              <li className={classNames(s.listItem, { [s.active]: active, [s.disabled]: disabled }, [])}>
+              <li className={classNames(s.listItem, { [baseCls.active]: active, [baseCls.disabled]: disabled }, [])}>
                 {selected && '!!!'}
                 {item.content}
               </li>

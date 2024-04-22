@@ -1,11 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
 import { ListBox } from './ListBox';
-import { ThemeDecorator } from 'shared/config/storybookDecorators/ThemeDecorator';
-import { ETheme } from 'app/providers/theme';
 
 const meta = {
-  title: 'shared/ListBox',
+  title: 'shared/popups/ListBox',
   component: ListBox,
   parameters: {
     layout: 'centered'

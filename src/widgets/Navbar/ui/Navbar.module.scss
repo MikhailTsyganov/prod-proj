@@ -5,6 +5,10 @@
   display: flex;
   align-items: center;
   padding: 20px;
+
+  & .actions {
+    width: fit-content;
+  }
 }
 
 .appName {
@@ -13,6 +17,6 @@
 }
 
 .links,
-.dropdown {
+.actions {
   margin-left: auto;
 }

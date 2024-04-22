@@ -62,6 +62,7 @@ module.exports = {
                 'as',
                 'defaultValue',
                 'dropdownDirection',
+                'borderRad'
             ]
         }],
         "@typescript-eslint/prefer-includes": "off",
