@@ -2,6 +2,7 @@ import { type FC, type ReactNode, useCallback, useEffect, useRef, useState } fro
 import { type TMods, classNames } from 'shared/lib/helpers/classNames/classNames';
 import s from './Modal.module.scss';
 import { Portal } from '../Portal/Portal';
+import { Backdrop } from '../Backdrop/Backdrop';
 
 interface IModalProps {
   className?: string
@@ -47,10 +48,6 @@ export const Modal: FC<IModalProps> = (props) => {
     }
   }, [closeHandler])
 
-  const onContentClick = (e: React.MouseEvent) => {
-    e.stopPropagation()
-  }
-
   useEffect(() => {
     if (isOpened) {
       window.addEventListener('keydown', onKeydownEsc)
@@ -73,11 +70,11 @@ export const Modal: FC<IModalProps> = (props) => {
   return (
     <Portal>
       <div className={classNames(s.Modal, mods, [className])}>
-        <div className={s.backdrop} onClick={closeHandler}>
-          <div className={s.content} onClick={onContentClick}>
-            {children}
-          </div>
+        <Backdrop onClose={closeHandler}/>
+        <div className={s.content} >
+          {children}
         </div>
+
       </div>
     </Portal>
   )

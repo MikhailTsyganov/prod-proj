@@ -15,6 +15,8 @@ import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { HStack } from 'shared/ui/Stack';
 import { OpenNotificationListButton } from 'features/OpenNotificationListButton';
 import { AvatarDropdown } from 'features/AvatarDropdown';
+import { Drawer } from 'shared/ui/Drawer/Drawer';
+import { NotificationList } from 'entities/Notification';
 
 interface INavbarProps {
   className?: string
@@ -52,9 +54,9 @@ export const Navbar: FC<INavbarProps> = memo((props) => {
         </AppLink>
 
         <HStack gap='16' className={s.actions}>
+
           <OpenNotificationListButton/>
           <AvatarDropdown />
-
         </HStack>
       </header>
     )
