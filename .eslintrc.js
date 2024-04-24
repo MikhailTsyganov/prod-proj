@@ -76,7 +76,8 @@ module.exports = {
         "@typescript-eslint/no-invalid-void-type": "off",
         "no-tabs": "off",
         "no-mixed-spaces-and-tabs": "off",
-        "mt-fsd-path-checker/path-checker": "error"
+        "mt-fsd-path-checker/path-checker": "error",
+        "@typescript-eslint/consistent-type-imports": "off"
     },
 
     "globals": {

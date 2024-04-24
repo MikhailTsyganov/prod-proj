@@ -7,6 +7,7 @@ import { Icon } from 'shared/ui/Icon/Icon';
 import NotificationIcon from 'shared/assets/icons/bell.svg'
 import { MobileView, BrowserView } from 'react-device-detect';
 import { Drawer } from 'shared/ui/Drawer/Drawer';
+import { AnimationProvider } from 'shared/lib/components/AnimationProvider';
 
 interface IOpenNotificationListButtonProps {
   className?: string
@@ -27,12 +28,14 @@ export const OpenNotificationListButton = memo((props: IOpenNotificationListButt
     <div>
       <MobileView>
         {trigger}
-        <Drawer
-          isOpened={isOpened}
-          onClose={() => { setIsOpened(false); }}
+        <AnimationProvider>
+          <Drawer
+            isOpened={isOpened}
+            onClose={() => { setIsOpened(false); }}
             >
-          <NotificationList/>
-        </Drawer>
+            <NotificationList/>
+          </Drawer>
+        </AnimationProvider>
       </MobileView>
       <BrowserView>
         <Popover
