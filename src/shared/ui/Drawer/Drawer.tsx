@@ -4,7 +4,7 @@ import { type TMods, classNames } from '@/shared/lib/helpers/classNames/classNam
 import { Portal } from '../Portal/Portal';
 import { Backdrop } from '../Backdrop/Backdrop';
 import { useModal } from '@/shared/hooks';
-import { useAnimationLibs } from '@/shared/lib/components/AnimationProvider';
+import { AnimationProvider, useAnimationLibs } from '@/shared/lib/components/AnimationProvider';
 // import { useDrag } from '@use-gesture/react'
 // import { a, useSpring, config } from '@react-spring/web'
 
@@ -91,7 +91,7 @@ export const DrawerContent = memo((props: IDrawerProps) => {
   )
 });
 
-export const Drawer = memo((props: IDrawerProps) => {
+const DrawerAsync = (props: IDrawerProps) => {
   const { isLoaded } = useAnimationLibs()
 
   if (!isLoaded) {
@@ -101,4 +101,12 @@ export const Drawer = memo((props: IDrawerProps) => {
   return (
     <DrawerContent {...props}/>
   )
-})
+}
+
+export const Drawer = (props: IDrawerProps) => {
+  return (
+    <AnimationProvider>
+      <DrawerAsync {...props}/>
+    </AnimationProvider>
+  )
+}

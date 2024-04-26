@@ -28,14 +28,12 @@ export const OpenNotificationListButton = memo((props: IOpenNotificationListButt
     <div>
       <MobileView>
         {trigger}
-        <AnimationProvider>
-          <Drawer
-            isOpened={isOpened}
-            onClose={() => { setIsOpened(false); }}
+        <Drawer
+          isOpened={isOpened}
+          onClose={() => { setIsOpened(false); }}
             >
-            <NotificationList/>
-          </Drawer>
-        </AnimationProvider>
+          <NotificationList/>
+        </Drawer>
       </MobileView>
       <BrowserView>
         <Popover
