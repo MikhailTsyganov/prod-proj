@@ -1,11 +1,11 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { type IThunkOptions } from 'app/providers/store';
-import { type IArticle } from 'entities/Article';
+import { type IThunkOptions } from '@/app/providers/store';
+import { type IArticle } from '@/entities/Article';
 import { getArticlesPageLimit, getArticlesPagePage } from '../../selectors/articlesPage';
-import { getArticlesSortOrder, getArticlesSortSearch, getArticlesSortSort } from 'features/ArticlesSort';
-import { addQueryParams } from 'shared/lib/helpers/addQueryParams/addQueryParams';
-import { getArticlesSortTab } from 'features/ArticlesSort/model/selectors/articlesSort';
-import { EArticleType } from 'entities/Article/model/types/article';
+import { getArticlesSortOrder, getArticlesSortSearch, getArticlesSortSort } from '@/features/ArticlesSort';
+import { addQueryParams } from '@/shared/lib/helpers/addQueryParams/addQueryParams';
+import { getArticlesSortTab } from '@/features/ArticlesSort/model/selectors/articlesSort';
+import { EArticleType } from '@/entities/Article/model/types/article';
 
 interface IfetchArticlesListReq {
   replace?: boolean

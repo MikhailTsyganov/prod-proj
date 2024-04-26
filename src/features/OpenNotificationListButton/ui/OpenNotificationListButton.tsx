@@ -1,13 +1,13 @@
-import { NotificationList } from 'entities/Notification';
+import { NotificationList } from '@/entities/Notification';
 import s from './OpenNotificationListButton.module.scss';
 import { memo, useState } from 'react';
-import { classNames } from 'shared/lib/helpers/classNames/classNames';
-import { Popover } from 'shared/ui/Popups';
-import { Icon } from 'shared/ui/Icon/Icon';
-import NotificationIcon from 'shared/assets/icons/bell.svg'
+import { classNames } from '@/shared/lib/helpers/classNames/classNames';
+import { Popover } from '@/shared/ui/Popups';
+import { Icon } from '@/shared/ui/Icon/Icon';
+import NotificationIcon from '@/shared/assets/icons/bell.svg'
 import { MobileView, BrowserView } from 'react-device-detect';
-import { Drawer } from 'shared/ui/Drawer/Drawer';
-import { AnimationProvider } from 'shared/lib/components/AnimationProvider';
+import { Drawer } from '@/shared/ui/Drawer/Drawer';
+import { AnimationProvider } from '@/shared/lib/components/AnimationProvider';
 
 interface IOpenNotificationListButtonProps {
   className?: string

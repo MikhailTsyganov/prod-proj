@@ -1,6 +1,6 @@
 import { fireEvent, screen } from '@testing-library/react'
 import { Sidebar } from './Sidebar';
-import { MainDecorator } from 'shared/config/testsDecorators/mainDecorator';
+import { MainDecorator } from '@/shared/config/testsDecorators/mainDecorator';
 
 describe('Sidebar', () => {
   test('test render', () => {

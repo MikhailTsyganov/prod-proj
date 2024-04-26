@@ -1,9 +1,9 @@
 import { updateProfileData } from './updateProfileData';
-import { TestAsyncThunk } from 'shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
-import { ECurrency } from 'entities/Currency';
-import { ECountry } from 'entities/Country';
-import avatar from 'shared/assets/tests/storybook.jpeg'
-import { EValidateProfileError } from 'entities/Profile';
+import { TestAsyncThunk } from '@/shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
+import { ECurrency } from '@/entities/Currency';
+import { ECountry } from '@/entities/Country';
+import avatar from '@/shared/assets/tests/storybook.jpeg'
+import { EValidateProfileError } from '@/entities/Profile';
 
 describe('updateProfileData', () => {
   const data = {

@@ -1,6 +1,6 @@
 import { type DetailedHTMLProps, type HTMLAttributes } from 'react';
 import s from './Flex.module.scss';
-import { type TMods, classNames } from 'shared/lib/helpers/classNames/classNames';
+import { type TMods, classNames } from '@/shared/lib/helpers/classNames/classNames';
 
 export type TFlexJustify = 'start' | 'center' | 'end' | 'between';
 export type TFlexAlign = 'start' | 'center' | 'end';

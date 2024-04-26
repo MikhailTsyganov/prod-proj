@@ -1,10 +1,10 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { type IThunkOptions } from 'app/providers/store';
+import { type IThunkOptions } from '@/app/providers/store';
 import { articlesSortActions } from '../../slices/articlesSortSlice';
-import { type TOrder } from 'shared/types';
+import { type TOrder } from '@/shared/types';
 import { type EArticlesSortField } from '../../types/ArticlesSortSchema';
 import { getArticlesSortIsInited } from '../../selectors/articlesSort';
-import { type EArticleType } from 'entities/Article/model/types/article';
+import { type EArticleType } from '@/entities/Article/model/types/article';
 
 export const initArticlesSort = createAsyncThunk<
 void,

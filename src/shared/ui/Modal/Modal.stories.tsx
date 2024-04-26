@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { ThemeDecorator } from 'shared/config/storybookDecorators/ThemeDecorator';
-import { ETheme } from 'app/providers/theme';
+import { ThemeDecorator } from '@/shared/config/storybookDecorators/ThemeDecorator';
+import { ETheme } from '@/app/providers/theme';
 import { Modal } from './Modal';
 
 const meta = {

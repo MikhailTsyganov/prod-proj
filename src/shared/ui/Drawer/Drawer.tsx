@@ -1,10 +1,10 @@
 import s from './Drawer.module.scss';
 import { type ReactNode, memo, useEffect, useCallback } from 'react';
-import { type TMods, classNames } from 'shared/lib/helpers/classNames/classNames';
+import { type TMods, classNames } from '@/shared/lib/helpers/classNames/classNames';
 import { Portal } from '../Portal/Portal';
 import { Backdrop } from '../Backdrop/Backdrop';
-import { useModal } from 'shared/hooks';
-import { useAnimationLibs } from 'shared/lib/components/AnimationProvider';
+import { useModal } from '@/shared/hooks';
+import { useAnimationLibs } from '@/shared/lib/components/AnimationProvider';
 // import { useDrag } from '@use-gesture/react'
 // import { a, useSpring, config } from '@react-spring/web'
 

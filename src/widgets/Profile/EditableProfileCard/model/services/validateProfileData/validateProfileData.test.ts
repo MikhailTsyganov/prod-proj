@@ -1,8 +1,8 @@
 import { validateProfileData } from './validateProfileData';
-import avatar from 'shared/assets/tests/storybook.jpeg'
-import { ECountry } from 'entities/Country';
-import { ECurrency } from 'entities/Currency';
-import { EValidateProfileError } from 'entities/Profile';
+import avatar from '@/shared/assets/tests/storybook.jpeg'
+import { ECountry } from '@/entities/Country';
+import { ECurrency } from '@/entities/Currency';
+import { EValidateProfileError } from '@/entities/Profile';
 
 describe('validateProfileData', () => {
   const data = {

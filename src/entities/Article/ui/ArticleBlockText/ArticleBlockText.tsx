@@ -1,8 +1,8 @@
 import { type FC, memo } from 'react';
-import { classNames } from 'shared/lib/helpers/classNames/classNames';
+import { classNames } from '@/shared/lib/helpers/classNames/classNames';
 
 import s from './ArticleBlockText.module.scss';
-import { Text } from 'shared/ui/Text/Text';
+import { Text } from '@/shared/ui/Text/Text';
 import { type IArticleBlockText } from '../../model/types/article';
 
 interface IArticleBlockTextProps {

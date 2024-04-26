@@ -1,8 +1,8 @@
-import { type IStateSchema } from 'app/providers/store';
+import { type IStateSchema } from '@/app/providers/store';
 import { getProfileCurrentDataForm } from './getProfileCurrentDataForm';
-import { ECurrency } from 'entities/Currency';
-import { ECountry } from 'entities/Country';
-import avatar from 'shared/assets/tests/storybook.jpeg'
+import { ECurrency } from '@/entities/Currency';
+import { ECountry } from '@/entities/Country';
+import avatar from '@/shared/assets/tests/storybook.jpeg'
 
 describe('getProfileCurrentDataForm', () => {
   const currentData = {

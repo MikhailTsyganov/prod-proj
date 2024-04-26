@@ -1,8 +1,8 @@
 import { profileActions, profileReducer } from './profileSlice'
-import { type IProfileSchema } from 'entities/Profile';
-import { ECurrency } from 'entities/Currency';
-import { ECountry } from 'entities/Country';
-import avatar from 'shared/assets/tests/storybook.jpeg'
+import { type IProfileSchema } from '@/entities/Profile';
+import { ECurrency } from '@/entities/Currency';
+import { ECountry } from '@/entities/Country';
+import avatar from '@/shared/assets/tests/storybook.jpeg'
 import { updateProfileData } from '../services/updateProfileData/updateProfileData';
 
 describe('profileSlice', () => {

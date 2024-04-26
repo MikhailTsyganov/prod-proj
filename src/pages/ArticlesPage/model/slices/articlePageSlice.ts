@@ -1,7 +1,7 @@
 import { type PayloadAction, createSlice, createEntityAdapter } from '@reduxjs/toolkit';
 import { type IArticlePageSchema } from '../types/articlePageSchema';
-import { type IArticle } from 'entities/Article';
-import { type IStateSchema } from 'app/providers/store';
+import { type IArticle } from '@/entities/Article';
+import { type IStateSchema } from '@/app/providers/store';
 import { fetchArticlesList } from '../services/fetchArticlesList/fetchArticlesList';
 
 const articlePageAdapter = createEntityAdapter({

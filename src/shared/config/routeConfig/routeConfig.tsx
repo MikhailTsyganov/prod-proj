@@ -1,14 +1,14 @@
-import { MainPageLazy } from 'pages/MainPage';
-import { AboutPageLazy } from 'pages/AboutPage';
-import { NotFoundPage } from 'pages/NotFoundPage';
+import { MainPageLazy } from '@/pages/MainPage';
+import { AboutPageLazy } from '@/pages/AboutPage';
+import { NotFoundPage } from '@/pages/NotFoundPage';
 import { type RouteProps } from 'react-router-dom';
-import { ProfilePageLazy } from 'pages/ProfilePage';
-import { ArticlesPageLazy } from 'pages/ArticlesPage';
-import { ArticleDetailsPageLazy } from 'pages/ArticleDetailsPage';
-import { ArticleEditPageLazy } from 'pages/ArticleEditPage/ui/ArticleEditPage/ArticleEditPage.lazy';
-import { AdminPanelPageLazy } from 'pages/AdminPanelPage';
-import { EUserRoles } from 'entities/User';
-import { ForbiddenPage } from 'pages/ForbiddenPage';
+import { ProfilePageLazy } from '@/pages/ProfilePage';
+import { ArticlesPageLazy } from '@/pages/ArticlesPage';
+import { ArticleDetailsPageLazy } from '@/pages/ArticleDetailsPage';
+import { ArticleEditPageLazy } from '@/pages/ArticleEditPage/ui/ArticleEditPage/ArticleEditPage.lazy';
+import { AdminPanelPageLazy } from '@/pages/AdminPanelPage';
+import { EUserRoles } from '@/entities/User';
+import { ForbiddenPage } from '@/pages/ForbiddenPage';
 
 export type TAppRoutesProps = RouteProps & {
   authOnly?: boolean

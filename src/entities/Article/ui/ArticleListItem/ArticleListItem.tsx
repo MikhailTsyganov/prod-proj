@@ -1,19 +1,19 @@
 import { type FC, memo, useCallback } from 'react';
-import { classNames } from 'shared/lib/helpers/classNames/classNames';
+import { classNames } from '@/shared/lib/helpers/classNames/classNames';
 
 import s from './ArticleListItem.module.scss';
 import { EArticleBlockType, EArticleView, type IArticle, type IArticleBlockText } from '../../model/types/article';
-import { Text } from 'shared/ui/Text/Text';
-import EyeIcon from 'shared/assets/icons/eye.svg'
-import { Icon } from 'shared/ui/Icon/Icon';
-import { Card } from 'shared/ui/Card/Card';
-import { Avatar } from 'shared/ui/Avatar/Avatar';
-import { Button, EButtonVariants } from 'shared/ui/Button/Button';
+import { Text } from '@/shared/ui/Text/Text';
+import EyeIcon from '@/shared/assets/icons/eye.svg'
+import { Icon } from '@/shared/ui/Icon/Icon';
+import { Card } from '@/shared/ui/Card/Card';
+import { Avatar } from '@/shared/ui/Avatar/Avatar';
+import { Button, EButtonVariants } from '@/shared/ui/Button/Button';
 import { useTranslation } from 'react-i18next';
 import { ArticleBlockText } from '../ArticleBlockText/ArticleBlockText';
-import { routePaths } from 'shared/config/routeConfig/routeConfig';
-import { AppLink } from 'shared/ui/AppLink/AppLink';
-import { ARTICLE_ITEM_SELECTED_ID } from 'shared/const/localstorage';
+import { routePaths } from '@/shared/config/routeConfig/routeConfig';
+import { AppLink } from '@/shared/ui/AppLink/AppLink';
+import { ARTICLE_ITEM_SELECTED_ID } from '@/shared/const/localstorage';
 
 interface IArticleListItemProps {
   className?: string

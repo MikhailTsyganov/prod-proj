@@ -1,9 +1,9 @@
 import s from './ArticlesPage.module.scss';
 import { type FC } from 'react';
-import { classNames } from 'shared/lib/helpers/classNames/classNames';
-import { useAsyncReducer } from 'shared/hooks/reducerManager/useAsyncReducer';
+import { classNames } from '@/shared/lib/helpers/classNames/classNames';
+import { useAsyncReducer } from '@/shared/hooks/reducerManager/useAsyncReducer';
 import { articlePageReducer } from '../../model/slices/articlePageSlice';
-import { ArticlesInfinityList } from 'widgets/Articles/ArticlesInfinityList';
+import { ArticlesInfinityList } from '@/widgets/Articles/ArticlesInfinityList';
 
 interface IArticlesPageProps {
   className?: string

@@ -1,9 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
 import AddNewComment from './AddNewComment';
-import { ThemeDecorator } from 'shared/config/storybookDecorators/ThemeDecorator';
-import { ETheme } from 'app/providers/theme';
-import { StoreDecorator } from 'shared/config/storybookDecorators/StoreDecorator';
+import { ThemeDecorator } from '@/shared/config/storybookDecorators/ThemeDecorator';
+import { ETheme } from '@/app/providers/theme';
+import { StoreDecorator } from '@/shared/config/storybookDecorators/StoreDecorator';
 import { action } from '@storybook/addon-actions'
 
 const meta = {

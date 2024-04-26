@@ -2,7 +2,7 @@ import { type FC } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Button } from '../Button/Button';
 import s from './PageError.module.scss'
-import { classNames } from 'shared/lib/helpers/classNames/classNames';
+import { classNames } from '@/shared/lib/helpers/classNames/classNames';
 
 export const PageError: FC = () => {
   const { t } = useTranslation();

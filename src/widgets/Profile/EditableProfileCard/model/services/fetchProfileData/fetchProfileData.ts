@@ -1,6 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { type IThunkOptions } from 'app/providers/store';
-import { type IProfile } from 'entities/Profile';
+import { type IThunkOptions } from '@/app/providers/store';
+import { type IProfile } from '@/entities/Profile';
 
 export const fetchProfileData = createAsyncThunk<
 IProfile,

@@ -1,9 +1,9 @@
 import { type PayloadAction, createSlice } from '@reduxjs/toolkit';
 import { EArticlesSortField, type IArticlesSortSchema } from '../types/ArticlesSortSchema';
-import { EArticleView } from 'entities/Article';
-import { ARTICLES_VIEW_LOCALSTORAGE_KEY } from 'shared/const/localstorage';
-import { type TOrder } from 'shared/types';
-import { EArticleType } from 'entities/Article/model/types/article';
+import { EArticleView } from '@/entities/Article';
+import { ARTICLES_VIEW_LOCALSTORAGE_KEY } from '@/shared/const/localstorage';
+import { type TOrder } from '@/shared/types';
+import { EArticleType } from '@/entities/Article/model/types/article';
 
 const initialState: IArticlesSortSchema = {
   order: 'asc',

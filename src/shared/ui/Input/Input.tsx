@@ -9,7 +9,7 @@ import {
 import {
   type TMods,
   classNames
-} from 'shared/lib/helpers/classNames/classNames';
+} from '@/shared/lib/helpers/classNames/classNames';
 
 import s from './Input.module.scss';
 

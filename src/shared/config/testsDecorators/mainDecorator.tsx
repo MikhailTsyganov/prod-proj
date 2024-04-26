@@ -3,7 +3,7 @@ import { I18nextProvider } from 'react-i18next';
 import i18n from '../i18n/i18nForTests';
 import { render } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
-import { type IStateSchema, StoreProvider } from 'app/providers/store';
+import { type IStateSchema, StoreProvider } from '@/app/providers/store';
 import { type ReducersMapObject } from '@reduxjs/toolkit';
 
 export interface IMainDecoratorOptions {

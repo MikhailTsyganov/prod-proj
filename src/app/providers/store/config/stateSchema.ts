@@ -6,17 +6,17 @@ import {
   type ReducersMapObject
 } from '@reduxjs/toolkit';
 import { type AxiosInstance } from 'axios';
-import { type IArticleDetailsSchema } from 'entities/Article';
-import { type ICounterSchema } from 'entities/Counter';
-import { type IProfileSchema } from 'entities/Profile';
-import { type IUserSchema } from 'entities/User';
-import { type IAddNewCommentSchema } from 'features/AddNewComment/model/types/addNewComment';
-import { type IArticlesSortSchema } from 'features/ArticlesSort';
-import { type ILoginSchema } from 'features/AuthByUsername';
-import { type IArticleDetailsPageSchema } from 'pages/ArticleDetailsPage';
-import { type IArticlePageSchema } from 'pages/ArticlesPage';
-import { type rtkApi } from 'shared/api/rtkApi';
-import { type IScrollSaveSchema } from 'widgets/ScrollSave';
+import { type IArticleDetailsSchema } from '@/entities/Article';
+import { type ICounterSchema } from '@/entities/Counter';
+import { type IProfileSchema } from '@/entities/Profile';
+import { type IUserSchema } from '@/entities/User';
+import { type IAddNewCommentSchema } from '@/features/AddNewComment/model/types/addNewComment';
+import { type IArticlesSortSchema } from '@/features/ArticlesSort';
+import { type ILoginSchema } from '@/features/AuthByUsername';
+import { type IArticleDetailsPageSchema } from '@/pages/ArticleDetailsPage';
+import { type IArticlePageSchema } from '@/pages/ArticlesPage';
+import { type rtkApi } from '@/shared/api/rtkApi';
+import { type IScrollSaveSchema } from '@/widgets/ScrollSave';
 
 export interface IStateSchema {
   counter: ICounterSchema

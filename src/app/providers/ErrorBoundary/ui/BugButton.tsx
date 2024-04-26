@@ -1,6 +1,6 @@
 import { useState, type FC, useEffect } from 'react';
 
-import { Button } from 'shared/ui/Button/Button';
+import { Button } from '@/shared/ui/Button/Button';
 import { useTranslation } from 'react-i18next';
 
 // компонент для тестирования

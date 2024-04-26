@@ -1,4 +1,4 @@
-import { type IStateSchema } from 'app/providers/store';
+import { type IStateSchema } from '@/app/providers/store';
 import { getProfileReadonly } from './getProfileReadonly';
 
 describe('getProfileReadonly', () => {

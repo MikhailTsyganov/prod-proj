@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
 import ArticleDetailsPage from './ArticleDetailsPage';
-import { ThemeDecorator } from 'shared/config/storybookDecorators/ThemeDecorator';
-import { ETheme } from 'app/providers/theme';
-import { StoreDecorator } from 'shared/config/storybookDecorators/StoreDecorator';
-import { type IArticle } from 'entities/Article';
-import { EArticleBlockType, EArticleType } from 'entities/Article/model/types/article';
+import { ThemeDecorator } from '@/shared/config/storybookDecorators/ThemeDecorator';
+import { ETheme } from '@/app/providers/theme';
+import { StoreDecorator } from '@/shared/config/storybookDecorators/StoreDecorator';
+import { type IArticle } from '@/entities/Article';
+import { EArticleBlockType, EArticleType } from '@/entities/Article/model/types/article';
 
 const article: IArticle =
 {

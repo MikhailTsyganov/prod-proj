@@ -1,15 +1,15 @@
 import { type FC, memo, useCallback } from 'react';
-import { classNames } from 'shared/lib/helpers/classNames/classNames';
+import { classNames } from '@/shared/lib/helpers/classNames/classNames';
 
 import s from './AddNewComment.module.scss';
-import { Input } from 'shared/ui/Input/Input';
-import { Button, EButtonVariants } from 'shared/ui/Button/Button';
+import { Input } from '@/shared/ui/Input/Input';
+import { Button, EButtonVariants } from '@/shared/ui/Button/Button';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { getAddNewCommentError, getAddNewCommentText } from '../model/selectors/addNewComment';
-import { useAppDispatch } from 'shared/hooks/useAppDispatch/useAppDIspatch';
+import { useAppDispatch } from '@/shared/hooks/useAppDispatch/useAppDIspatch';
 import { addNewCommentActions, addNewCommentReducer } from '../model/slices/addNewCommentSlice';
-import { useAsyncReducer } from 'shared/hooks/reducerManager/useAsyncReducer';
+import { useAsyncReducer } from '@/shared/hooks/reducerManager/useAsyncReducer';
 
 interface IAddNewCommentProps {
   className?: string

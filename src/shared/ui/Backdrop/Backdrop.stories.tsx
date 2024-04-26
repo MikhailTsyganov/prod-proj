@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
 import { Backdrop } from './Backdrop';
-import { ThemeDecorator } from 'shared/config/storybookDecorators/ThemeDecorator';
-import { ETheme } from 'app/providers/theme';
+import { ThemeDecorator } from '@/shared/config/storybookDecorators/ThemeDecorator';
+import { ETheme } from '@/app/providers/theme';
 
 const meta = {
   title: 'FOLDER_NAME/Backdrop',

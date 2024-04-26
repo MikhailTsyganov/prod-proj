@@ -1,5 +1,5 @@
 import { memo, type FC } from 'react';
-import { classNames } from 'shared/lib/helpers/classNames/classNames';
+import { classNames } from '@/shared/lib/helpers/classNames/classNames';
 import { Button, EButtonVariants } from '../Button/Button';
 import { useTranslation } from 'react-i18next';
 

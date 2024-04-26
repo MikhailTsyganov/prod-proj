@@ -1,19 +1,19 @@
 import { type FC, useCallback } from 'react';
-import { classNames } from 'shared/lib/helpers/classNames/classNames';
+import { classNames } from '@/shared/lib/helpers/classNames/classNames';
 
-import { Button, EButtonVariants } from 'shared/ui/Button/Button';
+import { Button, EButtonVariants } from '@/shared/ui/Button/Button';
 import { useTranslation } from 'react-i18next';
-import { Text } from 'shared/ui/Text/Text';
+import { Text } from '@/shared/ui/Text/Text';
 import { useSelector } from 'react-redux';
 import {
   getProfileData,
   getProfileReadonly,
   profileActions,
   updateProfileData
-} from 'widgets/Profile/EditableProfileCard';
-import { useAppDispatch } from 'shared/hooks/useAppDispatch/useAppDIspatch';
-import { getUserAuthData } from 'entities/User';
-import { HStack } from 'shared/ui/Stack';
+} from '@/widgets/Profile/EditableProfileCard';
+import { useAppDispatch } from '@/shared/hooks/useAppDispatch/useAppDIspatch';
+import { getUserAuthData } from '@/entities/User';
+import { HStack } from '@/shared/ui/Stack';
 
 interface IProfilePageHeaderProps {
   className?: string

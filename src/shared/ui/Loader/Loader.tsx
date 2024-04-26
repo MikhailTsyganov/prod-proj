@@ -1,5 +1,5 @@
 import { type ReactNode, type FC } from 'react';
-import { classNames } from 'shared/lib/helpers/classNames/classNames';
+import { classNames } from '@/shared/lib/helpers/classNames/classNames';
 
 import './Loader.scss';
 

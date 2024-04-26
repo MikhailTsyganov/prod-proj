@@ -1,18 +1,18 @@
-import { EValidateProfileError, ProfileCard } from 'entities/Profile';
+import { EValidateProfileError, ProfileCard } from '@/entities/Profile';
 import { memo, useCallback } from 'react';
-import { useAppDispatch } from 'shared/hooks/useAppDispatch/useAppDIspatch';
-import { type ECurrency } from 'entities/Currency';
-import { type ECountry } from 'entities/Country';
+import { useAppDispatch } from '@/shared/hooks/useAppDispatch/useAppDIspatch';
+import { type ECurrency } from '@/entities/Currency';
+import { type ECountry } from '@/entities/Country';
 import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
-import { ETextVariant, Text } from 'shared/ui/Text/Text';
+import { ETextVariant, Text } from '@/shared/ui/Text/Text';
 import { getProfileCurrentDataForm } from '../model/selectors/getProfileCurrentDataForm/getProfileCurrentDataForm';
 import { getProfileValidateErrors } from '../model/selectors/getProfileValidateErrors/getProfileValidateErrors';
 import { getProfileIsLoading } from '../model/selectors/getProfileIsLoading/getProfileIsLoading';
 import { getProfileError } from '../model/selectors/getProfileError/getProfileError';
 import { getProfileReadonly } from '../model/selectors/getProfileReadonly/getProfileReadonly';
 import { profileActions, profileReducer } from '../model/slice/profileSlice';
-import { useAsyncReducer } from 'shared/hooks/reducerManager/useAsyncReducer';
+import { useAsyncReducer } from '@/shared/hooks/reducerManager/useAsyncReducer';
 
 export const EditableProfileCard = memo(() => {
   useAsyncReducer({ profile: profileReducer });

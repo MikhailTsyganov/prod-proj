@@ -1,4 +1,4 @@
-import { type IStateSchema } from 'app/providers/store';
+import { type IStateSchema } from '@/app/providers/store';
 import { EArticleType, type IArticle } from '../types/article';
 import { getArticleDetailsData, getArticleDetailsError, getArticleDetailsIsLoading } from './articleDetails';
 

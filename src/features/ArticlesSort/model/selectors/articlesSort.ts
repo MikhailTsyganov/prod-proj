@@ -1,7 +1,7 @@
-import { type IStateSchema } from 'app/providers/store';
-import { EArticleView } from 'entities/Article';
+import { type IStateSchema } from '@/app/providers/store';
+import { EArticleView } from '@/entities/Article';
 import { EArticlesSortField } from '../types/ArticlesSortSchema';
-import { EArticleType } from 'entities/Article/model/types/article';
+import { EArticleType } from '@/entities/Article/model/types/article';
 
 export const getArticlesSortView = (state: IStateSchema) => state.articlesPageSort?.view ?? EArticleView.LIST
 export const getArticlesSortTab = (state: IStateSchema) => state.articlesPageSort?.tab ?? EArticleType.ALL

@@ -1,5 +1,5 @@
 import { getCounter } from './getCounter'
-import { type IStateSchema } from 'app/providers/store';
+import { type IStateSchema } from '@/app/providers/store';
 
 describe('getCounter', () => {
   test('should return counter value', () => {

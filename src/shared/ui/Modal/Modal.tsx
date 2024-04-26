@@ -1,9 +1,9 @@
 import { type FC, type ReactNode, useCallback, useEffect, useRef, useState } from 'react';
-import { type TMods, classNames } from 'shared/lib/helpers/classNames/classNames';
+import { type TMods, classNames } from '@/shared/lib/helpers/classNames/classNames';
 import s from './Modal.module.scss';
 import { Portal } from '../Portal/Portal';
 import { Backdrop } from '../Backdrop/Backdrop';
-import { useModal } from 'shared/hooks';
+import { useModal } from '@/shared/hooks';
 
 interface IModalProps {
   className?: string

@@ -1,5 +1,5 @@
 import { type FC } from 'react';
-import { classNames } from 'shared/lib/helpers/classNames/classNames';
+import { classNames } from '@/shared/lib/helpers/classNames/classNames';
 import { Loader } from '../Loader/Loader';
 
 import s from './PageLoader.module.scss';

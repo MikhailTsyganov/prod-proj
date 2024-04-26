@@ -1,14 +1,14 @@
 import { useLocation } from 'react-router-dom';
 import s from './Page.module.scss';
 import { type FC, type MutableRefObject, type UIEvent, memo, useRef, type ReactNode } from 'react';
-import { useAppDispatch } from 'shared/hooks/useAppDispatch/useAppDIspatch';
-import { useInfiniteScroll } from 'shared/hooks/useInfiniteScroll/useInfiniteScroll';
-import { classNames } from 'shared/lib/helpers/classNames/classNames';
-import { getScrollByPath, scrollSaveActions } from 'widgets/ScrollSave';
-import { useInitialEffect } from 'shared/hooks/useInitialEffect/useInitialEffect';
+import { useAppDispatch } from '@/shared/hooks/useAppDispatch/useAppDIspatch';
+import { useInfiniteScroll } from '@/shared/hooks/useInfiniteScroll/useInfiniteScroll';
+import { classNames } from '@/shared/lib/helpers/classNames/classNames';
+import { getScrollByPath, scrollSaveActions } from '@/widgets/ScrollSave';
+import { useInitialEffect } from '@/shared/hooks/useInitialEffect/useInitialEffect';
 import { useSelector } from 'react-redux';
-import { type IStateSchema } from 'app/providers/store';
-import { useThrottle } from 'shared/hooks/useThrottle/useThrottle';
+import { type IStateSchema } from '@/app/providers/store';
+import { useThrottle } from '@/shared/hooks/useThrottle/useThrottle';
 
 interface IPageProps {
   className?: string

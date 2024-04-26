@@ -1,6 +1,6 @@
 import s from './Tabs.module.scss';
 import { type ReactNode, memo, useCallback } from 'react';
-import { classNames } from 'shared/lib/helpers/classNames/classNames';
+import { classNames } from '@/shared/lib/helpers/classNames/classNames';
 import { Card, ECardVariant } from '../Card/Card';
 
 export interface ITabItem {

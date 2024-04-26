@@ -1,13 +1,13 @@
 import { fireEvent, screen } from '@testing-library/react'
 import { EditableProfileCard } from './EditableProfileCard';
-import { type IMainDecoratorOptions, MainDecorator } from 'shared/config/testsDecorators/mainDecorator';
+import { type IMainDecoratorOptions, MainDecorator } from '@/shared/config/testsDecorators/mainDecorator';
 import userEvent from '@testing-library/user-event'
-import { EValidateProfileError, type IProfile } from 'entities/Profile';
-import { ECurrency } from 'entities/Currency';
-import { ECountry } from 'entities/Country';
+import { EValidateProfileError, type IProfile } from '@/entities/Profile';
+import { ECurrency } from '@/entities/Currency';
+import { ECountry } from '@/entities/Country';
 import { profileReducer } from '../model/slice/profileSlice';
-import { ProfilePageHeader } from 'pages/ProfilePage/ui/ProfilePageHeader/ProfilePageHeader';
-import { $api } from 'shared/api/api';
+import { ProfilePageHeader } from '@/pages/ProfilePage/ui/ProfilePageHeader/ProfilePageHeader';
+import { $api } from '@/shared/api/api';
 
 const profile: IProfile = {
   id: '1',

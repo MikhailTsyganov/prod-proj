@@ -1,16 +1,16 @@
 import { type FC, memo, useCallback } from 'react';
-import { classNames } from 'shared/lib/helpers/classNames/classNames';
+import { classNames } from '@/shared/lib/helpers/classNames/classNames';
 
 import s from './ArticleList.module.scss';
-import { EArticleView, type IArticle } from 'entities/Article/model/types/article';
-import { ArticleListItem } from 'entities/Article/ui/ArticleListItem/ArticleListItem';
-import { ArticleListItemSkeleton } from 'entities/Article/ui/ArticleListItem/ArticleListItemSkeleton';
+import { EArticleView, type IArticle } from '@/entities/Article/model/types/article';
+import { ArticleListItem } from '@/entities/Article/ui/ArticleListItem/ArticleListItem';
+import { ArticleListItemSkeleton } from '@/entities/Article/ui/ArticleListItem/ArticleListItemSkeleton';
 import { useTranslation } from 'react-i18next';
-import { ETextSize, Text } from 'shared/ui/Text/Text';
+import { ETextSize, Text } from '@/shared/ui/Text/Text';
 import { Virtuoso, VirtuosoGrid } from 'react-virtuoso';
-import { ARTICLE_ITEM_SELECTED_ID } from 'shared/const/localstorage';
-import { HStack } from 'shared/ui/Stack';
-import { ArticlesSort } from 'features/ArticlesSort/ui/ArticlesSort/ArticlesSort';
+import { ARTICLE_ITEM_SELECTED_ID } from '@/shared/const/localstorage';
+import { HStack } from '@/shared/ui/Stack';
+import { ArticlesSort } from '@/features/ArticlesSort/ui/ArticlesSort/ArticlesSort';
 
 interface IArticleListProps {
   className?: string

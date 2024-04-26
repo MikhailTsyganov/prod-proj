@@ -2,9 +2,9 @@ import s from './ListBox.module.scss';
 import baseCls from '../../styles/popup.module.scss'
 import { memo, Fragment, type ReactNode } from 'react';
 import { Listbox } from '@headlessui/react'
-import { classNames } from 'shared/lib/helpers/classNames/classNames';
+import { classNames } from '@/shared/lib/helpers/classNames/classNames';
 import { Button } from '../../../Button/Button';
-import { type TPopupDirection } from 'shared/types/ui';
+import { type TPopupDirection } from '@/shared/types/ui';
 import { mapDirectionClass } from '../../styles/consts';
 
 export interface IListBoxItem {

@@ -1,9 +1,9 @@
 import { type FC, memo } from 'react';
-import { classNames } from 'shared/lib/helpers/classNames/classNames';
+import { classNames } from '@/shared/lib/helpers/classNames/classNames';
 
 import s from './ArticleBlockImage.module.scss';
 import { type IArticleBlockImage } from '../../model/types/article';
-import { ETextAlign, Text } from 'shared/ui/Text/Text';
+import { ETextAlign, Text } from '@/shared/ui/Text/Text';
 
 interface IArticleBlockImageProps {
   className?: string

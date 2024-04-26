@@ -1,8 +1,8 @@
 import { type FC } from 'react';
-import { classNames } from 'shared/lib/helpers/classNames/classNames';
+import { classNames } from '@/shared/lib/helpers/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 
-import { Page } from 'widgets/Page/Page';
+import { Page } from '@/widgets/Page/Page';
 
 interface IForbiddenPageProps {
   className?: string

@@ -1,4 +1,4 @@
-import { type IStateSchema } from 'app/providers/store';
+import { type IStateSchema } from '@/app/providers/store';
 
 export const getArticlesPageIsLoading = (state: IStateSchema) => state.articlesPage?.isLoading
 export const getArticlesPageError = (state: IStateSchema) => state.articlesPage?.error

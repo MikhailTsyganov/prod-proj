@@ -1,25 +1,25 @@
 import { type FC, memo, useCallback, useEffect } from 'react';
-import { classNames } from 'shared/lib/helpers/classNames/classNames';
+import { classNames } from '@/shared/lib/helpers/classNames/classNames';
 
 import s from './ArticleDetails.module.scss';
-import { useAsyncReducer } from 'shared/hooks/reducerManager/useAsyncReducer';
+import { useAsyncReducer } from '@/shared/hooks/reducerManager/useAsyncReducer';
 import { articleDetailsReducer } from '../../model/slice/articleDetailsSlice';
-import { useAppDispatch } from 'shared/hooks/useAppDispatch/useAppDIspatch';
+import { useAppDispatch } from '@/shared/hooks/useAppDispatch/useAppDIspatch';
 import { fetchArticleById } from '../../model/services/fetchArticleById/fetchArticleById';
 import { useSelector } from 'react-redux';
 import { getArticleDetailsData, getArticleDetailsError, getArticleDetailsIsLoading } from '../../model/selectors/articleDetails';
-import { ETextAlign, Text } from 'shared/ui/Text/Text';
+import { ETextAlign, Text } from '@/shared/ui/Text/Text';
 import { useTranslation } from 'react-i18next';
-import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
-import { Avatar } from 'shared/ui/Avatar/Avatar';
-import EyeIcon from 'shared/assets/icons/eye.svg'
-import CalendarIcon from 'shared/assets/icons/calendar.svg'
-import { Icon } from 'shared/ui/Icon/Icon';
+import { Skeleton } from '@/shared/ui/Skeleton/Skeleton';
+import { Avatar } from '@/shared/ui/Avatar/Avatar';
+import EyeIcon from '@/shared/assets/icons/eye.svg'
+import CalendarIcon from '@/shared/assets/icons/calendar.svg'
+import { Icon } from '@/shared/ui/Icon/Icon';
 import { EArticleBlockType, type TArticleBlock } from '../../model/types/article';
 import { ArticleBlockText } from '../ArticleBlockText/ArticleBlockText';
 import { ArticleBlockCode } from '../ArticleBlockCode/ArticleBlockCode';
 import { ArticleBlockImage } from '../ArticleBlockImage/ArticleBlockImage';
-import { HStack, VStack } from 'shared/ui/Stack';
+import { HStack, VStack } from '@/shared/ui/Stack';
 
 interface IArticleDetailsProps {
   className?: string

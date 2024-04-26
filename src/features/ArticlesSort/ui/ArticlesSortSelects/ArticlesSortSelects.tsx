@@ -2,14 +2,14 @@ import { EArticlesSortField } from '../../model/types/ArticlesSortSchema';
 import s from './ArticlesSortSelects.module.scss';
 import { memo, useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { classNames } from 'shared/lib/helpers/classNames/classNames';
-import { type ISelectList, Select } from 'shared/ui/Select/Select';
-import { useAppDispatch } from 'shared/hooks/useAppDispatch/useAppDIspatch';
+import { classNames } from '@/shared/lib/helpers/classNames/classNames';
+import { type ISelectList, Select } from '@/shared/ui/Select/Select';
+import { useAppDispatch } from '@/shared/hooks/useAppDispatch/useAppDIspatch';
 import { articlesSortActions } from '../../model/slices/articlesSortSlice';
 import { useSelector } from 'react-redux';
 import { getArticlesSortOrder, getArticlesSortSort } from '../../model/selectors/articlesSort';
-import { type TOrder } from 'shared/types';
-import { articlePageActions } from 'pages/ArticlesPage/model/slices/articlePageSlice';
+import { type TOrder } from '@/shared/types';
+import { articlePageActions } from '@/pages/ArticlesPage/model/slices/articlePageSlice';
 
 interface IArticlesSortSelectsProps {
   className?: string

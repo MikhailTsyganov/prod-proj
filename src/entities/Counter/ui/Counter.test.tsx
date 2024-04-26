@@ -1,5 +1,5 @@
 import { fireEvent, screen } from '@testing-library/react'
-import { MainDecorator } from 'shared/config/testsDecorators/mainDecorator';
+import { MainDecorator } from '@/shared/config/testsDecorators/mainDecorator';
 import { Counter } from './Counter';
 
 describe('Counter', () => {

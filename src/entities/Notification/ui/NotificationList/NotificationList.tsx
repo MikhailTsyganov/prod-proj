@@ -1,10 +1,10 @@
 import s from './NotificationList.module.scss';
 import { useGetAllNotificationsQuery } from '../../api/notificationApi';
 import { memo } from 'react';
-import { classNames } from 'shared/lib/helpers/classNames/classNames';
+import { classNames } from '@/shared/lib/helpers/classNames/classNames';
 import { NotificationListItem } from '../NotificationListItem/NotificationListItem';
-import { VStack } from 'shared/ui/Stack';
-import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
+import { VStack } from '@/shared/ui/Stack';
+import { Skeleton } from '@/shared/ui/Skeleton/Skeleton';
 
 interface INotificationListProps {
   className?: string

@@ -1,5 +1,5 @@
 import { memo, type FC } from 'react';
-import { classNames } from 'shared/lib/helpers/classNames/classNames';
+import { classNames } from '@/shared/lib/helpers/classNames/classNames';
 
 import s from './Text.module.scss';
 

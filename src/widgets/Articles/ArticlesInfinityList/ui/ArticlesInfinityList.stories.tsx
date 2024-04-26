@@ -1,9 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
 import { ArticlesInfinityList } from './ArticlesInfinityList';
-import { ThemeDecorator } from 'shared/config/storybookDecorators/ThemeDecorator';
-import { ETheme } from 'app/providers/theme';
-import { StoreDecorator } from 'shared/config/storybookDecorators/StoreDecorator';
+import { ThemeDecorator } from '@/shared/config/storybookDecorators/ThemeDecorator';
+import { ETheme } from '@/app/providers/theme';
+import { StoreDecorator } from '@/shared/config/storybookDecorators/StoreDecorator';
 
 const meta = {
   title: 'widgets/articles/ArticlesInfinityList',

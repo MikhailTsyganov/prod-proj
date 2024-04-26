@@ -1,6 +1,6 @@
 import s from './Backdrop.module.scss';
 import { memo } from 'react';
-import { classNames } from 'shared/lib/helpers/classNames/classNames';
+import { classNames } from '@/shared/lib/helpers/classNames/classNames';
 
 interface IBackdropProps {
   className?: string

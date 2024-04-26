@@ -1,6 +1,6 @@
 import { memo, type FC } from 'react';
 import { Link, type LinkProps } from 'react-router-dom';
-import { classNames } from 'shared/lib/helpers/classNames/classNames';
+import { classNames } from '@/shared/lib/helpers/classNames/classNames';
 
 import s from './AppLink.module.scss';
 

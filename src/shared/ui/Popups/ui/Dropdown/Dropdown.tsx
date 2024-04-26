@@ -1,10 +1,10 @@
 import s from './Dropdown.module.scss';
 import baseCls from '../../styles/popup.module.scss'
 import { Fragment, type ReactNode, memo } from 'react';
-import { classNames } from 'shared/lib/helpers/classNames/classNames';
+import { classNames } from '@/shared/lib/helpers/classNames/classNames';
 import { Menu } from '@headlessui/react'
 import { AppLink } from '../../../AppLink/AppLink';
-import { type TPopupDirection } from 'shared/types/ui';
+import { type TPopupDirection } from '@/shared/types/ui';
 import { mapDirectionClass } from '../../styles/consts';
 
 interface IDropdownListItem {
