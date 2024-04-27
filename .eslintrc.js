@@ -1,4 +1,4 @@
-export default {
+module.exports = {
     "env": {
         "browser": true,
         "es2021": true
@@ -8,7 +8,7 @@ export default {
         "plugin:react/recommended",
         "plugin:i18next/recommended",
         "plugin:storybook/recommended",
-        "plugin:react-hooks/recommended"
+        "plugin:react-hooks/recommended",
     ],
     "overrides": [
         {
@@ -96,4 +96,3 @@ export default {
         }
     }]
 }
-

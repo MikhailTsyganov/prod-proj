@@ -1,9 +1,9 @@
 import s from "./{{pascalCase}}.module.scss";
 import { memo } from "react";
-import { classNames } from "shared/lib/helpers/classNames/classNames";
+import { classNames } from "@/shared/lib/helpers/classNames/classNames";
 
 interface I{{pascalCase}}Props {
-	className ?: string;
+	className?: string;
 }
 
 export const {{pascalCase}} = memo((props: I{{pascalCase}}Props) => {
