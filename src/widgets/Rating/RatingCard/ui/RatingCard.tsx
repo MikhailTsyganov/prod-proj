@@ -18,6 +18,7 @@ interface IRatingCardProps {
   hasFeedBack?: boolean
   onAccept?: (starNumber: number, feedback?: string) => void
   onCancel?: (starNumber: number) => void
+  dataStarsCount?: number
 }
 
 export const RatingCard = memo((props: IRatingCardProps) => {
@@ -27,11 +28,12 @@ export const RatingCard = memo((props: IRatingCardProps) => {
     hasFeedBack = false,
     onAccept,
     onCancel,
-    title
+    title,
+    dataStarsCount = 0
   } = props;
 
   const [isModalOpen, setIsModalOpen] = useState(false)
-  const [starsCount, setStarsCount] = useState(0)
+  const [starsCount, setStarsCount] = useState(dataStarsCount)
   const [feedback, setFeedback] = useState('')
 
   const onStarClick = useCallback(
@@ -68,10 +70,10 @@ export const RatingCard = memo((props: IRatingCardProps) => {
 	  )
 
   return (
-    <Card className={classNames(s.RatingCard, {}, [className])}>
+    <Card className={classNames(s.RatingCard, {}, [className])} max>
       <VStack align="center" gap="8">
-        <Text title={title}/>
-        <StarRating size={40} onSelect={onStarClick}/>
+        <Text title={dataStarsCount ? 'Спасибо за оценку' : title}/>
+        <StarRating size={40} onSelect={onStarClick} selectedStars={starsCount}/>
       </VStack>
 
       <MobileView>

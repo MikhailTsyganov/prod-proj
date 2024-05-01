@@ -12,7 +12,6 @@ const MainPage = memo(() => {
     <Page>
       <BugButton />
       {t('Главная страница')}
-     <RatingCard title='Как Вам статья?' hasFeedBack/>
     </Page>
   );
 })

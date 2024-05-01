@@ -12,6 +12,10 @@ import { articleDetailsPageReducer } from '../../model/slice';
 import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader';
 import { ArticleRecommendationsList } from '@/widgets/ArticleDetails/ArticleRecommendationsList';
 import { ArticleComments } from '@/widgets/ArticleDetails/ArticleComments/ui/ArticleComments';
+import { RatingCard } from '@/widgets/Rating/RatingCard';
+import { useTranslation } from 'react-i18next';
+import { ArticleDetailsRating } from '@/widgets/Rating/ArticleDetailsRating';
+import { VStack } from '@/shared/ui/Stack';
 
 interface IArticleDetailsPageProps {
   className?: string
@@ -24,6 +28,8 @@ const reducersList: TReducerList = {
 const ArticleDetailsPage: FC<IArticleDetailsPageProps> = (props) => {
   useAsyncReducer(reducersList)
 
+  const { t } = useTranslation('articleDetails')
+
   const { className } = props;
   const dispatch = useAppDispatch()
 
@@ -33,18 +39,25 @@ const ArticleDetailsPage: FC<IArticleDetailsPageProps> = (props) => {
     dispatch(fetchCommentsByArticleId(id))
   })
 
+  if (!id) {
+    return null
+  }
+
   return (
     <Page className={classNames(s.ArticleDetailsPage, {}, [className])}>
-      <ArticleDetailsPageHeader />
-      <ArticleDetails id={id} />
+      <VStack gap='16' needMaxWidth>
+        <ArticleDetailsPageHeader />
+        <ArticleDetails id={id} />
+        <ArticleDetailsRating articleId={id} />
 
-      <ArticleRecommendationsList
-        className={s.recommendations}
+        <ArticleRecommendationsList
+          className={s.recommendations}
       />
 
-      <ArticleComments
-        articleId={id}
+        <ArticleComments
+          articleId={id}
       />
+      </VStack>
     </Page >
   )
 };
