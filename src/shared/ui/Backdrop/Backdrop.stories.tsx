@@ -5,7 +5,7 @@ import { ThemeDecorator } from '@/shared/config/storybookDecorators/ThemeDecorat
 import { ETheme } from '@/app/providers/theme';
 
 const meta = {
-  title: 'FOLDER_NAME/Backdrop',
+  title: 'shared/Backdrop',
   component: Backdrop,
   parameters: {
     layout: 'centered'
@@ -26,4 +26,3 @@ export const Dark: Story = {
   args: {},
   decorators: [ThemeDecorator(ETheme.DARK)]
 };
-

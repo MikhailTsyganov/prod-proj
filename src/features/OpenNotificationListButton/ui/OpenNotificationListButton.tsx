@@ -7,7 +7,6 @@ import { Icon } from '@/shared/ui/Icon/Icon';
 import NotificationIcon from '@/shared/assets/icons/bell.svg'
 import { MobileView, BrowserView } from 'react-device-detect';
 import { Drawer } from '@/shared/ui/Drawer/Drawer';
-import { AnimationProvider } from '@/shared/lib/components/AnimationProvider';
 
 interface IOpenNotificationListButtonProps {
   className?: string
@@ -38,10 +37,10 @@ export const OpenNotificationListButton = memo((props: IOpenNotificationListButt
       <BrowserView>
         <Popover
           trigger={trigger}
-          direction='bottom left'
+          direction={__PROJECT__ === 'storybook' ? 'bottom right' : 'bottom left'}
           className={classNames(s.OpenNotificationListButton, {}, [className])}
         >
-          <NotificationList className={s.notifications}/>
+          <NotificationList className={s.notifications} />
         </Popover>
       </BrowserView>
     </div>

@@ -5,14 +5,15 @@ import { ThemeDecorator } from '@/shared/config/storybookDecorators/ThemeDecorat
 import { ETheme } from '@/app/providers/theme';
 
 const meta = {
-  title: 'FOLDER_NAME/Drawer',
+  title: 'shared/Drawer',
   component: Drawer,
   parameters: {
     layout: 'centered'
   },
   argTypes: {
     // backgroundColor: { control: 'color' },
-  }
+  },
+  args: { isOpened: true }
 } satisfies Meta<typeof Drawer>;
 
 export default meta;
@@ -26,4 +27,3 @@ export const Dark: Story = {
   args: {},
   decorators: [ThemeDecorator(ETheme.DARK)]
 };
-

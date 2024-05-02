@@ -40,6 +40,10 @@ const config: StorybookConfig = {
         ...(config.resolve.modules || []),
         path.resolve(__dirname, '..', '..', './src')
       ];
+      config.resolve.alias = {
+        ...(config.resolve.alias || {}),
+        '@': path.resolve(__dirname, '..', '..', './src')
+      };
     }
     if (config.module) {
       config.module.rules?.push(buildCssLoader(true))

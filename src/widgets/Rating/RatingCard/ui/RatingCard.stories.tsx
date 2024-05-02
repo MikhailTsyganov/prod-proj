@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
 import { RatingCard } from './RatingCard';
-import { ThemeDecorator } from 'shared/config/storybookDecorators/ThemeDecorator';
-import { ETheme } from 'app/providers/theme';
+import { ThemeDecorator } from '@/shared/config/storybookDecorators/ThemeDecorator';
+import { ETheme } from '@/app/providers/theme';
 
 const meta = {
-  title: 'FOLDER_NAME/RatingCard',
+  title: 'widgets/rating/RatingCard',
   component: RatingCard,
   parameters: {
     layout: 'centered'
@@ -26,4 +26,3 @@ export const Dark: Story = {
   args: {},
   decorators: [ThemeDecorator(ETheme.DARK)]
 };
-

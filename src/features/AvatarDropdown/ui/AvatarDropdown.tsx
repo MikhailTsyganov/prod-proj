@@ -4,17 +4,19 @@ import { memo } from 'react';
 import { routePaths } from '@/shared/config/routeConfig/routeConfig';
 import { classNames } from '@/shared/lib/helpers/classNames/classNames';
 import { Dropdown } from '@/shared/ui/Popups';
-import { type IUser, getUserAuthData, isUserAdmin, isUserManager, userActions } from '@/entities/User';
+import { getUserAuthData, isUserAdmin, isUserManager, userActions } from '@/entities/User';
 import { Avatar } from '@/shared/ui/Avatar/Avatar';
 import { useAppDispatch } from '@/shared/hooks/useAppDispatch/useAppDIspatch';
 import { useTranslation } from 'react-i18next';
+import { TPopupDirection } from '@/shared/types/ui';
 
 interface IAvatarDropdownProps {
   className?: string
+  direction?: TPopupDirection
 }
 
 export const AvatarDropdown = memo((props: IAvatarDropdownProps) => {
-  const { className } = props;
+  const { className, direction = 'bottom left' } = props;
   const { t } = useTranslation()
   const dispatch = useAppDispatch()
 
@@ -42,7 +44,7 @@ export const AvatarDropdown = memo((props: IAvatarDropdownProps) => {
         { id: '3', content: t('Выйти'), onClick: onLogout }
       ]}
       trigger={<Avatar size={30} src={authData.avatar} />}
-      dropdownDirection='bottom left'
+      dropdownDirection={direction}
       className={classNames(s.AvatarDropdown, {}, [className])}
 	/>
   )
