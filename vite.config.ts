@@ -6,7 +6,7 @@ import eslint from 'vite-plugin-eslint';
 // https://vitejs.dev/config/
 
 export default defineConfig({
-  plugins: [svgr({ include: '**/*.svg' }), react(), eslint({ include: './eslintrc.js'})],
+  plugins: [svgr({ include: '**/*.svg' }), react(), eslint({ include: './eslintrc.js' })],
   resolve: {
     alias: [
       { find: '@', replacement: '/src' }

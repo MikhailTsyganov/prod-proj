@@ -18,9 +18,13 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-// export const Light: Story = {
-//   args: {}
-// };
+export const Light: Story = {
+  args: {
+    item: {
+      id: '1', title: 'test title', description: 'test desc', userId: '1'
+    }
+  }
+};
 
 // export const Dark: Story = {
 //   args: {},

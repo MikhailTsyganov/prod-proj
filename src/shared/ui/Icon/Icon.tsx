@@ -21,7 +21,7 @@ export const Icon: FC<IIconProps> = memo((props) => {
           [className]
         )
       }
-    {...otherProps}
+      {...otherProps}
     />
   )
 });

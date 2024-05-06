@@ -12,8 +12,7 @@ import { articleDetailsPageReducer } from '../../model/slice';
 import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader';
 import { ArticleRecommendationsList } from '@/widgets/ArticleDetails/ArticleRecommendationsList';
 import { ArticleComments } from '@/widgets/ArticleDetails/ArticleComments/ui/ArticleComments';
-import { RatingCard } from '@/widgets/Rating/RatingCard';
-import { useTranslation } from 'react-i18next';
+// import { useTranslation } from 'react-i18next';
 import { ArticleDetailsRating } from '@/widgets/Rating/ArticleDetailsRating';
 import { VStack } from '@/shared/ui/Stack';
 
@@ -28,7 +27,7 @@ const reducersList: TReducerList = {
 const ArticleDetailsPage: FC<IArticleDetailsPageProps> = (props) => {
   useAsyncReducer(reducersList)
 
-  const { t } = useTranslation('articleDetails')
+  // const { t } = useTranslation('articleDetails')
 
   const { className } = props;
   const dispatch = useAppDispatch()
