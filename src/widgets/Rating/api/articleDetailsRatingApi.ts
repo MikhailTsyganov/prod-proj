@@ -1,4 +1,4 @@
-import { IRating } from '@/features/Rating/StarRating'
+import { IRating } from '@/features/Rating'
 import { rtkApi } from '@/shared/api/rtkApi'
 
 interface IGetRatingByArticle {

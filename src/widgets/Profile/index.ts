@@ -1,4 +1,4 @@
-export { EditableProfileCard } from './ui/EditableProfileCard';
+export { EditableProfileCard } from './ui/EditableProfileCard/EditableProfileCard';
 export { getProfileData } from './model/selectors/getProfileData/getProfileData';
 export { getProfileError } from './model/selectors/getProfileError/getProfileError';
 export { getProfileIsLoading } from './model/selectors/getProfileIsLoading/getProfileIsLoading';

@@ -79,6 +79,9 @@ module.exports = {
         "mt-fsd-path-checker/path-checker": ["error", {
             alias: '@'
         }],
+        "mt-fsd-path-checker/public-api-imports": ["error", {
+            alias: '@'
+        }],
         "@typescript-eslint/consistent-type-imports": "off"
     },
 

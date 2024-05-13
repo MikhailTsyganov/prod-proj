@@ -2,7 +2,7 @@ import { useTranslation } from 'react-i18next';
 import { type FC, memo } from 'react';
 import { useParams } from 'react-router-dom';
 import { classNames } from '@/shared/lib/helpers/classNames/classNames';
-import { Page } from '@/widgets/Page/Page';
+import { Page } from '@/widgets/Page';
 
 interface IArticleEditPageProps {
   className?: string

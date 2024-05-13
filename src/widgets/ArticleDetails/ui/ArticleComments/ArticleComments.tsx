@@ -6,7 +6,7 @@ import { VStack } from '@/shared/ui/Stack';
 import { ETextSize, Text } from '@/shared/ui/Text/Text';
 import { CommentList } from '@/entities/Comment';
 import { useTranslation } from 'react-i18next';
-import { useCreateCommentByArticleIdMutation, useGetAllCommentsByArticleIdQuery } from '../api/ArticleCommentsApi';
+import { useCreateCommentByArticleIdMutation, useGetAllCommentsByArticleIdQuery } from '../../api/ArticleCommentsApi';
 import { useSelector } from 'react-redux';
 import { getUserAuthData } from '@/entities/User';
 

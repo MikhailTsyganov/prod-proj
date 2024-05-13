@@ -1,4 +1,4 @@
-import { EArticleType } from '@/entities/Article/model/types/article';
+import { EArticleType } from '@/entities/Article';
 import s from './ArticlesSortTabs.module.scss';
 import { memo, useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';

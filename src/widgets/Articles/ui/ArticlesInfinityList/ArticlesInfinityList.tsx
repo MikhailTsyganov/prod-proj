@@ -12,7 +12,7 @@ import { useInitialEffect } from '@/shared/hooks/useInitialEffect/useInitialEffe
 import { initArticlesPage } from '@/pages/ArticlesPage/model/services/initArticlesPage/initArticlesPage';
 import { Text } from '@/shared/ui/Text/Text';
 import { useTranslation } from 'react-i18next';
-import { ArticleList } from '../../ArticleList/ui/ArticleList';
+import { ArticleList } from '../ArticleList/ArticleList';
 
 interface IArticlesInfinityListProps {
   className?: string

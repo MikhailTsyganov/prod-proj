@@ -10,7 +10,7 @@ import { type IArticleDetailsSchema } from '@/entities/Article';
 import { type ICounterSchema } from '@/entities/Counter';
 import { type IProfileSchema } from '@/entities/Profile';
 import { type IUserSchema } from '@/entities/User';
-import { type IAddNewCommentSchema } from '@/features/AddNewComment/model/types/addNewComment';
+import { type IAddNewCommentSchema } from '@/features/AddNewComment';
 import { type IArticlesSortSchema } from '@/features/ArticlesSort';
 import { type ILoginSchema } from '@/features/AuthByUsername';
 import { type IArticleDetailsPageSchema } from '@/pages/ArticleDetailsPage';

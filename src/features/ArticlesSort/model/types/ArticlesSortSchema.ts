@@ -1,5 +1,5 @@
-import { type EArticleView } from '@/entities/Article'
-import { type EArticleType } from '@/entities/Article/model/types/article'
+import { type EArticleView, type EArticleType } from '@/entities/Article'
+
 import { type TOrder } from '@/shared/types'
 
 export enum EArticlesSortField {

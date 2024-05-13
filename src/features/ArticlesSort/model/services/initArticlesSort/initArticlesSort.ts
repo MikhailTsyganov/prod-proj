@@ -4,7 +4,7 @@ import { articlesSortActions } from '../../slices/articlesSortSlice';
 import { type TOrder } from '@/shared/types';
 import { type EArticlesSortField } from '../../types/ArticlesSortSchema';
 import { getArticlesSortIsInited } from '../../selectors/articlesSort';
-import { type EArticleType } from '@/entities/Article/model/types/article';
+import { type EArticleType } from '@/entities/Article';
 
 export const initArticlesSort = createAsyncThunk<
 void,

@@ -1,7 +1,7 @@
 import s from './RatingCard.module.scss';
 import { memo, useCallback, useState } from 'react';
 import { classNames } from '@/shared/lib/helpers/classNames/classNames';
-import { StarRating } from '@/features/Rating/StarRating';
+import { StarRating } from '@/features/Rating';
 import { Card } from '@/shared/ui/Card/Card';
 import { HStack, VStack } from '@/shared/ui/Stack';
 import { Text } from '@/shared/ui/Text/Text';

@@ -4,8 +4,8 @@ import { classNames } from '@/shared/lib/helpers/classNames/classNames';
 import { ETextSize, Text } from '@/shared/ui/Text/Text';
 import { useTranslation } from 'react-i18next';
 import { VStack } from '@/shared/ui/Stack';
-import { useGetRecommendationsListQuery } from '../api/ArticleRecommendationsApi';
-import { ArticleList } from '@/widgets/Articles/ArticleList';
+import { useGetRecommendationsListQuery } from '../../api/ArticleRecommendationsApi';
+import { ArticleList } from '@/widgets/Articles';
 
 interface IArticleRecommendationsListProps {
   className?: string

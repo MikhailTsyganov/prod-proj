@@ -5,7 +5,7 @@ import { type RouteProps } from 'react-router-dom';
 import { ProfilePageLazy } from '@/pages/ProfilePage';
 import { ArticlesPageLazy } from '@/pages/ArticlesPage';
 import { ArticleDetailsPageLazy } from '@/pages/ArticleDetailsPage';
-import { ArticleEditPageLazy } from '@/pages/ArticleEditPage/ui/ArticleEditPage/ArticleEditPage.lazy';
+import { ArticleEditPageLazy } from '@/pages/ArticleEditPage';
 import { AdminPanelPageLazy } from '@/pages/AdminPanelPage';
 import { EUserRoles } from '@/entities/User';
 import { ForbiddenPage } from '@/pages/ForbiddenPage';

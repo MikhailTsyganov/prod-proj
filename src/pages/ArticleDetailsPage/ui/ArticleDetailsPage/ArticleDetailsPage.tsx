@@ -7,13 +7,13 @@ import { type TReducerList, useAsyncReducer } from '@/shared/hooks/reducerManage
 import { useInitialEffect } from '@/shared/hooks/useInitialEffect/useInitialEffect';
 import { useAppDispatch } from '@/shared/hooks/useAppDispatch/useAppDIspatch';
 import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
-import { Page } from '@/widgets/Page/Page';
+import { Page } from '@/widgets/Page';
 import { articleDetailsPageReducer } from '../../model/slice';
 import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader';
-import { ArticleRecommendationsList } from '@/widgets/ArticleDetails/ArticleRecommendationsList';
-import { ArticleComments } from '@/widgets/ArticleDetails/ArticleComments/ui/ArticleComments';
+import { ArticleRecommendationsList, ArticleComments } from '@/widgets/ArticleDetails';
+
 // import { useTranslation } from 'react-i18next';
-import { ArticleDetailsRating } from '@/widgets/Rating/ArticleDetailsRating';
+import { ArticleDetailsRating } from '@/widgets/Rating';
 import { VStack } from '@/shared/ui/Stack';
 
 interface IArticleDetailsPageProps {

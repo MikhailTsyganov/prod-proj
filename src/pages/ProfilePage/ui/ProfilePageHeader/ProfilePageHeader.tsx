@@ -10,7 +10,7 @@ import {
   getProfileReadonly,
   profileActions,
   updateProfileData
-} from '@/widgets/Profile/EditableProfileCard';
+} from '@/widgets/Profile';
 import { useAppDispatch } from '@/shared/hooks/useAppDispatch/useAppDIspatch';
 import { getUserAuthData } from '@/entities/User';
 import { HStack } from '@/shared/ui/Stack';
