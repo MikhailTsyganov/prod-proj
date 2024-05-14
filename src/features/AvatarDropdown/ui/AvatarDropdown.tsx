@@ -1,7 +1,6 @@
 import { useSelector } from 'react-redux';
 import s from './AvatarDropdown.module.scss';
 import { memo } from 'react';
-import { routePaths } from '@/shared/config/routeConfig/routeConfig';
 import { classNames } from '@/shared/lib/helpers/classNames/classNames';
 import { Dropdown } from '@/shared/ui/Popups';
 import { getUserAuthData, isUserAdmin, isUserManager, userActions } from '@/entities/User';
@@ -9,6 +8,7 @@ import { Avatar } from '@/shared/ui/Avatar/Avatar';
 import { useAppDispatch } from '@/shared/hooks/useAppDispatch/useAppDIspatch';
 import { useTranslation } from 'react-i18next';
 import { TPopupDirection } from '@/shared/types/ui';
+import { routePaths } from '@/shared/const/router';
 
 interface IAvatarDropdownProps {
   className?: string

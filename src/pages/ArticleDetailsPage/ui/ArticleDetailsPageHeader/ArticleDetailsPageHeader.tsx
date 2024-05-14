@@ -4,10 +4,10 @@ import { memo, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { classNames } from '@/shared/lib/helpers/classNames/classNames';
 import { Button, EButtonVariants } from '@/shared/ui/Button/Button';
-import { routePaths } from '@/shared/config/routeConfig/routeConfig';
 import { useSelector } from 'react-redux';
 import { getArticleDetailsData } from '@/entities/Article';
 import { getCanEdit } from '../../model/selectors/article/article';
+import { routePaths } from '@/shared/const/router';
 
 interface IArticleDetailsPageHeaderProps {
   className?: string
