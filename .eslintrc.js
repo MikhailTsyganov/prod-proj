@@ -80,7 +80,8 @@ module.exports = {
             alias: '@'
         }],
         "mt-fsd-path-checker/public-api-imports": ["error", {
-            alias: '@'
+            alias: '@',
+            testFilesPatterns: ['**/*.test.*', '**/*.stories.*', '**/StoreDecorator.tsx']
         }],
         "@typescript-eslint/consistent-type-imports": "off"
     },
