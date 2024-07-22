@@ -11,7 +11,7 @@ import {
   profileActions,
   updateProfileData
 } from '@/widgets/Profile';
-import { useAppDispatch } from '@/shared/hooks/useAppDispatch/useAppDIspatch';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDIspatch';
 import { getUserAuthData } from '@/entities/User';
 import { HStack } from '@/shared/ui/Stack';
 

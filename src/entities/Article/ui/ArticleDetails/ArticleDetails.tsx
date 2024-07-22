@@ -2,9 +2,9 @@ import { type FC, memo, useCallback, useEffect } from 'react';
 import { classNames } from '@/shared/lib/helpers/classNames/classNames';
 
 import s from './ArticleDetails.module.scss';
-import { useAsyncReducer } from '@/shared/hooks/reducerManager/useAsyncReducer';
+import { useAsyncReducer } from '@/shared/lib/hooks/reducerManager/useAsyncReducer';
 import { articleDetailsReducer } from '../../model/slice/articleDetailsSlice';
-import { useAppDispatch } from '@/shared/hooks/useAppDispatch/useAppDIspatch';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDIspatch';
 import { fetchArticleById } from '../../model/services/fetchArticleById/fetchArticleById';
 import { useSelector } from 'react-redux';
 import { getArticleDetailsData, getArticleDetailsError, getArticleDetailsIsLoading } from '../../model/selectors/articleDetails';

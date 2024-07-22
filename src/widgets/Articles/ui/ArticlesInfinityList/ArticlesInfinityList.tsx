@@ -1,14 +1,14 @@
 import s from './ArticlesInfinityList.module.scss';
 import { memo, useCallback } from 'react';
 import { classNames } from '@/shared/lib/helpers/classNames/classNames';
-import { useAppDispatch } from '@/shared/hooks/useAppDispatch/useAppDIspatch';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDIspatch';
 import { useSelector } from 'react-redux';
 import { useSearchParams } from 'react-router-dom';
 import { fetchArticlesNextPage } from '@/pages/ArticlesPage/model/services/fetchArticlesNextPage/fetchArticlesNextPage';
 import { getArticlesPageError, getArticlesPageIsLoading } from '@/pages/ArticlesPage/model/selectors/articlesPage';
 import { getArticles } from '@/pages/ArticlesPage/model/slices/articlePageSlice';
 import { getArticlesSortView } from '@/features/ArticlesSort';
-import { useInitialEffect } from '@/shared/hooks/useInitialEffect/useInitialEffect';
+import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { initArticlesPage } from '@/pages/ArticlesPage/model/services/initArticlesPage/initArticlesPage';
 import { Text } from '@/shared/ui/Text/Text';
 import { useTranslation } from 'react-i18next';

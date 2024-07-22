@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { NotFoundPage } from './NotFoundPage';
-import { ETheme } from '@/app/providers/theme';
+import { ETheme } from '@/shared/const/theme';
 import { ThemeDecorator } from '@/shared/config/storybookDecorators/ThemeDecorator';
 import { StoreDecorator } from '@/shared/config/storybookDecorators/StoreDecorator';
 

@@ -3,7 +3,7 @@ import { type ReactNode, memo, useEffect, useCallback } from 'react';
 import { type TMods, classNames } from '@/shared/lib/helpers/classNames/classNames';
 import { Portal } from '../Portal/Portal';
 import { Backdrop } from '../Backdrop/Backdrop';
-import { useModal } from '@/shared/hooks';
+import { useModal } from '@/shared/lib/hooks';
 import { AnimationProvider, useAnimationLibs } from '@/shared/lib/components/AnimationProvider';
 // import { useDrag } from '@use-gesture/react'
 // import { a, useSpring, config } from '@react-spring/web'

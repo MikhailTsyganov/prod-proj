@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 
 import { ArticlesViewSwitcher } from './ArticlesViewSwitcher';
 import { ThemeDecorator } from '@/shared/config/storybookDecorators/ThemeDecorator';
-import { ETheme } from '@/app/providers/theme';
+import { ETheme } from '@/shared/const/theme';
 import { EArticleView } from '@/entities/Article';
 
 const meta = {

@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 
 import { NotificationListItem } from './NotificationListItem';
 import { ThemeDecorator } from '@/shared/config/storybookDecorators/ThemeDecorator';
-import { ETheme } from '@/app/providers/theme';
+import { ETheme } from '@/shared/const/theme';
 
 const meta = {
   title: 'FOLDER_NAME/NotificationListItem',

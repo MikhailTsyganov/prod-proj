@@ -3,7 +3,7 @@ import { type TMods, classNames } from '@/shared/lib/helpers/classNames/classNam
 import s from './Modal.module.scss';
 import { Portal } from '../Portal/Portal';
 import { Backdrop } from '../Backdrop/Backdrop';
-import { useModal } from '@/shared/hooks';
+import { useModal } from '@/shared/lib/hooks';
 
 interface IModalProps {
   className?: string

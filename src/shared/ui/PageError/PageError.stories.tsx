@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { PageError } from './PageError';
-import { ETheme } from '@/app/providers/theme';
+import { ETheme } from '@/shared/const/theme';
 import { ThemeDecorator } from '@/shared/config/storybookDecorators/ThemeDecorator';
-
+// import { ETheme } from '@/shared/const/theme';
 const meta = {
   title: 'shared/PageError',
   component: PageError,

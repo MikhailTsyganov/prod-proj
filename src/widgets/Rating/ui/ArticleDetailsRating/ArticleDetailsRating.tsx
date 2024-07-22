@@ -1,10 +1,10 @@
 import { memo, useCallback } from 'react';
-import { RatingCard } from '../../RatingCard';
 import { useTranslation } from 'react-i18next';
-import { useGetRatingByArticleQuery, useSetRatingArticleMutation } from '../api/articleDetailsRatingApi';
 import { useSelector } from 'react-redux';
 import { getUserAuthData } from '@/entities/User';
 import { Skeleton } from '@/shared/ui/Skeleton/Skeleton';
+import { RatingCard } from '../RatingCard/RatingCard';
+import { useGetRatingByArticleQuery, useSetRatingArticleMutation } from '../../api/articleDetailsRatingApi';
 
 export interface IArticleDetailsRatingProps {
   className?: string

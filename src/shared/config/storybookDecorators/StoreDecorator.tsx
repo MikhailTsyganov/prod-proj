@@ -5,7 +5,7 @@ import { profileReducer } from '@/widgets/Profile';
 import { addNewCommentReducer } from '@/features/AddNewComment/testing';
 import { loginReducer } from '@/features/AuthByUsername';
 import { articleDetailsPageReducer } from '@/pages/ArticleDetailsPage';
-import { type TReducerList } from '@/shared/hooks/reducerManager/useAsyncReducer';
+import { type TReducerList } from '@/shared/lib/hooks/reducerManager/useAsyncReducer';
 
 const defaultAsyncReducers: TReducerList = {
   loginForm: loginReducer,

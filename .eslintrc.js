@@ -83,6 +83,10 @@ module.exports = {
             alias: '@',
             testFilesPatterns: ['**/*.test.*', '**/*.stories.*', '**/StoreDecorator.tsx']
         }],
+        "mt-fsd-path-checker/layer-imports": ["error", {
+            alias: '@',
+            ignoreImportPatterns: ['**/StoreProvider', '**/store/**', '**/index.scss', '**/router/**', '**/providers/**']
+        }],
         "@typescript-eslint/consistent-type-imports": "off"
     },
 

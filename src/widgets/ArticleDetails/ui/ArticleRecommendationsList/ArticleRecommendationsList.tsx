@@ -5,7 +5,7 @@ import { ETextSize, Text } from '@/shared/ui/Text/Text';
 import { useTranslation } from 'react-i18next';
 import { VStack } from '@/shared/ui/Stack';
 import { useGetRecommendationsListQuery } from '../../api/ArticleRecommendationsApi';
-import { ArticleList } from '@/widgets/Articles';
+import { ArticleList } from '../../../Articles';
 
 interface IArticleRecommendationsListProps {
   className?: string

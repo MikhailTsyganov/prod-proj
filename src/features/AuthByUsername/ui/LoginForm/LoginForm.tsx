@@ -13,8 +13,8 @@ import { getLoginUsername } from '../../model/selectors/getLoginUsername/getLogi
 import { getLoginPassword } from '../../model/selectors/getLoginPassword/getLoginPassword';
 import { getLoginIsLoading } from '../../model/selectors/getLoginIsLoading/getLoginIsLoading';
 import { getLoginError } from '../../model/selectors/getLoginError/getLoginError';
-import { useAsyncReducer } from '@/shared/hooks/reducerManager/useAsyncReducer';
-import { useAppDispatch } from '@/shared/hooks/useAppDispatch/useAppDIspatch';
+import { useAsyncReducer } from '@/shared/lib/hooks/reducerManager/useAsyncReducer';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDIspatch';
 
 export interface ILoginFormProps {
   className?: string

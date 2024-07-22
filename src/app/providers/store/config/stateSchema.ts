@@ -16,7 +16,7 @@ import { type ILoginSchema } from '@/features/AuthByUsername';
 import { type IArticleDetailsPageSchema } from '@/pages/ArticleDetailsPage';
 import { type IArticlePageSchema } from '@/pages/ArticlesPage';
 import { type rtkApi } from '@/shared/api/rtkApi';
-import { type IScrollSaveSchema } from '@/widgets/ScrollSave';
+import { type IScrollSaveSchema } from '@/features/ScrollSave';
 
 export interface IStateSchema {
   counter: ICounterSchema

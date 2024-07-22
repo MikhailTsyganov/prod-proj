@@ -4,9 +4,9 @@ import {
 } from '@/widgets/Profile';
 
 import { type FC, memo } from 'react';
-import { useAppDispatch } from '@/shared/hooks/useAppDispatch/useAppDIspatch';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDIspatch';
 import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
-import { useInitialEffect } from '@/shared/hooks/useInitialEffect/useInitialEffect';
+import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { useParams } from 'react-router-dom';
 import { Page } from '@/widgets/Page';
 import { VStack } from '@/shared/ui/Stack';

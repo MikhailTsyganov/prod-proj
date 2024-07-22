@@ -1,8 +1,8 @@
 import { type Reducer } from '@reduxjs/toolkit';
 import { type IStoreWithManager } from '@/app/providers/store';
-import { type TStateSchemaKeys } from '@/app/providers/store/config/stateSchema';
 import { useEffect } from 'react';
 import { useDispatch, useStore } from 'react-redux';
+import { TStateSchemaKeys } from '@/app/providers/store/config/stateSchema';
 
 export type TReducerList = {
   [key in TStateSchemaKeys]?: Reducer

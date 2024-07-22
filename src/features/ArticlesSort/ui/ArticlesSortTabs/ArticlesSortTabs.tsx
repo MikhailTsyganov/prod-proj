@@ -8,7 +8,7 @@ import { useSelector } from 'react-redux';
 import { getArticlesSortTab } from '../../model/selectors/articlesSort';
 import { articlesSortActions } from '../../model/slices/articlesSortSlice';
 import { articlePageActions } from '@/pages/ArticlesPage/model/slices/articlePageSlice';
-import { useAppDispatch } from '@/shared/hooks/useAppDispatch/useAppDIspatch';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDIspatch';
 
 interface IArticlesSortTabsProps {
   className?: string
