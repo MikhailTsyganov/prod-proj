@@ -5,20 +5,36 @@ import { classNames } from '@/shared/lib/helpers/classNames/classNames';
 import { type EArticleView } from '@/entities/Article';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDIspatch';
 import { useSelector } from 'react-redux';
-import { getArticlesSortSearch, getArticlesSortSort, getArticlesSortView } from '../../model/selectors/articlesSort';
-import { articlesSortActions, articlesSortReducer } from '../../model/slices/articlesSortSlice';
 import { useAsyncReducer } from '@/shared/lib/hooks/reducerManager/useAsyncReducer';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { useTranslation } from 'react-i18next';
 import { Card } from '@/shared/ui/Card/Card';
 import { Input } from '@/shared/ui/Input/Input';
-import { ArticlesSortSelects } from '../ArticlesSortSelects/ArticlesSortSelects';
-import { articlePageActions } from '@/pages/ArticlesPage/model/slices/articlePageSlice';
-import { fetchArticlesList } from '@/pages/ArticlesPage/model/services/fetchArticlesList/fetchArticlesList';
 import { useDebounce } from '@/shared/lib/hooks/useDebounce/useDebounce';
 import { useSearchParams } from 'react-router-dom';
-import { initArticlesSort } from '../../model/services/initArticlesSort/initArticlesSort';
-import { ArticlesSortTabs } from '../ArticlesSortTabs/ArticlesSortTabs';
+import {
+  getArticlesSortSearch,
+  getArticlesSortSort,
+  getArticlesSortView
+} from '../../model/selectors/articlesSort';
+import {
+  initArticlesSort
+} from '../../model/services/initArticlesSort/initArticlesSort';
+import {
+  articlesSortActions,
+  articlesSortReducer
+} from '../../model/slices/articlesSortSlice';
+
+import {
+  ArticlesSortSelects
+} from '../../ui/ArticlesSortSelects/ArticlesSortSelects';
+
+import {
+  ArticlesSortTabs
+} from '../../ui/ArticlesSortTabs/ArticlesSortTabs';
+
+import { fetchArticlesList } from '../../../model/services/fetchArticlesList/fetchArticlesList';
+import { articlePageActions } from '../../../model/slices/articlePageSlice';
 
 interface IArticlesSortProps {
   className?: string

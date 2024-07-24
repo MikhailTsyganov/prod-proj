@@ -2,9 +2,9 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import { type IThunkOptions } from '@/app/providers/store';
 import { type IArticle } from '@/entities/Article';
 import { getArticlesPageLimit, getArticlesPagePage } from '../../selectors/articlesPage';
-import { getArticlesSortOrder, getArticlesSortSearch, getArticlesSortSort, getArticlesSortTab } from '@/features/ArticlesSort';
 import { addQueryParams } from '@/shared/lib/helpers/addQueryParams/addQueryParams';
 import { EArticleType } from '@/entities/Article';
+import { getArticlesSortOrder, getArticlesSortSearch, getArticlesSortSort, getArticlesSortTab } from '../../../ArticlesSort/model/selectors/articlesSort';
 
 interface IfetchArticlesListReq {
   replace?: boolean

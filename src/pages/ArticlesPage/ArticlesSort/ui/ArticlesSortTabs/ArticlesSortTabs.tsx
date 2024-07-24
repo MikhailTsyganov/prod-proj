@@ -7,8 +7,8 @@ import { type ITabItem, Tabs } from '@/shared/ui/Tabs/Tabs';
 import { useSelector } from 'react-redux';
 import { getArticlesSortTab } from '../../model/selectors/articlesSort';
 import { articlesSortActions } from '../../model/slices/articlesSortSlice';
-import { articlePageActions } from '@/pages/ArticlesPage/model/slices/articlePageSlice';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDIspatch';
+import { articlePageActions } from '../../../model/slices/articlePageSlice';
 
 interface IArticlesSortTabsProps {
   className?: string

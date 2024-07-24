@@ -3,7 +3,7 @@ import { type FC } from 'react';
 import { classNames } from '@/shared/lib/helpers/classNames/classNames';
 import { useAsyncReducer } from '@/shared/lib/hooks/reducerManager/useAsyncReducer';
 import { articlePageReducer } from '../../model/slices/articlePageSlice';
-import { ArticlesInfinityList } from '@/widgets/Articles';
+import { ArticlesInfinityList } from '../../ArticlesInfinityList/ArticlesInfinityList';
 
 interface IArticlesPageProps {
   className?: string

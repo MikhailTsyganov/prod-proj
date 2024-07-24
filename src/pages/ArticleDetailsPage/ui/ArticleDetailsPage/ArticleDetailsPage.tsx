@@ -10,11 +10,12 @@ import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByAr
 import { Page } from '@/widgets/Page';
 import { articleDetailsPageReducer } from '../../model/slice';
 import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader';
-import { ArticleRecommendationsList, ArticleComments } from '@/widgets/ArticleDetails';
 
 // import { useTranslation } from 'react-i18next';
 import { ArticleDetailsRating } from '@/widgets/Rating';
 import { VStack } from '@/shared/ui/Stack';
+import { ArticleComments } from '../../../ArticlesPage/ArticleDetails/ui/ArticleComments/ArticleComments';
+import { ArticleRecommendationsList } from '../../../ArticlesPage/ArticleDetails/ui/ArticleRecommendationsList/ArticleRecommendationsList';
 
 interface IArticleDetailsPageProps {
   className?: string

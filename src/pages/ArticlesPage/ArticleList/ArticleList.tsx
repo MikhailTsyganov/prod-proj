@@ -7,7 +7,7 @@ import { ETextSize, Text } from '@/shared/ui/Text/Text';
 import { Virtuoso, VirtuosoGrid } from 'react-virtuoso';
 import { ARTICLE_ITEM_SELECTED_ID } from '@/shared/const/localstorage';
 import { HStack } from '@/shared/ui/Stack';
-import { ArticlesSort } from '@/features/ArticlesSort';
+import { ArticlesSort } from '../ArticlesSort';
 
 interface IArticleListProps {
   className?: string

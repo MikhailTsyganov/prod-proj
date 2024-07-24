@@ -4,15 +4,15 @@ import { classNames } from '@/shared/lib/helpers/classNames/classNames';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDIspatch';
 import { useSelector } from 'react-redux';
 import { useSearchParams } from 'react-router-dom';
-import { fetchArticlesNextPage } from '@/pages/ArticlesPage/model/services/fetchArticlesNextPage/fetchArticlesNextPage';
-import { getArticlesPageError, getArticlesPageIsLoading } from '@/pages/ArticlesPage/model/selectors/articlesPage';
-import { getArticles } from '@/pages/ArticlesPage/model/slices/articlePageSlice';
-import { getArticlesSortView } from '@/features/ArticlesSort';
+import { getArticlesSortView } from '../ArticlesSort/model/selectors/articlesSort';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
-import { initArticlesPage } from '@/pages/ArticlesPage/model/services/initArticlesPage/initArticlesPage';
 import { Text } from '@/shared/ui/Text/Text';
 import { useTranslation } from 'react-i18next';
 import { ArticleList } from '../ArticleList/ArticleList';
+import { getArticles } from '../model/slices/articlePageSlice';
+import { getArticlesPageError, getArticlesPageIsLoading } from '../model/selectors/articlesPage';
+import { fetchArticlesNextPage } from '../model/services/fetchArticlesNextPage/fetchArticlesNextPage';
+import { initArticlesPage } from '../model/services/initArticlesPage/initArticlesPage';
 
 interface IArticlesInfinityListProps {
   className?: string

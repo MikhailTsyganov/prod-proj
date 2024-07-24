@@ -6,7 +6,7 @@ import { type IProfile } from '@/entities/Profile';
 import { ECurrency } from '@/entities/Currency';
 import { ECountry } from '@/entities/Country';
 import { profileReducer } from '../../model/slice/profileSlice';
-import { ProfilePageHeader } from '@/pages/ProfilePage/ui/ProfilePageHeader/ProfilePageHeader';
+// import { ProfilePageHeader } from '@/pages/ProfilePage/ui/ProfilePageHeader/ProfilePageHeader';
 import { $api } from '@/shared/api/api';
 
 const profile: IProfile = {
@@ -39,7 +39,12 @@ const options: IMainDecoratorOptions = {
 
 describe('widgets/EditableProfileCard', () => {
   beforeEach(() => {
-    MainDecorator(<><ProfilePageHeader /><EditableProfileCard/></>, { ...options })
+    MainDecorator(
+      <>
+        {/* <ProfilePageHeader /> */}
+        <EditableProfileCard/>
+      </>, { ...options }
+    )
   });
 
   test('Режим readonly должен переключиться', async () => {

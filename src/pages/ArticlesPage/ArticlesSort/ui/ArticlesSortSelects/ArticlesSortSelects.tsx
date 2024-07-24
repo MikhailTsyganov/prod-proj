@@ -9,7 +9,7 @@ import { articlesSortActions } from '../../model/slices/articlesSortSlice';
 import { useSelector } from 'react-redux';
 import { getArticlesSortOrder, getArticlesSortSort } from '../../model/selectors/articlesSort';
 import { type TOrder } from '@/shared/types';
-import { articlePageActions } from '@/pages/ArticlesPage/model/slices/articlePageSlice';
+import { articlePageActions } from '../../../model/slices/articlePageSlice'; ;
 
 interface IArticlesSortSelectsProps {
   className?: string

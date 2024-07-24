@@ -10,6 +10,7 @@ import { Input } from '@/shared/ui/Input/Input';
 import { Button, EButtonSizes, EButtonVariants } from '@/shared/ui/Button/Button';
 import { BrowserView, MobileView } from 'react-device-detect';
 import { Drawer } from '@/shared/ui/Drawer/Drawer';
+import { useTranslation } from 'react-i18next';
 
 interface IRatingCardProps {
   className?: string
@@ -35,6 +36,8 @@ export const RatingCard = memo((props: IRatingCardProps) => {
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [starsCount, setStarsCount] = useState(dataStarsCount)
   const [feedback, setFeedback] = useState('')
+
+  const { t } = useTranslation('main');
 
   const onStarClick = useCallback(
     (starNumber: number) => {
@@ -65,7 +68,7 @@ export const RatingCard = memo((props: IRatingCardProps) => {
 	  const modalContent = (
   <>
     <Text title={feedBackTitle}/>
-    <Input placeholder="Ваш отзыв" onChange={(value: string) => { setFeedback(value) }} value={feedback}/>
+    <Input placeholder={t('Ваш отзыв')} onChange={(value: string) => { setFeedback(value) }} value={feedback}/>
   </>
 	  )
 
@@ -80,7 +83,7 @@ export const RatingCard = memo((props: IRatingCardProps) => {
         <Drawer isOpened={isModalOpen} lazy onClose={deniedHandler}>
           <VStack needMaxWidth gap="32">
             {modalContent}
-            <Button variant={EButtonVariants.OUTLINED_RED} onClick={acceptHandler} size={EButtonSizes.L} fullWidth>Отправить</Button>
+            <Button variant={EButtonVariants.OUTLINED_RED} onClick={acceptHandler} size={EButtonSizes.L} fullWidth>{t('Отправить')}</Button>
           </VStack>
         </Drawer>
       </MobileView>
@@ -89,8 +92,8 @@ export const RatingCard = memo((props: IRatingCardProps) => {
           <VStack needMaxWidth gap="32">
             {modalContent}
             <HStack needMaxWidth gap='16' justify="end">
-              <Button variant={EButtonVariants.OUTLINED_RED} onClick={deniedHandler}>Закрыть</Button>
-              <Button variant={EButtonVariants.FILLED} onClick={acceptHandler}>Отправить</Button>
+              <Button variant={EButtonVariants.OUTLINED_RED} onClick={deniedHandler}>{t('Закрыть')}</Button>
+              <Button variant={EButtonVariants.FILLED} onClick={acceptHandler}>{t('Отправить')}</Button>
             </HStack>
           </VStack>
 
