@@ -49,7 +49,7 @@
     "./src/**/*.tsx",
     "./config/**/*.tsx",
     "./config/**/*.ts",
-    // "./scripts/**/*.js",
+    "./scripts/**/*",
     "./vite.config.ts",
     "./eslintrc.js",
     

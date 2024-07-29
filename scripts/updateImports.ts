@@ -7,29 +7,27 @@ project.addSourceFilesAtPaths('./src/**/*.tsx');
 
 const files = project.getSourceFiles();
 
-
-
-function isAbsolute(value:string) {
-    const layers = [
-        'app',
-        'pages',
-        'widgets',
-        'features',
-        'entities',
-        'shared'
-    ]
-    return layers.some(layer => value.startsWith(layer))
+function isAbsolute(value: string) {
+  const layers = [
+    'app',
+    'pages',
+    'widgets',
+    'features',
+    'entities',
+    'shared'
+  ]
+  return layers.some(layer => value.startsWith(layer))
 }
 
 files.forEach(sourceFile => {
-    const importDeclarations = sourceFile.getImportDeclarations();
-    importDeclarations.forEach(importEl => {
-       const value = importEl.getModuleSpecifierValue()
+  const importDeclarations = sourceFile.getImportDeclarations();
+  importDeclarations.forEach(importEl => {
+    const value = importEl.getModuleSpecifierValue()
 
-       if (isAbsolute(value)) {
-        importEl.setModuleSpecifier('@/' + value)
-       } 
-    })
+    if (isAbsolute(value)) {
+      importEl.setModuleSpecifier('@/' + value)
+    }
+  })
 })
 
 project.save()
