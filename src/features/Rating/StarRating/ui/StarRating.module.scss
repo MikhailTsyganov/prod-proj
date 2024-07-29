@@ -1,14 +1,14 @@
-.StarRating {}
+// .StarRating {}
 
 .starIcon {
-    fill: none;
-    cursor: pointer;
+  fill: none;
+  cursor: pointer;
 }
 
 .filled {
-    fill: var(--primary-color);
+  fill: var(--primary-color);
 }
 
 .selected {
-    cursor: auto;
+  cursor: auto;
 }

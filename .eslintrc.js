@@ -85,7 +85,7 @@ module.exports = {
         }],
         "mt-fsd-path-checker/layer-imports": ["error", {
             alias: '@',
-            ignoreImportPatterns: ['**/StoreProvider', '**/store/**', '**/index.scss', '**/router/**', '**/providers/**']
+            ignoreImportPatterns: ['**/StoreProvider', '**/store/**', '**/index.scss', '**/router/**', '**/providers/**', '**/testing']
         }],
         "@typescript-eslint/consistent-type-imports": "off"
     },

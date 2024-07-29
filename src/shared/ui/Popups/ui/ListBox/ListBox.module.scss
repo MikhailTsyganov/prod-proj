@@ -1,18 +1,18 @@
-.trigger {}
+// .trigger {}
 
 .list {
-    background: var(--listbox-bg);
-    position: absolute;
-    z-index: 999999999;
-    border-radius: 12px;
-    box-shadow: 4px 4px 8px var(--listbox-bg);
+  background: var(--listbox-bg);
+  position: absolute;
+  z-index: 999999999;
+  border-radius: 12px;
+  box-shadow: 4px 4px 8px var(--listbox-bg);
 }
 
 .listItem {
-    padding: 10px 20px;
-    cursor: pointer;
+  padding: 10px 20px;
+  cursor: pointer;
 }
 
 .label {
-    margin-right: 4px;
+  margin-right: 4px;
 }

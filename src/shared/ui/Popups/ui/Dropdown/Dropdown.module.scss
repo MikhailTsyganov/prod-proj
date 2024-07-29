@@ -1,18 +1,18 @@
 .list {
-    display: flex;
-    flex-direction: column;
-    background: var(--card-bg);
-    position: absolute;
-    z-index: 999999999;
-    border-radius: 8px;
-    border: 1px solid var(--primary-color);
+  display: flex;
+  flex-direction: column;
+  background: var(--card-bg);
+  position: absolute;
+  z-index: 999999999;
+  border-radius: 8px;
+  border: 1px solid var(--primary-color);
 }
 
 .listItem {
-    padding: 10px 25px;
-    width: 100%;
-    border: none;
-    background: none;
-    outline: none;
-    cursor: pointer;
+  padding: 10px 25px;
+  width: 100%;
+  border: none;
+  background: none;
+  outline: none;
+  cursor: pointer;
 }
