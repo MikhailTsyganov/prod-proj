@@ -1,6 +1,6 @@
 import { useLocation } from 'react-router-dom';
 import s from './Page.module.scss';
-import { type FC, type MutableRefObject, type UIEvent, memo, useRef, type ReactNode } from 'react';
+import { type MutableRefObject, type UIEvent, useRef, type ReactNode } from 'react';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDIspatch';
 import { useInfiniteScroll } from '@/shared/lib/hooks/useInfiniteScroll/useInfiniteScroll';
 import { classNames } from '@/shared/lib/helpers/classNames/classNames';

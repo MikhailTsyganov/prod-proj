@@ -1,4 +1,4 @@
-import { getQueryParams, addQueryParams } from './addQueryParams'
+import { getQueryParams } from './addQueryParams'
 
 describe('sahred/lib/helpers/addQueryParams', () => {
   test('test with one params', () => {

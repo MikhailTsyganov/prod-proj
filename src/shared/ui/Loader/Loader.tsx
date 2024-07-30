@@ -1,4 +1,4 @@
-import { type ReactNode, type FC } from 'react';
+import { type ReactNode } from 'react';
 import { classNames } from '@/shared/lib/helpers/classNames/classNames';
 
 import './Loader.scss';

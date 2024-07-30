@@ -1,4 +1,4 @@
-import { type PayloadAction, createSlice, createEntityAdapter } from '@reduxjs/toolkit';
+import { createSlice, createEntityAdapter } from '@reduxjs/toolkit';
 import { type IArticleDetailsRecommendationsSchema } from '../types/recommendationsSchema';
 import { type IArticle } from '@/entities/Article';
 import { type IStateSchema } from '@/app/providers/store';

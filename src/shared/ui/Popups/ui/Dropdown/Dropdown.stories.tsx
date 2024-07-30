@@ -1,8 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
 import { Dropdown } from './Dropdown';
-import { ThemeDecorator } from '@/shared/config/storybookDecorators/ThemeDecorator';
-import { ETheme } from '@/shared/const/theme';
 import { Button } from '../../../Button/Button';
 
 const meta = {

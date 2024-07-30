@@ -1,8 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
 import { ArticleListItem } from './ArticleListItem';
-import { ThemeDecorator } from '@/shared/config/storybookDecorators/ThemeDecorator';
-import { ETheme } from '@/shared/const/theme';
 import { EArticleBlockType, EArticleType, EArticleView, type IArticle } from '../../model/types/article';
 
 const meta = {

@@ -1,6 +1,6 @@
 import { AddNewCommentLazy } from '@/features/AddNewComment';
 import s from './ArticleComments.module.scss';
-import { type FC, memo, useCallback } from 'react';
+import { memo, useCallback } from 'react';
 import { classNames } from '@/shared/lib/helpers/classNames/classNames';
 import { VStack } from '@/shared/ui/Stack';
 import { ETextSize, Text } from '@/shared/ui/Text';

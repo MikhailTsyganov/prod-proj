@@ -1,8 +1,3 @@
-import { initArticlesPage } from './initArticlesPage';
-import { TestAsyncThunk } from '@/shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
-import { fetchArticlesList } from '../fetchArticlesList/fetchArticlesList';
-import { useSearchParams } from 'react-router-dom';
-
 jest.mock('../fetchArticlesList/fetchArticlesList')
 
 describe('fetchArticlesNextPage', () => {

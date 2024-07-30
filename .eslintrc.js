@@ -30,12 +30,14 @@ module.exports = {
     "plugins": [
         "react",
         "react-hooks",
-        "mt-fsd-path-checker"
+        "mt-fsd-path-checker",
+        "unused-imports"
     ],
     "rules": {
         "react/jsx-indent": [2, 2],
         "react/jsx-indent-props": [2, 2],
         "indent": [0, 2],
+        "unused-imports/no-unused-imports": "error",
         "@typescript-eslint/explicit-function-return-type": [0],
         "@typescript-eslint/space-before-function-paren": [0],
         "@typescript-eslint/semi": [0],

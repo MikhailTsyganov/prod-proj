@@ -1,4 +1,3 @@
-import s from './ArticleRecommendationsList.module.scss';
 import { type FC, memo } from 'react';
 import { classNames } from '@/shared/lib/helpers/classNames/classNames';
 import { ETextSize, Text } from '@/shared/ui/Text';
