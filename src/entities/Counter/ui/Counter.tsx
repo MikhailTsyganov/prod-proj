@@ -1,6 +1,6 @@
 import { type FC } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Button, EButtonVariants } from '@/shared/ui/Button/Button';
+import { Button, EButtonVariants } from '@/shared/ui/Button';
 import { counterActions } from '../model/slice/counterSlice';
 import { getCounterValue } from '../model/selectors/getCounterValue/getCounterValue';
 import { useTranslation } from 'react-i18next';

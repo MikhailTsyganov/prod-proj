@@ -3,7 +3,7 @@ import { classNames } from '@/shared/lib/helpers/classNames/classNames';
 
 // import s from './ArticleBlockCode.module.scss';
 import { type IArticleBlockCode } from '../../model/types/article';
-import { Code } from '@/shared/ui/Code/Code';
+import { Code } from '@/shared/ui/Code';
 
 interface IArticleBlockCodeProps {
   className?: string

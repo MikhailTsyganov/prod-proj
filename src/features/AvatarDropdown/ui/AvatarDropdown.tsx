@@ -4,7 +4,7 @@ import { memo } from 'react';
 import { classNames } from '@/shared/lib/helpers/classNames/classNames';
 import { Dropdown } from '@/shared/ui/Popups';
 import { getUserAuthData, isUserAdmin, isUserManager, userActions } from '@/entities/User';
-import { Avatar } from '@/shared/ui/Avatar/Avatar';
+import { Avatar } from '@/shared/ui/Avatar';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDIspatch';
 import { useTranslation } from 'react-i18next';
 import { TPopupDirection } from '@/shared/types/ui';

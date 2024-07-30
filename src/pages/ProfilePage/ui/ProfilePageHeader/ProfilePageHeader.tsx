@@ -1,9 +1,9 @@
 import { type FC, useCallback } from 'react';
 import { classNames } from '@/shared/lib/helpers/classNames/classNames';
 
-import { Button, EButtonVariants } from '@/shared/ui/Button/Button';
+import { Button, EButtonVariants } from '@/shared/ui/Button';
 import { useTranslation } from 'react-i18next';
-import { Text } from '@/shared/ui/Text/Text';
+import { Text } from '@/shared/ui/Text';
 import { useSelector } from 'react-redux';
 import {
   getProfileData,

@@ -3,7 +3,7 @@ import { type FC, memo, useCallback } from 'react';
 import { classNames } from '@/shared/lib/helpers/classNames/classNames';
 import { ArticleListItem, ArticleListItemSkeleton, EArticleView, type IArticle } from '@/entities/Article';
 import { useTranslation } from 'react-i18next';
-import { ETextSize, Text } from '@/shared/ui/Text/Text';
+import { ETextSize, Text } from '@/shared/ui/Text';
 import { Virtuoso, VirtuosoGrid } from 'react-virtuoso';
 import { ARTICLE_ITEM_SELECTED_ID } from '@/shared/const/localstorage';
 import { HStack } from '@/shared/ui/Stack';

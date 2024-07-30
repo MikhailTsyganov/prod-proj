@@ -3,7 +3,7 @@ import s from './ArticleComments.module.scss';
 import { type FC, memo, useCallback } from 'react';
 import { classNames } from '@/shared/lib/helpers/classNames/classNames';
 import { VStack } from '@/shared/ui/Stack';
-import { ETextSize, Text } from '@/shared/ui/Text/Text';
+import { ETextSize, Text } from '@/shared/ui/Text';
 import { CommentList } from '@/entities/Comment';
 import { useTranslation } from 'react-i18next';
 import { useCreateCommentByArticleIdMutation, useGetAllCommentsByArticleIdQuery } from '../../api/ArticleCommentsApi';

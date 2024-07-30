@@ -1,7 +1,7 @@
 import s from './ArticleRecommendationsList.module.scss';
 import { type FC, memo } from 'react';
 import { classNames } from '@/shared/lib/helpers/classNames/classNames';
-import { ETextSize, Text } from '@/shared/ui/Text/Text';
+import { ETextSize, Text } from '@/shared/ui/Text';
 import { useTranslation } from 'react-i18next';
 import { VStack } from '@/shared/ui/Stack';
 import { useGetRecommendationsListQuery } from '../../api/ArticleRecommendationsApi';

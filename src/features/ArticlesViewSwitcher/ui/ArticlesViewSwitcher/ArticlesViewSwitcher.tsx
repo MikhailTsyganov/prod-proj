@@ -4,8 +4,8 @@ import { type FC, memo } from 'react';
 import { classNames } from '@/shared/lib/helpers/classNames/classNames';
 import TileIcon from '@/shared/assets/icons/tile.svg'
 import ListIcon from '@/shared/assets/icons/list.svg'
-import { Button, EButtonVariants } from '@/shared/ui/Button/Button';
-import { Icon } from '@/shared/ui/Icon/Icon';
+import { Button, EButtonVariants } from '@/shared/ui/Button';
+import { Icon } from '@/shared/ui/Icon';
 
 const viewTypes = [
   {

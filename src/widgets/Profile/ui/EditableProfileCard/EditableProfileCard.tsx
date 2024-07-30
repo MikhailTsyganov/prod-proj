@@ -5,7 +5,7 @@ import { type ECurrency } from '@/entities/Currency';
 import { type ECountry } from '@/entities/Country';
 import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
-import { ETextVariant, Text } from '@/shared/ui/Text/Text';
+import { ETextVariant, Text } from '@/shared/ui/Text';
 import { getProfileCurrentDataForm } from '../../model/selectors/getProfileCurrentDataForm/getProfileCurrentDataForm';
 import { getProfileValidateErrors } from '../../model/selectors/getProfileValidateErrors/getProfileValidateErrors';
 import { getProfileIsLoading } from '../../model/selectors/getProfileIsLoading/getProfileIsLoading';

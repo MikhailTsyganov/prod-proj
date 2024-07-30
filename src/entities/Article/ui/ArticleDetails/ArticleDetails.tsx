@@ -8,13 +8,13 @@ import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDIspatch
 import { fetchArticleById } from '../../model/services/fetchArticleById/fetchArticleById';
 import { useSelector } from 'react-redux';
 import { getArticleDetailsData, getArticleDetailsError, getArticleDetailsIsLoading } from '../../model/selectors/articleDetails';
-import { ETextAlign, Text } from '@/shared/ui/Text/Text';
+import { ETextAlign, Text } from '@/shared/ui/Text';
 import { useTranslation } from 'react-i18next';
-import { Skeleton } from '@/shared/ui/Skeleton/Skeleton';
-import { Avatar } from '@/shared/ui/Avatar/Avatar';
+import { Skeleton } from '@/shared/ui/Skeleton';
+import { Avatar } from '@/shared/ui/Avatar';
 import EyeIcon from '@/shared/assets/icons/eye.svg'
 import CalendarIcon from '@/shared/assets/icons/calendar.svg'
-import { Icon } from '@/shared/ui/Icon/Icon';
+import { Icon } from '@/shared/ui/Icon';
 import { EArticleBlockType, type TArticleBlock } from '../../model/types/article';
 import { ArticleBlockText } from '../ArticleBlockText/ArticleBlockText';
 import { ArticleBlockCode } from '../ArticleBlockCode/ArticleBlockCode';

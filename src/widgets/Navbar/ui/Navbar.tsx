@@ -1,14 +1,14 @@
 import { useState, type FC, useCallback, memo } from 'react';
 import { classNames } from '@/shared/lib/helpers/classNames/classNames';
 import { useTranslation } from 'react-i18next';
-import { Button, EButtonVariants } from '@/shared/ui/Button/Button';
+import { Button, EButtonVariants } from '@/shared/ui/Button';
 import { LoginModal } from '@/features/AuthByUsername';
 import { useSelector } from 'react-redux';
 import { getUserAuthData } from '@/entities/User';
 
 import s from './Navbar.module.scss';
-import { ETextVariant, Text } from '@/shared/ui/Text/Text';
-import { AppLink, EAppLinkVariants } from '@/shared/ui/AppLink/AppLink';
+import { ETextVariant, Text } from '@/shared/ui/Text';
+import { AppLink, EAppLinkVariants } from '@/shared/ui/AppLink';
 import { HStack } from '@/shared/ui/Stack';
 import { OpenNotificationListButton } from '@/features/OpenNotificationListButton';
 import { AvatarDropdown } from '@/features/AvatarDropdown';

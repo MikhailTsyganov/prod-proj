@@ -1,13 +1,13 @@
 import { type FC } from 'react';
 import { type TMods, classNames } from '@/shared/lib/helpers/classNames/classNames';
 import { useTranslation } from 'react-i18next';
-import { ETextAlign, ETextVariant, Text } from '@/shared/ui/Text/Text';
-import { Input } from '@/shared/ui/Input/Input';
+import { ETextAlign, ETextVariant, Text } from '@/shared/ui/Text';
+import { Input } from '@/shared/ui/Input';
 import { type IProfile } from '../../model/types/profile';
 
 import s from './ProfileCard.module.scss';
-import { Loader } from '@/shared/ui/Loader/Loader';
-import { Avatar } from '@/shared/ui/Avatar/Avatar';
+import { Loader } from '@/shared/ui/Loader';
+import { Avatar } from '@/shared/ui/Avatar';
 import { CountrySelect, type ECountry } from '@/entities/Country';
 import { CurrencySelect, type ECurrency } from '@/entities/Currency';
 import { HStack, VStack } from '@/shared/ui/Stack';

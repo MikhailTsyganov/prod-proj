@@ -1,9 +1,9 @@
-import { Card, ECardVariant } from '@/shared/ui/Card/Card';
+import { Card, ECardVariant } from '@/shared/ui/Card';
 import { type INotification } from '../../model/types/notifications';
 import s from './NotificationListItem.module.scss';
 import { memo } from 'react';
 import { classNames } from '@/shared/lib/helpers/classNames/classNames';
-import { Text } from '@/shared/ui/Text/Text';
+import { Text } from '@/shared/ui/Text';
 
 interface INotificationListItemProps {
   className?: string

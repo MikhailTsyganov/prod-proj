@@ -1,6 +1,6 @@
 import { type FC, memo } from 'react';
 import { classNames } from '@/shared/lib/helpers/classNames/classNames';
-import { AppLink } from '@/shared/ui/AppLink/AppLink';
+import { AppLink } from '@/shared/ui/AppLink';
 import { type ISidebarItem } from '../../model/types/SidebarItem.types';
 
 import s from './SidebarItem.module.scss';

@@ -6,7 +6,7 @@ import { useSelector } from 'react-redux';
 import { useSearchParams } from 'react-router-dom';
 import { getArticlesSortView } from '../ArticlesSort/model/selectors/articlesSort';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
-import { Text } from '@/shared/ui/Text/Text';
+import { Text } from '@/shared/ui/Text';
 import { useTranslation } from 'react-i18next';
 import { ArticleList } from '../ArticleList/ArticleList';
 import { getArticles } from '../model/slices/articlePageSlice';

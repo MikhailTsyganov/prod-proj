@@ -2,7 +2,7 @@ import { type FC, memo, useCallback } from 'react';
 import { classNames } from '@/shared/lib/helpers/classNames/classNames';
 import { ECurrency } from '../model/types/currency';
 import { useTranslation } from 'react-i18next';
-import { ListBox } from '@/shared/ui/Popups/ui/ListBox/ListBox';
+import { ListBox } from '@/shared/ui/Popups';
 
 interface ICurrencySelectProps {
   className?: string

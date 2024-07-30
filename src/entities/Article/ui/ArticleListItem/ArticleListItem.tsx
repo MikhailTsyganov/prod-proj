@@ -3,15 +3,15 @@ import { classNames } from '@/shared/lib/helpers/classNames/classNames';
 
 import s from './ArticleListItem.module.scss';
 import { EArticleBlockType, EArticleView, type IArticle, type IArticleBlockText } from '../../model/types/article';
-import { Text } from '@/shared/ui/Text/Text';
+import { Text } from '@/shared/ui/Text';
 import EyeIcon from '@/shared/assets/icons/eye.svg'
-import { Icon } from '@/shared/ui/Icon/Icon';
-import { Card } from '@/shared/ui/Card/Card';
-import { Avatar } from '@/shared/ui/Avatar/Avatar';
-import { Button, EButtonVariants } from '@/shared/ui/Button/Button';
+import { Icon } from '@/shared/ui/Icon';
+import { Card } from '@/shared/ui/Card';
+import { Avatar } from '@/shared/ui/Avatar';
+import { Button, EButtonVariants } from '@/shared/ui/Button';
 import { useTranslation } from 'react-i18next';
 import { ArticleBlockText } from '../ArticleBlockText/ArticleBlockText';
-import { AppLink } from '@/shared/ui/AppLink/AppLink';
+import { AppLink } from '@/shared/ui/AppLink';
 import { ARTICLE_ITEM_SELECTED_ID } from '@/shared/const/localstorage';
 import { routePaths } from '@/shared/const/router';
 

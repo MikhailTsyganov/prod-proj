@@ -3,7 +3,7 @@ import s from './ArticlesSortSelects.module.scss';
 import { memo, useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from '@/shared/lib/helpers/classNames/classNames';
-import { type ISelectList, Select } from '@/shared/ui/Select/Select';
+import { type ISelectList, Select } from '@/shared/ui/Select';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDIspatch';
 import { articlesSortActions } from '../../model/slices/articlesSortSlice';
 import { useSelector } from 'react-redux';
