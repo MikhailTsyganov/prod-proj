@@ -6,6 +6,12 @@ interface IUseModalProps {
   isOpened?: boolean
 }
 
+/**
+ * Переиспользуемый хук для модальных компонентов (drawer/modal)
+ * @param props
+ * @returns
+ */
+
 export function useModal(props: IUseModalProps) {
   const { close, animationDelay, isOpened } = props;
 
