@@ -11,7 +11,7 @@ describe('classNames', () => {
   });
 
   test('with mods', () => {
-    const expected = 'someClass class1 class2 hovered scrollable';
+    const expected = 'someClass hovered scrollable class1 class2';
     expect(classNames(
       'someClass',
       { hovered: true, scrollable: true },
@@ -20,7 +20,7 @@ describe('classNames', () => {
   });
 
   test('with mods and one is false', () => {
-    const expected = 'someClass class1 class2 scrollable';
+    const expected = 'someClass scrollable class1 class2';
     expect(classNames(
       'someClass',
       { hovered: false, scrollable: true },

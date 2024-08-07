@@ -1,13 +1,13 @@
 import { screen } from '@testing-library/react'
-import { EditableProfileCard } from './EditableProfileCard';
-import { type IMainDecoratorOptions, MainDecorator } from '@/shared/config/testsDecorators/mainDecorator';
+import { MainDecorator, type IMainDecoratorOptions } from '@/shared/config/testsDecorators/mainDecorator';
 import userEvent from '@testing-library/user-event'
 import { type IProfile } from '@/entities/Profile';
 import { ECurrency } from '@/entities/Currency';
 import { ECountry } from '@/entities/Country';
 import { profileReducer } from '../../model/slice/profileSlice';
-// import { ProfilePageHeader } from '@/pages/ProfilePage/ui/ProfilePageHeader/ProfilePageHeader';
 import { $api } from '@/shared/api/api';
+import { ProfilePageHeader } from '@/pages/ProfilePage/testing';
+import { EditableProfileCard } from './EditableProfileCard';
 
 const profile: IProfile = {
   id: '1',
@@ -41,7 +41,7 @@ describe('widgets/EditableProfileCard', () => {
   beforeEach(() => {
     MainDecorator(
       <>
-        {/* <ProfilePageHeader /> */}
+        <ProfilePageHeader />
         <EditableProfileCard/>
       </>, { ...options }
     )
@@ -79,7 +79,7 @@ describe('widgets/EditableProfileCard', () => {
   });
   test('Если нет ошибок валидации на сервер должен уйти PUT запрос', async () => {
     const mockPutReq = jest.spyOn($api, 'put')
-    // MainDecorator(<><ProfilePageHeader /><EditableProfileCard/></>, { ...options, initialState: { profile: { validateErrors: [], readonly: true } } })
+    MainDecorator(<></>, { ...options, initialState: { profile: { validateErrors: [], readonly: true } } })
     await userEvent.click(screen.getByTestId('ProfilePageHeader.editBtn'))
     await userEvent.type(screen.getByTestId('ProfileCard.firstname'), '123')
     await userEvent.click(screen.getByTestId('ProfilePageHeader.saveBtn'))
