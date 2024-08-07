@@ -12,6 +12,14 @@ const preview: Preview = {
         color: /(background|color)$/i,
         date: /Date$/i
       }
+    },
+    themes: {
+      default: 'light',
+      list: [
+        { name: 'light', class: ETheme.LIGHT, color: '#fff' },
+        { name: 'dark', class: ETheme.DARK, color: '#000' },
+        { name: 'orange', class: ETheme.ORANGE, color: '#bd5012' }
+      ]
     }
   },
 
