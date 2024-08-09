@@ -2,10 +2,10 @@ import { type Reducer } from '@reduxjs/toolkit';
 import { type IStoreWithManager } from '@/app/providers/store';
 import { useEffect } from 'react';
 import { useDispatch, useStore } from 'react-redux';
-import { TStateSchemaKeys } from '@/app/providers/store/config/stateSchema';
+import { IStateSchema, TStateSchemaKeys } from '@/app/providers/store/config/stateSchema';
 
 export type TReducerList = {
-  [key in TStateSchemaKeys]?: Reducer
+  [key in TStateSchemaKeys]?: Reducer<NonNullable<IStateSchema[key]>>
 }
 
 interface IUseAsyncReducerOptins {
