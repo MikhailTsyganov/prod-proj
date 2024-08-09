@@ -7,7 +7,7 @@ import { Avatar } from '@/shared/ui/Avatar';
 import { Text } from '@/shared/ui/Text';
 import { Skeleton } from '@/shared/ui/Skeleton';
 import { AppLink } from '@/shared/ui/AppLink';
-import { routePaths } from '@/shared/const/router';
+import { getRouteProfile } from '@/shared/const/router';
 
 interface ICommentItemProps {
   className?: string
@@ -39,7 +39,7 @@ export const CommentItem: FC<ICommentItemProps> = memo((props) => {
 
   return (
     <div className={classNames(s.CommentItem, {}, [className])}>
-      <AppLink to={`${routePaths.profile}${user.id}`} className={s.avatarWrapper}>
+      <AppLink to={getRouteProfile(user.id)} className={s.avatarWrapper}>
         {user.avatar && <Avatar size={30} src={user.avatar} alt={user.username} />}
         <Text title={user.username} className={s.username} />
       </AppLink>

@@ -13,7 +13,7 @@ import { useTranslation } from 'react-i18next';
 import { ArticleBlockText } from '../ArticleBlockText/ArticleBlockText';
 import { AppLink } from '@/shared/ui/AppLink';
 import { ARTICLE_ITEM_SELECTED_ID } from '@/shared/const/localstorage';
-import { routePaths } from '@/shared/const/router';
+import { getRouteArticleDetails } from '@/shared/const/router';
 
 interface IArticleListItemProps {
   className?: string
@@ -54,7 +54,7 @@ export const ArticleListItem: FC<IArticleListItemProps> = memo((props) => {
           <img src={article?.img} alt={article?.title} className={s.img} />
           {textBlock && <ArticleBlockText block={textBlock} className={s.text} />}
           <div className={s.footer}>
-            <AppLink to={`${routePaths.article_details}${article?.id}`} target={target}>
+            <AppLink to={getRouteArticleDetails(article?.id)} target={target}>
               <Button variant={EButtonVariants.OUTLINED} onClick={onShowMoreClick}>{t('Читать далее...')}</Button>
             </AppLink>
             {views}
@@ -68,7 +68,7 @@ export const ArticleListItem: FC<IArticleListItemProps> = memo((props) => {
     <div
       className={classNames(s.ArticleListItem, {}, [className, s[view]])}
 		>
-      <AppLink to={`${routePaths.article_details}${article?.id}`} target={target}>
+      <AppLink to={getRouteArticleDetails(article?.id)} target={target}>
         <Card onClick={onShowMoreClick}>
           <div className={s.imageWrapper}>
             <img src={article?.img} alt={article?.title} className={s.img} />

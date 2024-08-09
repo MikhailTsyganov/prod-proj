@@ -12,7 +12,7 @@ import { AppLink, EAppLinkVariants } from '@/shared/ui/AppLink';
 import { HStack } from '@/shared/ui/Stack';
 import { OpenNotificationListButton } from '@/features/OpenNotificationListButton';
 import { AvatarDropdown } from '@/features/AvatarDropdown';
-import { routePaths } from '@/shared/const/router';
+import { getRouteArticleCreate } from '@/shared/const/router';
 
 interface INavbarProps {
   className?: string
@@ -43,7 +43,7 @@ export const Navbar: FC<INavbarProps> = memo((props) => {
           variant={ETextVariant.INVERTED}
       />
         <AppLink
-          to={routePaths.article_create}
+          to={getRouteArticleCreate()}
           variant={EAppLinkVariants.SECONDARY}
       >
           {t('Создать статью')}

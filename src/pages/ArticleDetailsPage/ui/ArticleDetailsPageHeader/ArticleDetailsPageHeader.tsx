@@ -7,7 +7,7 @@ import { Button, EButtonVariants } from '@/shared/ui/Button';
 import { useSelector } from 'react-redux';
 import { getArticleDetailsData } from '@/entities/Article';
 import { getCanEdit } from '../../model/selectors/article/article';
-import { routePaths } from '@/shared/const/router';
+import { getRouteArticleEdit, getRouteArticles } from '@/shared/const/router';
 
 interface IArticleDetailsPageHeaderProps {
   className?: string
@@ -23,14 +23,14 @@ export const ArticleDetailsPageHeader = memo((props: IArticleDetailsPageHeaderPr
 
   const onBackToList = useCallback(
     () => {
-      navigate(routePaths.articles)
+      navigate(getRouteArticles())
     },
     [navigate]
   )
 
   const onEdit = useCallback(
     () => {
-      navigate(routePaths.article_details + article?.id + '/edit')
+      article?.id && navigate(getRouteArticleEdit(article?.id))
     },
     [navigate, article]
   )

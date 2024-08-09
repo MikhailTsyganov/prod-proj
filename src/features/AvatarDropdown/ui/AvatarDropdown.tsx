@@ -8,7 +8,7 @@ import { Avatar } from '@/shared/ui/Avatar';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDIspatch';
 import { useTranslation } from 'react-i18next';
 import { TPopupDirection } from '@/shared/types/ui';
-import { routePaths } from '@/shared/const/router';
+import { getRouteAdminPanel, getRouteProfile } from '@/shared/const/router';
 
 interface IAvatarDropdownProps {
   className?: string
@@ -38,9 +38,9 @@ export const AvatarDropdown = memo((props: IAvatarDropdownProps) => {
     <Dropdown
       items={[
         ...(isAdminPanelAvailable
-          ? [{ id: '1', content: t('Админка'), href: routePaths.admin_panel }]
+          ? [{ id: '1', content: t('Админка'), href: getRouteAdminPanel() }]
           : []),
-        { id: '2', content: t('Профиль'), href: routePaths.profile + authData.id },
+        { id: '2', content: t('Профиль'), href: getRouteProfile(authData.id) },
         { id: '3', content: t('Выйти'), onClick: onLogout }
       ]}
       trigger={<Avatar size={30} src={authData.avatar} />}
