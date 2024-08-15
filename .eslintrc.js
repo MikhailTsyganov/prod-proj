@@ -89,7 +89,9 @@ module.exports = {
             alias: '@',
             ignoreImportPatterns: ['**/StoreProvider', '**/store/**', '**/index.scss', '**/router/**', '**/providers/**', '**/testing']
         }],
-        "@typescript-eslint/consistent-type-imports": "off"
+        "@typescript-eslint/consistent-type-imports": "off",
+        "@typescript-eslint/ban-ts-comment": "off",
+        "@typescript-eslint/prefer-ts-expect-error": "off"
     },
 
     "globals": {

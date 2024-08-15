@@ -1,22 +1,27 @@
 import { type FC } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { Button, EButtonVariants } from '@/shared/ui/Button';
-import { counterActions } from '../model/slice/counterSlice';
-import { getCounterValue } from '../model/selectors/getCounterValue/getCounterValue';
+import { counterActions, useCounterActions } from '../model/slice/counterSlice';
 import { useTranslation } from 'react-i18next';
+import { useCounterValue } from '../model/selectors/getCounterValue/getCounterValue';
 
 export const Counter: FC = () => {
   const dispatch = useDispatch()
   const { t } = useTranslation()
 
-  const counterValue = useSelector(getCounterValue)
+  const counterValue = useCounterValue()
+  const {addAny, decrement, increment} = useCounterActions()
 
   const onIncrement = () => {
-    dispatch(counterActions.increment())
+    increment()
   }
 
   const onDecrement = () => {
-    dispatch(counterActions.decrement())
+    decrement()
+  }
+
+  const onIncFive = () => {
+    addAny(5)
   }
 
   return (
@@ -35,6 +40,13 @@ export const Counter: FC = () => {
         variant={EButtonVariants.OUTLINED}
       >
         {t('уменьшить')}
+      </Button>
+      <Button
+        data-testid='decrement-btn'
+        onClick={onIncFive}
+        variant={EButtonVariants.OUTLINED}
+      >
+        {t('Увел на 5')}
       </Button>
     </div>
   )
