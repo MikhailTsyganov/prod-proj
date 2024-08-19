@@ -14,6 +14,8 @@ import { ArticleBlockText } from '../ArticleBlockText/ArticleBlockText';
 import { AppLink } from '@/shared/ui/AppLink';
 import { ARTICLE_ITEM_SELECTED_ID } from '@/shared/const/localstorage';
 import { getRouteArticleDetails } from '@/shared/const/router';
+import { AppImage } from '@/shared/ui/AppImage';
+import { Skeleton } from '@/shared/ui/Skeleton';
 
 interface IArticleListItemProps {
   className?: string
@@ -51,7 +53,12 @@ export const ArticleListItem: FC<IArticleListItemProps> = memo((props) => {
           </div>
           <Text title={article?.title} className={s.title} />
           {types}
-          <img src={article?.img} alt={article?.title} className={s.img} />
+          <AppImage
+            src={article?.img}
+            alt={article?.title}
+            fallback={<Skeleton width={'100%'} height={250}/>}
+            className={s.img}
+          />
           {textBlock && <ArticleBlockText block={textBlock} className={s.text} />}
           <div className={s.footer}>
             <AppLink to={getRouteArticleDetails(article?.id)} target={target}>
@@ -71,7 +78,12 @@ export const ArticleListItem: FC<IArticleListItemProps> = memo((props) => {
       <AppLink to={getRouteArticleDetails(article?.id)} target={target}>
         <Card onClick={onShowMoreClick}>
           <div className={s.imageWrapper}>
-            <img src={article?.img} alt={article?.title} className={s.img} />
+            <AppImage
+              src={article?.img}
+              alt={article?.title}
+              fallback={<Skeleton width={'100%'} height={200}/>}
+              className={s.img}
+            />
             <Text text={article?.createdAt} className={s.date} />
           </div>
           <div className={s.infoWrapper}>

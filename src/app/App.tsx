@@ -5,7 +5,6 @@ import { Sidebar } from '@/widgets/Sidebar';
 import { Suspense, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getUserInited, userActions } from '@/entities/User';
-import { Counter } from '@/entities/Counter';
 
 export default function App() {
   const dispatch = useDispatch()
@@ -21,7 +20,7 @@ export default function App() {
         <Navbar />
         <div className="content-page">
           <Sidebar />
-          <Counter/>
+          {/* <Counter/> */}
           {isUserInited && <AppRouter />}
         </div>
       </Suspense>
