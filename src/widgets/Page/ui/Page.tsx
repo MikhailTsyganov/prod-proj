@@ -9,8 +9,9 @@ import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitial
 import { useSelector } from 'react-redux';
 import { type IStateSchema } from '@/app/providers/store';
 import { useThrottle } from '@/shared/lib/hooks/useThrottle/useThrottle';
+import { ITestProps } from '@/shared/types/tests';
 
-interface IPageProps {
+interface IPageProps extends ITestProps {
   className?: string
   onScrollEnd?: () => void
   children: ReactNode
@@ -48,6 +49,7 @@ export const Page = (props: IPageProps) => {
       ref={wrapperRef}
       onScroll={onScroll}
       id={PAGE_ID}
+      data-testid={props['data-testid'] ?? 'Page'}
 		>
       {children}
       {onScrollEnd && <div ref={triggerRef} className={s.trigger}></div>}
