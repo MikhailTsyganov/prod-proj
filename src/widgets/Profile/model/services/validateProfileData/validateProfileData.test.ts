@@ -14,7 +14,6 @@ describe('validateProfileData', () => {
     city: 'Tbilisi',
     username: 'FFir3',
     avatar
-
   };
 
   test('no errors', async () => {

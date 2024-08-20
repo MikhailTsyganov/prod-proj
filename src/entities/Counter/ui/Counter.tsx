@@ -1,7 +1,7 @@
 import { type FC } from 'react';
 import { useDispatch } from 'react-redux';
 import { Button, EButtonVariants } from '@/shared/ui/Button';
-import { counterActions, useCounterActions } from '../model/slice/counterSlice';
+import { useCounterActions } from '../model/slice/counterSlice';
 import { useTranslation } from 'react-i18next';
 import { useCounterValue } from '../model/selectors/getCounterValue/getCounterValue';
 
@@ -10,7 +10,7 @@ export const Counter: FC = () => {
   const { t } = useTranslation()
 
   const counterValue = useCounterValue()
-  const {addAny, decrement, increment} = useCounterActions()
+  const { addAny, decrement, increment } = useCounterActions()
 
   const onIncrement = () => {
     increment()

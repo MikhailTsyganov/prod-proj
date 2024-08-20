@@ -9,7 +9,6 @@ export function buildSlice<
 >(options: CreateSliceOptions<State, CaseReducers, Name>) {
   const slice = createSlice(options)
 
-  
   const useActions = (): typeof slice.actions => {
     const dispatch = useDispatch()
 
