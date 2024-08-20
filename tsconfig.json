@@ -54,6 +54,5 @@
     "./eslintrc.js",
   ],
   "exclude": [
-    "./src/**/*.test.ts"
   ]
 }
