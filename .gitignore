@@ -143,4 +143,4 @@ dist
 .loki/report.json
 
 # reports
-reports
+reports/unit
