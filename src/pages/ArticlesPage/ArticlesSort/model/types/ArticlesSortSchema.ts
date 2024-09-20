@@ -1,6 +1,5 @@
 import { type EArticleView, type EArticleType } from '@/entities/Article'
-
-import { type TOrder } from '@/shared/types'
+import { TOrder } from '@/shared/types/sort'
 
 export enum EArticlesSortField {
   VIEWS = 'views',

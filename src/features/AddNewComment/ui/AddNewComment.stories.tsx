@@ -28,6 +28,6 @@ export const Light: Story = {
 };
 
 export const Dark: Story = {
-  args: {},
+  args: { onSendComment: () => {} },
   decorators: [ThemeDecorator(ETheme.DARK), StoreDecorator({})]
 };

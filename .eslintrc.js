@@ -76,6 +76,7 @@ module.exports = {
         "@typescript-eslint/unbound-method": "off",
         "@typescript-eslint/no-misused-promises": "off",
         "@typescript-eslint/no-invalid-void-type": "off",
+        "@typescript-eslint/no-non-null-assertion": "off",
         "no-tabs": "off",
         "no-mixed-spaces-and-tabs": "off",
         "mt-fsd-path-checker/path-checker": ["error", {

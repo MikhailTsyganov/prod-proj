@@ -8,8 +8,8 @@ import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDIspatch
 import { articlesSortActions } from '../../model/slices/articlesSortSlice';
 import { useSelector } from 'react-redux';
 import { getArticlesSortOrder, getArticlesSortSort } from '../../model/selectors/articlesSort';
-import { type TOrder } from '@/shared/types';
-import { articlePageActions } from '../../../model/slices/articlePageSlice'; ;
+import { articlePageActions } from '../../../model/slices/articlePageSlice'; import { TOrder } from '@/shared/types/sort';
+;
 
 interface IArticlesSortSelectsProps {
   className?: string

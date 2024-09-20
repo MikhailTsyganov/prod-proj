@@ -1,10 +1,11 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { type IThunkOptions } from '@/app/providers/store';
 import { articlesSortActions } from '../../slices/articlesSortSlice';
-import { type TOrder } from '@/shared/types';
+
 import { type EArticlesSortField } from '../../types/ArticlesSortSchema';
 import { getArticlesSortIsInited } from '../../selectors/articlesSort';
 import { type EArticleType } from '@/entities/Article';
+import { TOrder } from '@/shared/types/sort';
 
 export const initArticlesSort = createAsyncThunk<
 void,
