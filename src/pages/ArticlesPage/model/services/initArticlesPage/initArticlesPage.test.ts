@@ -30,3 +30,5 @@ describe('fetchArticlesNextPage', () => {
 //     expect(result.meta.requestStatus).toBe('fulfilled');
 //   })
 })
+
+export {}

@@ -21,12 +21,14 @@ type Story = StoryObj<typeof meta>;
 
 export const Light: Story = {
   args: {
+    onChangeView: () => {},
     view: EArticleView.TILE
   }
 };
 
 export const Dark: Story = {
   args: {
+    onChangeView: () => {},
     view: EArticleView.TILE
   },
   decorators: [ThemeDecorator(ETheme.DARK)]

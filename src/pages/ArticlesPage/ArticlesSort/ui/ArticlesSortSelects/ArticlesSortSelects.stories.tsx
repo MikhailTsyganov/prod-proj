@@ -21,10 +21,14 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Light: Story = {
-  args: {}
+  args: {
+    fetchData: () => {}
+  }
 };
 
 export const Dark: Story = {
-  args: {},
+  args: {
+    fetchData: () => {}
+  },
   decorators: [ThemeDecorator(ETheme.DARK)]
 };
