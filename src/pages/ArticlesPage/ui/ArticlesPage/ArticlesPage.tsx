@@ -16,7 +16,7 @@ const ArticlesPage: FC<IArticlesPageProps> = (props) => {
 
   return (
 
-    <div className={classNames(s.ArticlesPage, {}, [className])} >
+    <div className={classNames(s.ArticlesPage, {}, [className])} data-testid="ArticlesPage">
       <ArticlesInfinityList/>
     </div >
   )
