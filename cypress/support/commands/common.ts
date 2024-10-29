@@ -1,7 +1,8 @@
 import { USER_LOCALSTORAGE_KEY } from '../../../src/shared/const/localstorage'
 import { IUser } from '../../../src/entities/User/model/types/userSchema'
+import { selectByTestId } from 'cypress/helpers/selectByTestId';
 
-export const loginComm = (username: string = 'testuser', password: string = '123') => {
+export const login = (username: string = 'testuser', password: string = '123') => {
   return cy.request({
     method: 'POST',
     url: 'http://localhost:8000/login',
@@ -15,11 +16,17 @@ export const loginComm = (username: string = 'testuser', password: string = '123
   })
 }
 
+export const getByTestId = (testId: string) => {
+  return cy.get(selectByTestId(testId))
+}
+
 declare global {
   namespace Cypress {
     interface Chainable {
       // eslint-disable-next-line
       login(username?: string, password?: string): Chainable<IUser>
+      // eslint-disable-next-line
+      getByTestId(testId: string): ReturnType<typeof cy.get>
     }
   }
 }

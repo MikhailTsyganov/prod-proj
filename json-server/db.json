@@ -684,7 +684,7 @@
     },
     {
       "id": 2,
-      "firstname": "Alex",
+      "firstname": "AlexA",
       "lastname": "DNA",
       "age": "21",
       "currency": "EUR",
@@ -693,6 +693,18 @@
       "username": "AA123",
       "avatar": "https://cdnn21.img.ria.ru/images/146095/02/1460950266_491:0:3627:3136_1920x0_80_0_0_b2fa213b2de09667975ba6598ae34edb.jpg",
       "userId": 2
+    },
+    {
+      "id": 4,
+      "firstname": "TEST",
+      "lastname": "USER",
+      "age": "36",
+      "currency": "EUR",
+      "country": "Ukraine",
+      "city": "Kiev",
+      "username": "testuser",
+      "avatar": "https://cdnn21.img.ria.ru/images/146095/02/1460950266_491:0:3627:3136_1920x0_80_0_0_b2fa213b2de09667975ba6598ae34edb.jpg",
+      "userId": 4
     }
   ],
   "article-ratings": [

@@ -1,5 +1,7 @@
-import { loginComm } from './commands/login';
+import * as commonCommands from './commands/common';
+import * as profileCommands from './commands/profile';
 
-Cypress.Commands.add('login', loginComm)
+Cypress.Commands.addAll(commonCommands)
+Cypress.Commands.addAll(profileCommands)
 
 export {};

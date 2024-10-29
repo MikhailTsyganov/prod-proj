@@ -1,14 +1,15 @@
-import { loginComm } from '../../support/commands/login';
-
-const user = {}
-
-describe('template spec', () => {
+describe('Пользователь заходит на страницу профиля', () => {
   beforeEach(() => {
     cy.visit('');
-    loginComm().then(data => { data })
+    cy.login().then(data => {
+      cy.visit(`/profile/${data?.id}`)
+    })
   });
 
-  it('passes', () => {
-    cy.visit('https://example.cypress.io')
+  it('И успешно загружает его', () => {
+    cy.getByTestId('ProfileCard.firstname').should('have.value', 'TEST')
+  })
+  it('И редактирует его', () => {
+    // cy.visit('https://example.cypress.io')
   })
 })
