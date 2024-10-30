@@ -26,7 +26,7 @@ declare global {
       // eslint-disable-next-line
       login(username?: string, password?: string): Chainable<IUser>
       // eslint-disable-next-line
-      getByTestId(testId: string): ReturnType<typeof cy.get>
+      getByTestId(testId: string): Chainable<JQuery<HTMLElement>>
     }
   }
 }

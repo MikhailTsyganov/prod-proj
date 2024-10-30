@@ -103,13 +103,14 @@ export const ArticleList: FC<IArticleListProps> = memo((props) => {
     className={classNames(s.ArticleList, {}, [className, s[view]])}
     data={articles}
     components={{
-							  Header: !hideHeaderAndFooter ? Header : () => <></>,
-							  Footer: !hideHeaderAndFooter ? Footer : () => <></>
+      Header: !hideHeaderAndFooter ? Header : () => <></>,
+      Footer: !hideHeaderAndFooter ? Footer : () => <></>
     }}
     itemContent={renderItem}
     endReached={onScrollEnd}
     initialTopMostItemIndex={Number(sessionStorage.getItem(ARTICLE_ITEM_SELECTED_ID))}
-						/>
+    data-testid="ArticleList"
+    />
 
 				    )
 				  : (
@@ -120,21 +121,21 @@ export const ArticleList: FC<IArticleListProps> = memo((props) => {
     totalCount={articles.length}
     endReached={onScrollEnd}
     components={{
-							  ScrollSeekPlaceholder: ItemContainerComp,
-							  Header: !hideHeaderAndFooter ? Header : () => <></>
+      ScrollSeekPlaceholder: ItemContainerComp,
+      Header: !hideHeaderAndFooter ? Header : () => <></>
 
     }}
     itemContent={renderItem}
     listClassName={s.listComponents}
     scrollSeekConfiguration={{
-							  enter: (velocity: number) => Math.abs(velocity) > 600,
-							  exit: (velocity: number) => Math.abs(velocity) < 100
+      enter: (velocity: number) => Math.abs(velocity) > 600,
+      exit: (velocity: number) => Math.abs(velocity) < 100
     }}
     initialTopMostItemIndex={Number(sessionStorage.getItem(ARTICLE_ITEM_SELECTED_ID))}
-
-						/>
+    data-testid="ArticleList"
+              />
 				    )
-			}
+        }
     </>
 
   )
