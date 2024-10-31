@@ -36,16 +36,18 @@ const AddNewComment: FC<IAddNewCommentProps> = memo((props) => {
   useAsyncReducer({ addNewComment: addNewCommentReducer })
 
   return (
-    <div className={classNames(s.AddNewComment, {}, [className])}>
+    <div className={classNames(s.AddNewComment, {}, [className])} data-testid="AddNewComment">
       <Input
         placeholder={t('Введите текст комментария')}
         value={text}
         onChange={onChangeText}
         className={s.input}
+        data-testid="AddNewComment.input"
 			/>
       <Button
         variant={EButtonVariants.OUTLINED}
         onClick={onSendHandler}
+        data-testid="AddNewComment.addBtn"
 			>
         {t('Отправить')}
       </Button>

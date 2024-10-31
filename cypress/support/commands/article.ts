@@ -1,37 +1,50 @@
-export const createArticle = (profileId: string) => {
+import { IArticle } from '../../../src/entities/Article/model/types/article'
+
+const defaultArticle = {
+  title: 'test news',
+  subtitle: 'Что нового в E2E за 2022 год?',
+  img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/800px-Python-logo-notext.svg.png',
+  views: 5204,
+  createdAt: '26.02.2024',
+  userId: '1',
+  type: [
+    'IT'
+  ],
+  blocks: []
+}
+
+export const createArticle = (article?: IArticle) => {
   return cy.request({
-    method: 'PUT',
-    url: `http://localhost:8000/profile/${profileId}`,
+    method: 'POST',
+    url: 'http://localhost:8000/articles',
     headers: {
       Authorization: 'daawdasd'
     },
-    body: {
-      id: 4,
-      firstname: 'TEST',
-      lastname: 'USER',
-      age: '36',
-      currency: 'EUR',
-      country: 'Ukraine',
-      city: 'Kiev',
-      username: 'testuser',
-      avatar: 'https://cdnn21.img.ria.ru/images/146095/02/1460950266_491:0:3627:3136_1920x0_80_0_0_b2fa213b2de09667975ba6598ae34edb.jpg',
-      userId: 4
-    }
+    body: article ?? defaultArticle
 
+  }).then(res => {
+    return res.body
   })
 }
 
-export const removeArticle = () => {
+export const removeArticle = (articleId: string) => {
+  return cy.request({
+    method: 'DELETE',
+    url: `http://localhost:8000/articles/${articleId}`,
+    headers: {
+      Authorization: 'daawdasd'
+    }
 
+  })
 }
 
 declare global {
   namespace Cypress {
     interface Chainable {
       // eslint-disable-next-line
-        updateProfile(firstname: string, lastname: string): Chainable<void>
+      createArticle(article?: IArticle): Chainable<IArticle>
       // eslint-disable-next-line
-        resetProfile(profileId: string): Chainable<void>
+      removeArticle(articleId: string): Chainable<void>
     }
   }
 }

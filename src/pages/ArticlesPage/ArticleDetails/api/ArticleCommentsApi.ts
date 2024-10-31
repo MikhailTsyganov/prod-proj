@@ -9,7 +9,8 @@ const commentsApi = rtkApi.injectEndpoints({
           articleId,
           _expand: 'user'
         }
-      })
+      }),
+      providesTags: ['ArticleComment']
     }),
     createCommentByArticleId: build.mutation({
       query: ({ userId, articleId, text }) => ({
@@ -18,7 +19,8 @@ const commentsApi = rtkApi.injectEndpoints({
         body: {
           userId, articleId, text
         }
-      })
+      }),
+      invalidatesTags: ['ArticleComment']
     })
 
   })

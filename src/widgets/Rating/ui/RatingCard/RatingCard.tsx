@@ -68,12 +68,12 @@ export const RatingCard = memo((props: IRatingCardProps) => {
 	  const modalContent = (
   <>
     <Text title={feedBackTitle}/>
-    <Input placeholder={t('Ваш отзыв')} onChange={(value: string) => { setFeedback(value) }} value={feedback}/>
+    <Input placeholder={t('Ваш отзыв')} onChange={(value: string) => { setFeedback(value) }} value={feedback} data-testid="RatingCard.feedbackInput"/>
   </>
 	  )
 
   return (
-    <Card className={classNames(s.RatingCard, {}, [className])} max>
+    <Card className={classNames(s.RatingCard, {}, [className])} max data-testid="RatingCard">
       <VStack align="center" gap="8">
         <Text title={dataStarsCount ? 'Спасибо за оценку' : title}/>
         <StarRating size={40} onSelect={onStarClick} selectedStars={starsCount}/>
@@ -92,8 +92,8 @@ export const RatingCard = memo((props: IRatingCardProps) => {
           <VStack needMaxWidth gap="32">
             {modalContent}
             <HStack needMaxWidth gap='16' justify="end">
-              <Button variant={EButtonVariants.OUTLINED_RED} onClick={deniedHandler}>{t('Закрыть')}</Button>
-              <Button variant={EButtonVariants.FILLED} onClick={acceptHandler}>{t('Отправить')}</Button>
+              <Button variant={EButtonVariants.OUTLINED_RED} onClick={deniedHandler} data-testid="RatingCard.closeBtn">{t('Закрыть')}</Button>
+              <Button variant={EButtonVariants.FILLED} onClick={acceptHandler} data-testid="RatingCard.sendBtn">{t('Отправить')}</Button>
             </HStack>
           </VStack>
 

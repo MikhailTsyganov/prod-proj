@@ -78,7 +78,7 @@ export const ArticleDetails: FC<IArticleDetailsProps> = memo((props) => {
   } else {
     content = (
       <>
-        <HStack needMaxWidth justify='center'>
+        <HStack needMaxWidth justify='center' data-testid="ArticleDetails.avatar">
           <Avatar
             size={200}
             src={data?.img}

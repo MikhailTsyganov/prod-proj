@@ -537,6 +537,71 @@
           ]
         }
       ]
+    },
+    {
+      "title": "test news",
+      "subtitle": "Что нового в E2E за 2022 год?",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/800px-Python-logo-notext.svg.png",
+      "views": 5204,
+      "createdAt": "26.02.2024",
+      "userId": "1",
+      "type": [
+        "IT"
+      ],
+      "blocks": [],
+      "id": "cwvfc-U"
+    },
+    {
+      "title": "test news",
+      "subtitle": "Что нового в E2E за 2022 год?",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/800px-Python-logo-notext.svg.png",
+      "views": 5204,
+      "createdAt": "26.02.2024",
+      "userId": "1",
+      "type": [
+        "IT"
+      ],
+      "blocks": [],
+      "id": "3HH2OAT"
+    },
+    {
+      "title": "test news",
+      "subtitle": "Что нового в E2E за 2022 год?",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/800px-Python-logo-notext.svg.png",
+      "views": 5204,
+      "createdAt": "26.02.2024",
+      "userId": "1",
+      "type": [
+        "IT"
+      ],
+      "blocks": [],
+      "id": "kGOaAkC"
+    },
+    {
+      "title": "test news",
+      "subtitle": "Что нового в E2E за 2022 год?",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/800px-Python-logo-notext.svg.png",
+      "views": 5204,
+      "createdAt": "26.02.2024",
+      "userId": "1",
+      "type": [
+        "IT"
+      ],
+      "blocks": [],
+      "id": "AtFqxUY"
+    },
+    {
+      "title": "test news",
+      "subtitle": "Что нового в E2E за 2022 год?",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/800px-Python-logo-notext.svg.png",
+      "views": 5204,
+      "createdAt": "26.02.2024",
+      "userId": "1",
+      "type": [
+        "IT"
+      ],
+      "blocks": [],
+      "id": "lnvYKGa"
     }
   ],
   "comments": [
@@ -629,6 +694,42 @@
       "articleId": "4",
       "text": "34534",
       "id": "pBS9NM3"
+    },
+    {
+      "userId": "1",
+      "articleId": "7",
+      "text": "vfd",
+      "id": "-JOhs3O"
+    },
+    {
+      "userId": "1",
+      "articleId": "7",
+      "text": "ff",
+      "id": "H-hTjSo"
+    },
+    {
+      "userId": "1",
+      "articleId": "7",
+      "text": "dsfs",
+      "id": "1rYETVN"
+    },
+    {
+      "userId": "1",
+      "articleId": "7",
+      "text": "432",
+      "id": "RkqkUyv"
+    },
+    {
+      "userId": "1",
+      "articleId": "7",
+      "text": "0123",
+      "id": "20Xatpq"
+    },
+    {
+      "userId": "4",
+      "articleId": "lnvYKGa",
+      "text": "text",
+      "id": "RLk2vxj"
     }
   ],
   "users": [

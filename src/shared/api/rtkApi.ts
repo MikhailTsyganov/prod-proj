@@ -17,5 +17,6 @@ export const rtkApi = createApi({
       }
     }
   ),
+  tagTypes: ['ArticleComment'],
   endpoints: (builder) => ({})
 })

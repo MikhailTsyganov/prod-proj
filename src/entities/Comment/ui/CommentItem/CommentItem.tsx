@@ -20,7 +20,7 @@ export const CommentItem: FC<ICommentItemProps> = memo((props) => {
 
   if (isLoading) {
     return (
-      <div className={classNames(s.CommentItem, {}, [className, s.loading])}>
+      <div className={classNames(s.CommentItem, {}, [className, s.loading])} data-testid="CommentItem.loading">
         <div className={s.avatarWrapper}>
           <Skeleton borderRad="50%" width={30} height={30} />
           <Skeleton className={s.username} width={100} height={16} />
@@ -38,7 +38,7 @@ export const CommentItem: FC<ICommentItemProps> = memo((props) => {
   const { text, user } = comment;
 
   return (
-    <div className={classNames(s.CommentItem, {}, [className])}>
+    <div className={classNames(s.CommentItem, {}, [className])} data-testid="CommentItem.content">
       <AppLink to={getRouteProfile(user.id)} className={s.avatarWrapper}>
         {user.avatar && <Avatar size={30} src={user.avatar} alt={user.username} />}
         <Text title={user.username} className={s.username} />

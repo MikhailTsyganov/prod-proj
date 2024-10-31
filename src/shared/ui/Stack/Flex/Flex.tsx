@@ -50,7 +50,8 @@ export const Flex = (props: IFlexProps) => {
     align = 'center',
     justify = 'start',
     gap,
-    needMaxWidth
+    needMaxWidth,
+    ...otherProps
   } = props;
 
   const classes = [
@@ -66,7 +67,7 @@ export const Flex = (props: IFlexProps) => {
   }
 
   return (
-    <div className={classNames(s.Flex, mods, classes)}>
+    <div className={classNames(s.Flex, mods, classes)} {...otherProps}>
       {children}
     </div >
   )
