@@ -11,4 +11,12 @@ describe('Пользователь заходит на страницу со с�
     cy.get(selectByTestId('ArticleList')).should('exist')
     cy.get(selectByTestId('ArticleListItem')).should('have.length.lessThan', 3)
   })
+  it('на стабах', () => {
+    cy.intercept('GET', '**/articles?*', { fixture: 'articles.json' })
+    cy.get(selectByTestId('ArticleList')).should('exist')
+    cy.get(selectByTestId('ArticleListItem')).should('have.length.lessThan', 3)
+  })
+  it.skip('пример заскипанного теста', () => {
+    cy.get('123123123').should('exist')
+  })
 })

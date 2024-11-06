@@ -602,6 +602,19 @@
       ],
       "blocks": [],
       "id": "lnvYKGa"
+    },
+    {
+      "title": "test news",
+      "subtitle": "Что нового в E2E за 2022 год?",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/800px-Python-logo-notext.svg.png",
+      "views": 5204,
+      "createdAt": "26.02.2024",
+      "userId": "1",
+      "type": [
+        "IT"
+      ],
+      "blocks": [],
+      "id": "-8-kZ1y"
     }
   ],
   "comments": [
@@ -730,6 +743,12 @@
       "articleId": "lnvYKGa",
       "text": "text",
       "id": "RLk2vxj"
+    },
+    {
+      "userId": "4",
+      "articleId": "-8-kZ1y",
+      "text": "text",
+      "id": "_mh6eJc"
     }
   ],
   "users": [
