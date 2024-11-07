@@ -6,37 +6,37 @@ import s from './Text.module.scss';
 export enum ETextVariant {
   PRIMARY = 'primary',
   INVERTED = 'inverted',
-  ERROR = 'error'
+  ERROR = 'error',
 }
 
 export enum ETextAlign {
   LEFT = 'left',
   CENTER = 'center',
-  RIGHT = 'right'
+  RIGHT = 'right',
 }
 
 export enum ETextSize {
   S = 'size_s',
   M = 'size_m',
-  L = 'size_l'
+  L = 'size_l',
 }
 
-type THeaderTypes = 'h1' | 'h2' | 'h3'
+type THeaderTypes = 'h1' | 'h2' | 'h3';
 
 const mapSizeToHeaderTag: Record<ETextSize, THeaderTypes> = {
   size_l: 'h1',
   size_m: 'h2',
-  size_s: 'h3'
-}
+  size_s: 'h3',
+};
 
 interface ITextProps {
-  className?: string
-  title?: string
-  text?: string
-  variant?: ETextVariant
-  align?: ETextAlign
-  size?: ETextSize
-  'data-testid'?: string
+  className?: string;
+  title?: string;
+  text?: string;
+  variant?: ETextVariant;
+  align?: ETextAlign;
+  size?: ETextSize;
+  'data-testid'?: string;
 }
 
 export const Text: FC<ITextProps> = memo((props) => {
@@ -47,15 +47,30 @@ export const Text: FC<ITextProps> = memo((props) => {
     variant = ETextVariant.PRIMARY,
     align = ETextAlign.LEFT,
     size = ETextSize.M,
-    'data-testid': dataTestId = 'Text'
+    'data-testid': dataTestId = 'Text',
   } = props;
 
-  const TitleTag = mapSizeToHeaderTag[size]
+  const TitleTag = mapSizeToHeaderTag[size];
 
   return (
-    <div className={classNames(s.Text, {}, [className, s[variant], s[align], s[size]])}>
-      {title && <TitleTag data-testid={`${dataTestId}.title`} className={s.title}>{title}</TitleTag>}
-      {text && <p data-testid={`${dataTestId}.text`} className={s.text}>{text}</p>}
+    <div
+      className={classNames(s.Text, {}, [
+        className,
+        s[variant],
+        s[align],
+        s[size],
+      ])}
+    >
+      {title && (
+        <TitleTag data-testid={`${dataTestId}.title`} className={s.title}>
+          {title}
+        </TitleTag>
+      )}
+      {text && (
+        <p data-testid={`${dataTestId}.text`} className={s.text}>
+          {text}
+        </p>
+      )}
     </div>
-  )
+  );
 });

@@ -9,11 +9,11 @@ const meta = {
   title: 'entities/CommentItem',
   component: CommentItem,
   parameters: {
-    layout: 'centered'
+    layout: 'centered',
   },
   argTypes: {
     // backgroundColor: { control: 'color' },
-  }
+  },
 } satisfies Meta<typeof CommentItem>;
 
 export default meta;
@@ -23,22 +23,23 @@ const comment: IComment = {
   id: '1',
   text: 'some comment',
   user: {
-    id: '1', username: 'admin'
-  }
-}
+    id: '1',
+    username: 'admin',
+  },
+};
 
 export const Light: Story = {
   args: {
-    comment
-  }
+    comment,
+  },
 };
 
 export const Dark: Story = {
   args: { comment },
-  decorators: [ThemeDecorator(ETheme.DARK)]
+  decorators: [ThemeDecorator(ETheme.DARK)],
 };
 
 export const Loading: Story = {
   args: { isLoading: true },
-  decorators: [ThemeDecorator(ETheme.DARK)]
+  decorators: [ThemeDecorator(ETheme.DARK)],
 };

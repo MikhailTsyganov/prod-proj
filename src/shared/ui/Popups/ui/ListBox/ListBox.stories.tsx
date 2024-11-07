@@ -6,11 +6,11 @@ const meta = {
   title: 'shared/popups/ListBox',
   component: ListBox,
   parameters: {
-    layout: 'centered'
+    layout: 'centered',
   },
   argTypes: {
     // backgroundColor: { control: 'color' },
-  }
+  },
 } satisfies Meta<typeof ListBox>;
 
 export default meta;
@@ -21,21 +21,27 @@ export const TopLeft: Story = {
     items: [
       {
         id: '1',
-        content: 'value 1'
+        content: 'value 1',
       },
       {
         id: '2',
-        content: 'value 2'
+        content: 'value 2',
       },
       {
         id: '3',
-        content: 'value 3'
-      }
+        content: 'value 3',
+      },
     ],
     value: '2',
-    dropdownDirection: 'top left'
+    dropdownDirection: 'top left',
   },
-  decorators: [(Story) => <div style={{ padding: '200px' }}><Story/></div>]
+  decorators: [
+    (Story) => (
+      <div style={{ padding: '200px' }}>
+        <Story />
+      </div>
+    ),
+  ],
 };
 
 export const TopRight: Story = {
@@ -43,22 +49,27 @@ export const TopRight: Story = {
     items: [
       {
         id: '1',
-        content: 'value 1'
+        content: 'value 1',
       },
       {
         id: '2',
-        content: 'value 2'
+        content: 'value 2',
       },
       {
         id: '3',
-        content: 'value 3'
-      }
+        content: 'value 3',
+      },
     ],
     value: '2',
-    dropdownDirection: 'top right'
+    dropdownDirection: 'top right',
   },
-  decorators: [(Story) => <div style={{ padding: '200px' }}><Story/></div>]
-
+  decorators: [
+    (Story) => (
+      <div style={{ padding: '200px' }}>
+        <Story />
+      </div>
+    ),
+  ],
 };
 
 export const BottomLeft: Story = {
@@ -66,22 +77,27 @@ export const BottomLeft: Story = {
     items: [
       {
         id: '1',
-        content: 'value 1'
+        content: 'value 1',
       },
       {
         id: '2',
-        content: 'value 2'
+        content: 'value 2',
       },
       {
         id: '3',
-        content: 'value 3'
-      }
+        content: 'value 3',
+      },
     ],
     value: '2',
-    dropdownDirection: 'bottom left'
+    dropdownDirection: 'bottom left',
   },
-  decorators: [(Story) => <div style={{ padding: '200px' }}><Story/></div>]
-
+  decorators: [
+    (Story) => (
+      <div style={{ padding: '200px' }}>
+        <Story />
+      </div>
+    ),
+  ],
 };
 
 export const BottomRight: Story = {
@@ -89,20 +105,25 @@ export const BottomRight: Story = {
     items: [
       {
         id: '1',
-        content: 'value 1'
+        content: 'value 1',
       },
       {
         id: '2',
-        content: 'value 2'
+        content: 'value 2',
       },
       {
         id: '3',
-        content: 'value 3'
-      }
+        content: 'value 3',
+      },
     ],
     value: '2',
-    dropdownDirection: 'bottom right'
+    dropdownDirection: 'bottom right',
   },
-  decorators: [(Story) => <div style={{ padding: '200px' }}><Story/></div>]
-
+  decorators: [
+    (Story) => (
+      <div style={{ padding: '200px' }}>
+        <Story />
+      </div>
+    ),
+  ],
 };

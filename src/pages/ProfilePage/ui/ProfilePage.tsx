@@ -1,7 +1,4 @@
-import {
-  fetchProfileData
-  , EditableProfileCard
-} from '@/widgets/Profile';
+import { fetchProfileData, EditableProfileCard } from '@/widgets/Profile';
 
 import { type FC, memo } from 'react';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDIspatch';
@@ -14,15 +11,15 @@ import { VStack } from '@/shared/ui/Stack';
 const ProfilePage: FC = memo(() => {
   const dispatch = useAppDispatch();
 
-  const { id } = useParams<{ id: string }>()
+  const { id } = useParams<{ id: string }>();
 
   useInitialEffect(() => {
     id && dispatch(fetchProfileData(id));
-  })
+  });
 
   return (
-    <Page data-testid='ProfilePage'>
-      <VStack gap='16' needMaxWidth>
+    <Page data-testid="ProfilePage">
+      <VStack gap="16" needMaxWidth>
         <ProfilePageHeader />
         <EditableProfileCard />
       </VStack>

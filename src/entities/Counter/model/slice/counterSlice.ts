@@ -9,15 +9,19 @@ const counterSlice = buildSlice({
   initialState,
   reducers: {
     increment(state) {
-      state.value++
+      state.value++;
     },
     decrement(state) {
-      state.value--
+      state.value--;
     },
     addAny(state, { payload }: PayloadAction<number>) {
-      state.value += payload
-    }
-  }
-})
+      state.value += payload;
+    },
+  },
+});
 
-export const { actions: counterActions, reducer: counterReducer, useActions: useCounterActions } = counterSlice;
+export const {
+  actions: counterActions,
+  reducer: counterReducer,
+  useActions: useCounterActions,
+} = counterSlice;

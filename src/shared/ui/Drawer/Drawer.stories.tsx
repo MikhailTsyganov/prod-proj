@@ -8,22 +8,22 @@ const meta = {
   title: 'shared/Drawer',
   component: Drawer,
   parameters: {
-    layout: 'centered'
+    layout: 'centered',
   },
   argTypes: {
     // backgroundColor: { control: 'color' },
   },
-  args: { isOpened: true }
+  args: { isOpened: true },
 } satisfies Meta<typeof Drawer>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Light: Story = {
-  args: {}
+  args: {},
 };
 
 export const Dark: Story = {
   args: {},
-  decorators: [ThemeDecorator(ETheme.DARK)]
+  decorators: [ThemeDecorator(ETheme.DARK)],
 };

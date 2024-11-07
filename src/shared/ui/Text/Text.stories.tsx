@@ -8,11 +8,11 @@ const meta = {
   title: 'shared/Text',
   component: Text,
   parameters: {
-    layout: 'centered'
+    layout: 'centered',
   },
   argTypes: {
     // backgroundColor: { control: 'color' },
-  }
+  },
 } satisfies Meta<typeof Text>;
 
 export default meta;
@@ -21,74 +21,74 @@ type Story = StoryObj<typeof meta>;
 export const Light: Story = {
   args: {
     title: 'Title',
-    text: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Officiis ipsum voluptas tempore, laudantium odio eos obcaecati natus quidem est fugit.'
-  }
+    text: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Officiis ipsum voluptas tempore, laudantium odio eos obcaecati natus quidem est fugit.',
+  },
 };
 
 export const Error: Story = {
   args: {
     title: 'Title',
     text: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Officiis ipsum voluptas tempore, laudantium odio eos obcaecati natus quidem est fugit.',
-    variant: ETextVariant.ERROR
-  }
+    variant: ETextVariant.ERROR,
+  },
 };
 
 export const OnlyTitle: Story = {
   args: {
-    title: 'Title'
-  }
+    title: 'Title',
+  },
 };
 
 export const OnlyText: Story = {
   args: {
-    text: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Officiis ipsum voluptas tempore, laudantium odio eos obcaecati natus quidem est fugit.'
-  }
+    text: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Officiis ipsum voluptas tempore, laudantium odio eos obcaecati natus quidem est fugit.',
+  },
 };
 export const Dark: Story = {
   args: {
     title: 'Title',
-    text: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Officiis ipsum voluptas tempore, laudantium odio eos obcaecati natus quidem est fugit.'
+    text: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Officiis ipsum voluptas tempore, laudantium odio eos obcaecati natus quidem est fugit.',
   },
 
-  decorators: [ThemeDecorator(ETheme.DARK)]
+  decorators: [ThemeDecorator(ETheme.DARK)],
 };
 
 export const OnlyTitleDark: Story = {
   args: {
-    title: 'Title'
+    title: 'Title',
   },
 
-  decorators: [ThemeDecorator(ETheme.DARK)]
+  decorators: [ThemeDecorator(ETheme.DARK)],
 };
 
 export const OnlyTextDark: Story = {
   args: {
-    text: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Officiis ipsum voluptas tempore, laudantium odio eos obcaecati natus quidem est fugit.'
+    text: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Officiis ipsum voluptas tempore, laudantium odio eos obcaecati natus quidem est fugit.',
   },
 
-  decorators: [ThemeDecorator(ETheme.DARK)]
+  decorators: [ThemeDecorator(ETheme.DARK)],
 };
 
 export const SizeS: Story = {
   args: {
     title: 'Title',
     text: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Officiis ipsum voluptas tempore, laudantium odio eos obcaecati natus quidem est fugit.',
-    size: ETextSize.S
-  }
+    size: ETextSize.S,
+  },
 };
 
 export const SizeM: Story = {
   args: {
     title: 'Title',
     text: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Officiis ipsum voluptas tempore, laudantium odio eos obcaecati natus quidem est fugit.',
-    size: ETextSize.M
-  }
+    size: ETextSize.M,
+  },
 };
 
 export const SizeL: Story = {
   args: {
     title: 'Title',
     text: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Officiis ipsum voluptas tempore, laudantium odio eos obcaecati natus quidem est fugit.',
-    size: ETextSize.L
-  }
+    size: ETextSize.L,
+  },
 };

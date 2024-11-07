@@ -3,7 +3,7 @@ import {
   type CombinedState,
   type EnhancedStore,
   type Reducer,
-  type ReducersMapObject
+  type ReducersMapObject,
 } from '@reduxjs/toolkit';
 import { type AxiosInstance } from 'axios';
 import { type IArticleDetailsSchema } from '@/entities/Article';
@@ -11,7 +11,10 @@ import { type ICounterSchema } from '@/entities/Counter';
 import { type IProfileSchema } from '@/entities/Profile';
 import { type IUserSchema } from '@/entities/User';
 import { type IAddNewCommentSchema } from '@/features/AddNewComment';
-import { type IArticlesSortSchema, type IArticlePageSchema } from '@/pages/ArticlesPage';
+import {
+  type IArticlesSortSchema,
+  type IArticlePageSchema,
+} from '@/pages/ArticlesPage';
 import { type ILoginSchema } from '@/features/AuthByUsername';
 import { type IArticleDetailsPageSchema } from '@/pages/ArticleDetailsPage';
 
@@ -19,47 +22,47 @@ import { type rtkApi } from '@/shared/api/rtkApi';
 import { type IScrollSaveSchema } from '@/features/ScrollSave';
 
 export interface IStateSchema {
-  counter: ICounterSchema
-  user: IUserSchema
-  scroll: IScrollSaveSchema
-  [rtkApi.reducerPath]: ReturnType<typeof rtkApi.reducer>
+  counter: ICounterSchema;
+  user: IUserSchema;
+  scroll: IScrollSaveSchema;
+  [rtkApi.reducerPath]: ReturnType<typeof rtkApi.reducer>;
 
   // Асинхронные редюсеры
-  loginForm?: ILoginSchema
-  profile?: IProfileSchema
-  articleDetails?: IArticleDetailsSchema
-  articleDetailsPage?: IArticleDetailsPageSchema
-  addNewComment?: IAddNewCommentSchema
-  articlesPageSort?: IArticlesSortSchema
-  articlesPage?: IArticlePageSchema
+  loginForm?: ILoginSchema;
+  profile?: IProfileSchema;
+  articleDetails?: IArticleDetailsSchema;
+  articleDetailsPage?: IArticleDetailsPageSchema;
+  addNewComment?: IAddNewCommentSchema;
+  articlesPageSort?: IArticlesSortSchema;
+  articlesPage?: IArticlePageSchema;
 }
 
 export type TStateSchemaKeys = keyof IStateSchema;
 
 export interface IReturnReducerManager {
-  getReducerMap: () => ReducersMapObject<IStateSchema>
+  getReducerMap: () => ReducersMapObject<IStateSchema>;
   reduce: (
     state: IStateSchema,
-    action: AnyAction
-  ) => CombinedState<IStateSchema>
-  add: (key: TStateSchemaKeys, reducer: Reducer) => void
-  remove: (key: TStateSchemaKeys) => void
+    action: AnyAction,
+  ) => CombinedState<IStateSchema>;
+  add: (key: TStateSchemaKeys, reducer: Reducer) => void;
+  remove: (key: TStateSchemaKeys) => void;
 }
 
 export type IReducerManager = (
-  initialReducers: ReducersMapObject<IStateSchema>
+  initialReducers: ReducersMapObject<IStateSchema>,
 ) => IReturnReducerManager;
 
 export interface IStoreWithManager extends EnhancedStore<IStateSchema> {
-  reducerManager: IReturnReducerManager
+  reducerManager: IReturnReducerManager;
 }
 
 export interface IThunkExtraArg {
-  api: AxiosInstance
+  api: AxiosInstance;
 }
 
 export interface IThunkOptions<T> {
-  rejectValue: T
-  extra: IThunkExtraArg
-  state: IStateSchema
+  rejectValue: T;
+  extra: IThunkExtraArg;
+  state: IStateSchema;
 }

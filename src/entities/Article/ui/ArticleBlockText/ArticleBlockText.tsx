@@ -6,8 +6,8 @@ import { Text } from '@/shared/ui/Text';
 import { type IArticleBlockText } from '../../model/types/article';
 
 interface IArticleBlockTextProps {
-  className?: string
-  block: IArticleBlockText
+  className?: string;
+  block: IArticleBlockText;
 }
 
 export const ArticleBlockText: FC<IArticleBlockTextProps> = memo((props) => {
@@ -17,8 +17,9 @@ export const ArticleBlockText: FC<IArticleBlockTextProps> = memo((props) => {
   return (
     <div className={classNames(s.ArticleBlockText, {}, [className])}>
       {title && <Text title={title} className={s.title} />}
-      {paragraphs.map(item => <Text text={item} key={item} className={s.paragraph} />)}
+      {paragraphs.map((item) => (
+        <Text text={item} key={item} className={s.paragraph} />
+      ))}
     </div>
-
-  )
+  );
 });

@@ -11,7 +11,7 @@ import { getSidebarItems } from '../../model/selectors/getSidebarItems';
 import { VStack } from '@/shared/ui/Stack';
 
 interface ISidebarProps {
-  className?: string
+  className?: string;
 }
 
 export const Sidebar: FC<ISidebarProps> = memo((props) => {
@@ -23,14 +23,14 @@ export const Sidebar: FC<ISidebarProps> = memo((props) => {
     setIsOpened((prev) => !prev);
   };
 
-  const sidebarItemsList = useSelector(getSidebarItems)
+  const sidebarItemsList = useSelector(getSidebarItems);
 
   const itemsList = useMemo(
     () =>
       sidebarItemsList.map((item) => (
         <SidebarItem key={item.path} item={item} isOpened={isOpened} />
       )),
-    [isOpened, sidebarItemsList]
+    [isOpened, sidebarItemsList],
   );
 
   return (
@@ -38,11 +38,7 @@ export const Sidebar: FC<ISidebarProps> = memo((props) => {
       data-testid="sidebar"
       className={classNames(s.sidebar, { [s.opened]: isOpened }, [className])}
     >
-      <VStack
-        role='navigation'
-        className={s.list}
-        gap='8'
-      >
+      <VStack role="navigation" className={s.list} gap="8">
         {itemsList}
       </VStack>
 

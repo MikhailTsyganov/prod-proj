@@ -7,11 +7,11 @@ const MainPage = memo(() => {
   const { t } = useTranslation('main');
 
   return (
-    <Page data-testid='MainPage'>
+    <Page data-testid="MainPage">
       <BugButton />
       {t('Главная страница')}
     </Page>
   );
-})
+});
 
 export default MainPage;

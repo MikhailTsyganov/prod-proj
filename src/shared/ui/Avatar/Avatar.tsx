@@ -3,16 +3,16 @@ import { classNames } from '@/shared/lib/helpers/classNames/classNames';
 
 import s from './Avatar.module.scss';
 import { AppImage } from '../AppImage';
-import DefaultUserSvg from '../../assets/icons/user.svg'
+import DefaultUserSvg from '../../assets/icons/user.svg';
 import { Icon } from '../Icon';
 import { Skeleton } from '../Skeleton';
 
 interface IAvatarProps {
-  className?: string
-  src?: string
-  alt?: string
-  size?: number
-  fallbackInverted?: boolean
+  className?: string;
+  src?: string;
+  alt?: string;
+  size?: number;
+  fallbackInverted?: boolean;
 }
 
 export const Avatar: FC<IAvatarProps> = (props) => {
@@ -20,11 +20,18 @@ export const Avatar: FC<IAvatarProps> = (props) => {
 
   const styles = useMemo<CSSProperties>(
     () => ({ height: size, width: size }),
-    [size]
+    [size],
   );
 
-  const fallback = <Skeleton width={size} height={size} borderRad='50%'/>
-  const errorFallback = <Icon inverted={fallbackInverted} Svg={DefaultUserSvg} width={size} height={size}/>
+  const fallback = <Skeleton width={size} height={size} borderRad="50%" />;
+  const errorFallback = (
+    <Icon
+      inverted={fallbackInverted}
+      Svg={DefaultUserSvg}
+      width={size}
+      height={size}
+    />
+  );
 
   return (
     <AppImage

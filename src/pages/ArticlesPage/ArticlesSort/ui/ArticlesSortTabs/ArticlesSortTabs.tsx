@@ -11,44 +11,47 @@ import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDIspatch
 import { articlePageActions } from '../../../model/slices/articlePageSlice';
 
 interface IArticlesSortTabsProps {
-  className?: string
-  fetchData?: () => void
+  className?: string;
+  fetchData?: () => void;
 }
 
 export const ArticlesSortTabs = memo((props: IArticlesSortTabsProps) => {
   const { className, fetchData } = props;
-  const dispatch = useAppDispatch()
-  const currentTab = useSelector(getArticlesSortTab)
+  const dispatch = useAppDispatch();
+  const currentTab = useSelector(getArticlesSortTab);
 
-  const { t } = useTranslation('articles')
+  const { t } = useTranslation('articles');
 
   const onTabClick = useCallback(
     (tab: ITabItem) => {
-      dispatch(articlesSortActions.setTab(tab.value as EArticleType))
-      dispatch(articlePageActions.setPage(1))
-      fetchData?.()
+      dispatch(articlesSortActions.setTab(tab.value as EArticleType));
+      dispatch(articlePageActions.setPage(1));
+      fetchData?.();
     },
-    [dispatch, fetchData]
-  )
+    [dispatch, fetchData],
+  );
 
-  const tabList = useMemo<ITabItem[]>(() => [
-    {
-      value: EArticleType.ALL,
-      content: t('Все статьи')
-    },
-    {
-      value: EArticleType.IT,
-      content: t('Айти')
-    },
-    {
-      value: EArticleType.ECONOMICS,
-      content: t('Экономика')
-    },
-    {
-      value: EArticleType.SCIENCE,
-      content: t('Наука')
-    }
-  ], [t])
+  const tabList = useMemo<ITabItem[]>(
+    () => [
+      {
+        value: EArticleType.ALL,
+        content: t('Все статьи'),
+      },
+      {
+        value: EArticleType.IT,
+        content: t('Айти'),
+      },
+      {
+        value: EArticleType.ECONOMICS,
+        content: t('Экономика'),
+      },
+      {
+        value: EArticleType.SCIENCE,
+        content: t('Наука'),
+      },
+    ],
+    [t],
+  );
 
   return (
     <Tabs
@@ -56,6 +59,6 @@ export const ArticlesSortTabs = memo((props: IArticlesSortTabsProps) => {
       tabList={tabList}
       onTabClick={onTabClick}
       currentValue={currentTab}
-		/>
-  )
+    />
+  );
 });

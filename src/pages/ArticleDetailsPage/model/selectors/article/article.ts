@@ -6,8 +6,9 @@ export const getCanEdit = createSelector(
   [getUserAuthData, getArticleDetailsData],
   (userData, article) => {
     if (!userData || !article) {
-      return false
+      return false;
     }
 
-    return article.user.id === userData.id
-  })
+    return article.user.id === userData.id;
+  },
+);

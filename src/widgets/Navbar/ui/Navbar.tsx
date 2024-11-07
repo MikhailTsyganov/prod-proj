@@ -15,24 +15,24 @@ import { AvatarDropdown } from '@/features/AvatarDropdown';
 import { getRouteArticleCreate } from '@/shared/const/router';
 
 interface INavbarProps {
-  className?: string
+  className?: string;
 }
 
 export const Navbar: FC<INavbarProps> = memo((props) => {
   const { className } = props;
-  const { t } = useTranslation()
+  const { t } = useTranslation();
 
   const [isOpened, setIsOpened] = useState(false);
 
   const authData = useSelector(getUserAuthData);
 
   const onShowModal = useCallback(() => {
-    setIsOpened(true)
-  }, [])
+    setIsOpened(true);
+  }, []);
 
   const onCloseModal = useCallback(() => {
-    setIsOpened(false)
-  }, [])
+    setIsOpened(false);
+  }, []);
 
   if (authData) {
     return (
@@ -41,21 +41,20 @@ export const Navbar: FC<INavbarProps> = memo((props) => {
           className={s.appName}
           title={t('My app')}
           variant={ETextVariant.INVERTED}
-      />
+        />
         <AppLink
           to={getRouteArticleCreate()}
           variant={EAppLinkVariants.SECONDARY}
-      >
+        >
           {t('Создать статью')}
         </AppLink>
 
-        <HStack gap='16' className={s.actions}>
-
-          <OpenNotificationListButton/>
+        <HStack gap="16" className={s.actions}>
+          <OpenNotificationListButton />
           <AvatarDropdown />
         </HStack>
       </header>
-    )
+    );
   }
 
   return (

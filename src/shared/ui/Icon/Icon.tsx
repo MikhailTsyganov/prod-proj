@@ -4,9 +4,9 @@ import { classNames } from '@/shared/lib/helpers/classNames/classNames';
 import s from './Icon.module.scss';
 
 interface IIconProps extends SVGProps<SVGElement> {
-  className?: string
-  Svg: React.FunctionComponent<React.SVGAttributes<SVGElement>>
-  inverted?: boolean
+  className?: string;
+  Svg: React.FunctionComponent<React.SVGAttributes<SVGElement>>;
+  inverted?: boolean;
 }
 
 export const Icon: FC<IIconProps> = memo((props) => {
@@ -14,14 +14,8 @@ export const Icon: FC<IIconProps> = memo((props) => {
 
   return (
     <Svg
-      className={
-        classNames(
-          s.Icon,
-          { [s.inverted]: inverted },
-          [className]
-        )
-      }
+      className={classNames(s.Icon, { [s.inverted]: inverted }, [className])}
       {...otherProps}
     />
-  )
+  );
 });

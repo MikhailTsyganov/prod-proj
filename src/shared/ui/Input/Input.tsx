@@ -4,28 +4,28 @@ import {
   memo,
   useEffect,
   useRef,
-  useState
+  useState,
 } from 'react';
 import {
   type TMods,
-  classNames
+  classNames,
 } from '@/shared/lib/helpers/classNames/classNames';
 
 import s from './Input.module.scss';
 
 type HtmlInputProps = Omit<
-InputHTMLAttributes<HTMLInputElement>,
-'onChange' | 'value' | 'readOnly'
+  InputHTMLAttributes<HTMLInputElement>,
+  'onChange' | 'value' | 'readOnly'
 >;
 
 interface IInputProps extends HtmlInputProps {
-  className?: string
-  value?: string | number
-  onChange?: (value: string) => void
-  type?: string
-  placeholder?: string
-  autofocus?: boolean
-  readonly?: boolean
+  className?: string;
+  value?: string | number;
+  onChange?: (value: string) => void;
+  type?: string;
+  placeholder?: string;
+  autofocus?: boolean;
+  readonly?: boolean;
 }
 
 // eslint-disable-next-line
@@ -60,7 +60,7 @@ export const Input: FC<IInputProps> = memo((props) => {
   }, [autofocus]);
 
   const mods: TMods = {
-    [s.readonly]: readonly
+    [s.readonly]: readonly,
   };
 
   return (

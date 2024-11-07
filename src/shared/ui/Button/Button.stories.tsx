@@ -8,11 +8,11 @@ const meta = {
   title: 'shared/Button',
   component: Button,
   parameters: {
-    layout: 'centered'
+    layout: 'centered',
   },
   argTypes: {
     // backgroundColor: { control: 'color' },
-  }
+  },
 } satisfies Meta<typeof Button>;
 
 export default meta;
@@ -21,93 +21,93 @@ type Story = StoryObj<typeof meta>;
 export const Filled: Story = {
   args: {
     children: 'Text',
-    variant: EButtonVariants.FILLED
-  }
+    variant: EButtonVariants.FILLED,
+  },
 };
 
 export const Outlined: Story = {
   args: {
     children: 'Text',
-    variant: EButtonVariants.OUTLINED
-  }
+    variant: EButtonVariants.OUTLINED,
+  },
 };
 
 export const OutlinedSizeL: Story = {
   args: {
     children: 'Text',
     variant: EButtonVariants.OUTLINED,
-    size: EButtonSizes.L
-  }
+    size: EButtonSizes.L,
+  },
 };
 
 export const OutlinedSizeXL: Story = {
   args: {
     children: 'Text',
     variant: EButtonVariants.OUTLINED,
-    size: EButtonSizes.XL
-  }
+    size: EButtonSizes.XL,
+  },
 };
 
 export const Transparent: Story = {
   args: {
     children: 'Text',
-    variant: EButtonVariants.TRANSPARENT
-  }
+    variant: EButtonVariants.TRANSPARENT,
+  },
 };
 
 export const TransparentInverted: Story = {
   args: {
     children: 'Text',
-    variant: EButtonVariants.TRANSPARENT_INVERTED
-  }
+    variant: EButtonVariants.TRANSPARENT_INVERTED,
+  },
 };
 
 export const FilledDark: Story = {
   args: {
     children: 'Text',
-    variant: EButtonVariants.FILLED
+    variant: EButtonVariants.FILLED,
   },
 
-  decorators: [ThemeDecorator(ETheme.DARK)]
+  decorators: [ThemeDecorator(ETheme.DARK)],
 };
 
 export const OutlinedDark: Story = {
   args: {
     children: 'Text',
-    variant: EButtonVariants.OUTLINED
+    variant: EButtonVariants.OUTLINED,
   },
 
-  decorators: [ThemeDecorator(ETheme.DARK)]
+  decorators: [ThemeDecorator(ETheme.DARK)],
 };
 
 export const TransparentDark: Story = {
   args: {
     children: 'Text',
-    variant: EButtonVariants.TRANSPARENT
+    variant: EButtonVariants.TRANSPARENT,
   },
 
-  decorators: [ThemeDecorator(ETheme.LIGHT)]
+  decorators: [ThemeDecorator(ETheme.LIGHT)],
 };
 
 export const BackgroundVariant: Story = {
   args: {
     children: 'Text',
-    variant: EButtonVariants.BACKGROUND
-  }
+    variant: EButtonVariants.BACKGROUND,
+  },
 };
 export const BackgroundInvertedVariant: Story = {
   args: {
     children: 'Text',
-    variant: EButtonVariants.BACKGROUND_INVERTED
-  }
+    variant: EButtonVariants.BACKGROUND_INVERTED,
+  },
 };
 
 export const Square: Story = {
   args: {
     children: '>',
     square: true,
-    variant: EButtonVariants.BACKGROUND_INVERTED
-  }
+    variant: EButtonVariants.BACKGROUND_INVERTED,
+  },
 };
 
 export const SizeM: Story = {
@@ -115,8 +115,8 @@ export const SizeM: Story = {
     children: '>',
     square: true,
     variant: EButtonVariants.BACKGROUND_INVERTED,
-    size: EButtonSizes.M
-  }
+    size: EButtonSizes.M,
+  },
 };
 
 export const SizeL: Story = {
@@ -124,8 +124,8 @@ export const SizeL: Story = {
     children: '>',
     square: true,
     variant: EButtonVariants.BACKGROUND_INVERTED,
-    size: EButtonSizes.L
-  }
+    size: EButtonSizes.L,
+  },
 };
 
 export const SizeXL: Story = {
@@ -133,14 +133,14 @@ export const SizeXL: Story = {
     children: '>',
     square: true,
     variant: EButtonVariants.BACKGROUND_INVERTED,
-    size: EButtonSizes.XL
-  }
+    size: EButtonSizes.XL,
+  },
 };
 
 export const Disabled: Story = {
   args: {
     children: 'Войти',
     variant: EButtonVariants.OUTLINED,
-    disabled: true
-  }
+    disabled: true,
+  },
 };

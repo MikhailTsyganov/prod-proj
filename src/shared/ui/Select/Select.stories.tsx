@@ -5,11 +5,11 @@ const meta = {
   title: 'shared/Select',
   component: Select,
   parameters: {
-    layout: 'centered'
+    layout: 'centered',
   },
   argTypes: {
     // backgroundColor: { control: 'color' },
-  }
+  },
 } satisfies Meta<typeof Select>;
 
 export default meta;
@@ -21,7 +21,7 @@ export const Primary: Story = {
     list: [
       { value: '1', content: 'Первый пункт' },
       { value: '2', content: 'Второй пункт' },
-      { value: '3', content: 'Третий пункт' }
-    ]
-  }
+      { value: '3', content: 'Третий пункт' },
+    ],
+  },
 };

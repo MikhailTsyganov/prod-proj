@@ -8,7 +8,7 @@ import { ETheme } from '@/shared/const/theme';
 import { Button, EButtonVariants } from '../Button/Button';
 
 interface IThemeSwitcherProps {
-  className?: string
+  className?: string;
 }
 
 export const ThemeSwitcher: FC<IThemeSwitcherProps> = memo((props) => {
@@ -20,7 +20,8 @@ export const ThemeSwitcher: FC<IThemeSwitcherProps> = memo((props) => {
     <Button
       variant={EButtonVariants.TRANSPARENT}
       className={classNames('', {}, [className])}
-      onClick={toogleTheme}>
+      onClick={toogleTheme}
+    >
       {theme === ETheme.LIGHT ? <LightIcon /> : <DarkIcon />}
     </Button>
   );

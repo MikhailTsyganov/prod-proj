@@ -8,25 +8,26 @@ const meta = {
   title: 'shared/Code',
   component: Code,
   parameters: {
-    layout: 'centered'
+    layout: 'centered',
   },
   argTypes: {
     // backgroundColor: { control: 'color' },
-  }
+  },
 } satisfies Meta<typeof Code>;
 
-const code = "const path = require('path');\n\nconst server = jsonServer.create();\n\nconst router = jsonServer.router(path.resolve(__dirname, 'db.json'));\n\nserver.use(jsonServer.defaults({}));\nserver.use(jsonServer.bodyParser);"
+const code =
+  "const path = require('path');\n\nconst server = jsonServer.create();\n\nconst router = jsonServer.router(path.resolve(__dirname, 'db.json'));\n\nserver.use(jsonServer.defaults({}));\nserver.use(jsonServer.bodyParser);";
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Light: Story = {
   args: {
-    code
-  }
+    code,
+  },
 };
 
 export const Dark: Story = {
   args: { code },
-  decorators: [ThemeDecorator(ETheme.DARK)]
+  decorators: [ThemeDecorator(ETheme.DARK)],
 };

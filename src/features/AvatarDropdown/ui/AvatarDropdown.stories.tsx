@@ -10,13 +10,13 @@ const meta = {
   title: 'features/AvatarDropdown',
   component: AvatarDropdown,
   parameters: {
-    layout: 'centered'
+    layout: 'centered',
   },
   argTypes: {
     // backgroundColor: { control: 'color' },
   },
   args: {
-    direction: 'bottom right'
+    direction: 'bottom right',
   },
   decorators: [
     StoreDecorator({
@@ -24,24 +24,23 @@ const meta = {
         authData: {
           id: '1',
           username: 'admin',
-          roles: [
-            EUserRoles.ADMIN
-          ],
-          avatar: 'https://img-forum-wt-ru.cdn.gaijin.net/original/3X/a/f/af62d76a2d92797df0711e6a94d319490936f3a1.jpeg'
-        }
-      }
-    })
-  ]
+          roles: [EUserRoles.ADMIN],
+          avatar:
+            'https://img-forum-wt-ru.cdn.gaijin.net/original/3X/a/f/af62d76a2d92797df0711e6a94d319490936f3a1.jpeg',
+        },
+      },
+    }),
+  ],
 } satisfies Meta<typeof AvatarDropdown>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Light: Story = {
-  args: { }
+  args: {},
 };
 
 export const Dark: Story = {
   args: {},
-  decorators: [ThemeDecorator(ETheme.DARK)]
+  decorators: [ThemeDecorator(ETheme.DARK)],
 };

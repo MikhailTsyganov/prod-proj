@@ -1,4 +1,4 @@
-import { articleDetailsReducer } from './articleDetailsSlice'
+import { articleDetailsReducer } from './articleDetailsSlice';
 import { type IArticleDetailsSchema } from '../types/articleDetailsSchema';
 import { fetchArticleById } from '../services/fetchArticleById/fetchArticleById';
 import { EArticleType, type IArticle } from '../types/article';
@@ -12,28 +12,32 @@ describe('articleDetailsSlice', () => {
     views: 1022,
     createdAt: '26.02.2022',
     type: [EArticleType.IT],
-    blocks: []
-  }
+    blocks: [],
+  };
 
   test('test service pending', () => {
     const state: DeepPartial<IArticleDetailsSchema> = {};
-    expect(articleDetailsReducer(
-      state as IArticleDetailsSchema,
-      fetchArticleById.pending
-    )).toEqual({
+    expect(
+      articleDetailsReducer(
+        state as IArticleDetailsSchema,
+        fetchArticleById.pending,
+      ),
+    ).toEqual({
       isLoading: true,
-      error: undefined
-    })
-  })
+      error: undefined,
+    });
+  });
   test('test service fulfilled', () => {
     const state: DeepPartial<IArticleDetailsSchema> = {};
-    expect(articleDetailsReducer(
-      state as IArticleDetailsSchema,
-      fetchArticleById.fulfilled(data as IArticle, '', '')
-    )).toEqual({
+    expect(
+      articleDetailsReducer(
+        state as IArticleDetailsSchema,
+        fetchArticleById.fulfilled(data as IArticle, '', ''),
+      ),
+    ).toEqual({
       isLoading: false,
       data,
-      error: undefined
-    })
-  })
-})
+      error: undefined,
+    });
+  });
+});

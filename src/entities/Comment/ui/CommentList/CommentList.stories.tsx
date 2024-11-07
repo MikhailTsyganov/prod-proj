@@ -9,11 +9,11 @@ const meta = {
   title: 'entities/CommentList',
   component: CommentList,
   parameters: {
-    layout: 'centered'
+    layout: 'centered',
   },
   argTypes: {
     // backgroundColor: { control: 'color' },
-  }
+  },
 } satisfies Meta<typeof CommentList>;
 
 export default meta;
@@ -26,8 +26,9 @@ const comments: IComment[] = [
     user: {
       id: '1',
       username: 'admin',
-      avatar: 'https://img-forum-wt-ru.cdn.gaijin.net/original/3X/a/f/af62d76a2d92797df0711e6a94d319490936f3a1.jpeg'
-    }
+      avatar:
+        'https://img-forum-wt-ru.cdn.gaijin.net/original/3X/a/f/af62d76a2d92797df0711e6a94d319490936f3a1.jpeg',
+    },
   },
   {
     id: '2',
@@ -35,8 +36,9 @@ const comments: IComment[] = [
     user: {
       id: '1',
       username: 'admin',
-      avatar: 'https://img-forum-wt-ru.cdn.gaijin.net/original/3X/a/f/af62d76a2d92797df0711e6a94d319490936f3a1.jpeg'
-    }
+      avatar:
+        'https://img-forum-wt-ru.cdn.gaijin.net/original/3X/a/f/af62d76a2d92797df0711e6a94d319490936f3a1.jpeg',
+    },
   },
   {
     id: '3',
@@ -44,23 +46,25 @@ const comments: IComment[] = [
     user: {
       id: '1',
       username: 'admin',
-      avatar: 'https://img-forum-wt-ru.cdn.gaijin.net/original/3X/a/f/af62d76a2d92797df0711e6a94d319490936f3a1.jpeg'
-    }
-  }]
+      avatar:
+        'https://img-forum-wt-ru.cdn.gaijin.net/original/3X/a/f/af62d76a2d92797df0711e6a94d319490936f3a1.jpeg',
+    },
+  },
+];
 
 export const Light: Story = {
   args: {
-    comments
-  }
+    comments,
+  },
 };
 
 export const Dark: Story = {
   args: { comments },
-  decorators: [ThemeDecorator(ETheme.DARK)]
+  decorators: [ThemeDecorator(ETheme.DARK)],
 };
 
 export const Loading: Story = {
   args: {
-    isLoading: true
-  }
+    isLoading: true,
+  },
 };

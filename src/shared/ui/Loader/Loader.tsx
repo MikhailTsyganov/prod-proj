@@ -4,8 +4,8 @@ import { classNames } from '@/shared/lib/helpers/classNames/classNames';
 import './Loader.scss';
 
 interface ILoaderProps {
-  className?: string
-  children?: ReactNode
+  className?: string;
+  children?: ReactNode;
 }
 
 export const Loader = (props: ILoaderProps) => {
@@ -15,5 +15,5 @@ export const Loader = (props: ILoaderProps) => {
     <div className={classNames('', {}, [className, 'lds-hourglass'])}>
       {children}
     </div>
-  )
+  );
 };

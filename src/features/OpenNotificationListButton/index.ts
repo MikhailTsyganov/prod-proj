@@ -1,1 +1,1 @@
-export { OpenNotificationListButton } from './ui/OpenNotificationListButton'
+export { OpenNotificationListButton } from './ui/OpenNotificationListButton';

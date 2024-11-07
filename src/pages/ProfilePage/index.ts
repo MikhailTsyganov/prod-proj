@@ -1,1 +1,1 @@
-export { ProfilePageLazy } from './ui/ProfilePage.lazy'
+export { ProfilePageLazy } from './ui/ProfilePage.lazy';

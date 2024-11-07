@@ -2,7 +2,7 @@ import { type IStateSchema } from '@/app/providers/store';
 import { getProfileData } from './getProfileData';
 import { ECurrency } from '@/entities/Currency';
 import { ECountry } from '@/entities/Country';
-import avatar from '@/shared/assets/tests/storybook.jpeg'
+import avatar from '@/shared/assets/tests/storybook.jpeg';
 
 describe('getProfileData', () => {
   const data = {
@@ -13,17 +13,16 @@ describe('getProfileData', () => {
     country: ECountry.Belarus,
     city: 'Tbilisi',
     username: 'FFir3',
-    avatar
-
+    avatar,
   };
 
   test('should return data', () => {
     const state: DeepPartial<IStateSchema> = { profile: { data } };
-    expect(getProfileData(state as IStateSchema)).toEqual(data)
+    expect(getProfileData(state as IStateSchema)).toEqual(data);
   });
 
   test('should work with empty state', () => {
     const state: DeepPartial<IStateSchema> = {};
-    expect(getProfileData(state as IStateSchema)).toEqual(undefined)
-  })
-})
+    expect(getProfileData(state as IStateSchema)).toEqual(undefined);
+  });
+});

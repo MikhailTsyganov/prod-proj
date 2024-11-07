@@ -6,11 +6,11 @@ const meta = {
   title: 'entities/ProfileCard',
   component: ProfileCard,
   parameters: {
-    layout: 'centered'
+    layout: 'centered',
   },
   argTypes: {
     // backgroundColor: { control: 'color' },
-  }
+  },
 } satisfies Meta<typeof ProfileCard>;
 
 export default meta;
@@ -18,13 +18,12 @@ type Story = StoryObj<typeof meta>;
 
 export const Error: Story = {
   args: {
-    error: 'Error'
-  }
+    error: 'Error',
+  },
 };
 
 export const IsLoading: Story = {
   args: {
-    isLoading: true
-
-  }
+    isLoading: true,
+  },
 };

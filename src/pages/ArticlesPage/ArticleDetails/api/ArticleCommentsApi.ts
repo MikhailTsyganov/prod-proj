@@ -1,4 +1,4 @@
-import { rtkApi } from '@/shared/api/rtkApi'
+import { rtkApi } from '@/shared/api/rtkApi';
 
 const commentsApi = rtkApi.injectEndpoints({
   endpoints: (build) => ({
@@ -7,23 +7,27 @@ const commentsApi = rtkApi.injectEndpoints({
         url: '/comments',
         params: {
           articleId,
-          _expand: 'user'
-        }
+          _expand: 'user',
+        },
       }),
-      providesTags: ['ArticleComment']
+      providesTags: ['ArticleComment'],
     }),
     createCommentByArticleId: build.mutation({
       query: ({ userId, articleId, text }) => ({
         url: '/comments',
         method: 'POST',
         body: {
-          userId, articleId, text
-        }
+          userId,
+          articleId,
+          text,
+        },
       }),
-      invalidatesTags: ['ArticleComment']
-    })
+      invalidatesTags: ['ArticleComment'],
+    }),
+  }),
+});
 
-  })
-})
-
-export const { useGetAllCommentsByArticleIdQuery, useCreateCommentByArticleIdMutation } = commentsApi
+export const {
+  useGetAllCommentsByArticleIdQuery,
+  useCreateCommentByArticleIdMutation,
+} = commentsApi;

@@ -9,11 +9,11 @@ const meta = {
   title: 'features/ArticlesViewSwitcher',
   component: ArticlesViewSwitcher,
   parameters: {
-    layout: 'centered'
+    layout: 'centered',
   },
   argTypes: {
     // backgroundColor: { control: 'color' },
-  }
+  },
 } satisfies Meta<typeof ArticlesViewSwitcher>;
 
 export default meta;
@@ -22,14 +22,14 @@ type Story = StoryObj<typeof meta>;
 export const Light: Story = {
   args: {
     onChangeView: () => {},
-    view: EArticleView.TILE
-  }
+    view: EArticleView.TILE,
+  },
 };
 
 export const Dark: Story = {
   args: {
     onChangeView: () => {},
-    view: EArticleView.TILE
+    view: EArticleView.TILE,
   },
-  decorators: [ThemeDecorator(ETheme.DARK)]
+  decorators: [ThemeDecorator(ETheme.DARK)],
 };

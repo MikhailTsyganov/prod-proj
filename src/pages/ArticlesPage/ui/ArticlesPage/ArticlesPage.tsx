@@ -6,20 +6,25 @@ import { articlePageReducer } from '../../model/slices/articlePageSlice';
 import { ArticlesInfinityList } from '../../ArticlesInfinityList/ArticlesInfinityList';
 
 interface IArticlesPageProps {
-  className?: string
+  className?: string;
 }
 
 const ArticlesPage: FC<IArticlesPageProps> = (props) => {
-  useAsyncReducer({ articlesPage: articlePageReducer }, { removeAfterUnmount: false })
+  useAsyncReducer(
+    { articlesPage: articlePageReducer },
+    { removeAfterUnmount: false },
+  );
 
-  const { className } = props
+  const { className } = props;
 
   return (
-
-    <div className={classNames(s.ArticlesPage, {}, [className])} data-testid="ArticlesPage">
-      <ArticlesInfinityList/>
-    </div >
-  )
+    <div
+      className={classNames(s.ArticlesPage, {}, [className])}
+      data-testid="ArticlesPage"
+    >
+      <ArticlesInfinityList />
+    </div>
+  );
 };
 
-export default ArticlesPage
+export default ArticlesPage;

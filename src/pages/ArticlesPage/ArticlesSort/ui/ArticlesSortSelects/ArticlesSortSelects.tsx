@@ -7,65 +7,89 @@ import { type ISelectList, Select } from '@/shared/ui/Select';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDIspatch';
 import { articlesSortActions } from '../../model/slices/articlesSortSlice';
 import { useSelector } from 'react-redux';
-import { getArticlesSortOrder, getArticlesSortSort } from '../../model/selectors/articlesSort';
-import { articlePageActions } from '../../../model/slices/articlePageSlice'; import { TOrder } from '@/shared/types/sort';
-;
-
+import {
+  getArticlesSortOrder,
+  getArticlesSortSort,
+} from '../../model/selectors/articlesSort';
+import { articlePageActions } from '../../../model/slices/articlePageSlice';
+import { TOrder } from '@/shared/types/sort';
 interface IArticlesSortSelectsProps {
-  className?: string
-  fetchData: () => void
+  className?: string;
+  fetchData: () => void;
 }
 
 export const ArticlesSortSelects = memo((props: IArticlesSortSelectsProps) => {
   const { className, fetchData } = props;
-  const { t } = useTranslation('articles')
-  const dispatch = useAppDispatch()
+  const { t } = useTranslation('articles');
+  const dispatch = useAppDispatch();
 
-  const sort = useSelector(getArticlesSortSort)
-  const order = useSelector(getArticlesSortOrder)
+  const sort = useSelector(getArticlesSortSort);
+  const order = useSelector(getArticlesSortOrder);
 
-  const orderList = useMemo<Array<ISelectList<TOrder>>>(() => [
-    {
-      value: 'asc',
-      content: t('asc')
+  const orderList = useMemo<Array<ISelectList<TOrder>>>(
+    () => [
+      {
+        value: 'asc',
+        content: t('asc'),
+      },
+      {
+        value: 'desc',
+        content: t('desc'),
+      },
+    ],
+    [t],
+  );
+
+  const sortList = useMemo<Array<ISelectList<EArticlesSortField>>>(
+    () => [
+      {
+        value: EArticlesSortField.CREATED_AT,
+        content: t('дате создания'),
+      },
+      {
+        value: EArticlesSortField.TITLE,
+        content: t('названию'),
+      },
+      {
+        value: EArticlesSortField.VIEWS,
+        content: t('просмотрам'),
+      },
+    ],
+    [t],
+  );
+
+  const onSortChange = useCallback(
+    (value: EArticlesSortField) => {
+      dispatch(articlesSortActions.setSort(value));
+      dispatch(articlePageActions.setPage(1));
+      fetchData();
     },
-    {
-      value: 'desc',
-      content: t('desc')
-    }
-  ], [t])
+    [dispatch, fetchData],
+  );
 
-  const sortList = useMemo<Array<ISelectList<EArticlesSortField>>>(() => [
-    {
-      value: EArticlesSortField.CREATED_AT,
-      content: t('дате создания')
+  const onOrderChange = useCallback(
+    (value: TOrder) => {
+      dispatch(articlesSortActions.setOrder(value));
+      dispatch(articlePageActions.setPage(1));
+      fetchData();
     },
-    {
-      value: EArticlesSortField.TITLE,
-      content: t('названию')
-    },
-    {
-      value: EArticlesSortField.VIEWS,
-      content: t('просмотрам')
-    }
-  ], [t])
-
-  const onSortChange = useCallback((value: EArticlesSortField) => {
-    dispatch(articlesSortActions.setSort(value))
-    dispatch(articlePageActions.setPage(1))
-    fetchData()
-  }, [dispatch, fetchData])
-
-  const onOrderChange = useCallback((value: TOrder) => {
-    dispatch(articlesSortActions.setOrder(value))
-    dispatch(articlePageActions.setPage(1))
-    fetchData()
-  }, [dispatch, fetchData])
+    [dispatch, fetchData],
+  );
 
   return (
     <div className={classNames(s.ArticlesSortSelects, {}, [className])}>
-      <Select value={sort} title={t('Сортировать по')} list={sortList} onChange={onSortChange} />
-      <Select value={order} title={t('по')} list={orderList} onChange={onOrderChange} />
-    </div >
-  )
+      <Select
+        value={sort}
+        title={t('Сортировать по')}
+        list={sortList}
+        onChange={onSortChange}
+      />
+      <Select
+        value={order}
+        title={t('по')}
+        list={orderList}
+        onChange={onOrderChange}
+      />
+    </div>
+  );
 });

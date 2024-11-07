@@ -4,8 +4,8 @@ import { Button, EButtonVariants } from '../Button/Button';
 import { useTranslation } from 'react-i18next';
 
 interface ILangSwitcherProps {
-  className?: string
-  short?: boolean
+  className?: string;
+  short?: boolean;
 }
 
 export const LangSwitcher: FC<ILangSwitcherProps> = memo((props) => {
@@ -21,7 +21,8 @@ export const LangSwitcher: FC<ILangSwitcherProps> = memo((props) => {
     <Button
       variant={EButtonVariants.TRANSPARENT}
       className={classNames('', {}, [className])}
-      onClick={toggle}>
+      onClick={toggle}
+    >
       {t(short ? 'Короткий язык' : 'Язык')}
     </Button>
   );

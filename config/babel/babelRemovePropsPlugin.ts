@@ -1,7 +1,7 @@
 import { type PluginItem } from '@babel/core';
 
 // babel plugin, убирающий аттрибут из тэга по запросу
-export default function(): PluginItem {
+export default function (): PluginItem {
   return {
     visitor: {
       Program(path, state) {
@@ -14,9 +14,9 @@ export default function(): PluginItem {
             if (forbidden.includes(nodeName)) {
               current.parentPath.remove();
             }
-          }
-        })
-      }
-    }
+          },
+        });
+      },
+    },
   };
 }

@@ -12,13 +12,18 @@ const defaultAsyncReducers: TReducerList = {
   profile: profileReducer,
   articleDetails: articleDetailsReducer,
   articleDetailsPage: articleDetailsPageReducer,
-  addNewComment: addNewCommentReducer
-}
+  addNewComment: addNewCommentReducer,
+};
 
-export const StoreDecorator = (state: DeepPartial<IStateSchema>, asyncReducers?: TReducerList) => (Story: StoryFn) => {
-  return (
-    <StoreProvider initialState={state as IStateSchema} asyncReducers={{ ...defaultAsyncReducers, ...asyncReducers }}>
-      <Story />
-    </StoreProvider >
-  )
-}
+export const StoreDecorator =
+  (state: DeepPartial<IStateSchema>, asyncReducers?: TReducerList) =>
+  (Story: StoryFn) => {
+    return (
+      <StoreProvider
+        initialState={state as IStateSchema}
+        asyncReducers={{ ...defaultAsyncReducers, ...asyncReducers }}
+      >
+        <Story />
+      </StoreProvider>
+    );
+  };

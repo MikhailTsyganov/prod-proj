@@ -31,9 +31,7 @@
     "baseUrl": ".",
     "strict": true,
     "paths": {
-      "@/*": [
-        "./src/*"
-      ]
+      "@/*": ["./src/*"]
     },
     "isolatedModules": true
   },
@@ -51,8 +49,7 @@
     "./config/**/*.ts",
     "./scripts/**/*",
     "./vite.config.ts",
-    "./eslintrc.js",
+    "./eslintrc.js"
   ],
-  "exclude": [
-  ]
+  "exclude": []
 }

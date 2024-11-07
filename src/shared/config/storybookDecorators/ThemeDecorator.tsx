@@ -10,5 +10,5 @@ export const ThemeDecorator = (theme: ETheme) => (Story: StoryFn) => {
         <Story />
       </div>
     </ThemeProvider>
-  )
-}
+  );
+};

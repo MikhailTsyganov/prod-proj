@@ -7,11 +7,11 @@ const meta = {
   title: 'shared/popups/Dropdown',
   component: Dropdown,
   parameters: {
-    layout: 'centered'
+    layout: 'centered',
   },
   argTypes: {
     // backgroundColor: { control: 'color' },
-  }
+  },
 } satisfies Meta<typeof Dropdown>;
 
 export default meta;
@@ -22,8 +22,8 @@ export const Primary: Story = {
     items: [
       { id: '1', content: <div>text 1</div> },
       { id: '2', content: <div>text 2</div> },
-      { id: '3', content: <div>text 3</div> }
+      { id: '3', content: <div>text 3</div> },
     ],
-    trigger: <Button>CLICK ME</Button>
-  }
+    trigger: <Button>CLICK ME</Button>,
+  },
 };

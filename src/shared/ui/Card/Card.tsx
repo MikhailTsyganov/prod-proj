@@ -5,22 +5,31 @@ import s from './Card.module.scss';
 
 export enum ECardVariant {
   FILLED = 'filled',
-  OUTLINED = 'outlined'
+  OUTLINED = 'outlined',
 }
 
 interface ICardProps extends HTMLAttributes<HTMLDivElement> {
-  className?: string
-  children: React.ReactNode
-  variant?: ECardVariant
-  max?: boolean
+  className?: string;
+  children: React.ReactNode;
+  variant?: ECardVariant;
+  max?: boolean;
 }
 
 export const Card: FC<ICardProps> = (props) => {
-  const { className, children, variant = ECardVariant.FILLED, max, ...otherProps } = props;
+  const {
+    className,
+    children,
+    variant = ECardVariant.FILLED,
+    max,
+    ...otherProps
+  } = props;
 
   return (
-    <div className={classNames(s.Card, { [s.max]: max }, [className, s[variant]])} {...otherProps}>
+    <div
+      className={classNames(s.Card, { [s.max]: max }, [className, s[variant]])}
+      {...otherProps}
+    >
       {children}
-    </div >
-  )
+    </div>
+  );
 };

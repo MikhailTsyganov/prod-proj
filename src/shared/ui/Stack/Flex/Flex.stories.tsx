@@ -6,11 +6,11 @@ const meta = {
   title: 'shared/Flex',
   component: Flex,
   parameters: {
-    layout: 'centered'
+    layout: 'centered',
   },
   argTypes: {
     // backgroundColor: { control: 'color' },
-  }
+  },
 } satisfies Meta<typeof Flex>;
 
 export default meta;
@@ -26,8 +26,8 @@ export const Row: Story = {
         <div>example</div>
       </>
     ),
-    direction: 'row'
-  }
+    direction: 'row',
+  },
 };
 
 export const RowGap4: Story = {
@@ -41,8 +41,8 @@ export const RowGap4: Story = {
       </>
     ),
     direction: 'row',
-    gap: '4'
-  }
+    gap: '4',
+  },
 };
 
 export const RowGap8: Story = {
@@ -56,8 +56,8 @@ export const RowGap8: Story = {
       </>
     ),
     direction: 'row',
-    gap: '8'
-  }
+    gap: '8',
+  },
 };
 
 export const RowGap16: Story = {
@@ -71,8 +71,8 @@ export const RowGap16: Story = {
       </>
     ),
     direction: 'row',
-    gap: '16'
-  }
+    gap: '16',
+  },
 };
 
 export const RowGap32: Story = {
@@ -86,8 +86,8 @@ export const RowGap32: Story = {
       </>
     ),
     direction: 'row',
-    gap: '32'
-  }
+    gap: '32',
+  },
 };
 
 export const Column: Story = {
@@ -100,8 +100,8 @@ export const Column: Story = {
         <div>example</div>
       </>
     ),
-    direction: 'column'
-  }
+    direction: 'column',
+  },
 };
 
 export const ColumnGap16: Story = {
@@ -115,6 +115,6 @@ export const ColumnGap16: Story = {
       </>
     ),
     direction: 'column',
-    gap: '16'
-  }
+    gap: '16',
+  },
 };

@@ -1,1 +1,1 @@
-export { ProfilePageHeader } from './ui/ProfilePageHeader/ProfilePageHeader'
+export { ProfilePageHeader } from './ui/ProfilePageHeader/ProfilePageHeader';

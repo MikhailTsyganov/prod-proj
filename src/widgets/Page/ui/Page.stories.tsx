@@ -9,22 +9,22 @@ const meta = {
   title: 'widgets/Page',
   component: Page,
   parameters: {
-    layout: 'centered'
+    layout: 'centered',
   },
   argTypes: {
     // backgroundColor: { control: 'color' },
   },
-  decorators: [StoreDecorator({})]
+  decorators: [StoreDecorator({})],
 } satisfies Meta<typeof Page>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Light: Story = {
-  args: { children: <div></div> }
+  args: { children: <div></div> },
 };
 
 export const Dark: Story = {
   args: { children: <div></div> },
-  decorators: [ThemeDecorator(ETheme.DARK)]
+  decorators: [ThemeDecorator(ETheme.DARK)],
 };

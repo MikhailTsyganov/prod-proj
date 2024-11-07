@@ -5,17 +5,17 @@ import { ThemeDecorator } from '@/shared/config/storybookDecorators/ThemeDecorat
 import { StoreDecorator } from '@/shared/config/storybookDecorators/StoreDecorator';
 import { ECurrency } from '@/entities/Currency';
 import { ECountry } from '@/entities/Country';
-import avatar from '@/shared/assets/tests/storybook.jpeg'
+import avatar from '@/shared/assets/tests/storybook.jpeg';
 
 const meta = {
   title: 'pages/ProfilePage',
   component: ProfilePage,
   parameters: {
-    layout: 'centered'
+    layout: 'centered',
   },
   argTypes: {
     // backgroundColor: { control: 'color' },
-  }
+  },
 } satisfies Meta<typeof ProfilePage>;
 
 export default meta;
@@ -29,17 +29,17 @@ const data = {
   country: ECountry.Belarus,
   city: 'Tbilisi',
   username: 'FFir3',
-  avatar
-}
+  avatar,
+};
 
 export const Light: Story = {
   decorators: [
     StoreDecorator({
       profile: {
-        currentDataForm: data
-      }
-    })
-  ]
+        currentDataForm: data,
+      },
+    }),
+  ],
 };
 
 export const Dark: Story = {
@@ -47,8 +47,8 @@ export const Dark: Story = {
     ThemeDecorator(ETheme.DARK),
     StoreDecorator({
       profile: {
-        currentDataForm: data
-      }
-    })
-  ]
+        currentDataForm: data,
+      },
+    }),
+  ],
 };

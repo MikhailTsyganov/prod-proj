@@ -6,13 +6,18 @@ import { type IArticleBlockCode } from '../../model/types/article';
 import { Code } from '@/shared/ui/Code';
 
 interface IArticleBlockCodeProps {
-  className?: string
-  block: IArticleBlockCode
+  className?: string;
+  block: IArticleBlockCode;
 }
 
 export const ArticleBlockCode: FC<IArticleBlockCodeProps> = memo((props) => {
   const { block, className } = props;
   const { code } = block;
 
-  return <Code code={code} className={classNames('s.ArticleBlockCode', {}, [className])} />
+  return (
+    <Code
+      code={code}
+      className={classNames('s.ArticleBlockCode', {}, [className])}
+    />
+  );
 });

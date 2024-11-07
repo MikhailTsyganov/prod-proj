@@ -9,11 +9,11 @@ const meta = {
   title: 'shared/Card',
   component: Card,
   parameters: {
-    layout: 'centered'
+    layout: 'centered',
   },
   argTypes: {
     // backgroundColor: { control: 'color' },
-  }
+  },
 } satisfies Meta<typeof Card>;
 
 export default meta;
@@ -22,14 +22,14 @@ type Story = StoryObj<typeof meta>;
 export const Light: Story = {
   args: {
     // eslint-disable-next-line
-    children: <Text title='test title' text='test text' />
-  }
+    children: <Text title="test title" text="test text" />,
+  },
 };
 
 export const Dark: Story = {
   args: {
     // eslint-disable-next-line
-    children: <Text title='test title' text='test text' />
+    children: <Text title="test title" text="test text" />,
   },
-  decorators: [ThemeDecorator(ETheme.DARK)]
+  decorators: [ThemeDecorator(ETheme.DARK)],
 };

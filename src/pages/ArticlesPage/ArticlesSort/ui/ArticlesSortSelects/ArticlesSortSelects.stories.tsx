@@ -9,12 +9,12 @@ const meta = {
   title: 'features/ArticlesSort/ArticlesSortSelects',
   component: ArticlesSortSelects,
   parameters: {
-    layout: 'centered'
+    layout: 'centered',
   },
   argTypes: {
     // backgroundColor: { control: 'color' },
   },
-  decorators: [StoreDecorator({})]
+  decorators: [StoreDecorator({})],
 } satisfies Meta<typeof ArticlesSortSelects>;
 
 export default meta;
@@ -22,13 +22,13 @@ type Story = StoryObj<typeof meta>;
 
 export const Light: Story = {
   args: {
-    fetchData: () => {}
-  }
+    fetchData: () => {},
+  },
 };
 
 export const Dark: Story = {
   args: {
-    fetchData: () => {}
+    fetchData: () => {},
   },
-  decorators: [ThemeDecorator(ETheme.DARK)]
+  decorators: [ThemeDecorator(ETheme.DARK)],
 };

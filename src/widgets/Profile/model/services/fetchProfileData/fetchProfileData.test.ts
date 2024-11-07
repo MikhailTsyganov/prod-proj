@@ -2,7 +2,7 @@ import { fetchProfileData } from './fetchProfileData';
 import { TestAsyncThunk } from '@/shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
 import { ECurrency } from '@/entities/Currency';
 import { ECountry } from '@/entities/Country';
-import avatar from '@/shared/assets/tests/storybook.jpeg'
+import avatar from '@/shared/assets/tests/storybook.jpeg';
 
 describe('fetchProfileData', () => {
   test('success response', async () => {
@@ -14,30 +14,31 @@ describe('fetchProfileData', () => {
       country: ECountry.Belarus,
       city: 'Tbilisi',
       username: 'FFir3',
-      avatar
-
+      avatar,
     };
 
     const thunk = new TestAsyncThunk(fetchProfileData);
 
-    thunk.api.get.mockReturnValue(Promise.resolve({
-      data: responseValue
-    }))
+    thunk.api.get.mockReturnValue(
+      Promise.resolve({
+        data: responseValue,
+      }),
+    );
 
-    const result = await thunk.callThunk('1')
+    const result = await thunk.callThunk('1');
 
     expect(thunk.api.get).toHaveBeenCalled();
     expect(result.meta.requestStatus).toBe('fulfilled');
     expect(result.payload).toEqual(responseValue);
-  })
+  });
 
   test('error response', async () => {
     const thunk = new TestAsyncThunk(fetchProfileData);
     thunk.api.get.mockReturnValue(Promise.resolve({ status: 403 }));
-    const result = await thunk.callThunk('1')
+    const result = await thunk.callThunk('1');
 
     expect(thunk.api.get).toHaveBeenCalled();
     expect(result.meta.requestStatus).toBe('rejected');
     expect(result.payload).toBe('ERROR fetchProfileData');
-  })
-})
+  });
+});

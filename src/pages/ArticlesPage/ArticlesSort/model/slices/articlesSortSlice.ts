@@ -1,5 +1,8 @@
 import { type PayloadAction, createSlice } from '@reduxjs/toolkit';
-import { EArticlesSortField, type IArticlesSortSchema } from '../types/ArticlesSortSchema';
+import {
+  EArticlesSortField,
+  type IArticlesSortSchema,
+} from '../types/ArticlesSortSchema';
 import { EArticleView, EArticleType } from '@/entities/Article';
 import { ARTICLES_VIEW_LOCALSTORAGE_KEY } from '@/shared/const/localstorage';
 import { TOrder } from '@/shared/types/sort';
@@ -11,7 +14,7 @@ const initialState: IArticlesSortSchema = {
   sort: EArticlesSortField.CREATED_AT,
   tab: EArticleType.ALL,
 
-  _inited: false
+  _inited: false,
 };
 
 const articlesSortSlice = createSlice({
@@ -19,25 +22,27 @@ const articlesSortSlice = createSlice({
   initialState,
   reducers: {
     setView(state, { payload }: PayloadAction<EArticleView>) {
-      state.view = payload
-      localStorage.setItem(ARTICLES_VIEW_LOCALSTORAGE_KEY, payload)
+      state.view = payload;
+      localStorage.setItem(ARTICLES_VIEW_LOCALSTORAGE_KEY, payload);
     },
     setSearch(state, { payload }: PayloadAction<string>) {
-      state.search = payload
+      state.search = payload;
     },
     setOrder(state, { payload }: PayloadAction<TOrder>) {
-      state.order = payload
+      state.order = payload;
     },
     setSort(state, { payload }: PayloadAction<EArticlesSortField>) {
-      state.sort = payload
+      state.sort = payload;
     },
     setTab(state, { payload }: PayloadAction<EArticleType>) {
-      state.tab = payload
+      state.tab = payload;
     },
     initState(state) {
-      state.view = localStorage.getItem(ARTICLES_VIEW_LOCALSTORAGE_KEY) as EArticleView
-      state._inited = true
-    }
+      state.view = localStorage.getItem(
+        ARTICLES_VIEW_LOCALSTORAGE_KEY,
+      ) as EArticleView;
+      state._inited = true;
+    },
   },
   extraReducers(builder) {
     // builder
@@ -57,7 +62,8 @@ const articlesSortSlice = createSlice({
     //         state.isLoading = false;
     //         state.error = payload;
     //     })
-  }
+  },
 });
 
-export const { actions: articlesSortActions, reducer: articlesSortReducer } = articlesSortSlice;
+export const { actions: articlesSortActions, reducer: articlesSortReducer } =
+  articlesSortSlice;

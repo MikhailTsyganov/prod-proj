@@ -8,21 +8,21 @@ const meta = {
   title: 'shared/Backdrop',
   component: Backdrop,
   parameters: {
-    layout: 'centered'
+    layout: 'centered',
   },
   argTypes: {
     // backgroundColor: { control: 'color' },
-  }
+  },
 } satisfies Meta<typeof Backdrop>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Light: Story = {
-  args: {}
+  args: {},
 };
 
 export const Dark: Story = {
   args: {},
-  decorators: [ThemeDecorator(ETheme.DARK)]
+  decorators: [ThemeDecorator(ETheme.DARK)],
 };

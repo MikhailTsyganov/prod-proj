@@ -4,17 +4,17 @@ import { classNames } from '@/shared/lib/helpers/classNames/classNames';
 import s from './Select.module.scss';
 
 export interface ISelectList<T extends string> {
-  value: T
-  content: string
+  value: T;
+  content: string;
 }
 
 interface ISelectProps<T extends string> {
-  className?: string
-  title?: string
-  list?: Array<ISelectList<T>>
-  value?: T
-  onChange?: (value: T) => void
-  readonly?: boolean
+  className?: string;
+  title?: string;
+  list?: Array<ISelectList<T>>;
+  value?: T;
+  onChange?: (value: T) => void;
+  readonly?: boolean;
 }
 
 export const Select = <T extends string>(props: ISelectProps<T>) => {
@@ -35,7 +35,7 @@ export const Select = <T extends string>(props: ISelectProps<T>) => {
           {listItem.content}
         </option>
       )),
-    [list]
+    [list],
   );
 
   return (

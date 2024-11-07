@@ -9,8 +9,8 @@ const notification = {
   title: 'test title',
   description: 'test description',
   userId: '1',
-  href: 'google.com'
-}
+  href: 'google.com',
+};
 
 const meta = {
   title: 'features/OpenNotificationListButton',
@@ -25,25 +25,25 @@ const meta = {
         response: [
           { ...notification, id: '1' },
           { ...notification, id: '2' },
-          { ...notification, id: '3' }
-        ]
-      }
-    ]
+          { ...notification, id: '3' },
+        ],
+      },
+    ],
   },
   argTypes: {
     // backgroundColor: { control: 'color' },
   },
-  decorators: [StoreDecorator({})]
+  decorators: [StoreDecorator({})],
 } satisfies Meta<typeof OpenNotificationListButton>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Light: Story = {
-  args: {}
+  args: {},
 };
 
 export const Dark: Story = {
   args: {},
-  decorators: [ThemeDecorator(ETheme.DARK)]
+  decorators: [ThemeDecorator(ETheme.DARK)],
 };

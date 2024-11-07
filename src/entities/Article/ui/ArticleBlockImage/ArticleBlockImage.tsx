@@ -6,8 +6,8 @@ import { type IArticleBlockImage } from '../../model/types/article';
 import { ETextAlign, Text } from '@/shared/ui/Text';
 
 interface IArticleBlockImageProps {
-  className?: string
-  block: IArticleBlockImage
+  className?: string;
+  block: IArticleBlockImage;
 }
 
 export const ArticleBlockImage: FC<IArticleBlockImageProps> = memo((props) => {
@@ -18,6 +18,6 @@ export const ArticleBlockImage: FC<IArticleBlockImageProps> = memo((props) => {
     <div className={classNames(s.ArticleBlockImage, {}, [className])}>
       <img src={src} alt={title} className={s.img} />
       {title && <Text text={title} align={ETextAlign.CENTER} />}
-    </div >
-  )
+    </div>
+  );
 });

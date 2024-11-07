@@ -3,8 +3,8 @@ import { memo } from 'react';
 import { classNames } from '@/shared/lib/helpers/classNames/classNames';
 
 interface IBackdropProps {
-  className?: string
-  onClose?: () => void
+  className?: string;
+  onClose?: () => void;
 }
 
 export const Backdrop = memo((props: IBackdropProps) => {
@@ -13,7 +13,7 @@ export const Backdrop = memo((props: IBackdropProps) => {
   return (
     <div
       className={classNames(s.Backdrop, {}, [className])}
-      onClick={onClose}>
-    </div >
-  )
+      onClick={onClose}
+    ></div>
+  );
 });

@@ -17,8 +17,8 @@ import { useAsyncReducer } from '@/shared/lib/hooks/reducerManager/useAsyncReduc
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDIspatch';
 
 export interface ILoginFormProps {
-  className?: string
-  onSuccess?: () => void
+  className?: string;
+  onSuccess?: () => void;
 }
 
 // eslint-disable-next-line
@@ -28,28 +28,34 @@ const LoginForm: FC<ILoginFormProps> = memo((props) => {
   const { t } = useTranslation();
   const dispatch = useAppDispatch();
 
-  const username = useSelector(getLoginUsername)
-  const password = useSelector(getLoginPassword)
-  const isLoading = useSelector(getLoginIsLoading)
-  const error = useSelector(getLoginError)
+  const username = useSelector(getLoginUsername);
+  const password = useSelector(getLoginPassword);
+  const isLoading = useSelector(getLoginIsLoading);
+  const error = useSelector(getLoginError);
 
-  const onChangeUsername = useCallback((value: string) => {
-    dispatch(loginActions.setUsername(value))
-  }, [dispatch])
+  const onChangeUsername = useCallback(
+    (value: string) => {
+      dispatch(loginActions.setUsername(value));
+    },
+    [dispatch],
+  );
 
-  const onChangePassword = useCallback((value: string) => {
-    dispatch(loginActions.setPassword(value))
-  }, [dispatch])
+  const onChangePassword = useCallback(
+    (value: string) => {
+      dispatch(loginActions.setPassword(value));
+    },
+    [dispatch],
+  );
 
   const onLoginClick = useCallback(async () => {
-    const result = await dispatch(loginByUsername({ username, password }))
+    const result = await dispatch(loginByUsername({ username, password }));
     if (result.meta.requestStatus === 'fulfilled') {
       onSuccess?.();
     }
-  }, [onSuccess, dispatch, username, password])
+  }, [onSuccess, dispatch, username, password]);
 
-  const reducers = { loginForm: loginReducer }
-  useAsyncReducer(reducers)
+  const reducers = { loginForm: loginReducer };
+  useAsyncReducer(reducers);
 
   return (
     <div className={classNames(s.LoginForm, {}, [className])}>
@@ -80,7 +86,7 @@ const LoginForm: FC<ILoginFormProps> = memo((props) => {
         {t('Войти')}
       </Button>
     </div>
-  )
+  );
 });
 
 export default LoginForm;

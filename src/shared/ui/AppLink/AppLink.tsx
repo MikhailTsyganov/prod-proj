@@ -10,15 +10,25 @@ export enum EAppLinkVariants {
 }
 
 interface IAppLinkProps extends LinkProps {
-  className?: string
-  variant?: EAppLinkVariants
+  className?: string;
+  variant?: EAppLinkVariants;
 }
 
 export const AppLink: FC<IAppLinkProps> = memo((props) => {
-  const { className, children, to, variant = EAppLinkVariants.PRIMARY, ...otherProps } = props;
+  const {
+    className,
+    children,
+    to,
+    variant = EAppLinkVariants.PRIMARY,
+    ...otherProps
+  } = props;
 
   return (
-    <Link to={to} className={classNames(s.applink, {}, [className, s[variant]])} {...otherProps}>
+    <Link
+      to={to}
+      className={classNames(s.applink, {}, [className, s[variant]])}
+      {...otherProps}
+    >
       {children}
     </Link>
   );

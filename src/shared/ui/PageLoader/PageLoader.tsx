@@ -5,14 +5,15 @@ import { Loader } from '../Loader/Loader';
 import s from './PageLoader.module.scss';
 
 interface IPageLoaderProps {
-  className?: string
+  className?: string;
 }
 
 export const PageLoader: FC<IPageLoaderProps> = (props) => {
   const { className } = props;
 
   return (
-    <div className={classNames(s.pageLoader, {}, [className])}><Loader/></div>
-
-  )
+    <div className={classNames(s.pageLoader, {}, [className])}>
+      <Loader />
+    </div>
+  );
 };

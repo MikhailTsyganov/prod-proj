@@ -1,14 +1,14 @@
-import { type EntityState } from '@reduxjs/toolkit'
-import { type IArticle } from '@/entities/Article'
+import { type EntityState } from '@reduxjs/toolkit';
+import { type IArticle } from '@/entities/Article';
 
 export interface IArticlePageSchema extends EntityState<IArticle> {
-  error?: string
-  isLoading?: boolean
+  error?: string;
+  isLoading?: boolean;
 
   // pagination
-  page: number
-  limit: number
-  hasMore: boolean
+  page: number;
+  limit: number;
+  hasMore: boolean;
 
-  _inited: boolean
+  _inited: boolean;
 }

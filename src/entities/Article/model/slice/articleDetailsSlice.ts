@@ -6,7 +6,7 @@ import { type IArticle } from '../types/article';
 const initialState: IArticleDetailsSchema = {
   data: undefined,
   isLoading: true,
-  error: undefined
+  error: undefined,
 };
 
 const profileSliceSlice = createSlice({
@@ -15,30 +15,26 @@ const profileSliceSlice = createSlice({
   reducers: {},
   extraReducers(builder) {
     builder
-      .addCase(
-        fetchArticleById.pending,
-        (state) => {
-          state.isLoading = true;
-          state.error = undefined;
-        }
-      )
+      .addCase(fetchArticleById.pending, (state) => {
+        state.isLoading = true;
+        state.error = undefined;
+      })
       .addCase(
         fetchArticleById.fulfilled,
         (state, action: PayloadAction<IArticle>) => {
           state.isLoading = false;
           state.data = action.payload;
           state.error = undefined;
-        }
+        },
       )
-      .addCase(
-        fetchArticleById.rejected,
-        (state, action) => {
-          state.isLoading = false;
-          state.error = action.payload;
-        }
-      )
-  }
+      .addCase(fetchArticleById.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload;
+      });
+  },
 });
 
-export const { actions: articleDetailsActions, reducer: articleDetailsReducer } =
-  profileSliceSlice;
+export const {
+  actions: articleDetailsActions,
+  reducer: articleDetailsReducer,
+} = profileSliceSlice;

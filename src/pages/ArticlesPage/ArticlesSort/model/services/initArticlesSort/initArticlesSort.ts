@@ -8,33 +8,33 @@ import { type EArticleType } from '@/entities/Article';
 import { TOrder } from '@/shared/types/sort';
 
 export const initArticlesSort = createAsyncThunk<
-void,
-URLSearchParams,
-IThunkOptions<string>
+  void,
+  URLSearchParams,
+  IThunkOptions<string>
 >('articlesPage/initArticlesPage', async (searchParams, thunkAPI) => {
   const { getState, dispatch } = thunkAPI;
 
-  const isInited = getArticlesSortIsInited(getState())
+  const isInited = getArticlesSortIsInited(getState());
 
   if (!isInited) {
     searchParams.forEach((value, key) => {
       switch (key) {
         case 'order':
-          dispatch(articlesSortActions.setOrder(value as TOrder))
+          dispatch(articlesSortActions.setOrder(value as TOrder));
           break;
         case 'sort':
-          dispatch(articlesSortActions.setSort(value as EArticlesSortField))
+          dispatch(articlesSortActions.setSort(value as EArticlesSortField));
           break;
         case 'search':
-          dispatch(articlesSortActions.setSearch(value))
+          dispatch(articlesSortActions.setSearch(value));
           break;
         case 'type':
-          dispatch(articlesSortActions.setTab(value as EArticleType))
+          dispatch(articlesSortActions.setTab(value as EArticleType));
           break;
       }
     });
 
-    dispatch(articlesSortActions.initState())
+    dispatch(articlesSortActions.initState());
     // dispatch(fetchArticlesList({ replace: true }))
   }
 });

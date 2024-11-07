@@ -15,91 +15,82 @@ import { useSearchParams } from 'react-router-dom';
 import {
   getArticlesSortSearch,
   getArticlesSortSort,
-  getArticlesSortView
+  getArticlesSortView,
 } from '../../model/selectors/articlesSort';
-import {
-  initArticlesSort
-} from '../../model/services/initArticlesSort/initArticlesSort';
+import { initArticlesSort } from '../../model/services/initArticlesSort/initArticlesSort';
 import {
   articlesSortActions,
-  articlesSortReducer
+  articlesSortReducer,
 } from '../../model/slices/articlesSortSlice';
 
-import {
-  ArticlesSortSelects
-} from '../../ui/ArticlesSortSelects/ArticlesSortSelects';
+import { ArticlesSortSelects } from '../../ui/ArticlesSortSelects/ArticlesSortSelects';
 
-import {
-  ArticlesSortTabs
-} from '../../ui/ArticlesSortTabs/ArticlesSortTabs';
+import { ArticlesSortTabs } from '../../ui/ArticlesSortTabs/ArticlesSortTabs';
 
 import { fetchArticlesList } from '../../../model/services/fetchArticlesList/fetchArticlesList';
 import { articlePageActions } from '../../../model/slices/articlePageSlice';
 
 interface IArticlesSortProps {
-  className?: string
+  className?: string;
 }
 
 export const ArticlesSort = memo((props: IArticlesSortProps) => {
-  useAsyncReducer({ articlesPageSort: articlesSortReducer })
+  useAsyncReducer({ articlesPageSort: articlesSortReducer });
   const { className } = props;
-  const { t } = useTranslation('articles')
-  const dispatch = useAppDispatch()
-  const [searchParams] = useSearchParams()
+  const { t } = useTranslation('articles');
+  const dispatch = useAppDispatch();
+  const [searchParams] = useSearchParams();
 
-  const view = useSelector(getArticlesSortView)
-  const search = useSelector(getArticlesSortSearch)
-  const sort = useSelector(getArticlesSortSort)
+  const view = useSelector(getArticlesSortView);
+  const search = useSelector(getArticlesSortSearch);
+  const sort = useSelector(getArticlesSortSort);
   //   const order = useSelector(getArticlesSortOrder)
 
-  const fetchData = useCallback(() => {
-    dispatch(fetchArticlesList({ replace: true }))
-  },
+  const fetchData = useCallback(
+    () => {
+      dispatch(fetchArticlesList({ replace: true }));
+    },
 
-  // eslint-disable-next-line
-  [dispatch, sort]
-  )
+    // eslint-disable-next-line
+    [dispatch, sort],
+  );
 
-  const deboucedFetchData = useDebounce(fetchData, 500)
+  const deboucedFetchData = useDebounce(fetchData, 500);
 
   const onChangeView = useCallback(
     (newView: EArticleView) => {
-      dispatch(articlesSortActions.setView(newView))
+      dispatch(articlesSortActions.setView(newView));
     },
-    [dispatch]
-  )
+    [dispatch],
+  );
 
   const onChangeSearch = useCallback(
     (value: string) => {
-      dispatch(articlesSortActions.setSearch(value))
-      dispatch(articlePageActions.setPage(1))
-      deboucedFetchData()
+      dispatch(articlesSortActions.setSearch(value));
+      dispatch(articlePageActions.setPage(1));
+      deboucedFetchData();
     },
-    [dispatch, deboucedFetchData]
-  )
+    [dispatch, deboucedFetchData],
+  );
 
   useInitialEffect(() => {
-    dispatch(initArticlesSort(searchParams))
-  })
+    dispatch(initArticlesSort(searchParams));
+  });
 
   return (
     <div className={classNames(s.ArticlesSort, {}, [className])}>
       <div className={s.sortWrapper}>
-        <ArticlesSortSelects
-          fetchData={deboucedFetchData}
-				/>
-        <ArticlesViewSwitcher
-          view={view}
-          onChangeView={onChangeView} />
+        <ArticlesSortSelects fetchData={deboucedFetchData} />
+        <ArticlesViewSwitcher view={view} onChangeView={onChangeView} />
       </div>
       <Card className={s.searchWrapper}>
         <Input
           placeholder={t('Поиск...')}
           onChange={onChangeSearch}
-          value={search} />
+          value={search}
+        />
       </Card>
-      <ArticlesSortTabs
-        fetchData={fetchData} />
-    </div >
-  )
-})
+      <ArticlesSortTabs fetchData={fetchData} />
+    </div>
+  );
+});

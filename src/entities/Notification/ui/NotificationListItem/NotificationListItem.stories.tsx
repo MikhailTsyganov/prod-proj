@@ -6,11 +6,11 @@ const meta = {
   title: 'FOLDER_NAME/NotificationListItem',
   component: NotificationListItem,
   parameters: {
-    layout: 'centered'
+    layout: 'centered',
   },
   argTypes: {
     // backgroundColor: { control: 'color' },
-  }
+  },
 } satisfies Meta<typeof NotificationListItem>;
 
 export default meta;
@@ -19,9 +19,12 @@ type Story = StoryObj<typeof meta>;
 export const Light: Story = {
   args: {
     item: {
-      id: '1', title: 'test title', description: 'test desc', userId: '1'
-    }
-  }
+      id: '1',
+      title: 'test title',
+      description: 'test desc',
+      userId: '1',
+    },
+  },
 };
 
 // export const Dark: Story = {

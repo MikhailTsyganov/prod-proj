@@ -7,12 +7,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getUserInited, userActions } from '@/entities/User';
 
 export default function App() {
-  const dispatch = useDispatch()
-  const isUserInited = useSelector(getUserInited)
+  const dispatch = useDispatch();
+  const isUserInited = useSelector(getUserInited);
 
   useEffect(() => {
-    dispatch(userActions.initAuthData())
-  }, [dispatch])
+    dispatch(userActions.initAuthData());
+  }, [dispatch]);
 
   return (
     <div className={classNames('app')}>
@@ -25,5 +25,5 @@ export default function App() {
         </div>
       </Suspense>
     </div>
-  )
+  );
 }

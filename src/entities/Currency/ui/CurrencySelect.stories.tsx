@@ -5,16 +5,16 @@ const meta = {
   title: 'entities/CurrencySelect',
   component: CurrencySelect,
   parameters: {
-    layout: 'centered'
+    layout: 'centered',
   },
   argTypes: {
     // backgroundColor: { control: 'color' },
-  }
+  },
 } satisfies Meta<typeof CurrencySelect>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
-  args: {}
+  args: {},
 };

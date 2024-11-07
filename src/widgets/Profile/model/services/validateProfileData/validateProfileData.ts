@@ -2,23 +2,23 @@ import { EValidateProfileError, type IProfile } from '@/entities/Profile';
 
 export const validateProfileData = (profile?: IProfile) => {
   if (!profile) {
-    return [EValidateProfileError.NO_DATA]
+    return [EValidateProfileError.NO_DATA];
   }
 
   const { firstname, lastname, age, country } = profile;
-  const errors: EValidateProfileError[] = []
+  const errors: EValidateProfileError[] = [];
 
   if (!firstname || !lastname) {
-    errors.push(EValidateProfileError.INCORRECT_USER_DATA)
+    errors.push(EValidateProfileError.INCORRECT_USER_DATA);
   }
 
   if (!age || isNaN(age)) {
-    errors.push(EValidateProfileError.INCORRECT_AGE)
+    errors.push(EValidateProfileError.INCORRECT_AGE);
   }
 
   if (!country) {
-    errors.push(EValidateProfileError.INCORRECT_COUNTRY)
+    errors.push(EValidateProfileError.INCORRECT_COUNTRY);
   }
 
   return errors;
-}
+};

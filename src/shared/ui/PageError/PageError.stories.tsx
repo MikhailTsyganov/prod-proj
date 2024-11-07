@@ -7,20 +7,18 @@ const meta = {
   title: 'shared/PageError',
   component: PageError,
   parameters: {
-    layout: 'centered'
+    layout: 'centered',
   },
   argTypes: {
     // backgroundColor: { control: 'color' },
-  }
+  },
 } satisfies Meta<typeof PageError>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Light: Story = {
-
-};
+export const Light: Story = {};
 
 export const Dark: Story = {
-  decorators: [ThemeDecorator(ETheme.DARK)]
+  decorators: [ThemeDecorator(ETheme.DARK)],
 };

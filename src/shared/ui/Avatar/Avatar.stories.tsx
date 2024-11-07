@@ -6,11 +6,11 @@ const meta = {
   title: 'shared/Avatar',
   component: Avatar,
   parameters: {
-    layout: 'centered'
+    layout: 'centered',
   },
   argTypes: {
     // backgroundColor: { control: 'color' },
-  }
+  },
 } satisfies Meta<typeof Avatar>;
 
 export default meta;
@@ -20,14 +20,14 @@ export const Standart: Story = {
   args: {
     src: AvatarImg,
     alt: 'avatar1',
-    size: 100
-  }
+    size: 100,
+  },
 };
 
 export const Small: Story = {
   args: {
     src: AvatarImg,
     alt: 'avatar2',
-    size: 50
-  }
+    size: 50,
+  },
 };

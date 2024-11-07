@@ -10,9 +10,9 @@ import { AppLink } from '@/shared/ui/AppLink';
 import { getRouteProfile } from '@/shared/const/router';
 
 interface ICommentItemProps {
-  className?: string
-  comment?: IComment
-  isLoading?: boolean
+  className?: string;
+  comment?: IComment;
+  isLoading?: boolean;
 }
 
 export const CommentItem: FC<ICommentItemProps> = memo((props) => {
@@ -20,31 +20,39 @@ export const CommentItem: FC<ICommentItemProps> = memo((props) => {
 
   if (isLoading) {
     return (
-      <div className={classNames(s.CommentItem, {}, [className, s.loading])} data-testid="CommentItem.loading">
+      <div
+        className={classNames(s.CommentItem, {}, [className, s.loading])}
+        data-testid="CommentItem.loading"
+      >
         <div className={s.avatarWrapper}>
           <Skeleton borderRad="50%" width={30} height={30} />
           <Skeleton className={s.username} width={100} height={16} />
         </div>
 
         <Skeleton className={s.text} />
-      </div >
-    )
+      </div>
+    );
   }
 
   if (!comment) {
-    return null
+    return null;
   }
 
   const { text, user } = comment;
 
   return (
-    <div className={classNames(s.CommentItem, {}, [className])} data-testid="CommentItem.content">
+    <div
+      className={classNames(s.CommentItem, {}, [className])}
+      data-testid="CommentItem.content"
+    >
       <AppLink to={getRouteProfile(user.id)} className={s.avatarWrapper}>
-        {user.avatar && <Avatar size={30} src={user.avatar} alt={user.username} />}
+        {user.avatar && (
+          <Avatar size={30} src={user.avatar} alt={user.username} />
+        )}
         <Text title={user.username} className={s.username} />
       </AppLink>
 
       <Text text={text} className={s.text} />
-    </div >
-  )
+    </div>
+  );
 });

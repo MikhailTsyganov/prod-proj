@@ -2,14 +2,17 @@ import React, { Suspense, type ErrorInfo } from 'react';
 import { PageError } from '@/shared/ui/PageError';
 
 interface IErrorBoundaryProps {
-  children: React.ReactNode
+  children: React.ReactNode;
 }
 
 interface IErrorBoundaryState {
-  hasError: boolean
+  hasError: boolean;
 }
 
-class ErrorBoundary extends React.Component<IErrorBoundaryProps, IErrorBoundaryState> {
+class ErrorBoundary extends React.Component<
+  IErrorBoundaryProps,
+  IErrorBoundaryState
+> {
   constructor(props: IErrorBoundaryProps) {
     super(props);
     this.state = { hasError: false };
@@ -26,16 +29,16 @@ class ErrorBoundary extends React.Component<IErrorBoundaryProps, IErrorBoundaryS
   }
 
   render() {
-    const { hasError } = this.state
-    const { children } = this.props
+    const { hasError } = this.state;
+    const { children } = this.props;
 
     if (hasError) {
       // You can render any custom fallback UI
       return (
-        <Suspense fallback=''>
-          <PageError/>
+        <Suspense fallback="">
+          <PageError />
         </Suspense>
-      )
+      );
     }
 
     return children;

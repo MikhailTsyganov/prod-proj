@@ -4,17 +4,17 @@ import AddNewComment from './AddNewComment';
 import { ThemeDecorator } from '@/shared/config/storybookDecorators/ThemeDecorator';
 import { ETheme } from '@/shared/const/theme';
 import { StoreDecorator } from '@/shared/config/storybookDecorators/StoreDecorator';
-import { action } from '@storybook/addon-actions'
+import { action } from '@storybook/addon-actions';
 
 const meta = {
   title: 'features/AddNewComment',
   component: AddNewComment,
   parameters: {
-    layout: 'centered'
+    layout: 'centered',
   },
   argTypes: {
     // backgroundColor: { control: 'color' },
-  }
+  },
 } satisfies Meta<typeof AddNewComment>;
 
 export default meta;
@@ -22,12 +22,12 @@ type Story = StoryObj<typeof meta>;
 
 export const Light: Story = {
   args: {
-    onSendComment: action('onSendComment')
+    onSendComment: action('onSendComment'),
   },
-  decorators: [StoreDecorator({})]
+  decorators: [StoreDecorator({})],
 };
 
 export const Dark: Story = {
   args: { onSendComment: () => {} },
-  decorators: [ThemeDecorator(ETheme.DARK), StoreDecorator({})]
+  decorators: [ThemeDecorator(ETheme.DARK), StoreDecorator({})],
 };

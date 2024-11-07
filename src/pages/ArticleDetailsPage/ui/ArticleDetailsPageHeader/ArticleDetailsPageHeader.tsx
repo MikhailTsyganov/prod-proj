@@ -10,48 +10,41 @@ import { getCanEdit } from '../../model/selectors/article/article';
 import { getRouteArticleEdit, getRouteArticles } from '@/shared/const/router';
 
 interface IArticleDetailsPageHeaderProps {
-  className?: string
+  className?: string;
 }
 
-export const ArticleDetailsPageHeader = memo((props: IArticleDetailsPageHeaderProps) => {
-  const { className } = props;
-  const navigate = useNavigate()
-  const { t } = useTranslation('articles')
+export const ArticleDetailsPageHeader = memo(
+  (props: IArticleDetailsPageHeaderProps) => {
+    const { className } = props;
+    const navigate = useNavigate();
+    const { t } = useTranslation('articles');
 
-  const canEdit = useSelector(getCanEdit)
-  const article = useSelector(getArticleDetailsData)
+    const canEdit = useSelector(getCanEdit);
+    const article = useSelector(getArticleDetailsData);
 
-  const onBackToList = useCallback(
-    () => {
-      navigate(getRouteArticles())
-    },
-    [navigate]
-  )
+    const onBackToList = useCallback(() => {
+      navigate(getRouteArticles());
+    }, [navigate]);
 
-  const onEdit = useCallback(
-    () => {
-      article?.id && navigate(getRouteArticleEdit(article?.id))
-    },
-    [navigate, article]
-  )
+    const onEdit = useCallback(() => {
+      article?.id && navigate(getRouteArticleEdit(article?.id));
+    }, [navigate, article]);
 
-  return (
-    <div className={classNames(s.ArticleDetailsPageHeader, {}, [className])}>
-      <Button
-        variant={EButtonVariants.OUTLINED}
-        onClick={onBackToList}
-			>
-        {t('Назад к списку')}
-      </Button>
-      {canEdit && (
-      <Button
-        className={s.editBtn}
-        variant={EButtonVariants.OUTLINED}
-        onClick={onEdit}
-				>
-        {t('Редактировать')}
-      </Button>
-      )}
-    </div >
-  )
-});
+    return (
+      <div className={classNames(s.ArticleDetailsPageHeader, {}, [className])}>
+        <Button variant={EButtonVariants.OUTLINED} onClick={onBackToList}>
+          {t('Назад к списку')}
+        </Button>
+        {canEdit && (
+          <Button
+            className={s.editBtn}
+            variant={EButtonVariants.OUTLINED}
+            onClick={onEdit}
+          >
+            {t('Редактировать')}
+          </Button>
+        )}
+      </div>
+    );
+  },
+);

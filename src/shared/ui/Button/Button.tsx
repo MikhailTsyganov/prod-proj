@@ -20,12 +20,12 @@ export enum EButtonSizes {
 }
 
 interface IButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  className?: string
-  variant?: EButtonVariants
-  square?: boolean
-  size?: EButtonSizes
-  disabled?: boolean
-  fullWidth?: boolean
+  className?: string;
+  variant?: EButtonVariants;
+  square?: boolean;
+  size?: EButtonSizes;
+  disabled?: boolean;
+  fullWidth?: boolean;
 }
 
 export const Button: FC<IButtonProps> = memo((props) => {
@@ -44,8 +44,12 @@ export const Button: FC<IButtonProps> = memo((props) => {
     <button
       className={classNames(
         s.button,
-        { [s.square]: square, [s.disabled]: disabled, [s.fullWidth]: fullWidth },
-        [className, s[variant], s[size]]
+        {
+          [s.square]: square,
+          [s.disabled]: disabled,
+          [s.fullWidth]: fullWidth,
+        },
+        [className, s[variant], s[size]],
       )}
       {...otherProps}
     >

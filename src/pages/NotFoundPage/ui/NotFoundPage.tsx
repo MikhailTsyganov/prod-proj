@@ -6,16 +6,19 @@ import s from './NotFoundPage.module.scss';
 import { Page } from '@/widgets/Page';
 
 interface INotFoundPageProps {
-  className?: string
+  className?: string;
 }
 
 export const NotFoundPage: FC<INotFoundPageProps> = (props) => {
   const { className } = props;
-  const { t } = useTranslation()
+  const { t } = useTranslation();
 
   return (
-    <Page className={classNames(s.notfoundpage, {}, [className])} data-testid='NotFoundPage'>
+    <Page
+      className={classNames(s.notfoundpage, {}, [className])}
+      data-testid="NotFoundPage"
+    >
       {t('Страница не найдена')}
     </Page>
-  )
+  );
 };

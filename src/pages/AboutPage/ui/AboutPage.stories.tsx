@@ -8,21 +8,19 @@ const meta = {
   title: 'pages/AboutPage',
   component: AboutPage,
   parameters: {
-    layout: 'centered'
+    layout: 'centered',
   },
   argTypes: {
     // backgroundColor: { control: 'color' },
   },
-  decorators: [StoreDecorator({})]
+  decorators: [StoreDecorator({})],
 } satisfies Meta<typeof AboutPage>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Light: Story = {
-
-};
+export const Light: Story = {};
 
 export const Dark: Story = {
-  decorators: [ThemeDecorator(ETheme.DARK)]
+  decorators: [ThemeDecorator(ETheme.DARK)],
 };

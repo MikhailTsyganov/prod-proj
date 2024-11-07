@@ -11,17 +11,17 @@ export const useTheme = () => {
 
     switch (theme) {
       case ETheme.DARK:
-        newTheme = ETheme.LIGHT
+        newTheme = ETheme.LIGHT;
         break;
       case ETheme.LIGHT:
-        newTheme = ETheme.ORANGE
+        newTheme = ETheme.ORANGE;
         break;
       case ETheme.ORANGE:
-        newTheme = ETheme.DARK
+        newTheme = ETheme.DARK;
         break;
 
       default:
-        newTheme = ETheme.LIGHT
+        newTheme = ETheme.LIGHT;
         break;
     }
 

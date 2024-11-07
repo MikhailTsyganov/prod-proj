@@ -5,10 +5,10 @@ import { useTranslation } from 'react-i18next';
 import { ListBox } from '@/shared/ui/Popups';
 
 interface ICountrySelectProps {
-  className?: string
-  value?: ECountry
-  onChange?: (currency: ECountry) => void
-  readonly?: boolean
+  className?: string;
+  value?: ECountry;
+  onChange?: (currency: ECountry) => void;
+  readonly?: boolean;
 }
 
 const list = [
@@ -16,7 +16,7 @@ const list = [
   { id: ECountry.Belarus, content: ECountry.Belarus },
   { id: ECountry.Kazakhstan, content: ECountry.Kazakhstan },
   { id: ECountry.Russia, content: ECountry.Russia },
-  { id: ECountry.Ukraine, content: ECountry.Ukraine }
+  { id: ECountry.Ukraine, content: ECountry.Ukraine },
 ];
 
 export const CountrySelect: FC<ICountrySelectProps> = memo((props) => {
@@ -28,7 +28,7 @@ export const CountrySelect: FC<ICountrySelectProps> = memo((props) => {
     (value: string) => {
       onChange?.(value as ECountry);
     },
-    [onChange]
+    [onChange],
   );
 
   return (
@@ -39,7 +39,7 @@ export const CountrySelect: FC<ICountrySelectProps> = memo((props) => {
       value={value}
       onChange={onChangeHandler}
       disabled={readonly}
-      dropdownDirection='top right'
+      dropdownDirection="top right"
       label={t('Страна')}
     />
   );

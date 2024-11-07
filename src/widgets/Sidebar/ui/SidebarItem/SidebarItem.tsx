@@ -9,8 +9,8 @@ import { getUserAuthData } from '@/entities/User';
 import { useSelector } from 'react-redux';
 
 interface ISidebarItemProps {
-  item: ISidebarItem
-  isOpened: boolean
+  item: ISidebarItem;
+  isOpened: boolean;
 }
 
 export const SidebarItem: FC<ISidebarItemProps> = memo((props) => {

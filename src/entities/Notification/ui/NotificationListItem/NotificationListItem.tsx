@@ -6,31 +6,33 @@ import { classNames } from '@/shared/lib/helpers/classNames/classNames';
 import { Text } from '@/shared/ui/Text';
 
 interface INotificationListItemProps {
-  className?: string
-  item: INotification
+  className?: string;
+  item: INotification;
 }
 
-export const NotificationListItem = memo((props: INotificationListItemProps) => {
-  const { className, item } = props;
-  const { title, description, href } = item;
+export const NotificationListItem = memo(
+  (props: INotificationListItemProps) => {
+    const { className, item } = props;
+    const { title, description, href } = item;
 
-  const content = (
-    <Card
-      variant={ECardVariant.OUTLINED}
-      title={title}
-      className={classNames(s.NotificationListItem, {}, [className])}
-    >
-      <Text title={title} text={description}/>
-    </Card >
-  )
+    const content = (
+      <Card
+        variant={ECardVariant.OUTLINED}
+        title={title}
+        className={classNames(s.NotificationListItem, {}, [className])}
+      >
+        <Text title={title} text={description} />
+      </Card>
+    );
 
-  if (href) {
-    return (
-      <a href={href} target='_blank' rel="noreferrer" className={s.link}>
-        {content}
-      </a>
-    )
-  }
+    if (href) {
+      return (
+        <a href={href} target="_blank" rel="noreferrer" className={s.link}>
+          {content}
+        </a>
+      );
+    }
 
-  return content;
-});
+    return content;
+  },
+);

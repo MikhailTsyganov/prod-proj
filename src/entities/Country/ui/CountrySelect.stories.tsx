@@ -5,16 +5,16 @@ const meta = {
   title: 'entities/CountrySelect',
   component: CountrySelect,
   parameters: {
-    layout: 'centered'
+    layout: 'centered',
   },
   argTypes: {
     // backgroundColor: { control: 'color' },
-  }
+  },
 } satisfies Meta<typeof CountrySelect>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
-  args: {}
+  args: {},
 };

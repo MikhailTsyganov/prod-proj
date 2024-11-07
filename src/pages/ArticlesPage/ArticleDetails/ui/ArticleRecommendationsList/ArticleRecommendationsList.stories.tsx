@@ -7,8 +7,7 @@ import { type IArticle } from '@/entities/Article';
 import { EArticleType } from '@/entities/Article';
 import { ETheme } from '@/shared/const/theme';
 
-const article: IArticle =
-{
+const article: IArticle = {
   id: '1',
   title: 'Javascript news',
   subtitle: 'Что нового в JS за 2022 год?',
@@ -18,22 +17,23 @@ const article: IArticle =
   user: {
     id: '1',
     username: 'adm',
-    avatar: 'https://img-forum-wt-ru.cdn.gaijin.net/original/3X/a/f/af62d76a2d92797df0711e6a94d319490936f3a1.jpeg'
+    avatar:
+      'https://img-forum-wt-ru.cdn.gaijin.net/original/3X/a/f/af62d76a2d92797df0711e6a94d319490936f3a1.jpeg',
   },
   type: [EArticleType.IT],
-  blocks: []
-}
+  blocks: [],
+};
 
 const meta = {
   title: 'widgets/articleDetails/ArticleRecommendationsList',
   component: ArticleRecommendationsList,
   parameters: {
-    layout: 'centered'
+    layout: 'centered',
   },
   argTypes: {
     // backgroundColor: { control: 'color' },
   },
-  decorators: [StoreDecorator({})]
+  decorators: [StoreDecorator({})],
 } satisfies Meta<typeof ArticleRecommendationsList>;
 
 export default meta;
@@ -50,14 +50,14 @@ export const Light: Story = {
         response: [
           { ...article, id: '1' },
           { ...article, id: '2' },
-          { ...article, id: '3' }
-        ]
-      }
-    ]
-  }
+          { ...article, id: '3' },
+        ],
+      },
+    ],
+  },
 };
 
 export const Dark: Story = {
   args: {},
-  decorators: [ThemeDecorator(ETheme.DARK)]
+  decorators: [ThemeDecorator(ETheme.DARK)],
 };

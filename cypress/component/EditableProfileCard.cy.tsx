@@ -1,5 +1,5 @@
-import { EditableProfileCard } from '../../src/widgets/Profile/ui/EditableProfileCard/EditableProfileCard'
-import { TestProvider } from '../../src/shared/config/testsDecorators/mainDecorator'
+import { EditableProfileCard } from '../../src/widgets/Profile/ui/EditableProfileCard/EditableProfileCard';
+import { TestProvider } from '../../src/shared/config/testsDecorators/mainDecorator';
 
 describe('EditableProfileCard.cy.tsx', () => {
   it('playground', () => {
@@ -23,14 +23,15 @@ describe('EditableProfileCard.cy.tsx', () => {
                 country: 'Ukraine',
                 city: 'Kiev',
                 username: 'testuser',
-                avatar: 'https://cdnn21.img.ria.ru/images/146095/02/1460950266_491:0:3627:3136_1920x0_80_0_0_b2fa213b2de09667975ba6598ae34edb.jpg'
-              }
-            }
-          }
+                avatar:
+                  'https://cdnn21.img.ria.ru/images/146095/02/1460950266_491:0:3627:3136_1920x0_80_0_0_b2fa213b2de09667975ba6598ae34edb.jpg',
+              },
+            },
+          },
         }}
       >
         <EditableProfileCard />
-      </TestProvider>
-    )
-  })
-})
+      </TestProvider>,
+    );
+  });
+});

@@ -7,38 +7,43 @@ import { useGetRecommendationsListQuery } from '../../api/ArticleRecommendations
 import { ArticleList } from '../../../ArticleList/ArticleList';
 
 interface IArticleRecommendationsListProps {
-  className?: string
+  className?: string;
 }
 
-export const ArticleRecommendationsList: FC<IArticleRecommendationsListProps> = memo((props) => {
-  const { className } = props;
-  const { t } = useTranslation('articles')
+export const ArticleRecommendationsList: FC<IArticleRecommendationsListProps> =
+  memo((props) => {
+    const { className } = props;
+    const { t } = useTranslation('articles');
 
-  const { data: recommendations, isLoading, error } = useGetRecommendationsListQuery(3)
+    const {
+      data: recommendations,
+      isLoading,
+      error,
+    } = useGetRecommendationsListQuery(3);
 
-  if (!recommendations || isLoading || error) {
-    return null
-  }
+    if (!recommendations || isLoading || error) {
+      return null;
+    }
 
-  return (
-    <>
-      {recommendations.length > 0 && (
-      <VStack className={classNames('', {}, [className])} gap='8' data-testid="ArticleRecommendationsList">
-        <Text
-          size={ETextSize.L}
-          title={t('Рекомендуем')}
-				/>
+    return (
+      <>
+        {recommendations.length > 0 && (
+          <VStack
+            className={classNames('', {}, [className])}
+            gap="8"
+            data-testid="ArticleRecommendationsList"
+          >
+            <Text size={ETextSize.L} title={t('Рекомендуем')} />
 
-        <ArticleList
-          articles={recommendations}
-          target='_blank'
-          hideHeaderAndFooter
-          isLoading={isLoading}
-          virtualized={false}
-				/>
-      </VStack>
-      )}
-    </>
-
-  )
-});
+            <ArticleList
+              articles={recommendations}
+              target="_blank"
+              hideHeaderAndFooter
+              isLoading={isLoading}
+              virtualized={false}
+            />
+          </VStack>
+        )}
+      </>
+    );
+  });

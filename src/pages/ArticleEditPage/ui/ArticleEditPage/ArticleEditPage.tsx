@@ -5,22 +5,22 @@ import { classNames } from '@/shared/lib/helpers/classNames/classNames';
 import { Page } from '@/widgets/Page';
 
 interface IArticleEditPageProps {
-  className?: string
+  className?: string;
 }
 
 const ArticleEditPage: FC<IArticleEditPageProps> = memo((props) => {
   const { className } = props;
-  const { t } = useTranslation()
+  const { t } = useTranslation();
   const { id } = useParams<{ id: string }>();
   const isEdit = Boolean(id);
 
   return (
     <Page className={classNames('', {}, [className])}>
       {isEdit
-			  ? t('Редактирование статьи с ID = ') + id
-			  : t('Создание новой статьи')}
+        ? t('Редактирование статьи с ID = ') + id
+        : t('Создание новой статьи')}
     </Page>
-  )
+  );
 });
 
-export default ArticleEditPage
+export default ArticleEditPage;

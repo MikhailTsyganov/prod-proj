@@ -9,12 +9,12 @@ const meta = {
   title: 'widgets/articleDetails/ArticleComments',
   component: ArticleComments,
   parameters: {
-    layout: 'centered'
+    layout: 'centered',
   },
   argTypes: {
     // backgroundColor: { control: 'color' },
   },
-  decorators: [StoreDecorator({})]
+  decorators: [StoreDecorator({})],
 } satisfies Meta<typeof ArticleComments>;
 
 export default meta;
@@ -22,13 +22,13 @@ type Story = StoryObj<typeof meta>;
 
 export const Light: Story = {
   args: {
-    articleId: '1'
-  }
+    articleId: '1',
+  },
 };
 
 export const Dark: Story = {
   args: {
-    articleId: '1'
+    articleId: '1',
   },
-  decorators: [ThemeDecorator(ETheme.DARK)]
+  decorators: [ThemeDecorator(ETheme.DARK)],
 };

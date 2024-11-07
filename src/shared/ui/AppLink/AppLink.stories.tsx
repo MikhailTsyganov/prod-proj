@@ -7,14 +7,14 @@ const meta = {
   title: 'shared/AppLink',
   component: AppLink,
   parameters: {
-    layout: 'centered'
+    layout: 'centered',
   },
   argTypes: {
     // backgroundColor: { control: 'color' },
   },
   args: {
-    to: '/'
-  }
+    to: '/',
+  },
 } satisfies Meta<typeof AppLink>;
 
 export default meta;
@@ -23,31 +23,31 @@ type Story = StoryObj<typeof meta>;
 export const Primary: Story = {
   args: {
     children: 'text',
-    variant: EAppLinkVariants.PRIMARY
-  }
+    variant: EAppLinkVariants.PRIMARY,
+  },
 };
 
 export const Secondary: Story = {
   args: {
     children: 'text',
-    variant: EAppLinkVariants.SECONDARY
-  }
+    variant: EAppLinkVariants.SECONDARY,
+  },
 };
 
 export const PrimaryDark: Story = {
   args: {
     children: 'text',
-    variant: EAppLinkVariants.PRIMARY
+    variant: EAppLinkVariants.PRIMARY,
   },
 
-  decorators: [ThemeDecorator(ETheme.DARK)]
+  decorators: [ThemeDecorator(ETheme.DARK)],
 };
 
 export const SecondaryDark: Story = {
   args: {
     children: 'text',
-    variant: EAppLinkVariants.SECONDARY
+    variant: EAppLinkVariants.SECONDARY,
   },
 
-  decorators: [ThemeDecorator(ETheme.DARK)]
+  decorators: [ThemeDecorator(ETheme.DARK)],
 };

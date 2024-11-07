@@ -8,24 +8,26 @@ const meta = {
   title: 'widgets/Navbar',
   component: Navbar,
   parameters: {
-    layout: 'centered'
+    layout: 'centered',
   },
   argTypes: {
     // backgroundColor: { control: 'color' },
-  }
+  },
 } satisfies Meta<typeof Navbar>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Light: Story = {
-  decorators: [StoreDecorator({})]
+  decorators: [StoreDecorator({})],
 };
 
 export const Dark: Story = {
-  decorators: [ThemeDecorator(ETheme.DARK), StoreDecorator({})]
+  decorators: [ThemeDecorator(ETheme.DARK), StoreDecorator({})],
 };
 
 export const AuthNavbar: Story = {
-  decorators: [StoreDecorator({ user: { authData: { username: 'adm', id: '123' } } })]
+  decorators: [
+    StoreDecorator({ user: { authData: { username: 'adm', id: '123' } } }),
+  ],
 };

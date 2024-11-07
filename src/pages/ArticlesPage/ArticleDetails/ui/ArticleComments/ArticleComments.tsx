@@ -6,27 +6,34 @@ import { VStack } from '@/shared/ui/Stack';
 import { ETextSize, Text } from '@/shared/ui/Text';
 import { CommentList } from '@/entities/Comment';
 import { useTranslation } from 'react-i18next';
-import { useCreateCommentByArticleIdMutation, useGetAllCommentsByArticleIdQuery } from '../../api/ArticleCommentsApi';
+import {
+  useCreateCommentByArticleIdMutation,
+  useGetAllCommentsByArticleIdQuery,
+} from '../../api/ArticleCommentsApi';
 import { useSelector } from 'react-redux';
 import { getUserAuthData } from '@/entities/User';
 
 interface IArticleCommentsProps {
-  className?: string
-  articleId?: string
+  className?: string;
+  articleId?: string;
 }
 
 export const ArticleComments = memo((props: IArticleCommentsProps) => {
   const { className, articleId } = props;
   const { t } = useTranslation('articles');
 
-  const userId = useSelector(getUserAuthData)?.id
+  const userId = useSelector(getUserAuthData)?.id;
 
-  const { data: comments, isLoading: commentsIsLoading } = useGetAllCommentsByArticleIdQuery(articleId)
-  const [createNewComment] = useCreateCommentByArticleIdMutation()
+  const { data: comments, isLoading: commentsIsLoading } =
+    useGetAllCommentsByArticleIdQuery(articleId);
+  const [createNewComment] = useCreateCommentByArticleIdMutation();
 
-  const onSendComment = useCallback((text: string) => {
-    createNewComment({ text, articleId, userId })
-  }, [createNewComment, userId, articleId])
+  const onSendComment = useCallback(
+    (text: string) => {
+      createNewComment({ text, articleId, userId });
+    },
+    [createNewComment, userId, articleId],
+  );
 
   return (
     <VStack className={classNames(s.ArticleComments, {}, [className])}>
@@ -35,15 +42,10 @@ export const ArticleComments = memo((props: IArticleCommentsProps) => {
         title={t('Комментарии')}
         className={s.commentTitle}
       />
-      <VStack needMaxWidth gap='16'>
-        <AddNewCommentLazy
-          onSendComment={onSendComment}
-      />
-        <CommentList
-          isLoading={commentsIsLoading}
-          comments={comments}
-        />
+      <VStack needMaxWidth gap="16">
+        <AddNewCommentLazy onSendComment={onSendComment} />
+        <CommentList isLoading={commentsIsLoading} comments={comments} />
       </VStack>
-    </VStack >
-  )
+    </VStack>
+  );
 });

@@ -8,11 +8,11 @@ const meta = {
   title: 'shared/Modal',
   component: Modal,
   parameters: {
-    layout: 'centered'
+    layout: 'centered',
   },
   argTypes: {
     // backgroundColor: { control: 'color' },
-  }
+  },
 } satisfies Meta<typeof Modal>;
 
 export default meta;
@@ -23,8 +23,8 @@ export const Light: Story = {
     children: `Lorem ipsum dolor sit, amet consectetur 
     adipisicing elit. Repellendus beatae, earum quam 
     odio molestiae dolorum? Nostrum hic numquam mollitia ut?`,
-    isOpened: true
-  }
+    isOpened: true,
+  },
 };
 
 export const Dark: Story = {
@@ -32,7 +32,7 @@ export const Dark: Story = {
     children: `Lorem ipsum dolor sit, amet consectetur 
     adipisicing elit. Repellendus beatae, earum quam 
     odio molestiae dolorum? Nostrum hic numquam mollitia ut?`,
-    isOpened: true
+    isOpened: true,
   },
-  decorators: [ThemeDecorator(ETheme.DARK)]
+  decorators: [ThemeDecorator(ETheme.DARK)],
 };

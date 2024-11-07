@@ -9,14 +9,14 @@ import {
   getProfileData,
   getProfileReadonly,
   profileActions,
-  updateProfileData
+  updateProfileData,
 } from '@/widgets/Profile';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDIspatch';
 import { getUserAuthData } from '@/entities/User';
 import { HStack } from '@/shared/ui/Stack';
 
 interface IProfilePageHeaderProps {
-  className?: string
+  className?: string;
 }
 
 export const ProfilePageHeader: FC<IProfilePageHeaderProps> = (props) => {
@@ -25,8 +25,8 @@ export const ProfilePageHeader: FC<IProfilePageHeaderProps> = (props) => {
   const dispatch = useAppDispatch();
 
   const readonly = useSelector(getProfileReadonly);
-  const profileId = useSelector(getProfileData)?.id
-  const userId = useSelector(getUserAuthData)?.id
+  const profileId = useSelector(getProfileData)?.id;
+  const userId = useSelector(getUserAuthData)?.id;
 
   const onEdit = useCallback(() => {
     dispatch(profileActions.setReadonly(false));
@@ -47,42 +47,42 @@ export const ProfilePageHeader: FC<IProfilePageHeaderProps> = (props) => {
       <div className={classNames('', {}, [className])}>
         <Text title={t('Профиль')} />
       </div>
-    )
+    );
   }
 
   return (
     <HStack
       className={classNames('', {}, [className])}
-      justify='between'
+      justify="between"
       needMaxWidth
     >
       <Text title={t('Профиль')} />
-      {readonly
-        ? (
+      {readonly ? (
+        <Button
+          data-testid="ProfilePageHeader.editBtn"
+          variant={EButtonVariants.OUTLINED}
+          onClick={onEdit}
+        >
+          {t('Редактировать')}
+        </Button>
+      ) : (
+        <HStack gap="8" justify="end">
           <Button
-            data-testid='ProfilePageHeader.editBtn'
-            variant={EButtonVariants.OUTLINED}
-            onClick={onEdit}
+            data-testid="ProfilePageHeader.cancelBtn"
+            variant={EButtonVariants.OUTLINED_RED}
+            onClick={onCancelEdit}
           >
-            {t('Редактировать')}
-          </Button>)
-        : (
-          <HStack gap='8' justify='end'>
-            <Button
-              data-testid='ProfilePageHeader.cancelBtn'
-              variant={EButtonVariants.OUTLINED_RED}
-              onClick={onCancelEdit}
-            >
-              {t('Отменить')}
-            </Button>
-            <Button
-              data-testid='ProfilePageHeader.saveBtn'
-              variant={EButtonVariants.OUTLINED}
-              onClick={onSave}
-            >
-              {t('Сохранить')}
-            </Button>
-          </HStack>)}
+            {t('Отменить')}
+          </Button>
+          <Button
+            data-testid="ProfilePageHeader.saveBtn"
+            variant={EButtonVariants.OUTLINED}
+            onClick={onSave}
+          >
+            {t('Сохранить')}
+          </Button>
+        </HStack>
+      )}
     </HStack>
   );
 };
