@@ -5,7 +5,18 @@ import {
   type IBuildOptions,
   type IBuildEnv,
   type IBuildPaths,
+  TBuildMode,
 } from './config/build/types/config';
+
+const getApiUrl = (mode: TBuildMode, apiUrl?: string) => {
+  if (apiUrl) {
+    return apiUrl;
+  }
+  if (mode === 'production') {
+    return '/api';
+  }
+  return 'http://localhost:8000';
+};
 
 const config = (env: IBuildEnv): webpack.Configuration => {
   const paths: IBuildPaths = {
@@ -20,7 +31,7 @@ const config = (env: IBuildEnv): webpack.Configuration => {
   const mode = env?.mode || 'development';
   const isDev = mode === 'development';
   const PORT = env?.port || 3000;
-  const apiUrl = env?.apiUrl || 'http://localhost:8000';
+  const apiUrl = getApiUrl(mode, env?.apiUrl);
 
   const options: IBuildOptions = {
     mode,
