@@ -19,6 +19,8 @@ import { ArticleDetailsRating } from '@/widgets/Rating';
 import { VStack } from '@/shared/ui/Stack';
 import { ArticleComments } from '../../../ArticlesPage/ArticleDetails/ui/ArticleComments/ArticleComments';
 import { ArticleRecommendationsList } from '../../../ArticlesPage/ArticleDetails/ui/ArticleRecommendationsList/ArticleRecommendationsList';
+import { getFeatureFlag } from '@/shared/lib/features';
+import { Counter } from '@/entities/Counter';
 
 interface IArticleDetailsPageProps {
   className?: string;
@@ -38,6 +40,9 @@ const ArticleDetailsPage: FC<IArticleDetailsPageProps> = (props) => {
 
   const { id } = useParams();
 
+  const isArticleRatingEnabled = getFeatureFlag('isArticleRatingEnabled');
+  const isCounterEnabled = getFeatureFlag('isCounterEnabled');
+
   useInitialEffect(() => {
     dispatch(fetchCommentsByArticleId(id));
   });
@@ -51,7 +56,8 @@ const ArticleDetailsPage: FC<IArticleDetailsPageProps> = (props) => {
       <VStack gap="16" needMaxWidth>
         <ArticleDetailsPageHeader />
         <ArticleDetails id={id} />
-        <ArticleDetailsRating articleId={id} />
+        {isArticleRatingEnabled && <ArticleDetailsRating articleId={id} />}
+        {isCounterEnabled && <Counter />}
 
         <ArticleRecommendationsList className={s.recommendations} />
 

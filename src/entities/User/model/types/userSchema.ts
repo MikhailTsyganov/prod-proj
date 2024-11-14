@@ -1,3 +1,5 @@
+import { IFeatureFlags } from '@/shared/types/featureFlags';
+
 export enum EUserRoles {
   ADMIN = 'ADMIN',
   USER = 'USER',
@@ -9,6 +11,7 @@ export interface IUser {
   username: string;
   avatar?: string;
   roles?: EUserRoles[];
+  features?: IFeatureFlags;
 }
 
 export interface IUserSchema {
