@@ -16,6 +16,7 @@ const ArticlesPage: FC<IArticlesPageProps> = (props) => {
   );
 
   const { className } = props;
+  // const articleItem = useGetArticleItemById('2');
 
   return (
     <div
