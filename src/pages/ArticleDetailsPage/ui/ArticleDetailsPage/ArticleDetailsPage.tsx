@@ -20,7 +20,6 @@ import { VStack } from '@/shared/ui/Stack';
 import { ArticleComments } from '../../../ArticlesPage/ArticleDetails/ui/ArticleComments/ArticleComments';
 import { ArticleRecommendationsList } from '../../../ArticlesPage/ArticleDetails/ui/ArticleRecommendationsList/ArticleRecommendationsList';
 import { toggleFeatures } from '@/shared/lib/features';
-import { Counter } from '@/entities/Counter';
 import { Card } from '@/shared/ui/Card';
 import { t } from 'i18next';
 
