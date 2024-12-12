@@ -1,12 +1,17 @@
 import { useContext } from 'react';
 import { ThemeContext } from '../../context/ThemeContext';
 import { ETheme } from '@/shared/const/theme';
-import { LOCAL_STORAGE_THEME_KEY } from '@/shared/const/localstorage';
+// import { LOCAL_STORAGE_THEME_KEY } from '@/shared/const/localstorage';
 
-export const useTheme = () => {
+interface useThemeResult {
+  theme: ETheme;
+  toggleTheme: (saveAction?: (theme: ETheme) => void) => void;
+}
+
+export const useTheme = (): useThemeResult => {
   const { theme, setTheme } = useContext(ThemeContext);
 
-  const toogleTheme = () => {
+  const toggleTheme = (saveAction?: (theme: ETheme) => void) => {
     let newTheme: ETheme;
 
     switch (theme) {
@@ -26,10 +31,11 @@ export const useTheme = () => {
     }
 
     setTheme?.(newTheme);
-    localStorage.setItem(LOCAL_STORAGE_THEME_KEY, newTheme);
+    saveAction?.(newTheme);
+    // localStorage.setItem(LOCAL_STORAGE_THEME_KEY, newTheme);
   };
 
   document.body.className = theme as string;
 
-  return { theme: theme || ETheme.LIGHT, toogleTheme };
+  return { theme: theme || ETheme.LIGHT, toggleTheme };
 };
