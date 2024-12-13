@@ -4,6 +4,7 @@ import { USER_LOCALSTORAGE_KEY } from '@/shared/const/localstorage';
 import { setFeatureFlags } from '@/shared/lib/features';
 import { saveJsonSettings } from '../services/saveJsonSettings';
 import { IJSONSettings } from '../types/jsonSettings';
+import { initAuthData } from '../services/initAuthData';
 
 const initialState: IUserSchema = { authData: undefined, _inited: false };
 
@@ -14,18 +15,7 @@ const userSlice = createSlice({
     setAuthData(state, { payload }: PayloadAction<IUser>) {
       state.authData = payload;
       setFeatureFlags(payload.features);
-    },
-
-    initAuthData(state) {
-      const user = localStorage.getItem(USER_LOCALSTORAGE_KEY);
-
-      if (user) {
-        const parseUser = JSON.parse(user) as IUser;
-
-        state.authData = parseUser;
-        setFeatureFlags(parseUser.features);
-      }
-      state._inited = true;
+      localStorage.setItem(USER_LOCALSTORAGE_KEY, payload.id);
     },
 
     logout(state) {
@@ -42,6 +32,17 @@ const userSlice = createSlice({
         }
       },
     );
+    builder.addCase(
+      initAuthData.fulfilled,
+      (state, { payload }: PayloadAction<IUser>) => {
+        state.authData = payload;
+        setFeatureFlags(payload.features);
+        state._inited = true;
+      },
+    );
+    builder.addCase(initAuthData.rejected, (state) => {
+      state._inited = true;
+    });
   },
 });
 
