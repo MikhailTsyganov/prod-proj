@@ -4,6 +4,7 @@ import { classNames } from '@/shared/lib/helpers/classNames/classNames';
 import { useAsyncReducer } from '@/shared/lib/hooks/reducerManager/useAsyncReducer';
 import { articlePageReducer } from '../../model/slices/articlePageSlice';
 import { ArticlesInfinityList } from '../../ArticlesInfinityList/ArticlesInfinityList';
+import { ArticlePageGreeting } from '@/features/articlePageGreeting';
 
 interface IArticlesPageProps {
   className?: string;
@@ -24,6 +25,8 @@ const ArticlesPage: FC<IArticlesPageProps> = (props) => {
       data-testid="ArticlesPage"
     >
       <ArticlesInfinityList />
+
+      <ArticlePageGreeting />
     </div>
   );
 };
