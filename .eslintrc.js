@@ -69,6 +69,7 @@ module.exports = {
           'defaultValue',
           'dropdownDirection',
           'borderRad',
+          'featureName',
         ],
       },
     ],

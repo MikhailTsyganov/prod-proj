@@ -19,9 +19,9 @@ import { ArticleDetailsRating } from '@/widgets/Rating';
 import { VStack } from '@/shared/ui/Stack';
 import { ArticleComments } from '../../../ArticlesPage/ArticleDetails/ui/ArticleComments/ArticleComments';
 import { ArticleRecommendationsList } from '../../../ArticlesPage/ArticleDetails/ui/ArticleRecommendationsList/ArticleRecommendationsList';
-import { toggleFeatures } from '@/shared/lib/features';
 import { Card } from '@/shared/ui/Card';
 import { t } from 'i18next';
+import { ToggleFeatures } from '@/shared/lib/features';
 
 interface IArticleDetailsPageProps {
   className?: string;
@@ -52,18 +52,16 @@ const ArticleDetailsPage: FC<IArticleDetailsPageProps> = (props) => {
     return null;
   }
 
-  const articleRatingCard = toggleFeatures({
-    name: 'isArticleRatingEnabled',
-    on: () => <ArticleDetailsRating articleId={id} />,
-    off: () => <Card>{t('Оценка статей скоро появится!')}</Card>,
-  });
-
   return (
     <Page className={classNames(s.ArticleDetailsPage, {}, [className])}>
       <VStack gap="16" needMaxWidth>
         <ArticleDetailsPageHeader />
         <ArticleDetails id={id} />
-        {articleRatingCard}
+        <ToggleFeatures
+          featureName="isArticleRatingEnabled"
+          on={<ArticleDetailsRating articleId={id} />}
+          off={<Card>{t('Оценка статей скоро появится!')}</Card>}
+        />
 
         <ArticleRecommendationsList className={s.recommendations} />
 
