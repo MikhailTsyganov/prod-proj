@@ -13,8 +13,9 @@ if (featureState !== 'off' && featureState !== 'on')
 
 const project = new Project({});
 
-// project.addSourceFilesAtPaths('./src/**/*.ts');
-project.addSourceFilesAtPaths('./src/**/ArticleDetailsPage.tsx');
+project.addSourceFilesAtPaths('./src/**/*.ts');
+project.addSourceFilesAtPaths('./src/**/*.tsx');
+// project.addSourceFilesAtPaths('./src/**/ArticleDetailsPage.tsx');
 
 const files = project.getSourceFiles();
 
@@ -78,6 +79,19 @@ const getAttributeNodeByName = (
   return jsxAttributes?.find((node) => node.getName() === name);
 };
 
+const getReplacedComponent = (attribute?: JsxAttribute) => {
+  const value = attribute
+    ?.getFirstDescendantByKind(SyntaxKind.JsxExpression)
+    ?.getExpression()
+    ?.getText();
+
+  if (value?.startsWith('(')) {
+    return value.slice(1, -1);
+  }
+
+  return value;
+};
+
 const replaceToggleComponent = (node: Node) => {
   const attributes = node.getDescendantsOfKind(SyntaxKind.JsxAttribute);
 
@@ -95,19 +109,15 @@ const replaceToggleComponent = (node: Node) => {
 
   if (featureName !== removedFeatureName) return;
 
-  const onValue = onAttribute
-    ?.getFirstDescendantByKind(SyntaxKind.JsxExpression)
-    ?.getExpression();
-  const offValue = offAttribute
-    ?.getFirstDescendantByKind(SyntaxKind.JsxExpression)
-    ?.getExpression();
+  const onValue = getReplacedComponent(onAttribute);
+  const offValue = getReplacedComponent(offAttribute);
 
   if (featureState === 'on' && onValue) {
-    node.replaceWithText(onValue.getText());
+    node.replaceWithText(onValue);
   }
 
   if (featureState === 'off' && offValue) {
-    node.replaceWithText(offValue.getText());
+    node.replaceWithText(offValue);
   }
 };
 
